@@ -17,8 +17,8 @@
 
 <style scoped>
 .cta {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #035eac 0%, #2071b8 100%);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #035eac 0%, #2071b8 50%, #8cb5da 100%);
   color: white;
   text-align: center;
   width: 100vw;
@@ -27,9 +27,22 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  max-height: 70vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .cta-content {
@@ -83,28 +96,48 @@
 }
 
 .btn-primary {
-  background-color: #1a2338;
+  background: rgba(26, 35, 56, 0.9);
   color: white;
-  box-shadow: 0 8px 25px rgba(26, 35, 56, 0.4);
+  box-shadow: 0 10px 30px rgba(26, 35, 56, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
 }
 
 .btn-primary:hover {
-  background-color: rgba(26, 35, 56, 0.8);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(26, 35, 56, 0.6);
+  background: rgba(15, 20, 25, 0.95);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(26, 35, 56, 0.7);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-outline {
-  background-color: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
-  background-color: rgba(249, 248, 249, 0.1);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
