@@ -24,16 +24,29 @@
 .hero {
   display: flex;
   align-items: center;
-  min-height: 85vh;
-  max-height: 95vh;
-  padding: 3rem 0;
-  background: #1a2338;
+  min-height: 90vh;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2338 50%, #243447 100%);
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(3, 94, 172, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(140, 181, 218, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-container {
@@ -42,8 +55,10 @@
   padding: 0 3rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -83,38 +98,59 @@
 }
 
 .btn {
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.5rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
-  min-width: 180px;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
-  background-color: #035eac;
+  background: linear-gradient(135deg, #035eac 0%, #2071b8 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(3, 94, 172, 0.4);
+  box-shadow: 0 6px 20px rgba(3, 94, 172, 0.4);
+  border: 1px solid rgba(140, 181, 218, 0.2);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
 }
 
 .btn-primary:hover {
-  background-color: #035eac;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2071b8 0%, #8cb5da 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(3, 94, 172, 0.6);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background: rgba(255, 255, 255, 0.05);
   color: #f9f8f9;
-  border: 2px solid #1a2338;
+  border: 2px solid rgba(140, 181, 218, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background-color: #8cb5da;
-  color: #1a2338;
-  transform: translateY(-2px);
+  background: rgba(140, 181, 218, 0.15);
+  border-color: #8cb5da;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(140, 181, 218, 0.3);
 }
 
 .hero-image {
@@ -125,15 +161,18 @@
 .hero-img {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 450px;
   object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(140, 181, 218, 0.2);
 }
 
 .hero-img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+  border-color: rgba(140, 181, 218, 0.4);
 }
 
 @media (max-width: 1024px) {

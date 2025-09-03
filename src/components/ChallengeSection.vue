@@ -32,17 +32,30 @@
 
 <style scoped>
 .challenge {
-  padding: 3.5rem 0;
-  background: linear-gradient(135deg, #1a2338 0%, rgba(26, 35, 56, 0.95) 100%);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.98) 0%, rgba(26, 35, 56, 0.95) 50%, rgba(36, 52, 71, 0.92) 100%);
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  max-height: 85vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.challenge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(3, 94, 172, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(140, 181, 218, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .section-title {
@@ -71,23 +84,41 @@
 
 .challenge-stat {
   text-align: center;
-  padding: 2rem 1.5rem;
-  border-radius: 16px;
-  background: rgba(249, 248, 249, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(140, 181, 218, 0.2);
-  transition: all 0.3s ease;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(140, 181, 218, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  height: 200px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+
+.challenge-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #035eac, #8cb5da);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }
 
 .challenge-stat:hover {
-  border-color: #8cb5da;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
+  border-color: rgba(140, 181, 218, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.challenge-stat:hover::before {
+  transform: scaleX(1);
 }
 
 .stat-number {

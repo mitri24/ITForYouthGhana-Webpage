@@ -57,19 +57,6 @@
         </div>
       </div>
     </div>
-    
-    <footer class="footer">
-      <div class="footer-container">
-        <h3>IT For Youth Ghana</h3>
-        <p class="footer-tagline">Empowering Ghana's youth through technology</p>
-        <div class="footer-links">
-          <a href="https://www.linkedin.com/company/it-for-youth-ghana-foundation" class="footer-link">LinkedIn</a>
-          <a href="https://www.instagram.com/itforyouthghana/" class="footer-link">Instagram</a>
-          <a href="https://web.facebook.com/itforyouthghanacollege" class="footer-link">Facebook</a>
-        </div>
-        <p class="footer-copyright">&copy; 2025 IT For Youth Ghana. All rights reserved.</p>
-      </div>
-    </footer>
   </section>
 </template>
 
@@ -89,17 +76,18 @@ const submitForm = () => {
 
 <style scoped>
 .contact {
-  padding: 4rem 0;
-  background: rgba(26, 35, 56, 0.90);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(26, 35, 56, 0.95) 50%, rgba(36, 52, 71, 0.95) 100%);
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  max-height: 85vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .section-title {
@@ -114,11 +102,13 @@ const submitForm = () => {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 3rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-subtitle {
@@ -139,12 +129,20 @@ const submitForm = () => {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.2rem;
-  background: rgba(249, 248, 249, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(140, 181, 218, 0.2);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(140, 181, 218, 0.15);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(140, 181, 218, 0.3);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .contact-icon {
@@ -166,20 +164,24 @@ const submitForm = () => {
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 1rem;
-  border: 1px solid rgba(140, 181, 218, 0.4);
-  background: rgba(249, 248, 249, 0.05);
-  border-radius: 8px;
+  padding: 1.2rem;
+  border: 1px solid rgba(140, 181, 218, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   font-family: inherit;
+  color: #f9f8f9;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #8cb5da;
-  background: rgba(140, 181, 218, 0.1);
+  border-color: #035eac;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(3, 94, 172, 0.1);
+  transform: translateY(-1px);
 }
 
 .form-textarea {
@@ -199,13 +201,31 @@ const submitForm = () => {
 
 .btn-primary {
   background: linear-gradient(135deg, #035eac 0%, #2071b8 100%);
-  box-shadow: 0 4px 15px rgba(3, 94, 172, 0.4);
+  box-shadow: 0 6px 20px rgba(3, 94, 172, 0.4);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #2071b8 0%, #8cb5da 100%);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(3, 94, 172, 0.5);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .full-width {

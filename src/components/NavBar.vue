@@ -10,6 +10,7 @@
         <RouterLink to="/" class="nav-link" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/programs" class="nav-link" @click="closeMenu">Programs</RouterLink>
         <RouterLink to="/about" class="nav-link" @click="closeMenu">About</RouterLink>
+        <RouterLink to="/volunteer" class="nav-link" @click="closeMenu">Partner With Us</RouterLink>
         <RouterLink to="/news" class="nav-link" @click="closeMenu">News</RouterLink>
         <RouterLink to="/contact" class="nav-link" @click="closeMenu">Contact</RouterLink>
         <button class="btn-donate">Donate</button>
@@ -39,9 +40,10 @@ const closeMenu = () => {
 
 <style scoped>
 .navbar {
-  background: rgba(26, 35, 56, 0.95);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(15, 20, 25, 0.95);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(140, 181, 218, 0.1);
   position: fixed;
   top: 0;
   left: 0;
