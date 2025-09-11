@@ -1,21 +1,5 @@
 <template>
   <main class="volunteer-page">
-    <!-- Hero Section -->
-    <section class="hero-volunteer">
-      <div class="container">
-        <div class="hero-content">
-          <img src="https://www.itforyouthghana.org/wp-content/uploads/2024/04/Asset-2-1-2048x2027.png" alt="IT For Youth Ghana" class="hero-logo">
-          <h1 class="hero-title">Partner With IT For Youth Ghana</h1>
-          <p class="hero-subtitle">Join us in providing technology education and career opportunities for underserved youth in Ghana</p>
-          
-          <div class="hero-actions">
-            <button class="btn btn-primary" @click="scrollToForm">Get In Touch</button>
-            <button class="btn btn-secondary">Learn More</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- About Our Work -->
     <section class="about-work">
       <div class="container">
@@ -303,7 +287,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ScrollToTop from '../components/ScrollToTop.vue'
+import ScrollToTop from '../components/shared/ScrollToTop.vue'
 
 const quickForm = ref({
   name: '',
@@ -345,74 +329,6 @@ const submitVolunteerForm = () => {
   background: linear-gradient(180deg, #0f1419 0%, #1a2338 50%, #243447 100%);
   min-height: 100vh;
   color: #f9f8f9;
-}
-
-/* Hero Section */
-.hero-volunteer {
-  padding: 6rem 0;
-  text-align: center;
-  background: linear-gradient(135deg, #0f1419 0%, #1a2338 50%, #035eac 100%);
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-}
-
-.hero-volunteer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(140, 181, 218, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(3, 94, 172, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-logo {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 2rem;
-}
-
-
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: #f9f8f9;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  color: rgba(249, 248, 249, 0.9);
-  margin-bottom: 3rem;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* Common Styles */
@@ -1492,9 +1408,6 @@ const submitVolunteerForm = () => {
 }
 
 @media (max-width: 480px) {
-  .hero-volunteer {
-    padding: 4rem 0;
-  }
   
   .value-props {
     padding: 4rem 0;
@@ -1524,9 +1437,6 @@ const submitVolunteerForm = () => {
     padding: 2rem;
   }
   
-  .hero-title {
-    font-size: 2.5rem;
-  }
   
   .value-item {
     min-width: auto;

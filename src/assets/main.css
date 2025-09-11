@@ -1,5 +1,46 @@
 @import './base.css';
 
+/* Global IT For Youth Overlay - Consistent across all pages */
+.global-hero-overlay {
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.4) 0%, rgba(26, 35, 56, 0.3) 50%, rgba(36, 52, 71, 0.4) 100%);
+}
+
+.global-section-overlay {
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.4) 0%, rgba(26, 35, 56, 0.3) 50%, rgba(36, 52, 71, 0.4) 100%);
+}
+
+/* Apply consistent overlay to all sections with background images */
+section[style*="background-image"],
+.hero-section,
+.banner-section,
+.background-section {
+  position: relative;
+}
+
+section[style*="background-image"]::before,
+.hero-section::before,
+.banner-section::before,
+.background-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.4) 0%, rgba(26, 35, 56, 0.3) 50%, rgba(36, 52, 71, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content appears above overlay */
+section[style*="background-image"] > *,
+.hero-section > *,
+.banner-section > *,
+.background-section > * {
+  position: relative;
+  z-index: 2;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;

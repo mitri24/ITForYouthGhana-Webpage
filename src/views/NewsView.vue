@@ -1,26 +1,29 @@
 <template>
   <main class="news-page">
-    <!-- Hero Section -->
+    <!-- Latest Updates Section -->
     <section class="news-hero">
       <div class="container">
-        <img src="https://www.itforyouthghana.org/wp-content/uploads/2024/04/Asset-2-1-2048x2027.png" alt="IT For Youth Ghana" class="hero-logo">
-        <h1 class="hero-title">News & Updates</h1>
-        <p class="hero-subtitle">Stay connected with our latest activities, student achievements, and community impact</p>
+        <div class="news-hero-content">
+          <h1 class="hero-title">News & Updates</h1>
+          <p class="hero-subtitle">
+            Stay updated with our latest achievements, events, and success stories from the IT For Youth Ghana community.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- LinkedIn Posts Section -->
-    <section class="linkedin-posts-section">
+    <!-- LinkedIn-style Posts Section -->
+    <section class="posts-section">
       <div class="container">
-        <h2 class="section-title">Latest from LinkedIn</h2>
-        <div class="posts-grid" v-if="posts.length > 0">
-          <article v-for="post in posts" :key="post.id" class="post-card">
+        <h2 class="section-title">Latest Updates</h2>
+        <div class="posts-grid">
+          <article v-for="post in staticPosts" :key="post.id" class="post-card">
             <div class="post-header">
               <div class="post-author">
                 <img src="https://www.itforyouthghana.org/wp-content/uploads/2024/04/Asset-2-1-2048x2027.png" alt="IT For Youth Ghana" class="author-avatar">
                 <div class="author-info">
                   <h3 class="author-name">IT For Youth Ghana</h3>
-                  <span class="post-date">{{ formatDate(post.publishedAt) }}</span>
+                  <span class="post-date">{{ post.date }}</span>
                 </div>
               </div>
               <a :href="post.linkedinUrl" target="_blank" class="linkedin-link">
@@ -50,22 +53,6 @@
               </span>
             </div>
           </article>
-        </div>
-        
-        <div v-else-if="loading" class="posts-loading">
-          <div class="loading-spinner"></div>
-          <p>Loading latest posts...</p>
-        </div>
-        
-        <div v-else-if="error" class="posts-error">
-          <div class="error-icon">⚠️</div>
-          <p>{{ error }}</p>
-          <button @click="fetchLinkedInPosts" class="retry-btn">Try Again</button>
-        </div>
-        
-        <div v-else class="posts-empty">
-          <div class="empty-icon">📰</div>
-          <p>No recent posts available. Check back later!</p>
         </div>
       </div>
     </section>
@@ -115,156 +102,145 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import ScrollToTop from '../components/ScrollToTop.vue'
+import ScrollToTop from '../components/shared/ScrollToTop.vue'
 
-interface LinkedInPost {
+interface Post {
   id: string
   text: string
   image?: string
-  publishedAt: string
+  date: string
   linkedinUrl: string
   likes: number
   comments: number
   shares: number
 }
 
-const posts = ref<LinkedInPost[]>([])
-
-// Real LinkedIn posts will be fetched here
-// For now showing placeholder - replace with actual API integration
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  })
-}
-
-const loading = ref(true)
-const error = ref<string | null>(null)
-
-// Fetch LinkedIn posts from our custom backend API
-const fetchLinkedInPosts = async () => {
-  loading.value = true
-  error.value = null
-  
-  try {
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
-    const response = await fetch(`${apiUrl}/api/linkedin-posts?limit=5`)
-    
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.status}`)
-    }
-    
-    const data = await response.json()
-    posts.value = data.posts || []
-    
-    console.log(`✅ Fetched ${posts.value.length} LinkedIn posts`, data.cached ? '(cached)' : '(fresh)')
-    
-  } catch (err) {
-    console.error('❌ Error fetching LinkedIn posts:', err)
-    error.value = err instanceof Error ? err.message : 'Failed to load posts'
-  } finally {
-    loading.value = false
+const staticPosts: Post[] = [
+  {
+    id: '1',
+    text: '🎉 Exciting news! We\'ve just completed another successful coding bootcamp with 25 young Ghanaians mastering web development fundamentals. From HTML/CSS to JavaScript and React, these brilliant minds are ready to shape Ghana\'s digital future! 💻✨ #TechEducation #YouthEmpowerment #DigitalGhana',
+    image: '/images/coding-bootcamp.jpg',
+    date: 'December 15, 2024',
+    linkedinUrl: 'https://www.linkedin.com/company/it-for-youth-ghana-foundation/',
+    likes: 127,
+    comments: 23,
+    shares: 18
+  },
+  {
+    id: '2',
+    text: '👩‍💻 Women in Tech Wednesday! Meet Sarah, one of our outstanding graduates who landed her first software developer role at a leading tech company in Accra. Her journey from complete beginner to professional developer in just 6 months is truly inspiring! 🚀 #WomenInTech #SuccessStory #CareerGrowth',
+    image: '/images/women-in-tech.jpg',
+    date: 'December 10, 2024',
+    linkedinUrl: 'https://www.linkedin.com/company/it-for-youth-ghana-foundation/',
+    likes: 89,
+    comments: 15,
+    shares: 32
+  },
+  {
+    id: '3',
+    text: '🌟 Rural Tech Connect Update: Our mobile tech lab reached 3 rural communities this month, training 45 students in basic computer skills and digital literacy. Breaking the digital divide, one community at a time! 🚗💻 #DigitalInclusion #RuralDevelopment #TechForAll',
+    image: '/images/rural-tech-lab.jpg',
+    date: 'December 5, 2024',
+    linkedinUrl: 'https://www.linkedin.com/company/it-for-youth-ghana-foundation/',
+    likes: 156,
+    comments: 28,
+    shares: 24
+  },
+  {
+    id: '4',
+    text: '🏆 Partnership Spotlight: We\'re thrilled to announce our collaboration with TechGhana to launch advanced data analytics workshops. This partnership will equip our students with in-demand skills for the growing data science field in Ghana! 📊 #Partnership #DataAnalytics #TechEducation',
+    date: 'November 28, 2024',
+    linkedinUrl: 'https://www.linkedin.com/company/it-for-youth-ghana-foundation/',
+    likes: 203,
+    comments: 41,
+    shares: 67
+  },
+  {
+    id: '5',
+    text: '💡 Innovation Friday: Our students showcased incredible projects at the monthly demo day! From e-commerce platforms to educational apps, these young innovators are solving real problems with technology. The future of Ghana tech is bright! ✨ #Innovation #StudentProjects #TechDemo',
+    image: '/images/demo-day.jpg',
+    date: 'November 22, 2024',
+    linkedinUrl: 'https://www.linkedin.com/company/it-for-youth-ghana-foundation/',
+    likes: 174,
+    comments: 35,
+    shares: 29
   }
-}
-
-// Auto-refresh posts every 30 minutes
-const startAutoRefresh = () => {
-  setInterval(() => {
-    console.log('🔄 Auto-refreshing LinkedIn posts...')
-    fetchLinkedInPosts()
-  }, 30 * 60 * 1000) // 30 minutes
-}
-
-onMounted(() => {
-  fetchLinkedInPosts()
-  startAutoRefresh()
-})
+]
 </script>
 
 <style scoped>
 .news-page {
   padding-top: 70px;
-  background: linear-gradient(180deg, #0f1419 0%, #1a2338 50%, #243447 100%);
+  background: #ffffff;
   min-height: 100vh;
-  color: #f9f8f9;
 }
 
-/* Hero Section */
+/* News Hero Section */
 .news-hero {
-  padding: 6rem 0;
-  text-align: center;
-  background: linear-gradient(135deg, #0f1419 0%, #1a2338 50%, #035eac 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
   overflow: hidden;
 }
 
-.news-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(140, 181, 218, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(3, 94, 172, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.hero-logo {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 2rem;
+.news-hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  width: 100%;
   position: relative;
   z-index: 2;
+}
+
+.news-hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  color: #f9f8f9;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  position: relative;
-  z-index: 2;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  color: rgba(249, 248, 249, 0.9);
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.3rem;
+  color: #ffffff;
+  line-height: 1.6;
+  font-weight: 400;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* LinkedIn Posts Section */
-.linkedin-posts-section {
+/* Posts Section */
+.posts-section {
   padding: 6rem 0;
-  background: linear-gradient(135deg, rgba(36, 52, 71, 0.98) 0%, rgba(26, 35, 56, 0.95) 50%, rgba(15, 20, 25, 0.92) 100%);
+  background: #ffffff;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  overflow: hidden;
 }
 
-.linkedin-posts-section::before {
+.posts-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -272,18 +248,28 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(3, 94, 172, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(140, 181, 218, 0.08) 0%, transparent 60%);
+    linear-gradient(135deg, rgba(25, 90, 165, 0.02) 0%, rgba(209, 34, 85, 0.02) 100%),
+    radial-gradient(circle at 20% 80%, rgba(143, 178, 214, 0.05) 0%, transparent 50%);
   pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
   text-align: center;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: #f9f8f9;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #000000;
   margin-bottom: 3rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   position: relative;
   z-index: 2;
 }
@@ -296,7 +282,7 @@ onMounted(() => {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #035eac, #8cb5da);
+  background: linear-gradient(90deg, #195aa5, #8cb5da);
   border-radius: 2px;
 }
 
@@ -306,20 +292,20 @@ onMounted(() => {
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem;
   position: relative;
   z-index: 2;
 }
 
 .post-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(143, 178, 214, 0.05) 100%);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid rgba(140, 181, 218, 0.15);
-  backdrop-filter: blur(15px);
+  border: 2px solid rgba(143, 178, 214, 0.2);
+  box-shadow: 0 8px 32px rgba(25, 90, 165, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .post-card::before {
@@ -328,21 +314,41 @@ onMounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0077b5, #005885);
+  height: 4px;
+  background: linear-gradient(90deg, #d12255 0%, #195aa5 100%);
   transform: scaleX(0);
   transition: transform 0.4s ease;
+  border-radius: 20px 20px 0 0;
+}
+
+.post-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(209, 34, 85, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 .post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  border-color: rgba(140, 181, 218, 0.4);
-  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(25, 90, 165, 0.2);
+  border-color: #195aa5;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(143, 178, 214, 0.1) 100%);
 }
 
 .post-card:hover::before {
   transform: scaleX(1);
+}
+
+.post-card:hover::after {
+  width: 200px;
+  height: 200px;
 }
 
 .post-header {
@@ -350,6 +356,8 @@ onMounted(() => {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .post-author {
@@ -363,7 +371,7 @@ onMounted(() => {
   height: 50px;
   border-radius: 50%;
   object-fit: contain;
-  border: 2px solid rgba(140, 181, 218, 0.3);
+  border: 2px solid rgba(143, 178, 214, 0.3);
 }
 
 .author-info {
@@ -374,14 +382,14 @@ onMounted(() => {
 
 .author-name {
   font-size: 1.1rem;
-  font-weight: 600;
-  color: #f9f8f9;
+  font-weight: 700;
+  color: #195aa5;
   margin: 0;
 }
 
 .post-date {
   font-size: 0.9rem;
-  color: rgba(249, 248, 249, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
 }
 
@@ -401,12 +409,14 @@ onMounted(() => {
 
 .post-content {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .post-text {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(249, 248, 249, 0.9);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 1rem;
 }
 
@@ -415,21 +425,23 @@ onMounted(() => {
   max-height: 300px;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(140, 181, 218, 0.15);
+  border: 1px solid rgba(143, 178, 214, 0.15);
 }
 
 .post-engagement {
   display: flex;
   gap: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(140, 181, 218, 0.15);
+  border-top: 1px solid rgba(143, 178, 214, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 .engagement-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(249, 248, 249, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -618,10 +630,17 @@ onMounted(() => {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+  
   .posts-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 2rem;
   }
   
   .social-grid {
@@ -630,7 +649,33 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .posts-grid {
+  .news-hero {
+    min-height: 50vh;
+  }
+  
+  .news-hero .container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .posts-section {
+    padding: 4rem 0;
+  }
+  
+  .container {
     padding: 0 1.5rem;
   }
   
@@ -655,23 +700,45 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .news-hero {
-    padding: 4rem 0;
+    min-height: 40vh;
   }
   
-  .linkedin-posts-section {
-    padding: 4rem 0;
+  .news-hero .container {
+    padding: 2rem 1rem;
   }
   
-  .social-section {
-    padding: 4rem 0;
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .posts-section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
   }
   
   .posts-grid {
-    padding: 0 1rem;
+    gap: 1.5rem;
   }
   
   .post-card {
     padding: 1.2rem;
+  }
+  
+  .social-section {
+    padding: 4rem 0;
   }
   
   .social-title {
