@@ -2,15 +2,15 @@
   <nav class="navbar">
     <div class="nav-container">
       <RouterLink to="/" class="nav-logo">
-        <img src="https://www.itforyouthghana.org/wp-content/uploads/2024/04/Asset-2-1-2048x2027.png" alt="IT For Youth Ghana" class="logo-img">
-        <span class="logo-text">IT For Youth</span>
+        <img src="@/assets/pictures/logo.png" alt="IT For Youth Ghana" class="logo-img">
+        <span class="logo-text">IT For Youth Ghana</span>
       </RouterLink>
       
       <div class="nav-menu" :class="{ active: isMenuOpen }">
         <RouterLink to="/" class="nav-link" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/programs" class="nav-link" @click="closeMenu">Programs</RouterLink>
         <RouterLink to="/about" class="nav-link" @click="closeMenu">About</RouterLink>
-        <RouterLink to="/volunteer" class="nav-link" @click="closeMenu">Partner With Us</RouterLink>
+        <RouterLink to="/partner" class="nav-link" @click="closeMenu">Partner With Us</RouterLink>
         <RouterLink to="/news" class="nav-link" @click="closeMenu">News</RouterLink>
         <RouterLink to="/contact" class="nav-link" @click="closeMenu">Contact</RouterLink>
         <button class="btn-donate">Donate</button>
