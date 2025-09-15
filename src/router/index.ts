@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,69 +6,76 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/programs',
-      name: 'programs',
-      component: () => import('../views/ProgramsView.vue'),
+      component: () => import('../pages/HomePage.vue')
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('../pages/AboutPage.vue')
     },
     {
-      path: '/volunteer',
-      name: 'volunteer',
-      component: () => import('../views/VolunteerView.vue'),
+      path: '/programs',
+      name: 'programs',
+      component: () => import('../pages/ProgramsPage.vue')
+    },
+    {
+      path: '/programs/tech-empowerment',
+      name: 'tech-empowerment',
+      component: () => import('../pages/programs/TechEmpowermentPage.vue')
+    },
+    {
+      path: '/programs/girls-in-tech',
+      name: 'girls-in-tech',
+      component: () => import('../pages/programs/GirlsInTechPage.vue')
+    },
+    {
+      path: '/programs/code-impact-challenge',
+      name: 'code-impact-challenge',
+      component: () => import('../pages/programs/CodeImpactChallengePage.vue')
+    },
+    {
+      path: '/programs/rural-tech-connect',
+      name: 'rural-tech-connect',
+      component: () => import('../pages/programs/RuralTechConnectPage.vue')
+    },
+    {
+      path: '/programs/tech-outreach',
+      name: 'tech-outreach',
+      component: () => import('../pages/programs/TechOutreachPage.vue')
+    },
+    {
+      path: '/programs/advocacy',
+      name: 'advocacy',
+      component: () => import('../pages/programs/AdvocacyPage.vue')
     },
     {
       path: '/news',
       name: 'news',
-      component: () => import('../views/NewsView.vue'),
-    },
-    {
-      path: '/tech-empowerment',
-      name: 'tech-empowerment',
-      component: () => import('../views/TechEmpowermentView.vue'),
-    },
-    {
-      path: '/girls-in-tech',
-      name: 'girls-in-tech',
-      component: () => import('../views/GirlsInTechView.vue'),
-    },
-    {
-      path: '/code-impact-challenge',
-      name: 'code-impact-challenge',
-      component: () => import('../views/CodeImpactChallengeView.vue'),
-    },
-    {
-      path: '/tech-outreach',
-      name: 'tech-outreach',
-      component: () => import('../views/TechOutreachView.vue'),
-    },
-    {
-      path: '/advocacy',
-      name: 'advocacy',
-      component: () => import('../views/AdvocacyView.vue'),
-    },
-    {
-      path: '/rural-tech-connect',
-      name: 'rural-tech-connect',
-      component: () => import('../views/RuralTechConnectView.vue'),
+      component: () => import('../pages/NewsPage.vue')
     },
     {
       path: '/partner',
       name: 'partner',
-      component: () => import('../views/PartnerView.vue'),
+      component: () => import('../pages/PartnerPage.vue')
+    },
+    {
+      path: '/volunteer',
+      name: 'volunteer',
+      component: () => import('../pages/VolunteerPage.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('../views/ContactView.vue'),
-    },
+      component: () => import('../pages/ContactPage.vue')
+    }
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router
