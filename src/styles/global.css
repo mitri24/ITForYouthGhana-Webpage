@@ -5,12 +5,12 @@
 /* IT For Youth Ghana - Professional Design System */
 :root {
   /* Primary - Deep Professional Blue */
-  --primary: #1e40af;
-  --primary-light: #3b82f6;
-  --primary-dark: #1e3a8a;
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
+  --primary: #0c2461;
+  --primary-light: #1e40af;
+  --primary-dark: #0a1f4b;
+  --primary-50: #e8edf7;
+  --primary-100: #c8d4e8;
+  --primary-200: #9fb5db;
   
   /* Accent - Sophisticated Gold */
   --accent: #d97706;
@@ -41,7 +41,7 @@
   --bg-accent: #eff6ff;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  --gradient-primary: linear-gradient(135deg, #0c2461 0%, #0a1f4b 100%);
   --gradient-accent: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   --gradient-subtle: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
 }
@@ -67,9 +67,10 @@
   
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary) !important;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.025em;
     line-height: 1.2;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   p {
@@ -113,22 +114,25 @@
   }
   
   .glass-card {
-    @apply border border-neutral-200 rounded-2xl shadow-lg p-8 transition-all duration-300;
+    @apply border border-neutral-200 rounded-2xl shadow-xl p-8 transition-all duration-300;
     background: var(--bg-primary);
     backdrop-filter: blur(20px);
+    border: 1px solid rgba(12, 36, 97, 0.1);
   }
   
   .glass-card:hover {
     @apply shadow-2xl;
-    transform: translateY(-8px);
-    border-color: var(--primary-200);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--primary-200);
+    transform: translateY(-12px);
+    border-color: var(--primary);
+    box-shadow: 0 30px 60px -12px rgba(12, 36, 97, 0.25), 0 0 0 1px var(--primary-200);
   }
   
   .glass-card h3 {
-    color: #0f172a !important;
-    font-weight: 700 !important;
+    color: var(--primary) !important;
+    font-weight: 800 !important;
     margin-bottom: 12px !important;
+    font-size: 1.25rem !important;
+    letter-spacing: -0.02em !important;
   }
   
   .glass-card p {
@@ -336,7 +340,8 @@
     color: var(--text-primary) !important;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    font-weight: 800;
+    font-weight: 900;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   .section-subtitle {
@@ -349,9 +354,10 @@
   .hero-title {
     @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight;
     color: white !important;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   .card-hover {
@@ -589,7 +595,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 64, 175, 0.85) 0%, rgba(30, 58, 138, 0.8) 50%, rgba(217, 119, 6, 0.75) 100%);
+    background: linear-gradient(135deg, rgba(12, 36, 97, 0.9) 0%, rgba(10, 31, 75, 0.85) 50%, rgba(217, 119, 6, 0.8) 100%);
     z-index: 1;
   }
   
