@@ -13,7 +13,7 @@
         <RouterLink to="/partner" class="nav-link" @click="closeMenu">Partner With Us</RouterLink>
         <RouterLink to="/news" class="nav-link" @click="closeMenu">News</RouterLink>
         <RouterLink to="/contact" class="nav-link" @click="closeMenu">Contact</RouterLink>
-        <button class="btn-donate">Donate</button>
+        <DonationButton />
       </div>
       
       <button class="nav-toggle" @click="toggleMenu" :aria-expanded="isMenuOpen">
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import DonationButton from '@/components/DonationButton.vue'
 
 const isMenuOpen = ref(false)
 
@@ -40,16 +41,17 @@ const closeMenu = () => {
 
 <style scoped>
 .navbar {
-  background: rgba(15, 20, 25, 0.95);
-  backdrop-filter: blur(25px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(140, 181, 218, 0.1);
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 20px rgba(10, 22, 40, 0.1);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-container {
@@ -78,8 +80,10 @@ const closeMenu = () => {
 
 .logo-text {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #f9f8f9;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .nav-menu {
@@ -90,43 +94,54 @@ const closeMenu = () => {
 
 .nav-link {
   text-decoration: none;
-  color: #f9f8f9;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.005em;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
 }
 
 .nav-link:hover,
 .nav-link.router-link-active {
-  color: #8cb5da;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 .nav-link.router-link-active::after {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(135deg, #035eac 0%, #2071b8 100%);
-  box-shadow: 0 4px 15px rgba(3, 94, 172, 0.4);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 .btn-donate {
-  background: linear-gradient(135deg, #035eac 0%, #2071b8 100%);
-  box-shadow: 0 4px 15px rgba(3, 94, 172, 0.4);
+  background: linear-gradient(135deg, #0a1628 0%, #0c2461 100%);
+  box-shadow: 0 4px 14px rgba(10, 22, 40, 0.2);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
+  border-radius: 20px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .btn-donate:hover {
-  background: linear-gradient(135deg, #2071b8 0%, #8cb5da 100%);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0c2461 0%, #1e40af 100%);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(10, 22, 40, 0.3);
 }
 
 .nav-toggle {

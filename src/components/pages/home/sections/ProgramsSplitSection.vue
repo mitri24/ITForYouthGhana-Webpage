@@ -1,125 +1,14 @@
-<template>
-  <section class="programs-split-section">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="section-header">
-        <h2 class="main-title">Transform Your Future With Technology</h2>
-        <p class="main-subtitle">
-          Comprehensive programs designed to launch your tech career. Choose your path and start building tomorrow's digital solutions today.
-        </p>
-      </div>
-
-      <!-- Split Layout Container -->
-      <div class="split-container">
-        
-        <!-- Left Panel - Programs Overview -->
-        <div class="overview-panel">
-          <div class="panel-header">
-            <h3 class="panel-title">Available Programs</h3>
-            <span class="program-count">{{ programs.length }} Programs</span>
-          </div>
-          
-          <div class="programs-list">
-            <div 
-              v-for="(program, index) in programs" 
-              :key="program.id"
-              class="program-item"
-              :class="{ 'active': selectedProgram === index }"
-              @click="selectProgram(index)"
-            >
-              <div class="program-header">
-                <h4 class="program-title">{{ program.title }}</h4>
-                <span class="program-duration">{{ program.duration }}</span>
-              </div>
-              <p class="program-summary">{{ program.summary }}</p>
-              <div class="program-meta">
-                <span class="meta-level">{{ program.level }}</span>
-                <span class="meta-students">{{ program.maxStudents }} students max</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Panel - Program Details -->
-        <div class="details-panel">
-          <div class="details-content" v-if="selectedProgram !== null">
-            
-            <!-- Program Header -->
-            <div class="details-header">
-              <h3 class="details-title">{{ programs[selectedProgram].title }}</h3>
-              <p class="details-subtitle">{{ programs[selectedProgram].subtitle }}</p>
-              
-              <div class="details-badges">
-                <span class="badge duration">{{ programs[selectedProgram].duration }}</span>
-                <span class="badge level">{{ programs[selectedProgram].level }}</span>
-                <span class="badge students">{{ programs[selectedProgram].maxStudents }} students</span>
-              </div>
-            </div>
-
-            <!-- Program Description -->
-            <div class="details-section">
-              <h4 class="section-title">Program Overview</h4>
-              <p class="section-text">{{ programs[selectedProgram].description }}</p>
-            </div>
-
-            <!-- Skills -->
-            <div class="details-section">
-              <h4 class="section-title">What You'll Learn</h4>
-              <div class="skills-grid">
-                <span 
-                  v-for="skill in programs[selectedProgram].skills" 
-                  :key="skill"
-                  class="skill-tag"
-                >
-                  {{ skill }}
-                </span>
-              </div>
-            </div>
-
-            <!-- Career Outcomes -->
-            <div class="details-section">
-              <h4 class="section-title">Career Opportunities</h4>
-              <ul class="outcomes-list">
-                <li 
-                  v-for="outcome in programs[selectedProgram].careerOutcomes" 
-                  :key="outcome"
-                  class="outcome-item"
-                >
-                  {{ outcome }}
-                </li>
-              </ul>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="actions-section">
-              <button class="action-btn primary">Learn More</button>
-              <button class="action-btn secondary">Apply Now</button>
-            </div>
-
-          </div>
-          
-          <!-- Placeholder when no program selected -->
-          <div v-else class="no-selection">
-            <h3>Select a Program</h3>
-            <p>Choose a program from the left to view detailed information</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
-const selectedProgram = ref(0)
+const selectedProgramIndex = ref(0)
 
 const selectProgram = (index: number) => {
-  selectedProgram.value = index
+  selectedProgramIndex.value = index
 }
 
-const programs = [
+const programsData = [
   {
     id: 1,
     title: 'Software Development',
@@ -171,7 +60,121 @@ const programs = [
 ]
 </script>
 
+<template>
+  <!-- Choose Your Program - Split View Section -->
+  <section class="programs-split-section">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="main-title">Transform Your Future With Technology</h2>
+        <p class="main-subtitle">
+          Comprehensive programs designed to launch your tech career. Choose your path and start building tomorrow's digital solutions today.
+        </p>
+      </div>
+
+      <!-- Split Layout Container -->
+      <div class="split-container">
+        
+        <!-- Left Panel - Programs Overview -->
+        <div class="overview-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Available Programs</h3>
+            <span class="program-count">{{ programsData.length }} Programs</span>
+          </div>
+          
+          <div class="programs-list">
+            <div 
+              v-for="(program, index) in programsData" 
+              :key="program.id"
+              class="program-item"
+              :class="{ 'active': selectedProgramIndex === index }"
+              @click="selectProgram(index)"
+            >
+              <div class="program-header">
+                <h4 class="program-title">{{ program.title }}</h4>
+                <span class="program-duration">{{ program.duration }}</span>
+              </div>
+              <p class="program-summary">{{ program.summary }}</p>
+              <div class="program-meta">
+                <span class="meta-level">{{ program.level }}</span>
+                <span class="meta-students">{{ program.maxStudents }} students max</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel - Program Details -->
+        <div class="details-panel">
+          <div class="details-content" v-if="selectedProgramIndex !== null">
+            
+            <!-- Program Header -->
+            <div class="details-header">
+              <h3 class="details-title">{{ programsData[selectedProgramIndex].title }}</h3>
+              <p class="details-subtitle">{{ programsData[selectedProgramIndex].subtitle }}</p>
+              
+              <div class="details-badges">
+                <span class="badge duration">{{ programsData[selectedProgramIndex].duration }}</span>
+                <span class="badge level">{{ programsData[selectedProgramIndex].level }}</span>
+                <span class="badge students">{{ programsData[selectedProgramIndex].maxStudents }} students</span>
+              </div>
+            </div>
+
+            <!-- Program Description -->
+            <div class="details-section">
+              <h4 class="section-title">Program Overview</h4>
+              <p class="section-text">{{ programsData[selectedProgramIndex].description }}</p>
+            </div>
+
+            <!-- Skills -->
+            <div class="details-section">
+              <h4 class="section-title">What You'll Learn</h4>
+              <div class="skills-grid">
+                <span 
+                  v-for="skill in programsData[selectedProgramIndex].skills" 
+                  :key="skill"
+                  class="skill-tag"
+                >
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Career Outcomes -->
+            <div class="details-section">
+              <h4 class="section-title">Career Opportunities</h4>
+              <ul class="outcomes-list">
+                <li 
+                  v-for="outcome in programsData[selectedProgramIndex].careerOutcomes" 
+                  :key="outcome"
+                  class="outcome-item"
+                >
+                  {{ outcome }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions-section">
+              <RouterLink to="/programs" class="action-btn primary">Learn More</RouterLink>
+              <RouterLink to="/contact" class="action-btn secondary">Apply Now</RouterLink>
+            </div>
+
+          </div>
+          
+          <!-- Placeholder when no program selected -->
+          <div v-else class="no-selection">
+            <h3>Select a Program</h3>
+            <p>Choose a program from the left to view detailed information</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</template>
+
 <style scoped>
+/* Programs Split Section Styling */
 .programs-split-section {
   min-height: 100vh;
   padding: 4rem 0;
@@ -191,7 +194,7 @@ const programs = [
   transform-origin: top left;
 }
 
-.container {
+.programs-split-section .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -514,6 +517,9 @@ const programs = [
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
 }
 
 .action-btn.primary {
@@ -568,7 +574,7 @@ const programs = [
 }
 
 @media (max-width: 768px) {
-  .container {
+  .programs-split-section .container {
     padding: 0 1rem;
   }
   

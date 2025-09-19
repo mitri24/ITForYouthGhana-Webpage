@@ -8,13 +8,13 @@ export const content = {
 
   hero: {
     title: "Building Ghana's Tech Future Together",
-    subtitle: "We're a non-profit organization training underserved youth in technology skills. Over 200 young people have completed our programs and found meaningful work in Ghana's growing tech sector. Together, we're creating opportunities and changing lives.",
-    expandedDescription: "Since 2018, we've been working directly with communities in Accra and beyond, providing free technology training to young people who otherwise wouldn't have access to these opportunities. Our graduates work at local tech companies, start their own businesses, and mentor the next generation of learners.",
+    subtitle: "Training underserved youth in technology skills. 200+ graduates building careers in Ghana's tech sector.",
+    expandedDescription: "Since 2023, we've been working directly with communities in Accra and beyond, providing free technology training to young people who otherwise wouldn't have access to these opportunities. Our graduates work at local tech companies, start their own businesses, and mentor the next generation of learners.",
     stats: [
-      { number: "200+", label: "Program Graduates", description: "Young people trained in various tech skills since 2018" },
+      { number: "200+", label: "Program Graduates", description: "Young people trained in various tech skills since 2023" },
       { number: "800+", label: "Students Reached", description: "Through school visits and community workshops" },
       { number: "40%", label: "Female Participation", description: "Women and girls in our programs" },
-      { number: "6+", label: "Years Serving", description: "Continuously supporting our community" }
+      { number: "2+", label: "Years Serving", description: "Continuously supporting our community since 2023" }
     ]
   },
 
@@ -205,7 +205,7 @@ export const content = {
   about: {
     vision: "We envision a Ghana where every young person, regardless of their background, has the opportunity to build a meaningful career in technology and contribute to our country's digital growth.",
     mission: "We provide free, practical technology education that leads to real employment opportunities. Our focus is on underserved communities and ensuring that women have equal access to tech careers.",
-    story: "IT For Youth Ghana started in 2018 when our founder, Peter Duodu, saw the gap between Ghana's growing tech sector and the lack of accessible training for young people from low-income communities. What began as small workshops has grown into comprehensive programs that have trained over 200 graduates.",
+    story: "IT For Youth Ghana started in 2023 when our founder, Peter Duodu, saw the gap between Ghana's growing tech sector and the lack of accessible training for young people from low-income communities. What began as small workshops has grown into comprehensive programs that have trained over 200 graduates.",
     whatMakesUsDifferent: [
       "All our core programs are completely free - no hidden costs",
       "We actively recruit from underserved communities",
@@ -308,9 +308,9 @@ export const content = {
     subtitle: "Our next programs begin soon. If you're ready to commit 6 months to learning new skills and building a better future, we're here to support you every step of the way.",
     description: "Applications are open for our upcoming cohorts. We look for motivated individuals who are ready to work hard and support their fellow students. No previous experience required - just commitment and curiosity.",
     buttons: [
-      { text: "Apply for Programs", primary: true },
-      { text: "Schedule a Visit", primary: false },
-      { text: "Support Our Work", primary: false }
+      { text: "Apply for Programs", primary: true, link: "/contact" },
+      { text: "Schedule a Visit", primary: false, link: "/contact" },
+      { text: "Support Our Work", primary: false, link: "/volunteer" }
     ],
     nextSteps: [
       "Fill out our simple application form",

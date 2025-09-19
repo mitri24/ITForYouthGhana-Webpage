@@ -6,12 +6,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../pages/HomePage.vue')
+      component: () => import('../pages/HomePageNew.vue')
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('../pages/AboutPage.vue')
+      component: () => import('../pages/AboutPageNew.vue')
     },
     {
       path: '/programs',
@@ -61,12 +61,12 @@ const router = createRouter({
     {
       path: '/volunteer',
       name: 'volunteer',
-      component: () => import('../pages/VolunteerPage.vue')
+      component: () => import('../pages/VolunteerPageNew.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('../pages/ContactPage.vue')
+      component: () => import('../pages/ContactPageNew.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {

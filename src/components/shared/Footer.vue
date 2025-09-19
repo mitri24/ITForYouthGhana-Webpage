@@ -59,11 +59,11 @@
 
 <style scoped>
 .footer {
-  background: linear-gradient(135deg, rgba(15, 20, 25, 0.98) 0%, rgba(26, 35, 56, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(5, 17, 31, 0.98) 100%);
   color: white;
-  padding: 3rem 0 2rem;
+  padding: 4rem 0 2rem;
   margin-top: auto;
-  border-top: 1px solid rgba(140, 181, 218, 0.2);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
   width: 100vw;
@@ -117,32 +117,38 @@
 .company-name {
   color: white;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 0.5rem 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
 }
 
 .footer-tagline {
-  color: #8cb5da;
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.0625rem;
   margin: 0;
   line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.005em;
 }
 
 .footer-address h4,
 .footer-social h4 {
   color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 500;
   margin: 0 0 1rem 0;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
 }
 
 .footer-address p {
-  color: rgba(249, 248, 249, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0 0 0.3rem 0;
   line-height: 1.5;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.005em;
 }
 
 .contact-info {
@@ -152,7 +158,8 @@
 }
 
 .contact-info strong {
-  color: #8cb5da;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
 }
 
 .social-links {
@@ -204,10 +211,11 @@
 }
 
 .footer-copyright {
-  color: #8cb5da;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
   margin: 0;
-  opacity: 0.8;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.005em;
 }
 
 @media (max-width: 1024px) {
