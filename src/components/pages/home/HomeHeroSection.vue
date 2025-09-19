@@ -11,12 +11,12 @@
         </p>
 
         <div class="hero-actions">
-          <button class="btn btn-primary">
+          <RouterLink to="/programs" class="btn btn-primary">
             Start Your Journey
-          </button>
-          <button class="btn btn-secondary">
-            View Programs
-          </button>
+          </RouterLink>
+          <RouterLink to="/about" class="btn btn-secondary">
+            Learn About Us
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -24,11 +24,12 @@
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import heroImage from '@/assets/pictures/UX2.jpg'
 </script>
 
 <style scoped>
-/* Clean, Professional Hero Section */
+/* Apple-inspired Hero Section */
 .hero {
   display: flex;
   align-items: center;
@@ -40,7 +41,7 @@ import heroImage from '@/assets/pictures/UX2.jpg'
   margin-left: -50vw;
   margin-right: -50vw;
   background: 
-    linear-gradient(135deg, rgba(15, 20, 25, 0.4) 0%, rgba(26, 35, 56, 0.3) 50%, rgba(36, 52, 71, 0.4) 100%),
+    linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(5, 17, 31, 0.65) 50%, rgba(184, 134, 11, 0.15) 100%),
     url('@/assets/pictures/UX2.jpg');
   background-size: cover;
   background-position: center;
@@ -66,28 +67,35 @@ import heroImage from '@/assets/pictures/UX2.jpg'
   width: 100%;
 }
 
-/* Clean Title */
+/* Apple-inspired Title */
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Clean Subtitle */
+/* Apple-inspired Subtitle */
 .hero-subtitle {
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.5rem;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3rem;
   line-height: 1.5;
   font-weight: 400;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  letter-spacing: -0.005em;
 }
 
 /* Clean Buttons */
@@ -112,27 +120,36 @@ import heroImage from '@/assets/pictures/UX2.jpg'
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #d12255 0%, #195aa5 100%);
+  background: linear-gradient(135deg, #0a1628 0%, #0c2461 100%);
   color: #ffffff;
-  box-shadow: 0 4px 15px rgba(209, 34, 85, 0.3);
+  box-shadow: 0 4px 14px rgba(10, 22, 40, 0.25);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(209, 34, 85, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(10, 22, 40, 0.35);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  backdrop-filter: blur(20px) saturate(200%);
 }
 
 /* Responsive Design */
