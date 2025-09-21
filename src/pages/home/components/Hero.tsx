@@ -2,42 +2,54 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { content } from '../../../data/content'
+import LazyImage from '../../../components/LazyImage'
+import { imageCategories } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
-    image: '/images/UX1.jpeg',
+    image: '/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg',
     title: content.hero.title,
     subtitle: content.hero.subtitle
   },
   {
-    image: '/images/UX2.jpg',
+    image: '/images/randomPictures/IMG-20241118-WA0095.jpg',
     title: 'Empowering Young Women in Tech',
     subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
   },
   {
-    image: '/images/UX3.jpeg',
+    image: '/images/randomPictures/IMG-20241118-WA0078.jpg',
     title: 'From Training to Employment',
     subtitle: 'Free and low-cost programs with hands-on learning and real-world project experience'
   },
   {
-    image: '/images/UX4.jpg',
+    image: '/images/randomPictures/2024-12-17 20.27 (5).jpg',
     title: '200+ Lives Transformed',
     subtitle: 'Training youth in coding, web development, data analytics, and digital entrepreneurship'
   },
   {
-    image: '/images/emmanuel.jpg',
+    image: '/images/randomPictures/IMG-20241026-WA0092.jpg',
     title: 'Building Tech Leaders',
     subtitle: 'Developing the next generation of technology professionals across Ghana'
   },
   {
-    image: '/images/Belinda.jpg',
+    image: '/images/randomPictures/IMG_8586.JPG',
     title: 'Success Stories',
     subtitle: 'Meet our graduates who are now leading in Ghana\'s tech industry'
   },
   {
-    image: '/images/2024-11-14 10.55 (2).jpeg',
+    image: '/images/randomPictures/2024-12-17 21.02.jpg',
     title: 'Community Impact',
     subtitle: 'Transforming communities through accessible technology education'
+  },
+  {
+    image: '/images/randomPictures/IMG-20241118-WA0104.jpg',
+    title: 'Hands-On Learning',
+    subtitle: 'Practical skills development through real-world projects and mentorship'
+  },
+  {
+    image: '/images/randomPictures/IMG_2732.PNG',
+    title: 'Modern Facilities',
+    subtitle: 'State-of-the-art equipment and learning environments for optimal education'
   }
 ]
 
@@ -78,17 +90,18 @@ const Hero: React.FC = () => {
         <motion.div
           key={currentSlide}
           className="absolute inset-0"
-          style={{
-            backgroundImage: `url('${heroSlides[currentSlide].image}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-        />
+        >
+          <LazyImage
+            src={heroSlides[currentSlide].image}
+            alt={heroSlides[currentSlide].title}
+            className="w-full h-full object-cover"
+            priority={currentSlide === 0}
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-hero-overlay" />
       </AnimatePresence>
 

@@ -9,19 +9,19 @@ const CallToAction: React.FC = () => {
 
   const actionCards = [
     {
-      image: '/images/UX1.jpeg',
+      image: '/images/randomPictures/IMG-20241118-WA0053.jpg',
       title: 'Learn',
       description: 'World-class curriculum',
       delay: 0.2
     },
     {
-      image: '/images/UX2.jpg',
+      image: '/images/randomPictures/IMG_8600.JPG',
       title: 'Connect',
       description: 'Join our community',
       delay: 0.4
     },
     {
-      image: '/images/UX3.jpeg',
+      image: '/images/randomPictures/IMG-20241026-WA0093.jpg',
       title: 'Thrive',
       description: 'Build your career',
       delay: 0.6
@@ -31,16 +31,10 @@ const CallToAction: React.FC = () => {
   return (
     <section 
       ref={ref} 
-      className="section relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `url('/images/UX2.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
+      className="section relative min-h-screen flex items-center justify-center overflow-hidden blue-overlay-bg"
     >
-      {/* Hero overlay with cyberpunk gradient */}
-      <div className="absolute inset-0 hero-background"></div>
+      {/* Blue overlay */}
+      <div className="absolute inset-0 blue-overlay"></div>
       
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -83,8 +77,8 @@ const CallToAction: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Action Cards */}
-          <div className="grid md:grid-cols-3 gap-12 mb-20">
+          {/* UPDATED: Action Cards mit besserem Layout */}
+          <div className="cards-grid mb-20">
             {actionCards.map((card, index) => (
               <motion.div
                 key={card.title}
@@ -101,62 +95,88 @@ const CallToAction: React.FC = () => {
                   scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
-                className="text-center glass rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 group"
+                className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 group flex flex-col justify-between min-h-[250px]"
               >
-                <motion.div 
-                  className="w-16 h-16 mb-4 mx-auto rounded-organic overflow-hidden"
-                  whileHover={{ 
-                    rotate: [0, -5, 5, -5, 0],
-                    scale: 1.1
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
-                  {card.title}
-                </h3>
-                <p className="text-white/80 text-lg">
-                  {card.description}
-                </p>
+                <div className="card-content">
+                  {/* Headline oben */}
+                  <div>
+                    <motion.div 
+                      className="w-16 h-16 mb-4 mx-auto rounded-full overflow-hidden"
+                      whileHover={{ 
+                        rotate: [0, -5, 5, -5, 0],
+                        scale: 1.1
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                    </motion.div>
+                    <h3 className="card-title text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Content mittig */}
+                  <div className="card-text">
+                    <p className="text-white/80 text-lg">
+                      {card.description}
+                    </p>
+                  </div>
+                  
+                  {/* Button unten */}
+                  <div className="card-footer mt-auto">
+                    <button className="btn btn-secondary btn-sm bg-white/20 text-white border-white/30 hover:bg-white hover:text-primary">
+                      Explore
+                    </button>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* UPDATED: CTA Buttons mit besserem Spacing */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-8 justify-center items-center"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
-            <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+            <Link to="/contact" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
               <motion.button
-                className="bg-primary text-white px-12 py-6 text-xl font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="btn btn-primary w-full text-lg font-bold py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {content.cta.buttons[1].text}
+                Schedule a Visit
               </motion.button>
             </Link>
             
-            <Link to="/contact" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+            <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
               <motion.button
-                className="px-12 py-6 text-xl font-bold text-white border-2 border-white rounded-xl hover:bg-white hover:text-primary transition-all duration-300"
+                className="btn btn-secondary w-full text-lg font-bold py-4 bg-white text-primary hover:bg-primary hover:text-white"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {content.cta.buttons[0].text}
+                Apply
               </motion.button>
             </Link>
             
             <Link to="/donate" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
               <motion.button
-                className="px-12 py-6 text-xl font-bold text-white border-2 border-white rounded-xl hover:bg-white hover:text-primary transition-all duration-300"
+                className="btn btn-secondary w-full text-lg font-bold py-4 text-white border-white hover:bg-white hover:text-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {content.cta.buttons[2].text}
+                Support
+              </motion.button>
+            </Link>
+
+            <Link to="/contact" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+              <motion.button
+                className="btn btn-secondary w-full text-lg font-bold py-4 text-white border-white hover:bg-white hover:text-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact
               </motion.button>
             </Link>
           </motion.div>

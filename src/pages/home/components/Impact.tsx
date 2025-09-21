@@ -46,7 +46,7 @@ const Impact: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CHANGED: Before & After Comparison (Teaser) */}
+        {/* CHANGED: Before & After Comparison (Teaser) mit Background */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -55,13 +55,20 @@ const Impact: React.FC = () => {
         >
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Before */}
-            <div className="card bg-neutral-100" style={{ padding: 'var(--space-lg)' }}>
-              <h3 className="heading-sm text-neutral-600 mb-6">Before Our Programs</h3>
+            <div className="card bg-neutral-100 relative overflow-hidden" style={{ padding: 'var(--space-lg)' }}>
+              <div className="absolute inset-0 opacity-5">
+                <img 
+                  src="/images/randomPictures/IMG-20241118-WA0063.jpg" 
+                  alt="Before training"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="heading-sm text-neutral-600 mb-6 relative z-10">Before Our Programs</h3>
               <ul className="space-y-4">
                 {beforeAfterData.before.map((item, index) => (
                   <motion.li 
                     key={index} 
-                    className="flex items-center"
+                    className="flex items-center relative z-10"
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.4 + (index * 0.1) }}
@@ -74,13 +81,20 @@ const Impact: React.FC = () => {
             </div>
 
             {/* After */}
-            <div className="card bg-gradient-to-br from-primary/10 to-accent/10" style={{ padding: 'var(--space-lg)' }}>
-              <h3 className="heading-sm mb-6">After Our Programs</h3>
+            <div className="card bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden" style={{ padding: 'var(--space-lg)' }}>
+              <div className="absolute inset-0 opacity-5">
+                <img 
+                  src="/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg" 
+                  alt="After training success"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="heading-sm mb-6 relative z-10">After Our Programs</h3>
               <ul className="space-y-4">
                 {beforeAfterData.after.map((item, index) => (
                   <motion.li 
                     key={index} 
-                    className="flex items-center"
+                    className="flex items-center relative z-10"
                     initial={{ opacity: 0, x: 20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.6 + (index * 0.1) }}

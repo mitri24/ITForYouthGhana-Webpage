@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
+import SEO from '../components/SEO'
+import { getRandomImageSet } from '../utils/randomImages'
 
 const Contact: React.FC = () => {
   const ref = useRef(null)
@@ -23,466 +25,542 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
     console.log('Form submitted:', formData)
   }
 
-  const contactInfo = [
+  const contactMethods = [
     {
-      icon: '/images/logo.png',
-      title: 'Email',
+      icon: '📧',
+      title: 'Email Us',
       detail: content.contact.email,
-      action: `mailto:${content.contact.email}`
+      action: `mailto:${content.contact.email}`,
+      description: 'Send us an email for general inquiries'
     },
     {
-      icon: '/images/logo.png',
-      title: 'Phone',
+      icon: '📱',
+      title: 'Call Us',
       detail: content.contact.phone,
-      action: `tel:${content.contact.phone}`
+      action: `tel:${content.contact.phone}`,
+      description: 'Speak directly with our team'
     },
     {
-      icon: '/images/logo.png',
-      title: 'Address',
+      icon: '📍',
+      title: 'Visit Us',
       detail: content.contact.address,
-      action: '#'
+      action: '#location',
+      description: 'Come to our training center'
     },
     {
-      icon: '/images/logo.png',
+      icon: '⏰',
       title: 'Office Hours',
       detail: content.contact.hours,
-      action: '#'
+      action: '#',
+      description: 'When we\'re available'
     }
   ]
 
-  const socialLinks = [
-    { name: 'LinkedIn', icon: '/images/logo.png', color: 'from-primary to-blue', href: '#' },
-    { name: 'Twitter', icon: '/images/logo.png', color: 'from-secondary to-primary', href: '#' },
-    { name: 'Facebook', icon: '/images/logo.png', color: 'from-primary to-blue', href: '#' },
-    { name: 'Instagram', icon: '/images/logo.png', color: 'from-accent to-primary', href: '#' },
-    { name: 'YouTube', icon: '/images/logo.png', color: 'from-accent to-secondary', href: '#' }
+  const quickActions = [
+    {
+      title: 'Join a Program',
+      description: 'Apply for our next cohort',
+      image: '/images/randomPictures/IMG-20241118-WA0052.jpg',
+      action: '/programs',
+      color: 'from-primary to-blue-600'
+    },
+    {
+      title: 'Become a Volunteer',
+      description: 'Help us teach and mentor',
+      image: '/images/randomPictures/IMG_8600.JPG',
+      action: '/volunteer',
+      color: 'from-accent to-orange-500'
+    },
+    {
+      title: 'Partner with Us',
+      description: 'Corporate partnerships',
+      image: '/images/randomPictures/2024-12-17 21.12 (3).jpg',
+      action: '/partners',
+      color: 'from-secondary to-green-500'
+    }
   ]
 
   const faqItems = content.faq
 
   return (
-    <div className="min-h-screen bg-white pt-24">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-hero-overlay"></div>
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-              Have questions or want to be part of our mission? We look forward to your message!
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Information */}
-      <section ref={ref} className="py-20 bg-neutral-50">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Contact Information</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Reach us through various channels
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {contactInfo.map((info, index) => (
-              <motion.a
-                key={info.title}
-                href={info.action}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="card card-body text-center group cursor-pointer"
-              >
-                <div className="w-12 h-12 mb-4 mx-auto">
-                  <img src={info.icon} alt={info.title} className="w-full h-full object-contain" />
-                </div>
-                <h3 className="heading-sm mb-2 group-hover:text-accent transition-colors duration-300">
-                  {info.title}
-                </h3>
-                <p className="text-body">{info.detail}</p>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Social Media */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center"
-          >
-            <h3 className="heading-md mb-8">Follow Us</h3>
-            <div className="flex justify-center gap-6">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  className={`w-16 h-16 bg-gradient-to-r ${social.color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg hover:shadow-lg transition-all duration-300`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <img src={social.icon} alt={social.name} className="w-6 h-6 object-contain" />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Form */}
+    <>
+      <SEO 
+        title="Contact Us - IT for Youth Ghana"
+        description="Get in touch with IT for Youth Ghana. Contact us for program info, partnerships, volunteer opportunities, or visit our Accra office."
+        canonical="/contact"
+        ogType="organization"
+      />
+      <div className="min-h-screen bg-white pt-24">
+        
+        {/* Hero Section */}
+        <section className="section-hero bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-hero-overlay"></div>
+          <div className="container relative z-10">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="text-center text-white"
             >
-              <h2 className="heading-lg mb-8">Send us a Message</h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="form-label">Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="form-input"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="form-label">Email *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="form-input"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="form-label">Phone</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      placeholder="+233 XX XXX XXXX"
-                    />
-                  </div>
-                  <div>
-                    <label className="form-label">Interest</label>
-                    <select
-                      name="interest"
-                      value={formData.interest}
-                      onChange={handleInputChange}
-                      className="form-input"
-                    >
-                      <option value="">Please select...</option>
-                      <option value="programs">Programs</option>
-                      <option value="volunteer">Volunteering</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="donation">Donation</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="form-label">Subject *</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 rounded-xl border-2 border-secondary/20 focus:border-primary focus:outline-none transition-colors duration-300"
-                    placeholder="What is this about?"
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label">Message *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-secondary/20 focus:border-primary focus:outline-none transition-colors duration-300"
-                    placeholder="Tell us how we can help you..."
-                  />
-                </div>
-
-                <motion.button
-                  type="submit"
-                  className="btn btn-primary w-full"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Send Message
-                </motion.button>
-              </form>
-            </motion.div>
-
-            {/* FAQ */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h2 className="heading-lg mb-8">Frequently Asked Questions</h2>
-              
-              <div className="space-y-6">
-                {faqItems.map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="card card-body"
-                  >
-                    <h3 className="heading-sm mb-3">{faq.question}</h3>
-                    <p className="text-body">{faq.answer}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl"
-              >
-                <h3 className="heading-sm mb-3">More Questions?</h3>
-                <p className="text-body mb-4">
-                  Don't hesitate to contact us directly. Our team is happy to help you!
-                </p>
-                <motion.a
-                  href="mailto:info@ityouthghana.org"
-                  className="btn btn-primary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Send Direct Email
-                </motion.a>
-              </motion.div>
+              <h1 className="hero-title">Get in Touch</h1>
+              <p className="hero-subtitle">
+                Ready to transform your future? Let's start the conversation
+              </p>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Leadership Contact */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Leadership Team</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Connect directly with our executive leadership for partnerships and coordination
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
+        {/* Quick Contact Methods */}
+        <section ref={ref} className="section bg-neutral-50">
+          <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-3xl p-8 border border-secondary/20"
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
             >
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-2">{content.contact.leadership.name}</h3>
-                  <p className="text-lg text-accent font-semibold mb-4">{content.contact.leadership.title}</p>
-                  <p className="text-neutral-600 mb-6">{content.contact.leadership.department}</p>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center">
-                      <span className="text-2xl mr-3">@</span>
-                      <div>
-                        <p className="font-semibold text-primary">Email</p>
-                        <a href={`mailto:${content.contact.leadership.email}`} className="text-accent hover:underline">
-                          {content.contact.leadership.email}
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-2xl mr-3">+</span>
-                      <div>
-                        <p className="font-semibold text-primary">Phone</p>
-                        <a href={`tel:${content.contact.leadership.phone}`} className="text-accent hover:underline">
-                          {content.contact.leadership.phone}
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-2xl mr-3">*</span>
-                      <div>
-                        <p className="font-semibold text-primary">Languages</p>
-                        <p className="text-neutral-600">{content.contact.leadership.languages.join(', ')}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <h4 className="text-lg font-bold text-primary mb-4">Availability & Coordination</h4>
-                  <p className="text-neutral-600 leading-relaxed mb-4">
-                    {content.contact.leadership.availability}
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center">
-                      <span className="text-lg mr-2">•</span>
-                      <span className="text-sm text-neutral-600">Erasmus+ partnerships</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-lg mr-2">•</span>
-                      <span className="text-sm text-neutral-600">International collaborations</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-lg mr-2">•</span>
-                      <span className="text-sm text-neutral-600">Project coordination</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-lg mr-2">•</span>
-                      <span className="text-sm text-neutral-600">Flexible scheduling</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h2 className="heading-lg mb-6">How Can We Help?</h2>
+              <p className="text-lead text-center max-w-3xl mx-auto">
+                Multiple ways to connect with our team
+              </p>
             </motion.div>
+
+            <div className="cards-grid mb-16">
+              {contactMethods.map((method, index) => (
+                <motion.a
+                  key={method.title}
+                  href={method.action}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                  className="card text-center group cursor-pointer"
+                >
+                  <div className="card-content">
+                    <div>
+                      <div className="text-4xl mb-4">{method.icon}</div>
+                      <h3 className="card-title heading-sm group-hover:text-accent transition-colors duration-300">
+                        {method.title}
+                      </h3>
+                    </div>
+                    
+                    <div className="card-text">
+                      <p className="text-body font-semibold mb-2">{method.detail}</p>
+                      <p className="text-small text-muted">{method.description}</p>
+                    </div>
+                    
+                    <div className="card-footer">
+                      <button className="btn btn-secondary btn-sm">
+                        Contact Now
+                      </button>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Location/Map Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Visit Us</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Come visit and get to know our team and facilities
-            </p>
-          </motion.div>
+        {/* Quick Actions */}
+        <section className="section bg-white">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="heading-lg mb-6">Ready to Take Action?</h2>
+              <p className="text-lead text-center max-w-3xl mx-auto">
+                Jump straight into what interests you most
+              </p>
+            </motion.div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-6">IT for Youth Ghana</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <img src="/images/logo.png" alt="Location" className="w-6 h-6 mr-4 object-contain" />
-                    <div>
-                      <p className="font-semibold text-primary">Main Office</p>
-                      <p className="text-neutral-600">Digital Innovation Hub<br />Accra, Ghana</p>
-                    </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {quickActions.map((action, index) => (
+                <motion.div
+                  key={action.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                  className="relative rounded-2xl overflow-hidden shadow-lg group"
+                >
+                  <div className="aspect-video relative">
+                    <img 
+                      src={action.image} 
+                      alt={action.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${action.color} opacity-80`}></div>
                   </div>
-                  <div className="flex items-start">
-                    <img src="/images/logo.png" alt="Hours" className="w-6 h-6 mr-4 object-contain" />
-                    <div>
-                      <p className="font-semibold text-primary">Office Hours</p>
-                      <p className="text-neutral-600">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: 10:00 AM - 2:00 PM</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <img src="/images/logo.png" alt="Transport" className="w-6 h-6 mr-4 object-contain" />
-                    <div>
-                      <p className="font-semibold text-primary">Transportation</p>
-                      <p className="text-neutral-600">Public transportation and parking available</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* NEU: Responsive Map Embed für Ghana/Accra */}
-              <div className="bg-neutral-100 rounded-2xl overflow-hidden shadow-lg">
-                <div className="aspect-video w-full">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.56684390774!2d-0.2664328839721779!3d5.603716899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1658234567890!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="IT for Youth Ghana Location - Accra, Ghana"
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="p-6 bg-white">
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                    <h3 className="text-xl font-bold mb-2">{action.title}</h3>
+                    <p className="text-white/90 mb-4">{action.description}</p>
                     <motion.a
-                      href="https://goo.gl/maps/accra-ghana"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary flex-1 text-center"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      href={action.action}
+                      className="btn btn-secondary bg-white/20 text-white border-white/30 hover:bg-white hover:text-primary w-full"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      Open in Google Maps
+                      Learn More
                     </motion.a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form & Info */}
+        <section className="section bg-neutral-50">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-16">
+              
+              {/* Contact Form */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8 }}
+                className="card"
+              >
+                <div className="card-body">
+                  <h2 className="heading-md mb-8">Send us a Message</h2>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="form-group">
+                        <label htmlFor="contact-name" className="form-label">Name *</label>
+                        <input
+                          id="contact-name"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                          className="form-input"
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="contact-email" className="form-label">Email *</label>
+                        <input
+                          id="contact-email"
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="form-input"
+                          placeholder="your@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="form-group">
+                        <label htmlFor="contact-phone" className="form-label">Phone</label>
+                        <input
+                          id="contact-phone"
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="form-input"
+                          placeholder="+233 XX XXX XXXX"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="contact-interest" className="form-label">Interest</label>
+                        <select
+                          id="contact-interest"
+                          name="interest"
+                          value={formData.interest}
+                          onChange={handleInputChange}
+                          className="form-input"
+                        >
+                          <option value="">Please select...</option>
+                          <option value="programs">Join a Program</option>
+                          <option value="volunteer">Volunteering</option>
+                          <option value="partnership">Partnership</option>
+                          <option value="donation">Support/Donation</option>
+                          <option value="visit">Schedule a Visit</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="contact-subject" className="form-label">Subject *</label>
+                      <input
+                        id="contact-subject"
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        required
+                        className="form-input"
+                        placeholder="What is this about?"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="contact-message" className="form-label">Message *</label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={6}
+                        className="form-input"
+                        placeholder="Tell us how we can help you..."
+                      />
+                    </div>
+
                     <motion.button
-                      className="btn btn-secondary flex-1"
+                      type="submit"
+                      className="btn btn-primary w-full text-white font-bold"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={() => {
-                        if (navigator.geolocation) {
-                          navigator.geolocation.getCurrentPosition(() => {
-                            window.open('https://www.google.com/maps/dir//Accra,+Ghana', '_blank')
-                          })
-                        }
-                      }}
                     >
-                      Get Directions
+                      Send Message
                     </motion.button>
+                  </form>
+                </div>
+              </motion.div>
+
+              {/* FAQ */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <h2 className="heading-md mb-8">Frequently Asked Questions</h2>
+                
+                <div className="space-y-6">
+                  {faqItems.map((faq, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="card"
+                    >
+                      <div className="card-body">
+                        <h3 className="heading-sm mb-3">{faq.question}</h3>
+                        <p className="text-body">{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="mt-8 card bg-gradient-to-r from-primary/10 to-accent/10"
+                >
+                  <div className="card-body">
+                    <h3 className="heading-sm mb-3">Still Have Questions?</h3>
+                    <p className="text-body mb-4">
+                      Don't hesitate to reach out directly. Our team is ready to help!
+                    </p>
+                    <motion.a
+                      href="mailto:info@ityouthghana.org"
+                      className="btn btn-primary text-white font-bold"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Email Us Directly
+                    </motion.a>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Leadership Team */}
+        <section className="section bg-white">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="heading-lg mb-6">Leadership Contact</h2>
+              <p className="text-lead text-center max-w-3xl mx-auto">
+                Connect directly with our leadership for partnerships and strategic collaboration
+              </p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="card bg-gradient-to-r from-primary/5 to-accent/5"
+              >
+                <div className="card-body">
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="heading-md mb-2">{content.contact.leadership.name}</h3>
+                      <p className="text-lg text-accent font-semibold mb-4">{content.contact.leadership.title}</p>
+                      <p className="text-muted mb-6">{content.contact.leadership.department}</p>
+                      
+                      <div className="space-y-4 mb-6">
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">📧</span>
+                          <div>
+                            <p className="font-semibold text-primary">Email</p>
+                            <a href={`mailto:${content.contact.leadership.email}`} className="text-accent hover:underline font-medium">
+                              {content.contact.leadership.email}
+                            </a>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">📱</span>
+                          <div>
+                            <p className="font-semibold text-primary">Phone</p>
+                            <a href={`tel:${content.contact.leadership.phone}`} className="text-accent hover:underline font-medium">
+                              {content.contact.leadership.phone}
+                            </a>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">🗣️</span>
+                          <div>
+                            <p className="font-semibold text-primary">Languages</p>
+                            <p className="text-muted">{content.contact.leadership.languages.join(', ')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="card bg-white">
+                      <div className="card-body">
+                        <h4 className="text-lg font-bold text-primary mb-4">Availability & Specialties</h4>
+                        <p className="text-muted leading-relaxed mb-4">
+                          {content.contact.leadership.availability}
+                        </p>
+                        <div className="space-y-3">
+                          {['Erasmus+ partnerships', 'International collaborations', 'Project coordination', 'Flexible scheduling'].map((item, index) => (
+                            <div key={index} className="flex items-center">
+                              <span className="text-accent mr-2">✓</span>
+                              <span className="text-small">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Location & Visit */}
+        <section className="section bg-neutral-50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="heading-lg mb-6">Visit Our Center</h2>
+              <p className="text-lead text-center max-w-3xl mx-auto">
+                Come see our facilities and meet the team in person
+              </p>
+            </motion.div>
+
+            <div className="card">
+              <div className="card-body">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <h3 className="heading-md mb-6">IT for Youth Ghana Training Center</h3>
+                    <div className="space-y-6">
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-4">📍</span>
+                        <div>
+                          <p className="font-semibold text-primary">Address</p>
+                          <p className="text-muted">Digital Innovation Hub<br />Accra, Ghana</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-4">⏰</span>
+                        <div>
+                          <p className="font-semibold text-primary">Hours</p>
+                          <p className="text-muted">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: 10:00 AM - 2:00 PM</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-4">🚗</span>
+                        <div>
+                          <p className="font-semibold text-primary">Transportation</p>
+                          <p className="text-muted">Public transport accessible<br />Parking available</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-neutral-100 rounded-2xl overflow-hidden shadow-lg">
+                    <div className="aspect-video w-full">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.56684390774!2d-0.2664328839721779!3d5.603716899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1658234567890!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="IT for Youth Ghana Location - Accra, Ghana"
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="p-6 bg-white">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <motion.a
+                          href="https://goo.gl/maps/accra-ghana"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary flex-1 text-center text-white font-bold"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          Open in Google Maps
+                        </motion.a>
+                        <motion.button
+                          className="btn btn-secondary flex-1 font-bold"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => {
+                            if (navigator.geolocation) {
+                              navigator.geolocation.getCurrentPosition(() => {
+                                window.open('https://www.google.com/maps/dir//Accra,+Ghana', '_blank')
+                              })
+                            }
+                          }}
+                        >
+                          Get Directions
+                        </motion.button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   )
 }
 

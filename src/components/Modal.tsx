@@ -1,5 +1,5 @@
 // NEU: Wiederverwendbare Modal/Popup-Komponente für die gesamte Website
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface ModalProps {
@@ -19,7 +19,10 @@ const Modal: React.FC<ModalProps> = ({
   size = 'medium',
   showCloseButton = true
 }) => {
-  // ESC-Taste zum Schließen
+  const modalRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  // Focus management and accessibility
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -27,14 +30,43 @@ const Modal: React.FC<ModalProps> = ({
       }
     }
 
+    const handleTabKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        const firstElement = focusableElements[0] as HTMLElement
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault()
+            lastElement?.focus()
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault()
+            firstElement?.focus()
+          }
+        }
+      }
+    }
+
     if (isOpen) {
       document.addEventListener('keydown', handleEscape)
+      document.addEventListener('keydown', handleTabKeyDown)
       // Verhindere Scrollen im Hintergrund
       document.body.style.overflow = 'hidden'
+      
+      // Focus the modal or close button
+      setTimeout(() => {
+        closeButtonRef.current?.focus() || modalRef.current?.focus()
+      }, 100)
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape)
+      document.removeEventListener('keydown', handleTabKeyDown)
       document.body.style.overflow = 'unset'
     }
   }, [isOpen, onClose])
@@ -60,12 +92,14 @@ const Modal: React.FC<ModalProps> = ({
           aria-labelledby="modal-title"
         >
           <motion.div
+            ref={modalRef}
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
             className={sizeClasses[size]}
             onClick={(e) => e.stopPropagation()}
+            tabIndex={-1}
           >
             {/* Header */}
             <div className="modal-header">
@@ -75,13 +109,15 @@ const Modal: React.FC<ModalProps> = ({
                 </h2>
                 {showCloseButton && (
                   <motion.button
+                    ref={closeButtonRef}
                     onClick={onClose}
                     className="w-10 h-10 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center transition-colors duration-200 text-neutral-600 hover:text-neutral-800"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    aria-label="Modal schließen"
+                    aria-label="Close modal"
+                    title="Close modal (Press Escape)"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </motion.button>
