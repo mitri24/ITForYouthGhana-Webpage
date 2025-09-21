@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Modal from '../components/Modal'
+import SEO from '../components/SEO'
 
 // NEU: Erweiterte Partner-Optionen mit detaillierten Popup-Inhalten
 const partnershipOptions = [
@@ -188,7 +189,14 @@ const Partners: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white pt-24">
+    <>
+      <SEO 
+        title="Partnership Opportunities - Tech Education Ghana"
+        description="Partner with IT for Youth Ghana to expand digital inclusion. Educational, corporate, government, NGO partnerships available for maximum impact."
+        canonical="/partners"
+        ogType="organization"
+      />
+      <div className="min-h-screen bg-white pt-24">
       {/* NEU: Hero Section mit starker Primärfarbe */}
       <section className="relative py-24 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-hero-overlay"></div>
@@ -405,7 +413,8 @@ const Partners: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 

@@ -9,7 +9,7 @@ const programs = [
   {
     title: 'Tech Outreach Initiative',
     description: 'Bringing technology education directly to underserved communities across Ghana, ensuring no youth is left behind in the digital revolution.',
-    image: '/images/UX1.jpeg',
+    image: '/images/randomPictures/IMG-20241118-WA0052.jpg',
     tag: 'Community Impact',
     tagColor: 'bg-primary',
     detailContent: {
@@ -33,7 +33,7 @@ const programs = [
   {
     title: 'Girls in Tech Programs',
     description: 'Dedicated programs to empower young women with technology skills, achieving over 40% female participation in our training initiatives.',
-    image: '/images/UX2.jpg',
+    image: '/images/randomPictures/IMG-20241118-WA0095.jpg',
     tag: 'Gender Equality',
     tagColor: 'bg-accent',
     detailContent: {
@@ -57,7 +57,7 @@ const programs = [
   {
     title: 'Rural Tech Connect',
     description: 'Connecting rural communities to digital opportunities through mobile training units and partnerships with local schools and institutions.',
-    image: '/images/UX3.jpeg',
+    image: '/images/randomPictures/2024-12-17 20.27 (6).jpg',
     tag: 'Rural Empowerment',
     tagColor: 'bg-secondary',
     detailContent: {
@@ -81,7 +81,7 @@ const programs = [
   {
     title: 'Code Impact Challenge',
     description: 'Annual coding competitions and hackathons that bring together young developers to solve real-world problems facing Ghanaian communities.',
-    image: '/images/UX4.jpg',
+    image: '/images/randomPictures/IMG_8623.JPG',
     tag: 'Innovation',
     tagColor: 'bg-primary',
     detailContent: {
@@ -105,7 +105,7 @@ const programs = [
   {
     title: 'Tech Advocacy',
     description: 'Advocating for digital inclusion policies and working with government and NGOs to create supportive environments for technology education.',
-    image: '/images/adjej.webp',
+    image: '/images/people/adjej.webp',
     tag: 'Policy Impact',
     tagColor: 'bg-accent',
     detailContent: {
@@ -129,7 +129,7 @@ const programs = [
   {
     title: 'School Workshop Programs',
     description: 'Conducted workshops in 20+ schools, reaching over 800 students with hands-on technology training and career guidance sessions.',
-    image: '/images/Mlan.jpeg',
+    image: '/images/people/Mlan.jpeg',
     tag: 'Educational Outreach',
     tagColor: 'bg-secondary',
     detailContent: {

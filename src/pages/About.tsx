@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
+import SEO from '../components/SEO'
 
 const About: React.FC = () => {
   const ref = useRef(null)
@@ -10,7 +11,7 @@ const About: React.FC = () => {
     {
       name: 'Peter Duodu',
       role: 'Executive Director & Project Lead',
-      image: '/images/peter.jpg',
+      image: '/images/people/peter.jpg',
       description: 'Administrative department leader fully committed to coordination tasks. Contact: peter@itforyouthghana.org, +233 596 244 834',
       email: 'peter@itforyouthghana.org',
       phone: '+233 596 244 834'
@@ -18,19 +19,19 @@ const About: React.FC = () => {
     {
       name: 'Emmanuel Adjei',
       role: 'Founder & Program Director',
-      image: '/images/emmanuel.jpg',
+      image: '/images/people/emmanuel.jpg',
       description: 'Visionary leader with 8+ years in tech education and youth development, driving our mission to achieve 70% female participation.'
     },
     {
       name: 'Belinda Asante',
       role: 'Frontend Development Lead',
-      image: '/images/Belinda.jpg',
+      image: '/images/people/Belinda.jpg',
       description: 'Experienced developer and mentor, passionate about empowering young women in tech through hands-on training.'
     },
     {
       name: 'Elisabeth Awartey',
       role: 'Database Management Specialist',
-      image: '/images/elisabeth.jpg',
+      image: '/images/people/elisabeth.jpg',
       description: 'Expert in data systems and analytics, driving evidence-based program improvements and student tracking.'
     }
   ]
@@ -82,9 +83,17 @@ const About: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white" style={{ paddingTop: 'var(--space-3xl)' }}>
-      {/* CHANGED: UX-optimierter Hero für "Our Story" */}
-      <section className="section-hero bg-primary overflow-hidden relative">
+    <>
+      <SEO
+        title="Our Story - About IT for Youth Ghana"
+        description="Learn about IT for Youth Ghana's journey since 2023, our mission to achieve 70% female participation in tech education, and meet our leadership team driving digital inclusion across Ghana."
+        canonical="/about"
+        ogType="organization"
+      />
+      
+      <div className="min-h-screen bg-white" style={{ paddingTop: 'var(--space-3xl)' }}>
+        {/* CHANGED: UX-optimierter Hero für "Our Story" */}
+        <section className="section-hero bg-primary overflow-hidden relative">
         <div className="absolute inset-0 bg-hero-overlay"></div>
         <div className="container relative z-10">
           <motion.div
@@ -124,7 +133,7 @@ const About: React.FC = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-primary to-blue rounded-xl flex items-center justify-center mr-4">
-                  <img src="/images/logo.png" alt="Mission" className="w-8 h-8 object-contain" />
+                  <img src="/images/logo/logo.png" alt="Mission" className="w-8 h-8 object-contain" />
                 </div>
                 <h3 className="text-3xl font-bold text-primary">Mission</h3>
               </div>
@@ -141,7 +150,7 @@ const About: React.FC = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-accent to-primary rounded-xl flex items-center justify-center mr-4">
-                  <img src="/images/logo.png" alt="Vision" className="w-8 h-8 object-contain" />
+                  <img src="/images/logo/logo.png" alt="Vision" className="w-8 h-8 object-contain" />
                 </div>
                 <h3 className="text-3xl font-bold text-primary">Vision</h3>
               </div>
@@ -363,7 +372,11 @@ const About: React.FC = () => {
                 className="text-center bg-neutral-50 rounded-2xl p-8 border border-secondary/20 overflow-hidden"
               >
                 <div className="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden">
-                  <img src={index === 1 ? '/images/UX3.jpeg' : `/images/UX${index + 2}.jpg`} alt={value.title} className="w-full h-full object-cover" />
+                  <img src={
+                    index === 0 ? '/images/randomPictures/IMG-20241118-WA0060.jpg' :
+                    index === 1 ? '/images/randomPictures/2024-12-17 20.57 (6).jpg' :
+                    '/images/randomPictures/IMG_8623.JPG'
+                  } alt={value.title} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-2xl font-bold text-primary mb-4">{value.title}</h3>
                 <p className="text-neutral-600 leading-relaxed">{value.description}</p>
@@ -372,7 +385,8 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 

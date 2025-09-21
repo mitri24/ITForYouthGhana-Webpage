@@ -18,14 +18,12 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // NEU: Zentrale Navigation wie spezifiziert
+  // NEU: Bereinigte Navigation ohne Home, Volunteer hervorgehoben
   const mainNavItems = [
-    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Impact', href: '/impact' },
     { name: 'Programs', href: '/programs' },
     { name: 'Partner', href: '/partners' },
-    { name: 'Volunteer', href: '/volunteer' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -64,17 +62,12 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.2 }}
             >
               <img 
-                src="/images/logo.png" 
+                src="/images/logo/logo.png" 
                 alt="IT for Youth Ghana logo" 
                 className={`w-auto object-contain transition-all duration-300 ${
-                  isScrolled ? 'h-8' : 'h-12'
+                  isScrolled ? 'h-12' : 'h-16'
                 }`}
               />
-              <span className={`ml-3 font-bold text-primary transition-all duration-300 ${
-                isScrolled ? 'text-lg' : 'text-xl'
-              }`}>
-                IT for Youth Ghana
-              </span>
             </motion.div>
           </Link>
 
@@ -84,7 +77,7 @@ const Navbar: React.FC = () => {
             role="navigation"
             aria-label="Main navigation"
           >
-            {mainNavItems.slice(0, -1).map((item, index) => ( // Alle außer Volunteer
+            {mainNavItems.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -172,6 +165,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
+              id="mobile-menu-button"
               className="xl:hidden p-2 text-neutral-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
@@ -210,68 +204,86 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* NEU: Mobile Menu - Volunteer-CTA oben priorisiert */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
+      </div>
+
+      {/* NEU: Mobile Vollbild-Overlay Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 xl:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-primary/95 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Content */}
             <motion.div
               id="mobile-menu"
-              className="xl:hidden mt-4 bg-white border border-neutral-200 rounded-2xl p-6 shadow-primary-lg"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              className="relative z-10 h-full flex flex-col justify-center items-center text-center px-8"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
               role="menu"
+              aria-labelledby="mobile-menu-button"
             >
-              <div className="flex flex-col space-y-4">
-                {/* Volunteer-CTA prominent am Anfang */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="mb-6 pb-6 border-b border-neutral-200"
-                >
-                  <Link 
-                    to="/volunteer" 
-                    onClick={() => {
-                      setIsMobileMenuOpen(false)
-                      setTimeout(() => window.scrollTo(0, 0), 100)
-                    }}
-                  >
-                    <motion.button
-                      className="btn btn-primary w-full text-lg font-bold"
-                      style={{ 
-                        minHeight: 'calc(var(--touch-target-min) + 8px)',
-                        padding: 'var(--space-lg) var(--space-xl)'
-                      }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Volunteer Now
-                    </motion.button>
-                  </Link>
-                </motion.div>
+              {/* Close Button */}
+              <motion.button
+                className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 flex items-center justify-center transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ delay: 0.2 }}
+                aria-label="Close menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </motion.button>
 
-                {/* Navigation Items */}
-                {mainNavItems.filter(item => item.name !== 'Volunteer').map((item, index) => (
+              {/* Logo */}
+              <motion.div
+                className="mb-12"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <img 
+                  src="/images/logo/logo.png" 
+                  alt="IT for Youth Ghana" 
+                  className="w-24 h-24 mx-auto brightness-0 invert"
+                />
+              </motion.div>
+
+              {/* Navigation Items */}
+              <motion.nav
+                className="flex flex-col space-y-6 mb-12"
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
+                {mainNavItems.map((item, index) => (
                   <motion.div
                     key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (index + 2) * 0.1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + (index * 0.1) }}
                   >
                     <Link
                       to={item.href}
-                      className={`block transition-all duration-300 font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 ${
+                      className={`block text-2xl font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-lg px-4 py-2 ${
                         location.pathname === item.href
-                          ? 'text-primary bg-primary/10'
-                          : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                          ? 'text-white'
+                          : 'text-white/80 hover:text-white'
                       }`}
-                      style={{ 
-                        minHeight: 'var(--touch-target-min)',
-                        padding: 'var(--space-md) var(--space-lg)',
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}
                       onClick={() => {
                         setIsMobileMenuOpen(false)
                         setTimeout(() => window.scrollTo(0, 0), 100)
@@ -281,36 +293,56 @@ const Navbar: React.FC = () => {
                     </Link>
                   </motion.div>
                 ))}
-                
-                {/* Auth Buttons - dezent am Ende */}
-                <div className="mt-8 pt-6 border-t border-neutral-200">
-                  <div className="flex flex-col space-y-3">
-                    {moreItems.map((item, index) => (
-                      <motion.button
-                        key={item.name}
-                        className="text-left text-neutral-600 hover:text-primary font-medium transition-colors duration-300 rounded-lg"
-                        style={{ 
-                          minHeight: 'var(--touch-target-min)', 
-                          padding: 'var(--space-md)' 
-                        }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 + (index * 0.1) }}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false)
-                          item.action()
-                        }}
-                      >
-                        {item.name}
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              </motion.nav>
+
+              {/* Volunteer CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="mb-8"
+              >
+                <Link 
+                  to="/volunteer" 
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    setTimeout(() => window.scrollTo(0, 0), 100)
+                  }}
+                >
+                  <motion.button
+                    className="bg-white text-primary px-8 py-4 rounded-2xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Volunteer Now
+                  </motion.button>
+                </Link>
+              </motion.div>
+
+              {/* Auth Buttons */}
+              <motion.div
+                className="flex space-x-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                {moreItems.map((item) => (
+                  <button
+                    key={item.name}
+                    className="text-white/70 hover:text-white font-medium transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-white/10"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false)
+                      item.action()
+                    }}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </motion.div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   )
 }

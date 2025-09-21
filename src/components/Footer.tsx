@@ -61,17 +61,17 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="container relative z-10">
-        {/* Main footer content */}
+        {/* UPDATED: Bereinigte Footer-Struktur - max 3 Spalten */}
         <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Logo and description */}
-            <div className="lg:col-span-1">
+            <div>
               <motion.div 
                 className="flex items-center mb-6"
                 whileHover={{ scale: 1.05 }}
               >
                 <img 
-                  src="/images/logo.png" 
+                  src="/images/logo/logo.png" 
                   alt="IT for Youth Ghana" 
                   className="h-16 w-auto object-contain"
                 />
@@ -88,88 +88,117 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Programs */}
+            {/* Navigation */}
             <div>
-              <h3 className="heading-sm text-white mb-6">Programs</h3>
+              <h3 className="heading-sm text-white mb-6">Navigation</h3>
               <ul className="space-y-3">
-                {footerLinks.programs.map((link, index) => (
-                  <motion.li 
-                    key={link}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <Link 
+                    to="/about" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
                   >
-                    <a 
-                      href="#" 
-                      className="text-white/80 hover:text-secondary transition-colors duration-300 block"
-                    >
-                      {link}
-                    </a>
-                  </motion.li>
-                ))}
+                    About
+                  </Link>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Link 
+                    to="/programs" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
+                  >
+                    Programs
+                  </Link>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Link 
+                    to="/impact" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
+                  >
+                    Impact
+                  </Link>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Link 
+                    to="/partners" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
+                  >
+                    Partners
+                  </Link>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <Link 
+                    to="/volunteer" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
+                  >
+                    Volunteer
+                  </Link>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <Link 
+                    to="/contact" 
+                    onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                    className="text-white/80 hover:text-secondary transition-colors duration-300 block"
+                  >
+                    Contact
+                  </Link>
+                </motion.li>
               </ul>
             </div>
 
-            {/* About */}
+            {/* Socials */}
             <div>
-              <h3 className="heading-sm text-white mb-6">About</h3>
-              <ul className="space-y-3">
-                {footerLinks.about.map((link, index) => (
-                  <motion.li 
-                    key={link}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+              <h3 className="heading-sm text-white mb-6">Follow Us</h3>
+              <div className="flex space-x-4 mb-6">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 ${social.color} rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl`}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    title={`Follow us on ${social.name}`}
                   >
-                    <a 
-                      href="#" 
-                      className="text-white/80 hover:text-secondary transition-colors duration-300 block"
-                    >
-                      {link}
-                    </a>
-                  </motion.li>
+                    {social.icon}
+                  </motion.a>
                 ))}
-              </ul>
-            </div>
-
-            {/* Get Involved */}
-            <div>
-              <h3 className="heading-sm text-white mb-6">Get Involved</h3>
-              <ul className="space-y-3">
-                {footerLinks.getInvolved.map((link, index) => (
-                  <motion.li 
-                    key={link}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    {link === 'Volunteer' ? (
-                      <Link 
-                        to="/volunteer" 
-                        onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
-                        className="text-white/80 hover:text-secondary transition-colors duration-300 block"
-                      >
-                        {link}
-                      </Link>
-                    ) : link === 'Donate' ? (
-                      <Link 
-                        to="/donate" 
-                        onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
-                        className="text-white/80 hover:text-secondary transition-colors duration-300 block"
-                      >
-                        {link}
-                      </Link>
-                    ) : (
-                      <a 
-                        href="#" 
-                        className="text-white/80 hover:text-secondary transition-colors duration-300 block"
-                      >
-                        {link}
-                      </a>
-                    )}
-                  </motion.li>
-                ))}
-              </ul>
+              </div>
+              
+              <p className="text-white/90 text-sm">
+                Stay connected with our latest updates and success stories.
+              </p>
             </div>
           </div>
 
@@ -202,35 +231,20 @@ const Footer: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* CHANGED: Social links mit Original Platform-Logos */}
+          {/* UPDATED: Bereinigte Copyright Section */}
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-            <div className="flex space-x-4 mb-6 md:mb-0">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-12 h-12 ${social.color} rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl`}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  title={`Follow us on ${social.name}`}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+            <div className="text-white/90 mb-4 md:mb-0">
+              <p>© 2024 IT for Youth Ghana. All rights reserved.</p>
             </div>
 
-            <div className="text-center md:text-right text-white/90">
-              <p className="mb-2">© 2024 IT for Youth Ghana. All rights reserved.</p>
-              <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-                <a href="#" className="hover:text-secondary transition-colors duration-300">Privacy Policy</a>
-                <a href="#" className="hover:text-secondary transition-colors duration-300">Terms of Service</a>
-                <a href="#" className="hover:text-secondary transition-colors duration-300">Cookie Policy</a>
-              </div>
+            <div className="text-white/90">
+              <Link 
+                to="/contact" 
+                onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+                className="hover:text-secondary transition-colors duration-300 font-medium"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Performance: Preload critical resources -->
+    <link rel="preload" href="/images/logo.png" as="image" type="image/png">
+    <link rel="preload" href="/images/UX1.jpeg" as="image" type="image/jpeg">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <meta name="description" content="IT For Youth Ghana - Empowering youth through technology education and digital skills training">
     <meta name="keywords" content="IT education, youth empowerment, Ghana, technology training, digital skills">
     <meta property="og:title" content="IT For Youth Ghana">
     <meta property="og:description" content="Empowering youth through technology education and digital skills training">
     <meta property="og:type" content="website">
-    <meta name="theme-color" content="#0affef">
+    <meta name="theme-color" content="#0152be">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Apple specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="IT Youth Ghana">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    
     <title>IT For Youth Ghana - Empowering Youth Through Technology</title>
   </head>
   <body>

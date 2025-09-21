@@ -2,6 +2,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
+import SEO from '../components/SEO'
 
 const Impact: React.FC = () => {
   const ref = useRef(null)
@@ -19,7 +20,7 @@ const Impact: React.FC = () => {
       role: 'Database Management Specialist',
       company: 'Bank of Ghana',
       quote: 'IT For Youth Ghana completely changed my perspective on technology. The skills I acquired opened doors I never thought possible.',
-      image: '/images/elisabeth.jpg',
+      image: '/images/people/elisabeth.jpg',
       program: 'Rural Tech Connect',
       year: '2022'
     },
@@ -29,7 +30,7 @@ const Impact: React.FC = () => {
       role: 'Graphic Designer',
       company: 'Creative Agency Kumasi',
       quote: 'The support I received fueled my growth and gave me the courage to pursue my dreams in the design world.',
-      image: '/images/benedicta.png',
+      image: '/images/people/benedicta.png',
       program: 'Girls in Tech Program',
       year: '2021'
     },
@@ -39,7 +40,7 @@ const Impact: React.FC = () => {
       role: 'Web Developer',
       company: 'Freelancer',
       quote: 'I came with no skills, but now I have built a website! This program changed my life.',
-      image: '/images/danielle.jpg',
+      image: '/images/people/danielle.jpg',
       program: 'Code Impact Challenge',
       year: '2023'
     }
@@ -73,7 +74,14 @@ const Impact: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white pt-24">
+    <>
+      <SEO 
+        title="Our Impact - Transforming Lives Through Tech"
+        description="See how IT for Youth Ghana transforms lives through technology education. 2000+ students trained, 85% success rate, bridging Ghana's digital divide."
+        canonical="/impact"
+        ogType="website"
+      />
+      <div className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <section className="relative py-24 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-hero-overlay"></div>
@@ -310,7 +318,7 @@ const Impact: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="cards-grid">
             {communityImpact.map((impact, index) => (
               <motion.div
                 key={impact.title}
@@ -318,31 +326,44 @@ const Impact: React.FC = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="card card-body text-center group"
+                className="card text-center group"
               >
-                <motion.div 
-                  className="w-16 h-16 mb-6 mx-auto rounded-lg overflow-hidden"
-                  whileHover={{ 
-                    rotate: [0, -10, 10, -10, 0],
-                    scale: 1.2
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">{impact.icon.slice(0,3)}</span>
+                <div className="card-content">
+                  {/* Headline oben */}
+                  <div>
+                    <motion.div 
+                      className="w-16 h-16 mb-6 mx-auto rounded-lg overflow-hidden"
+                      whileHover={{ 
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: 1.2
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">{impact.icon.slice(0,3)}</span>
+                      </div>
+                    </motion.div>
+                    <h3 className="card-title heading-sm group-hover:text-accent transition-colors duration-300">
+                      {impact.title}
+                    </h3>
                   </div>
-                </motion.div>
-                
-                <h3 className="heading-sm mb-4 group-hover:text-accent transition-colors duration-300">
-                  {impact.title}
-                </h3>
-                
-                <p className="text-body mb-4">
-                  {impact.description}
-                </p>
-                
-                <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-3">
-                  <p className="text-sm font-semibold text-primary">{impact.stats}</p>
+                  
+                  {/* Content mittig */}
+                  <div className="card-text">
+                    <p className="text-body">
+                      {impact.description}
+                    </p>
+                  </div>
+                  
+                  {/* CTA/Button unten */}
+                  <div className="card-footer">
+                    <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-3 mb-4">
+                      <p className="text-sm font-semibold text-primary">{impact.stats}</p>
+                    </div>
+                    <button className="btn btn-secondary btn-sm">
+                      Learn More
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -350,7 +371,8 @@ const Impact: React.FC = () => {
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   )
 }
 

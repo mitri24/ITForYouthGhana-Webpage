@@ -3,22 +3,25 @@ import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content'
 
-// CHANGED: Fokus auf 3 Kern-Benefits statt 4 detaillierte Challenges
+// CHANGED: Fokus auf 3 Kern-Benefits mit Random Pictures
 const kernBenefits = [
   {
     title: 'Free Tech Education',
     description: 'No-cost programming, web development, and digital skills training for all participants.',
-    icon: 'EDU'
+    icon: 'EDU',
+    image: '/images/randomPictures/IMG-20241118-WA0056.jpg'
   },
   {
     title: '70% Female Participation',
     description: 'Leading Ghana in gender-inclusive tech education with specialized support for women.',
-    icon: 'GEN'
+    icon: 'GEN',
+    image: '/images/randomPictures/2024-12-17 20.57 (5).jpg'
   },
   {
     title: 'Job-Ready Skills',
     description: 'Hands-on training with real projects, leading to employment and entrepreneurship opportunities.',
-    icon: 'JOB'
+    icon: 'JOB',
+    image: '/images/randomPictures/IMG_8802.JPG'
   }
 ]
 
@@ -44,8 +47,8 @@ const Vision: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CHANGED: 3 Kern-Benefits mit Icons statt Bildern */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ marginBottom: 'var(--space-3xl)' }}>
+        {/* UPDATED: Cards mit verbessertem Layout - Headline oben, Content mittig, Button unten */}
+        <div className="cards-grid" style={{ marginBottom: 'var(--space-3xl)' }}>
           {kernBenefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -59,20 +62,42 @@ const Vision: React.FC = () => {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="card text-center group"
+              className="card text-center group relative overflow-hidden"
             >
-              {/* CHANGED: Icon statt Bild für cleanes Design */}
-              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 transition-colors duration-300">
-                <span className="text-white font-bold text-lg">{benefit.icon}</span>
+              {/* Background Image */}
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <img 
+                  src={benefit.image} 
+                  alt={benefit.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
               
-              <h3 className="heading-sm mb-4 group-hover:text-primary-600 transition-colors duration-300">
-                {benefit.title}
-              </h3>
-              
-              <p className="text-body">
-                {benefit.description}
-              </p>
+              <div className="card-content relative z-10">
+                {/* Headline oben */}
+                <div>
+                  <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 transition-colors duration-300">
+                    <span className="text-white font-bold text-lg">{benefit.icon}</span>
+                  </div>
+                  <h3 className="card-title heading-sm group-hover:text-primary-600 transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+                </div>
+                
+                {/* Content mittig */}
+                <div className="card-text">
+                  <p className="text-body">
+                    {benefit.description}
+                  </p>
+                </div>
+                
+                {/* Button unten */}
+                <div className="card-footer">
+                  <button className="btn btn-secondary btn-sm">
+                    Learn More
+                  </button>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

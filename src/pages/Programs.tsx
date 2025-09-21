@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
 import Modal from '../components/Modal'
+import SEO from '../components/SEO'
 
 const Programs: React.FC = () => {
   const ref = useRef(null)
@@ -26,7 +27,7 @@ const Programs: React.FC = () => {
       description: 'Basic computer skills and digital literacy for rural communities.',
       duration: '6 weeks',
       participants: '120 graduates',
-      image: '/images/program-digital.jpg',
+      image: '/images/randomPictures/IMG-20241118-WA0078.jpg',
       skills: ['Computer Basics', 'Internet Navigation', 'Digital Safety', 'Email & Communication'],
       requirements: 'No prior experience required',
       status: 'past' as const,
@@ -39,7 +40,7 @@ const Programs: React.FC = () => {
       description: 'Comprehensive web development training with real-world projects.',
       duration: '12 weeks',
       participants: '45 graduates',
-      image: '/images/program-web.jpg',
+      image: '/images/randomPictures/IMG_2732.PNG',
       skills: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Database Design'],
       requirements: 'Basic computer skills',
       status: 'past' as const,
@@ -61,7 +62,14 @@ const Programs: React.FC = () => {
   }[activeFilter]
 
   return (
-    <div className="min-h-screen bg-white pt-24">
+    <>
+      <SEO 
+        title="Tech Programs - Programming Courses Ghana"
+        description="Explore our comprehensive technology programs in Ghana. Web development, data science, mobile app development courses with 70% female participation."
+        canonical="/programs"
+        ogType="website"
+      />
+      <div className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <section className="relative py-24 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-hero-overlay"></div>
@@ -459,7 +467,8 @@ const Programs: React.FC = () => {
           </div>
         </section>
       )}
-    </div>
+      </div>
+    </>
   )
 }
 
