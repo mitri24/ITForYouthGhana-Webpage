@@ -7,125 +7,150 @@ export default {
   theme: {
     extend: {
       colors: {
-        // NGO brand colors
+        // CHANGED: UX-optimierte Primärfarbe #0152be mit exakten Abstufungen für Hover/Active
         primary: {
-          DEFAULT: '#1b65b2',
-          50: '#e8f2ff',
-          100: '#d1e6ff',
-          200: '#a3ccff',
-          300: '#75b3ff',
-          400: '#4799ff',
-          500: '#1b65b2',
-          600: '#195aa5',
-          700: '#164f99',
-          800: '#13448c',
-          900: '#103a80',
+          DEFAULT: '#0152be', // Basis-Primärfarbe
+          50: '#eff8ff',
+          100: '#dbeeff', 
+          200: '#bfe2ff',
+          300: '#93d0ff',
+          400: '#60b4ff',
+          500: '#0152be', // Hauptfarbe
+          600: '#014aa8', // 90% für Hover
+          700: '#013d8c', // 80% für Active
+          800: '#012f70', // 70% für starken Kontrast
+          900: '#012154', // 60% für dunklere Varianten
+          950: '#0a1a3a',
         },
+        // Sekundärfarbe: Dunkleres Blau für Kontrast und Tiefe
         secondary: {
-          DEFAULT: '#8fb2d6',
-          50: '#f5f8fc',
-          100: '#ebf1f9',
-          200: '#d7e3f3',
-          300: '#c3d5ed',
-          400: '#afc7e7',
-          500: '#8fb2d6',
-          600: '#7da5d0',
-          700: '#6b98ca',
-          800: '#598bc4',
-          900: '#477ebe',
+          DEFAULT: '#0a1a3a', // Sehr dunkles Blau für Kontrast
+          50: '#eff8ff',
+          100: '#dbeeff',
+          200: '#bfe2ff', 
+          300: '#93d0ff',
+          400: '#60b4ff',
+          500: '#3b96ff',
+          600: '#2575f5',
+          700: '#1d5ee1',
+          800: '#1e4bb6',
+          900: '#0a1a3a',
+          950: '#030810',
         },
+        // Akzentfarbe bleibt für CTAs
         accent: {
-          DEFAULT: '#d02355',
-          50: '#fef2f6',
-          100: '#fde5ed',
-          200: '#fbcbdb',
-          300: '#f9b1c9',
-          400: '#f797b7',
-          500: '#d02355',
-          600: '#be204e',
-          700: '#ac1d47',
-          800: '#9a1a40',
-          900: '#881739',
+          DEFAULT: '#EF4444', // Red-500 für wichtige Aktionen
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FECACA',
+          300: '#FCA5A5',
+          400: '#F87171',
+          500: '#EF4444',
+          600: '#DC2626',
+          700: '#B91C1C',
+          800: '#991B1B',
+          900: '#7F1D1D',
         },
-        blue: {
-          DEFAULT: '#195aa5',
-          50: '#e8f1ff',
-          100: '#d1e3ff',
-          200: '#a3c7ff',
-          300: '#75abff',
-          400: '#478fff',
-          500: '#195aa5',
-          600: '#175196',
-          700: '#154887',
-          800: '#133f78',
-          900: '#113669',
+        // Erfolgsfarbe für positive Aktionen
+        success: {
+          DEFAULT: '#10B981', // Emerald-500
+          50: '#ECFDF5',
+          100: '#D1FAE5',
+          200: '#A7F3D0',
+          300: '#6EE7B7',
+          400: '#34D399',
+          500: '#10B981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065F46',
+          900: '#064E3B',
         },
-        // Neutral colors
+        // Neutrale Farben für Text und UI
         neutral: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
+          50: '#F9FAFB',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'Roboto', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+        // NEU: Starke, professionelle Schriftfamilien für seriöses Design
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-overlay': 'linear-gradient(135deg, rgba(27, 101, 178, 0.6) 0%, rgba(27, 101, 178, 0.4) 100%)',
-        'paper-texture': 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f5f5f5" fill-opacity="0.4"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3Ccircle cx="27" cy="27" r="1"/%3E%3Ccircle cx="47" cy="47" r="1"/%3E%3C/g%3E%3C/svg%3E")',
+        // NEU: Hero overlay mit starker Primärfarbe #0152be
+        'hero-overlay': 'linear-gradient(135deg, rgba(1, 82, 190, 0.95) 0%, rgba(10, 26, 58, 0.85) 100%)',
+        'hero-overlay-light': 'linear-gradient(135deg, rgba(1, 82, 190, 0.1) 0%, rgba(10, 26, 58, 0.05) 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #0152be 0%, #1e4bb6 100%)',
       },
       boxShadow: {
-        'blue-glow': '0 0 20px rgba(27, 101, 178, 0.5)',
-        'accent-glow': '0 0 20px rgba(208, 35, 85, 0.5)',
-        'glow': '0 0 30px rgba(27, 101, 178, 0.3)',
-        'float': '0 10px 30px rgba(0, 0, 0, 0.1)',
+        // NEU: Schatten mit starker Primärfarbe #0152be
+        'primary': '0 4px 14px 0 rgba(1, 82, 190, 0.3)',
+        'primary-lg': '0 10px 25px -3px rgba(1, 82, 190, 0.4)',
+        'primary-xl': '0 20px 40px -12px rgba(1, 82, 190, 0.5)',
+        'accent': '0 4px 14px 0 rgba(239, 68, 68, 0.25)',
+        'soft': '0 4px 20px 0 rgba(0, 0, 0, 0.05)',
+        'strong': '0 8px 32px 0 rgba(1, 82, 190, 0.2)',
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'slide-up': 'slideUp 0.8s ease-out forwards',
         'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'slide-up': 'slideUp 0.8s ease-out forwards',
+        'slide-in-right': 'slideInRight 0.5s ease-out forwards',
         'scale-in': 'scaleIn 0.5s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'bounce-soft': 'bounceSoft 2s infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        glow: {
-          '0%': { boxShadow: '0 0 20px rgba(27, 101, 178, 0.5)' },
-          '100%': { boxShadow: '0 0 30px rgba(27, 101, 178, 0.8)' },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        bounceSoft: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
         },
       },
-      borderRadius: {
-        'organic': '60% 40% 30% 70% / 60% 30% 70% 40%',
-        'organic-2': '40% 60% 70% 30% / 40% 70% 30% 60%',
-        'organic-3': '30% 70% 40% 60% / 70% 30% 60% 40%',
+      spacing: {
+        // CHANGED: UX-optimierte Spacing-Tokens (4px-Basis für konsistente Abstände)
+        '1': '0.25rem',   // 4px
+        '2': '0.5rem',    // 8px  
+        '3': '0.75rem',   // 12px
+        '4': '1rem',      // 16px - Mobile base padding
+        '5': '1.25rem',   // 20px - Tablet padding
+        '6': '1.5rem',    // 24px - Mobile section spacing
+        '8': '2rem',      // 32px - Desktop padding
+        '10': '2.5rem',   // 40px - Tablet section spacing
+        '12': '3rem',     // 48px - Small desktop sections
+        '16': '4rem',     // 64px - Large desktop sections
+        '18': '4.5rem',   // 72px
+        '20': '5rem',     // 80px - Extra large sections
+        '88': '22rem',
+        '128': '32rem',
+        // CHANGED: Touch-Target minimums (Fitts' Law)
+        'touch-min': '2.75rem', // 44px minimum touch target
+        'touch-comfort': '3rem', // 48px comfortable touch target
+        // CHANGED: Content max-widths
+        'content': '75rem',     // 1200px - Container max-width
+        'text': '65ch',         // 60-75 Zeichen optimal für Lesbarkeit
       },
     },
   },

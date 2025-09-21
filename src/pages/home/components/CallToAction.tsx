@@ -47,7 +47,7 @@ const CallToAction: React.FC = () => {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#8fb2d6] rounded-full"
+            className="absolute w-1 h-1 bg-secondary rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -113,7 +113,7 @@ const CallToAction: React.FC = () => {
                 >
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                 </motion.div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#8fb2d6] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
                   {card.title}
                 </h3>
                 <p className="text-white/80 text-lg">
@@ -171,18 +171,18 @@ const CallToAction: React.FC = () => {
             <h3 className="text-2xl font-bold text-white mb-6">Ready to Start Your Journey?</h3>
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
-                <h4 className="text-lg font-semibold text-[#8fb2d6] mb-2">Contact Us</h4>
+                <h4 className="text-lg font-semibold text-secondary mb-2">Contact Us</h4>
                 <p className="text-white/80">{content.contact.email}</p>
                 <p className="text-white/80">{content.contact.phone}</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#d02355] mb-2">Follow Us</h4>
+                <h4 className="text-lg font-semibold text-accent mb-2">Follow Us</h4>
                 <div className="flex gap-4">
                   {['LinkedIn', 'Twitter', 'Facebook'].map((platform) => (
                     <motion.a
                       key={platform}
                       href="#"
-                      className="text-white/80 hover:text-[#8fb2d6] transition-colors duration-300"
+                      className="text-white/80 hover:text-secondary transition-colors duration-300"
                       whileHover={{ scale: 1.1 }}
                     >
                       {platform}

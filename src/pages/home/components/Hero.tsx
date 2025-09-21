@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         />
-        <div className="absolute inset-0 bg-primary/50" />
+        <div className="absolute inset-0 bg-hero-overlay" />
       </AnimatePresence>
 
       {/* Hero Content */}
@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12 text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12 text-white leading-tight font-display">
               <span className="block">{heroSlides[currentSlide].title}</span>
             </h1>
             
@@ -111,24 +111,35 @@ const Hero: React.FC = () => {
               {heroSlides[currentSlide].subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-              <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+            {/* CHANGED: UX-optimierte CTAs - Volunteer priorisiert (Fitts' Law) */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-lg mx-auto">
+              <Link to="/volunteer" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
                 <motion.button
-                  className="bg-white text-primary px-12 py-5 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto bg-white text-primary hover:bg-neutral-100 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ 
+                    minHeight: 'var(--touch-comfort)',
+                    padding: 'var(--space-lg) var(--space-2xl)',
+                    fontSize: 'var(--text-lg)'
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {content.cta.buttons[1].text}
+                  Join as Volunteer
                 </motion.button>
               </Link>
               
-              <Link to="/contact" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+              <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
                 <motion.button
-                  className="border-2 border-white text-white px-12 py-5 text-lg rounded-xl font-semibold hover:bg-white hover:text-primary transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary font-semibold rounded-lg transition-all duration-300"
+                  style={{ 
+                    minHeight: 'var(--touch-comfort)',
+                    padding: 'var(--space-lg) var(--space-2xl)',
+                    fontSize: 'var(--text-lg)'
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {content.cta.buttons[0].text}
+                  Explore Programs
                 </motion.button>
               </Link>
             </div>
@@ -139,21 +150,21 @@ const Hero: React.FC = () => {
       {/* Side Navigation Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 backdrop-blur-lg hover:bg-black/30 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-lg hover:bg-primary/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
       >
         ←
       </button>
       
       <button 
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/20 backdrop-blur-lg hover:bg-black/30 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-lg hover:bg-primary/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
       >
         →
       </button>
 
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 animate-float">
-        <div className="w-4 h-4 bg-primary rounded-full opacity-60 shadow-blue-glow"></div>
+        <div className="w-4 h-4 bg-secondary rounded-full opacity-60 shadow-secondary-glow"></div>
       </div>
       <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '-2s' }}>
         <div className="w-6 h-6 bg-accent rounded-full opacity-40 shadow-accent-glow"></div>
@@ -162,7 +173,7 @@ const Hero: React.FC = () => {
         <div className="w-3 h-3 bg-secondary rounded-full opacity-50"></div>
       </div>
       <div className="absolute top-60 right-10 animate-float" style={{ animationDelay: '-1s' }}>
-        <div className="w-2 h-2 bg-blue rounded-full opacity-70"></div>
+        <div className="w-2 h-2 bg-secondary rounded-full opacity-70"></div>
       </div>
 
       {/* Scroll indicator */}
