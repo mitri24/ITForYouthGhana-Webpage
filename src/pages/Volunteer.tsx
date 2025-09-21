@@ -138,9 +138,9 @@ ${formData.name}
   ]
 
   return (
-    <div className="min-h-screen bg-white pt-24">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-primary overflow-hidden">
+    <div className="min-h-screen bg-white" style={{ paddingTop: 'var(--space-3xl)' }}>
+      {/* CHANGED: UX-optimierter Hero mit klarem CTA-Flow */}
+      <section className="section-hero bg-primary overflow-hidden relative">
         <div className="absolute inset-0 bg-hero-overlay"></div>
         <div className="container relative z-10">
           <motion.div
@@ -149,17 +149,37 @@ ${formData.name}
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Become a Volunteer</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-8">
-              Use your skills to shape Ghana's tech future and transform lives
-            </p>
-            <motion.button
-              className="bg-white text-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-float hover:shadow-blue-glow transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Become a Volunteer Now
-            </motion.button>
+            <h1 className="heading-xl text-white mb-6">Join Our Volunteer Team</h1>
+            <div className="text-container">
+              <p className="text-lead text-white/90 mb-8">
+                Transform lives through technology. Use your skills to bridge Ghana's digital divide and empower the next generation of tech leaders.
+              </p>
+            </div>
+            
+            {/* CHANGED: Dual CTA - Primary und Secondary Actions (Hick's Law) */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <motion.button
+                onClick={() => document.getElementById('volunteer-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="btn btn-secondary flex-1"
+                style={{ minHeight: 'var(--touch-comfort)' }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Apply Now
+              </motion.button>
+              <motion.button
+                onClick={() => document.getElementById('volunteer-roles')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-white border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300 rounded-lg font-medium"
+                style={{ 
+                  minHeight: 'var(--touch-comfort)',
+                  padding: 'var(--space-md) var(--space-lg)'
+                }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View Roles
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -211,19 +231,21 @@ ${formData.name}
         </div>
       </section>
 
-      {/* Volunteer Roles */}
-      <section className="py-20 bg-white">
+      {/* CHANGED: Volunteer Roles mit ID für Navigation */}
+      <section id="volunteer-roles" className="section bg-white">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center" style={{ marginBottom: 'var(--space-3xl)' }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Volunteer Roles</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Find the perfect role that matches your skills and availability
-            </p>
+            <h2 className="heading-lg mb-6">Volunteer Opportunities</h2>
+            <div className="text-container">
+              <p className="text-lead text-center">
+                Find the perfect role that matches your skills, interests, and availability
+              </p>
+            </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
@@ -434,19 +456,21 @@ ${formData.name}
         </div>
       </section>
 
-      {/* Volunteer Application Form */}
-      <section className="py-20 bg-neutral-50">
+      {/* CHANGED: UX-optimiertes Application Form mit ID */}
+      <section id="volunteer-form" className="section bg-neutral-50">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center" style={{ marginBottom: 'var(--space-3xl)' }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Apply to Volunteer</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Ready to make a difference? Fill out this form and we'll get back to you soon.
-            </p>
+            <h2 className="heading-lg mb-6">Start Your Volunteer Journey</h2>
+            <div className="text-container">
+              <p className="text-lead text-center">
+                Ready to make a difference? Complete the application below and join our team of changemakers.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -455,7 +479,7 @@ ${formData.name}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="card" style={{ padding: 'var(--space-2xl)' }}>
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 mb-2">
@@ -580,14 +604,16 @@ ${formData.name}
                 </div>
               )}
 
+              {/* CHANGED: UX-optimierter Submit Button */}
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+                className="btn btn-primary w-full text-lg"
+                style={{ minHeight: 'var(--touch-comfort)' }}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                {isSubmitting ? 'Submitting Application...' : 'Submit Volunteer Application'}
               </motion.button>
             </form>
           </motion.div>

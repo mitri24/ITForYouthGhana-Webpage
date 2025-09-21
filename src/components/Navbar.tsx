@@ -1,3 +1,4 @@
+// NEU: Redesigned Header - Logo links, zentrale Navigation, prominenter Volunteer-CTA
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
@@ -5,57 +6,85 @@ import { Link, useLocation } from 'react-router-dom'
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = [
+  // NEU: Zentrale Navigation wie spezifiziert
+  const mainNavItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Programs', href: '/programs' },
     { name: 'Impact', href: '/impact' },
-    { name: 'Partner with Us', href: '/partners' },
-    { name: 'Donate', href: '/donate' },
+    { name: 'Programs', href: '/programs' },
+    { name: 'Partner', href: '/partners' },
+    { name: 'Volunteer', href: '/volunteer' },
     { name: 'Contact', href: '/contact' },
   ]
 
+  // NEU: Login/Register unter "Mehr" 
+  const moreItems = [
+    { name: 'Login', action: () => alert('Login functionality coming soon!') },
+    { name: 'Register', action: () => alert('Register functionality coming soon!') },
+  ]
+
   return (
-    <motion.nav
+    <motion.header
+      role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-primary shadow-lg' 
-          : 'bg-primary/90'
+          ? 'bg-white shadow-primary-lg border-b border-primary/10 py-2' 
+          : 'bg-white/95 backdrop-blur-md py-4'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-6 py-6">
+      <div className="container">
+        {/* NEU: Sticky/Shrink Layout - Logo links, zentrale Navigation, Volunteer-CTA rechts */}
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+          {/* Logo links */}
+          <Link 
+            to="/" 
+            onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+            aria-label="IT for Youth Ghana - Go to homepage"
+            className="flex items-center"
+            style={{ minHeight: 'var(--touch-target-min)' }}
+          >
             <motion.div 
               className="flex items-center"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
               <img 
                 src="/images/logo.png" 
-                alt="IT for Youth Ghana" 
-                className="h-16 w-auto object-contain"
+                alt="IT for Youth Ghana logo" 
+                className={`w-auto object-contain transition-all duration-300 ${
+                  isScrolled ? 'h-8' : 'h-12'
+                }`}
               />
+              <span className={`ml-3 font-bold text-primary transition-all duration-300 ${
+                isScrolled ? 'text-lg' : 'text-xl'
+              }`}>
+                IT for Youth Ghana
+              </span>
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
+          {/* Zentrale Navigation (Desktop) */}
+          <nav 
+            className="hidden xl:flex items-center space-x-1"
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            {mainNavItems.slice(0, -1).map((item, index) => ( // Alle außer Volunteer
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -65,92 +94,184 @@ const Navbar: React.FC = () => {
                 <Link
                   to={item.href}
                   onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
-                  className={`transition-colors duration-300 font-medium ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-primary/5 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                     location.pathname === item.href
-                      ? 'text-[#8fb2d6]'
-                      : 'text-white hover:text-[#8fb2d6]'
+                      ? 'text-primary bg-primary/10'
+                      : 'text-neutral-700'
                   }`}
+                  style={{ minHeight: 'var(--touch-target-min)' }}
                 >
-                  <motion.span whileHover={{ scale: 1.05 }}>
-                    {item.name}
-                  </motion.span>
+                  {item.name}
                 </Link>
               </motion.div>
             ))}
-          </div>
+            
+            {/* Mehr Menu für Login/Register */}
+            <div className="relative">
+              <motion.button
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-primary/5 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 ${
+                  isMoreMenuOpen ? 'text-primary bg-primary/10' : 'text-neutral-700'
+                }`}
+                style={{ minHeight: 'var(--touch-target-min)' }}
+                onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
+                aria-expanded={isMoreMenuOpen}
+                aria-haspopup="true"
+              >
+                Mehr ↓
+              </motion.button>
+              
+              <AnimatePresence>
+                {isMoreMenuOpen && (
+                  <motion.div
+                    className="absolute top-full right-0 mt-2 w-48 bg-white border border-neutral-200 rounded-xl shadow-primary-lg py-2"
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {moreItems.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => {
+                          setIsMoreMenuOpen(false)
+                          item.action()
+                        }}
+                        className="w-full text-left px-4 py-3 text-sm text-neutral-700 hover:bg-primary/5 hover:text-primary transition-colors duration-200"
+                        style={{ minHeight: 'var(--touch-target-min)' }}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </nav>
 
-          {/* Volunteer Button */}
-          <Link to="/volunteer" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
+          {/* Rechts: Prominenter Volunteer-CTA */}
+          <div className="flex items-center space-x-3">
+            {/* Desktop Volunteer CTA */}
+            <Link 
+              to="/volunteer" 
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+              className="hidden md:block"
+            >
+              <motion.button
+                className={`btn btn-primary transition-all duration-300 ${
+                  isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base'
+                }`}
+                style={{ minHeight: 'var(--touch-target-min)' }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className={`font-semibold ${isScrolled ? 'text-sm' : 'text-base'}`}>
+                  Volunteer
+                </span>
+              </motion.button>
+            </Link>
+
+            {/* Mobile Menu Button */}
             <motion.button
-              className="hidden md:block bg-accent hover:bg-accent/90 text-white px-6 py-3 text-sm rounded-xl font-semibold transition-colors duration-300"
+              className="xl:hidden p-2 text-neutral-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              style={{ minHeight: 'var(--touch-target-min)', minWidth: 'var(--touch-target-min)' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
             >
-              Volunteer
+              <div className="w-6 h-6 relative">
+                <motion.span
+                  className="absolute top-0 left-0 w-full h-0.5 bg-current origin-left"
+                  animate={{
+                    rotate: isMobileMenuOpen ? 45 : 0,
+                    y: isMobileMenuOpen ? 11 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  className="absolute top-2.5 left-0 w-full h-0.5 bg-current"
+                  animate={{
+                    opacity: isMobileMenuOpen ? 0 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  className="absolute top-5 left-0 w-full h-0.5 bg-current origin-left"
+                  animate={{
+                    rotate: isMobileMenuOpen ? -45 : 0,
+                    y: isMobileMenuOpen ? -11 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
             </motion.button>
-          </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <div className="w-6 h-6 relative">
-              <motion.span
-                className="absolute top-0 left-0 w-full h-0.5 bg-current origin-left"
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 11 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="absolute top-2.5 left-0 w-full h-0.5 bg-current"
-                animate={{
-                  opacity: isMobileMenuOpen ? 0 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="absolute top-5 left-0 w-full h-0.5 bg-current origin-left"
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -11 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* NEU: Mobile Menu - Volunteer-CTA oben priorisiert */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden mt-4 bg-primary rounded-2xl p-6"
+              id="mobile-menu"
+              className="xl:hidden mt-4 bg-white border border-neutral-200 rounded-2xl p-6 shadow-primary-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
+              role="menu"
             >
               <div className="flex flex-col space-y-4">
-                {navItems.map((item, index) => (
+                {/* Volunteer-CTA prominent am Anfang */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="mb-6 pb-6 border-b border-neutral-200"
+                >
+                  <Link 
+                    to="/volunteer" 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false)
+                      setTimeout(() => window.scrollTo(0, 0), 100)
+                    }}
+                  >
+                    <motion.button
+                      className="btn btn-primary w-full text-lg font-bold"
+                      style={{ 
+                        minHeight: 'calc(var(--touch-target-min) + 8px)',
+                        padding: 'var(--space-lg) var(--space-xl)'
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Volunteer Now
+                    </motion.button>
+                  </Link>
+                </motion.div>
+
+                {/* Navigation Items */}
+                {mainNavItems.filter(item => item.name !== 'Volunteer').map((item, index) => (
                   <motion.div
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: (index + 2) * 0.1 }}
                   >
                     <Link
                       to={item.href}
-                      className={`block py-2 transition-colors duration-300 font-medium ${
+                      className={`block transition-all duration-300 font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                         location.pathname === item.href
-                          ? 'text-[#8fb2d6]'
-                          : 'text-white hover:text-[#8fb2d6]'
+                          ? 'text-primary bg-primary/10'
+                          : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
                       }`}
+                      style={{ 
+                        minHeight: 'var(--touch-target-min)',
+                        padding: 'var(--space-md) var(--space-lg)',
+                        display: 'flex',
+                        alignItems: 'center'
+                      }}
                       onClick={() => {
                         setIsMobileMenuOpen(false)
                         setTimeout(() => window.scrollTo(0, 0), 100)
@@ -160,25 +281,37 @@ const Navbar: React.FC = () => {
                     </Link>
                   </motion.div>
                 ))}
-                <Link to="/volunteer" onClick={() => {
-                  setIsMobileMenuOpen(false)
-                  setTimeout(() => window.scrollTo(0, 0), 100)
-                }}>
-                  <motion.button
-                    className="bg-accent hover:bg-accent/90 text-white w-full py-3 mt-4 rounded-xl font-semibold transition-colors duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    Volunteer
-                  </motion.button>
-                </Link>
+                
+                {/* Auth Buttons - dezent am Ende */}
+                <div className="mt-8 pt-6 border-t border-neutral-200">
+                  <div className="flex flex-col space-y-3">
+                    {moreItems.map((item, index) => (
+                      <motion.button
+                        key={item.name}
+                        className="text-left text-neutral-600 hover:text-primary font-medium transition-colors duration-300 rounded-lg"
+                        style={{ 
+                          minHeight: 'var(--touch-target-min)', 
+                          padding: 'var(--space-md)' 
+                        }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + (index * 0.1) }}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false)
+                          item.action()
+                        }}
+                      >
+                        {item.name}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </motion.header>
   )
 }
 

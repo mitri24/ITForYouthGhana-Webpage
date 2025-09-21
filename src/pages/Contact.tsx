@@ -55,11 +55,11 @@ const Contact: React.FC = () => {
   ]
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: '/images/logo.png', color: 'from-[#1b65b2] to-[#195aa5]', href: '#' },
-    { name: 'Twitter', icon: '/images/logo.png', color: 'from-[#8fb2d6] to-[#1b65b2]', href: '#' },
-    { name: 'Facebook', icon: '/images/logo.png', color: 'from-[#1b65b2] to-[#195aa5]', href: '#' },
-    { name: 'Instagram', icon: '/images/logo.png', color: 'from-[#d02355] to-[#1b65b2]', href: '#' },
-    { name: 'YouTube', icon: '/images/logo.png', color: 'from-[#d02355] to-[#8fb2d6]', href: '#' }
+    { name: 'LinkedIn', icon: '/images/logo.png', color: 'from-primary to-blue', href: '#' },
+    { name: 'Twitter', icon: '/images/logo.png', color: 'from-secondary to-primary', href: '#' },
+    { name: 'Facebook', icon: '/images/logo.png', color: 'from-primary to-blue', href: '#' },
+    { name: 'Instagram', icon: '/images/logo.png', color: 'from-accent to-primary', href: '#' },
+    { name: 'YouTube', icon: '/images/logo.png', color: 'from-accent to-secondary', href: '#' }
   ]
 
   const faqItems = content.faq
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
     <div className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <section className="relative py-24 bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-hero-overlay"></div>
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1b65b2]">Contact Information</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Contact Information</h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Reach us through various channels
             </p>
@@ -108,15 +108,15 @@ const Contact: React.FC = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-[#8fb2d6]/20 text-center group cursor-pointer"
+                className="card card-body text-center group cursor-pointer"
               >
                 <div className="w-12 h-12 mb-4 mx-auto">
                   <img src={info.icon} alt={info.title} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1b65b2] mb-2 group-hover:text-[#d02355] transition-colors duration-300">
+                <h3 className="heading-sm mb-2 group-hover:text-accent transition-colors duration-300">
                   {info.title}
                 </h3>
-                <p className="text-neutral-600">{info.detail}</p>
+                <p className="text-body">{info.detail}</p>
               </motion.a>
             ))}
           </div>
@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold text-[#1b65b2] mb-8">Follow Us</h3>
+            <h3 className="heading-md mb-8">Follow Us</h3>
             <div className="flex justify-center gap-6">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -159,31 +159,31 @@ const Contact: React.FC = () => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-[#1b65b2] mb-8">Send us a Message</h2>
+              <h2 className="heading-lg mb-8">Send us a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Name *</label>
+                    <label className="form-label">Name *</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-[#8fb2d6]/20 focus:border-[#1b65b2] focus:outline-none transition-colors duration-300"
+                      className="form-input"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Email *</label>
+                    <label className="form-label">Email *</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-[#8fb2d6]/20 focus:border-[#1b65b2] focus:outline-none transition-colors duration-300"
+                      className="form-input"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -191,23 +191,23 @@ const Contact: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Phone</label>
+                    <label className="form-label">Phone</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-[#8fb2d6]/20 focus:border-[#1b65b2] focus:outline-none transition-colors duration-300"
+                      className="form-input"
                       placeholder="+233 XX XXX XXXX"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Interest</label>
+                    <label className="form-label">Interest</label>
                     <select
                       name="interest"
                       value={formData.interest}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-[#8fb2d6]/20 focus:border-[#1b65b2] focus:outline-none transition-colors duration-300"
+                      className="form-input"
                     >
                       <option value="">Please select...</option>
                       <option value="programs">Programs</option>
@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Subject *</label>
+                  <label className="form-label">Subject *</label>
                   <input
                     type="text"
                     name="subject"
@@ -233,7 +233,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#1b65b2] mb-2">Message *</label>
+                  <label className="form-label">Message *</label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -247,7 +247,7 @@ const Contact: React.FC = () => {
 
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#1b65b2] to-[#195aa5] text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="btn btn-primary w-full"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-4xl font-bold text-[#1b65b2] mb-8">Frequently Asked Questions</h2>
+              <h2 className="heading-lg mb-8">Frequently Asked Questions</h2>
               
               <div className="space-y-6">
                 {faqItems.map((faq, index) => (
@@ -271,10 +271,10 @@ const Contact: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="bg-neutral-50 rounded-2xl p-6 border border-secondary/20"
+                    className="card card-body"
                   >
-                    <h3 className="text-lg font-bold text-[#1b65b2] mb-3">{faq.question}</h3>
-                    <p className="text-neutral-700 leading-relaxed">{faq.answer}</p>
+                    <h3 className="heading-sm mb-3">{faq.question}</h3>
+                    <p className="text-body">{faq.answer}</p>
                   </motion.div>
                 ))}
               </div>
@@ -283,15 +283,15 @@ const Contact: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-8 p-6 bg-gradient-to-r from-[#1b65b2]/10 to-[#d02355]/10 rounded-2xl"
+                className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl"
               >
-                <h3 className="text-lg font-bold text-[#1b65b2] mb-3">More Questions?</h3>
-                <p className="text-neutral-700 mb-4">
+                <h3 className="heading-sm mb-3">More Questions?</h3>
+                <p className="text-body mb-4">
                   Don't hesitate to contact us directly. Our team is happy to help you!
                 </p>
                 <motion.a
                   href="mailto:info@ityouthghana.org"
-                  className="inline-block bg-[#1b65b2] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#195aa5] transition-colors duration-300"
+                  className="btn btn-primary"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -312,7 +312,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1b65b2]">Leadership Team</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Leadership Team</h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Connect directly with our executive leadership for partnerships and coordination
             </p>
@@ -323,20 +323,20 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-r from-[#1b65b2]/5 to-[#d02355]/5 rounded-3xl p-8 border border-[#8fb2d6]/20"
+              className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-3xl p-8 border border-secondary/20"
             >
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h3 className="text-2xl font-bold text-[#1b65b2] mb-2">{content.contact.leadership.name}</h3>
-                  <p className="text-lg text-[#d02355] font-semibold mb-4">{content.contact.leadership.title}</p>
+                  <h3 className="text-2xl font-bold text-primary mb-2">{content.contact.leadership.name}</h3>
+                  <p className="text-lg text-accent font-semibold mb-4">{content.contact.leadership.title}</p>
                   <p className="text-neutral-600 mb-6">{content.contact.leadership.department}</p>
                   
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center">
                       <span className="text-2xl mr-3">@</span>
                       <div>
-                        <p className="font-semibold text-[#1b65b2]">Email</p>
-                        <a href={`mailto:${content.contact.leadership.email}`} className="text-[#d02355] hover:underline">
+                        <p className="font-semibold text-primary">Email</p>
+                        <a href={`mailto:${content.contact.leadership.email}`} className="text-accent hover:underline">
                           {content.contact.leadership.email}
                         </a>
                       </div>
@@ -344,8 +344,8 @@ const Contact: React.FC = () => {
                     <div className="flex items-center">
                       <span className="text-2xl mr-3">+</span>
                       <div>
-                        <p className="font-semibold text-[#1b65b2]">Phone</p>
-                        <a href={`tel:${content.contact.leadership.phone}`} className="text-[#d02355] hover:underline">
+                        <p className="font-semibold text-primary">Phone</p>
+                        <a href={`tel:${content.contact.leadership.phone}`} className="text-accent hover:underline">
                           {content.contact.leadership.phone}
                         </a>
                       </div>
@@ -353,7 +353,7 @@ const Contact: React.FC = () => {
                     <div className="flex items-center">
                       <span className="text-2xl mr-3">*</span>
                       <div>
-                        <p className="font-semibold text-[#1b65b2]">Languages</p>
+                        <p className="font-semibold text-primary">Languages</p>
                         <p className="text-neutral-600">{content.contact.leadership.languages.join(', ')}</p>
                       </div>
                     </div>
@@ -361,7 +361,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <h4 className="text-lg font-bold text-[#1b65b2] mb-4">Availability & Coordination</h4>
+                  <h4 className="text-lg font-bold text-primary mb-4">Availability & Coordination</h4>
                   <p className="text-neutral-600 leading-relaxed mb-4">
                     {content.contact.leadership.availability}
                   </p>
@@ -399,7 +399,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1b65b2]">Visit Us</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Visit Us</h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Come visit and get to know our team and facilities
             </p>
@@ -408,47 +408,75 @@ const Contact: React.FC = () => {
           <div className="bg-white rounded-3xl p-8 shadow-lg">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-[#1b65b2] mb-6">IT for Youth Ghana</h3>
+                <h3 className="text-2xl font-bold text-primary mb-6">IT for Youth Ghana</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <img src="/images/logo.png" alt="Location" className="w-6 h-6 mr-4 object-contain" />
                     <div>
-                      <p className="font-semibold text-[#1b65b2]">Main Office</p>
+                      <p className="font-semibold text-primary">Main Office</p>
                       <p className="text-neutral-600">Digital Innovation Hub<br />Accra, Ghana</p>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <img src="/images/logo.png" alt="Hours" className="w-6 h-6 mr-4 object-contain" />
                     <div>
-                      <p className="font-semibold text-[#1b65b2]">Office Hours</p>
+                      <p className="font-semibold text-primary">Office Hours</p>
                       <p className="text-neutral-600">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: 10:00 AM - 2:00 PM</p>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <img src="/images/logo.png" alt="Transport" className="w-6 h-6 mr-4 object-contain" />
                     <div>
-                      <p className="font-semibold text-[#1b65b2]">Transportation</p>
+                      <p className="font-semibold text-primary">Transportation</p>
                       <p className="text-neutral-600">Public transportation and parking available</p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-neutral-100 rounded-2xl p-8 text-center">
-                <div className="w-16 h-16 mb-4 mx-auto">
-                  <img src="/images/logo.png" alt="Map" className="w-full h-full object-contain" />
+              {/* NEU: Responsive Map Embed für Ghana/Accra */}
+              <div className="bg-neutral-100 rounded-2xl overflow-hidden shadow-lg">
+                <div className="aspect-video w-full">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.56684390774!2d-0.2664328839721779!3d5.603716899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1658234567890!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="IT for Youth Ghana Location - Accra, Ghana"
+                    className="w-full h-full"
+                  />
                 </div>
-                <h4 className="text-xl font-bold text-[#1b65b2] mb-4">Map Coming Soon</h4>
-                <p className="text-neutral-600 mb-6">
-                  Detailed directions and interactive map will be available here.
-                </p>
-                <motion.button
-                  className="bg-gradient-to-r from-[#1b65b2] to-[#195aa5] text-white px-6 py-3 rounded-xl font-semibold"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Open Route Planner
-                </motion.button>
+                <div className="p-6 bg-white">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <motion.a
+                      href="https://goo.gl/maps/accra-ghana"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary flex-1 text-center"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Open in Google Maps
+                    </motion.a>
+                    <motion.button
+                      className="btn btn-secondary flex-1"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => {
+                        if (navigator.geolocation) {
+                          navigator.geolocation.getCurrentPosition(() => {
+                            window.open('https://www.google.com/maps/dir//Accra,+Ghana', '_blank')
+                          })
+                        }
+                      }}
+                    >
+                      Get Directions
+                    </motion.button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
