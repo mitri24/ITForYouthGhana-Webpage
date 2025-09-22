@@ -10,16 +10,20 @@ const quickStats = [
   { number: '25+', label: 'Partner Schools' }
 ]
 
-// CHANGED: Before/After für Teaser
+// UPDATED: Erweiterte Before/After Vergleich
 const beforeAfterData = {
   before: [
     'Limited or no tech skills',
-    'Uncertain career prospects',
-    'Limited access to resources'
+    'Little confidence in own abilities',
+    'Uncertainty about career paths',
+    'Limited access to resources',
+    'Missing networks in the tech industry'
   ],
   after: [
-    'Job-ready programming skills',
-    'Clear career pathways',
+    'Solid tech skills in chosen field',
+    'Self-confidence and problem-solving abilities',
+    'Clear career goals and development plans',
+    'Access to mentors and resources',
     'Strong professional networks'
   ]
 }
@@ -46,64 +50,94 @@ const Impact: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CHANGED: Before & After Comparison (Teaser) mit Background */}
+        {/* UPDATED: Moderne Before & After Transformation */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-5xl mx-auto" style={{ marginBottom: 'var(--space-3xl)' }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-6xl mx-auto" style={{ marginBottom: 'var(--space-3xl)' }}
         >
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Before */}
-            <div className="card bg-neutral-100 relative overflow-hidden" style={{ padding: 'var(--space-lg)' }}>
-              <div className="absolute inset-0 opacity-5">
-                <img 
-                  src="/images/randomPictures/IMG-20241118-WA0063.jpg" 
-                  alt="Before training"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="heading-sm text-neutral-600 mb-6 relative z-10">Before Our Programs</h3>
-              <ul className="space-y-4">
-                {beforeAfterData.before.map((item, index) => (
-                  <motion.li 
-                    key={index} 
-                    className="flex items-center relative z-10"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.4 + (index * 0.1) }}
-                  >
-                    <span className="w-3 h-3 bg-neutral-400 rounded-full mr-4 flex-shrink-0"></span>
-                    <span className="text-body">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+          <div className="text-center mb-12">
+            <h3 className="heading-lg mb-4">Transformation Journey</h3>
+            <p className="text-lead text-neutral-800 max-w-3xl mx-auto">
+              See how our programs transform participants from uncertainty to tech confidence
+            </p>
+          </div>
 
-            {/* After */}
-            <div className="card bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden" style={{ padding: 'var(--space-lg)' }}>
-              <div className="absolute inset-0 opacity-5">
-                <img 
-                  src="/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg" 
-                  alt="After training success"
-                  className="w-full h-full object-cover"
-                />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Before - Redesigned with better centering */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative"
+            >
+              <div className="bg-neutral-50 rounded-2xl p-8 border-l-4 border-neutral-300">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-semibold text-neutral-700 mb-2">Before the Program</h4>
+                </div>
+                <ul className="space-y-3">
+                  {beforeAfterData.before.map((item, index) => (
+                    <motion.li 
+                      key={index} 
+                      className="flex items-start"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.4 + (index * 0.05) }}
+                    >
+                      <span className="w-2 h-2 bg-neutral-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-neutral-800 leading-relaxed">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="heading-sm mb-6 relative z-10">After Our Programs</h3>
-              <ul className="space-y-4">
-                {beforeAfterData.after.map((item, index) => (
-                  <motion.li 
-                    key={index} 
-                    className="flex items-center relative z-10"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.6 + (index * 0.1) }}
-                  >
-                    <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full mr-4 flex-shrink-0"></span>
-                    <span className="text-primary font-medium">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
+            </motion.div>
+
+            {/* After - Redesigned with better centering */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 border-l-4 border-primary">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-semibold text-primary mb-2">After the Program</h4>
+                </div>
+                <ul className="space-y-3">
+                  {beforeAfterData.after.map((item, index) => (
+                    <motion.li 
+                      key={index} 
+                      className="flex items-start"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.5 + (index * 0.05) }}
+                    >
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-primary font-medium leading-relaxed">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Arrow between sections */}
+          <div className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </div>
           </div>
         </motion.div>

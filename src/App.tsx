@@ -2,15 +2,15 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Footer from './components/layout/footer'
 
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'))
-const About = React.lazy(() => import('./pages/About'))
-const Programs = React.lazy(() => import('./pages/Programs'))
-const Impact = React.lazy(() => import('./pages/Impact'))
-const Partners = React.lazy(() => import('./pages/Partners'))
-const Volunteer = React.lazy(() => import('./pages/Volunteer'))
+const About = React.lazy(() => import('./pages/about'))
+const Programs = React.lazy(() => import('./pages/programs/Programs'))
+const Impact = React.lazy(() => import('./pages/impact/Impact'))
+const Partners = React.lazy(() => import('./pages/partners/Partners'))
+const Volunteer = React.lazy(() => import('./pages/volunteer/Volunteer'))
 const Contact = React.lazy(() => import('./pages/Contact'))
 const Donate = React.lazy(() => import('./pages/Donate'))
 const Error404 = React.lazy(() => import('./pages/Error404'))
@@ -21,7 +21,7 @@ const PageLoading: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
     <div className="text-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-      <p className="text-neutral-600">Loading...</p>
+      <p className="text-neutral-800">Loading...</p>
     </div>
   </div>
 )

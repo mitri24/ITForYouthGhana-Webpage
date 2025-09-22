@@ -46,9 +46,38 @@
   --safe-area-right: env(safe-area-inset-right, 0);
 }
 
-/* CHANGED: UX-optimierte Base Styles */
+/* Optimiertes Scroll-Verhalten */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Für fixed navbar */
+}
+
+/* Verbesserte Scroll-Performance */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Sanfte Scroll-Animation für Links */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Scroll-to-Top Enhancement */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Reduced Motion Respektieren */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -83,62 +112,116 @@ body {
 }
 
 @layer components {
-  /* CHANGED: UX-optimierte Button-Styles mit Touch-Targets und Accessibility */
+  /* Einheitliche Button-Styles für alle Seiten */
   .btn {
-    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-    /* CHANGED: Mindest-Touch-Target 44px (Fitts' Law) */
-    min-height: var(--touch-target-min);
-    min-width: var(--touch-target-min);
-    padding: var(--space-md) var(--space-lg); /* 16px 24px */
+    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+    @apply cursor-pointer select-none;
+    /* Einheitliche Größen */
+    min-height: 48px; /* Touch-optimiert */
+    min-width: 120px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid transparent;
   }
 
+  /* Primary Button - Hauptaktionen */
   .btn-primary {
-    @apply bg-primary text-white focus:ring-primary shadow-primary;
-    @apply transform hover:-translate-y-1 hover:shadow-primary-lg;
-    @apply font-bold tracking-wide;
-    /* CHANGED: Exakte Hover/Active States + bessere Sichtbarkeit */
-    background-color: var(--color-primary);
+    @apply bg-primary text-white shadow-lg;
+    background-color: #0152be;
     color: white !important;
-    font-weight: 700 !important;
+    border-color: #0152be;
   }
   
   .btn-primary:hover {
-    background-color: var(--color-primary-90);
+    background-color: #014aa8;
+    border-color: #014aa8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(1, 82, 190, 0.3);
   }
   
   .btn-primary:active {
-    background-color: var(--color-primary-80);
+    background-color: #013d8c;
     transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(1, 82, 190, 0.2);
   }
 
+  /* Secondary Button - Sekundäre Aktionen */
   .btn-secondary {
-    @apply border-2 text-primary bg-white focus:ring-primary;
-    @apply transform hover:-translate-y-1 shadow-soft hover:shadow-primary;
-    @apply font-bold tracking-wide;
-    border-color: var(--color-primary);
-    font-weight: 700 !important;
+    @apply bg-white text-primary border-2;
+    background-color: white;
+    color: #0152be !important;
+    border-color: #0152be;
+    box-shadow: 0 4px 15px rgba(1, 82, 190, 0.1);
   }
   
   .btn-secondary:hover {
-    background-color: var(--color-primary);
-    @apply text-white;
-    font-weight: 700 !important;
+    background-color: #0152be;
     color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(1, 82, 190, 0.3);
   }
 
-  .btn-accent {
-    @apply bg-accent text-white hover:bg-accent-600 focus:ring-accent shadow-accent;
-    @apply transform hover:-translate-y-0.5 font-bold;
-    font-weight: 700 !important;
-    color: white !important;
+  .btn-secondary:active {
+    background-color: #014aa8;
+    transform: translateY(0);
   }
 
-  .btn-success {
-    @apply bg-success text-white hover:bg-success-600 focus:ring-success;
-    @apply transform hover:-translate-y-0.5 font-bold;
-    font-weight: 700 !important;
+  /* Outline Button - Dezente Aktionen */
+  .btn-outline {
+    @apply bg-transparent text-primary border-2;
+    background-color: transparent;
+    color: #0152be !important;
+    border-color: #0152be;
+  }
+
+  .btn-outline:hover {
+    background-color: #0152be;
     color: white !important;
+    transform: translateY(-1px);
+  }
+
+  /* Ghost Button - Sehr dezent auf dunklen Hintergründen */
+  .btn-ghost {
+    @apply bg-transparent text-white border-2 border-white;
+    background-color: transparent;
+    color: white !important;
+    border-color: white;
+  }
+
+  .btn-ghost:hover {
+    background-color: white;
+    color: #0152be !important;
+    transform: translateY(-1px);
+  }
+
+  /* Button Größen */
+  .btn-sm {
+    min-height: 40px;
+    min-width: 100px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .btn-lg {
+    min-height: 56px;
+    min-width: 140px;
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+
+  /* Disabled State */
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 
   .btn-lg {
@@ -149,18 +232,39 @@ body {
     @apply px-4 py-2 text-sm;
   }
 
-  /* UPDATED: Verbesserte Card-Styles für Visual Atmung */
+  /* Apple-inspired Card Styles with consistent spacing */
   .card {
-    @apply bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply bg-white rounded-2xl border border-neutral-200 shadow-soft;
     @apply transition-all duration-300 hover:shadow-strong hover:border-primary;
-    @apply transform hover:-translate-y-2;
+    @apply transform hover:-translate-y-1;
     @apply flex flex-col;
-    min-height: 300px; /* Mindesthöhe für Einheitlichkeit */
+    min-height: 320px; /* Consistent height for all cards */
+    padding: 24px; /* Apple-style generous padding */
   }
 
   .card-body {
-    @apply p-6 flex flex-col justify-between flex-1;
-    gap: 1rem; /* 16px Abstand zwischen Elementen */
+    @apply flex flex-col justify-between flex-1;
+    gap: 16px; /* 16px consistent spacing */
+    padding: 0; /* Remove extra padding since card has it */
+  }
+
+  .card-content {
+    @apply flex flex-col justify-between h-full;
+    gap: 16px;
+  }
+
+  .card-title {
+    @apply mb-3;
+  }
+
+  .card-text {
+    @apply flex-1;
+    margin-bottom: 20px; /* Space before buttons */
+  }
+
+  .card-footer {
+    @apply mt-auto;
+    padding-top: 16px; /* Never stick buttons to content */
   }
 
   .card-header {
@@ -184,15 +288,21 @@ body {
     @apply mt-auto;
   }
 
-  /* NEU: Grid für Cards mit konsistenten Abständen */
+  /* Apple-inspired Grid für Cards with consistent spacing */
   .cards-grid {
-    @apply grid gap-6;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 
   @media (min-width: 768px) {
     .cards-grid {
-      @apply gap-8;
+      @apply gap-12;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cards-grid {
+      @apply gap-16;
     }
   }
 
@@ -284,32 +394,52 @@ body {
     @apply text-neutral-500;
   }
 
-  /* UPDATED: Verbesserte Abstände für Visual Atmung */
+  /* Apple-inspired responsive spacing system */
   .section {
     /* Mobile: 24px vertikal */
-    padding-top: 1.5rem;    /* 24px */
-    padding-bottom: 1.5rem; /* 24px */
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   
   @media (min-width: 768px) {
     .section {
       /* Tablet: 40px vertikal */
-      padding-top: 2.5rem;    /* 40px */
-      padding-bottom: 2.5rem; /* 40px */
-      padding-left: var(--space-lg);
-      padding-right: var(--space-lg);
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
   
   @media (min-width: 1024px) {
     .section {
       /* Desktop: 64px vertikal */
-      padding-top: 4rem;      /* 64px */
-      padding-bottom: 4rem;   /* 64px */
-      padding-left: var(--space-xl);
-      padding-right: var(--space-xl);
+      padding-top: 64px;
+      padding-bottom: 64px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  /* Großzügige Spacing Utilities */
+  .py-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  
+  @media (min-width: 768px) {
+    .py-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .py-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
     }
   }
 
@@ -375,11 +505,11 @@ body {
   }
 
   .blue-overlay {
-    background: linear-gradient(rgba(1, 82, 190, 0.8), rgba(1, 82, 190, 0.8));
+    background: linear-gradient(rgba(1, 82, 190, 0.3), rgba(1, 82, 190, 0.4));
   }
 
   .blue-overlay-bg {
-    background: linear-gradient(rgba(1, 82, 190, 0.8), rgba(1, 82, 190, 0.8)), url('/images/randomPictures/UX2.jpg');
+    background: linear-gradient(rgba(1, 82, 190, 0.3), rgba(1, 82, 190, 0.4)), url('/images/randomPictures/UX2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -667,18 +797,58 @@ body {
 
   /* NEU: Moderne, responsive Modal/Popup-Styles */
   .modal-overlay {
-    @apply fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4;
-    @apply animate-fade-in backdrop-blur-sm;
+    @apply fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000 !important; /* Force higher than navigation bar */
+    padding: 16px; /* Mobile safe area */
+  }
+
+  @media (min-width: 768px) {
+    .modal-overlay {
+      padding: 24px; /* Tablet safe area */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .modal-overlay {
+      padding: 32px; /* Desktop safe area */
+    }
   }
 
   .modal-content {
-    @apply bg-white rounded-2xl shadow-primary-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto;
+    @apply bg-white rounded-2xl shadow-primary-xl w-full overflow-y-auto;
     @apply animate-scale-in border border-primary/10;
+    max-width: 90vw;
+    max-height: calc(100vh - 32px); /* Full height minus safe padding */
+  }
+
+  @media (min-width: 768px) {
+    .modal-content {
+      max-width: 4xl;
+      max-height: 85vh;
+    }
   }
 
   .modal-content-small {
-    @apply bg-white rounded-2xl shadow-primary-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto;
+    @apply bg-white rounded-2xl shadow-primary-xl w-full overflow-y-auto;
     @apply animate-scale-in border border-primary/10;
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+
+  @media (min-width: 768px) {
+    .modal-content-small {
+      max-width: 2xl;
+      max-height: 75vh;
+    }
   }
 
   .modal-header {

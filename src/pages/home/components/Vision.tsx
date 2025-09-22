@@ -1,7 +1,7 @@
 // CHANGED: Kompakte Kern-Benefits (3-4 Punkte) für Home-Seite
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { content } from '../../../data/content'
+import { content } from '../../../data/content/index'
 
 // CHANGED: Fokus auf 3 Kern-Benefits mit Random Pictures
 const kernBenefits = [
@@ -34,9 +34,9 @@ const Vision: React.FC = () => {
       <div className="container">
         {/* CHANGED: Kompakter Header für Kern-Benefits */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center" style={{ marginBottom: 'var(--space-3xl)' }}
         >
           <h2 className="heading-lg mb-6">Why Choose IT for Youth Ghana</h2>
@@ -52,28 +52,19 @@ const Vision: React.FC = () => {
           {kernBenefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ 
-                duration: 0.6, 
-                delay: index * 0.1
+                duration: 0.3, 
+                delay: index * 0.05
               }}
               whileHover={{ 
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="card text-center group relative overflow-hidden"
+              className="card text-center group"
             >
-              {/* Background Image */}
-              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                <img 
-                  src={benefit.image} 
-                  alt={benefit.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="card-content relative z-10">
+              <div className="card-content">
                 {/* Headline oben */}
                 <div>
                   <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 transition-colors duration-300">
@@ -142,7 +133,7 @@ const Vision: React.FC = () => {
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
                   {stat.number}
                 </div>
-                <p className="text-sm font-medium text-neutral-600">
+                <p className="text-sm font-medium text-neutral-800">
                   {stat.label}
                 </p>
               </motion.div>

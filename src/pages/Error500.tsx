@@ -45,7 +45,7 @@ const Error500: React.FC = () => {
             </motion.h2>
             
             <motion.p
-              className="text-lg text-neutral-600 mb-8 leading-relaxed"
+              className="text-lg text-neutral-800 mb-8 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -90,7 +90,7 @@ const Error500: React.FC = () => {
               <h3 className="text-lg font-semibold text-accent mb-3">
                 What happened?
               </h3>
-              <p className="text-neutral-600 mb-4">
+              <p className="text-neutral-800 mb-4">
                 This error typically occurs due to temporary server issues. 
                 Please try refreshing the page or come back in a few minutes.
               </p>

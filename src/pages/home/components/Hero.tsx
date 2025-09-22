@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { content } from '../../../data/content'
+import { content } from '../../../data/content/index'
 import LazyImage from '../../../components/LazyImage'
 import { imageCategories } from '../../../utils/randomImages'
 
@@ -82,7 +82,8 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative h-screen overflow-hidden pt-16"
+      className="relative min-h-screen overflow-hidden pt-20 pb-8"
+      style={{ minHeight: 'calc(100vh - 4rem)' }}
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -102,39 +103,49 @@ const Hero: React.FC = () => {
             priority={currentSlide === 0}
           />
         </motion.div>
-        <div className="absolute inset-0 bg-hero-overlay" />
+        {/* Apple-inspired darker overlay for better text readability */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'linear-gradient(135deg, rgba(1, 82, 190, 0.5) 0%, rgba(10, 26, 58, 0.6) 100%)'
+          }}
+        />
       </AnimatePresence>
 
-      {/* Hero Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="container text-center">
+      {/* Apple-inspired Hero Content - Clean, prominent, centered */}
+      <div className="relative z-10 h-full flex items-center justify-center py-16">
+        <div className="container max-w-6xl mx-auto text-center px-8">
           <motion.div
             key={`content-${currentSlide}`}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-4xl mx-auto"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12 text-white leading-tight font-display">
-              <span className="block">{heroSlides[currentSlide].title}</span>
+            {/* Large, prominent headline - Apple style */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-white leading-tight tracking-tight max-w-5xl mx-auto">
+              {heroSlides[currentSlide].title}
             </h1>
             
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-16 leading-relaxed font-normal max-w-4xl mx-auto">
+            {/* Clean, readable subtitle */}
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-16 leading-relaxed font-light max-w-4xl mx-auto">
               {heroSlides[currentSlide].subtitle}
             </p>
 
-            {/* CHANGED: UX-optimierte CTAs - Volunteer priorisiert (Fitts' Law) */}
+            {/* Prominent CTAs with Apple-inspired styling */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-lg mx-auto">
               <Link to="/volunteer" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
                 <motion.button
-                  className="w-full sm:w-auto bg-white text-primary hover:bg-neutral-100 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full sm:w-auto bg-white text-primary hover:bg-opacity-90 font-semibold rounded-2xl transition-all duration-300 shadow-xl border-0"
                   style={{ 
-                    minHeight: 'var(--touch-comfort)',
-                    padding: 'var(--space-lg) var(--space-2xl)',
-                    fontSize: 'var(--text-lg)'
+                    minHeight: '56px',
+                    padding: '16px 32px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    color: '#0152be'
                   }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Join as Volunteer
@@ -143,13 +154,14 @@ const Hero: React.FC = () => {
               
               <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
                 <motion.button
-                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary font-semibold rounded-lg transition-all duration-300"
+                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary font-semibold rounded-2xl transition-all duration-300"
                   style={{ 
-                    minHeight: 'var(--touch-comfort)',
-                    padding: 'var(--space-lg) var(--space-2xl)',
-                    fontSize: 'var(--text-lg)'
+                    minHeight: '56px',
+                    padding: '16px 32px',
+                    fontSize: '16px',
+                    fontWeight: '600'
                   }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Explore Programs
