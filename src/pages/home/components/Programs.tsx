@@ -105,7 +105,7 @@ const programs = [
   {
     title: 'Tech Advocacy',
     description: 'Advocating for digital inclusion policies and working with government and NGOs to create supportive environments for technology education.',
-    image: '/images/people/adjej.webp',
+    image: '/images/randomPictures/IMG-20241118-WA0104.jpg',
     tag: 'Policy Impact',
     tagColor: 'bg-accent',
     detailContent: {
@@ -129,7 +129,7 @@ const programs = [
   {
     title: 'School Workshop Programs',
     description: 'Conducted workshops in 20+ schools, reaching over 800 students with hands-on technology training and career guidance sessions.',
-    image: '/images/people/Mlan.jpeg',
+    image: '/images/randomPictures/IMG-20241026-WA0092.jpg',
     tag: 'Educational Outreach',
     tagColor: 'bg-secondary',
     detailContent: {
@@ -290,11 +290,11 @@ const Programs: React.FC = () => {
                       <div className="text-2xl md:text-3xl font-bold text-primary mb-2">
                         {value.toString().split(' ')[0]}
                       </div>
-                      <div className="text-sm text-neutral-600 capitalize">
+                      <div className="text-sm text-neutral-800 capitalize">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
                       {value.toString().includes(' ') && (
-                        <div className="text-xs text-neutral-500 mt-1">
+                        <div className="text-xs text-neutral-700 mt-1">
                           {value.toString().split(' ').slice(1).join(' ')}
                         </div>
                       )}

@@ -18,12 +18,13 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // NEU: Bereinigte Navigation ohne Home, Volunteer hervorgehoben
+  // FINAL: Navigation mit korrekter Reihenfolge
   const mainNavItems = [
     { name: 'About', href: '/about' },
     { name: 'Impact', href: '/impact' },
     { name: 'Programs', href: '/programs' },
-    { name: 'Partner', href: '/partners' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'Donate', href: '/donate' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -36,7 +37,7 @@ const Navbar: React.FC = () => {
   return (
     <motion.header
       role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white shadow-primary-lg border-b border-primary/10 py-2' 
           : 'bg-white/95 backdrop-blur-md py-4'
@@ -153,11 +154,15 @@ const Navbar: React.FC = () => {
                 className={`btn btn-primary transition-all duration-300 ${
                   isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base'
                 }`}
-                style={{ minHeight: 'var(--touch-target-min)' }}
+                style={{ 
+                  minHeight: 'var(--touch-target-min)',
+                  backgroundColor: '#0152be',
+                  color: 'white'
+                }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className={`font-semibold ${isScrolled ? 'text-sm' : 'text-base'}`}>
+                <span className={`font-bold ${isScrolled ? 'text-sm' : 'text-base'}`}>
                   Volunteer
                 </span>
               </motion.button>
@@ -210,7 +215,7 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 xl:hidden"
+            className="fixed inset-0 z-30 xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { content } from '../data/content'
+import { content } from '../data/content/index'
 import SEO from '../components/SEO'
-import { getRandomImageSet } from '../utils/randomImages'
 
 const Contact: React.FC = () => {
   const ref = useRef(null)
@@ -30,56 +29,38 @@ const Contact: React.FC = () => {
 
   const contactMethods = [
     {
-      icon: '📧',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       title: 'Email Us',
       detail: content.contact.email,
       action: `mailto:${content.contact.email}`,
       description: 'Send us an email for general inquiries'
     },
     {
-      icon: '📱',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      ),
       title: 'Call Us',
       detail: content.contact.phone,
       action: `tel:${content.contact.phone}`,
       description: 'Speak directly with our team'
     },
     {
-      icon: '📍',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
       title: 'Visit Us',
       detail: content.contact.address,
       action: '#location',
       description: 'Come to our training center'
-    },
-    {
-      icon: '⏰',
-      title: 'Office Hours',
-      detail: content.contact.hours,
-      action: '#',
-      description: 'When we\'re available'
-    }
-  ]
-
-  const quickActions = [
-    {
-      title: 'Join a Program',
-      description: 'Apply for our next cohort',
-      image: '/images/randomPictures/IMG-20241118-WA0052.jpg',
-      action: '/programs',
-      color: 'from-primary to-blue-600'
-    },
-    {
-      title: 'Become a Volunteer',
-      description: 'Help us teach and mentor',
-      image: '/images/randomPictures/IMG_8600.JPG',
-      action: '/volunteer',
-      color: 'from-accent to-orange-500'
-    },
-    {
-      title: 'Partner with Us',
-      description: 'Corporate partnerships',
-      image: '/images/randomPictures/2024-12-17 21.12 (3).jpg',
-      action: '/partners',
-      color: 'from-secondary to-green-500'
     }
   ]
 
@@ -96,7 +77,7 @@ const Contact: React.FC = () => {
       <div className="min-h-screen bg-white pt-24">
         
         {/* Hero Section */}
-        <section className="section-hero bg-primary relative overflow-hidden">
+        <section className="relative py-24 bg-primary overflow-hidden">
           <div className="absolute inset-0 bg-hero-overlay"></div>
           <div className="container relative z-10">
             <motion.div
@@ -107,14 +88,14 @@ const Contact: React.FC = () => {
             >
               <h1 className="hero-title">Get in Touch</h1>
               <p className="hero-subtitle">
-                Ready to transform your future? Let's start the conversation
+                Ready to start your tech journey? Have questions about our programs? We're here to help!
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Quick Contact Methods */}
-        <section ref={ref} className="section bg-neutral-50">
+        <section ref={ref} className="section bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -122,441 +103,172 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-lg mb-6">How Can We Help?</h2>
-              <p className="text-lead text-center max-w-3xl mx-auto">
-                Multiple ways to connect with our team
+              <h2 className="heading-lg mb-6 text-primary">Contact Methods</h2>
+              <p className="text-lead text-center max-w-3xl mx-auto text-neutral-800">
+                Choose the most convenient way to reach us
               </p>
             </motion.div>
 
-            <div className="cards-grid mb-16">
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}
                   href={method.action}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="card text-center group cursor-pointer"
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="card hover:scale-105 transition-transform duration-300 text-center group"
                 >
-                  <div className="card-content">
-                    <div>
-                      <div className="text-4xl mb-4">{method.icon}</div>
-                      <h3 className="card-title heading-sm group-hover:text-accent transition-colors duration-300">
-                        {method.title}
-                      </h3>
-                    </div>
-                    
-                    <div className="card-text">
-                      <p className="text-body font-semibold mb-2">{method.detail}</p>
-                      <p className="text-small text-muted">{method.description}</p>
-                    </div>
-                    
-                    <div className="card-footer">
-                      <button className="btn btn-secondary btn-sm">
-                        Contact Now
-                      </button>
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="text-primary group-hover:text-white">
+                      {method.icon}
                     </div>
                   </div>
+                  <h3 className="heading-sm mb-2 group-hover:text-primary">{method.title}</h3>
+                  <p className="text-primary font-semibold mb-2">{method.detail}</p>
+                  <p className="text-body text-sm">{method.description}</p>
                 </motion.a>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Quick Actions */}
-        <section className="section bg-white">
+        {/* Quick Contact - Mittig und kompakt */}
+        <section className="py-20 bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="text-center mb-16"
+              className="max-w-2xl mx-auto"
             >
-              <h2 className="heading-lg mb-6">Ready to Take Action?</h2>
-              <p className="text-lead text-center max-w-3xl mx-auto">
-                Jump straight into what interests you most
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {quickActions.map((action, index) => (
-                <motion.div
-                  key={action.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="relative rounded-2xl overflow-hidden shadow-lg group"
-                >
-                  <div className="aspect-video relative">
-                    <img 
-                      src={action.image} 
-                      alt={action.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${action.color} opacity-80`}></div>
-                  </div>
+              <div className="card">
+                <div className="card-body" style={{ padding: '24px' }}>
+                  <h2 className="heading-md mb-6 text-primary text-center">Quick Contact</h2>
                   
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                    <h3 className="text-xl font-bold mb-2">{action.title}</h3>
-                    <p className="text-white/90 mb-4">{action.description}</p>
-                    <motion.a
-                      href={action.action}
-                      className="btn btn-secondary bg-white/20 text-white border-white/30 hover:bg-white hover:text-primary w-full"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Learn More
-                    </motion.a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form & Info */}
-        <section className="section bg-neutral-50">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-16">
-              
-              {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8 }}
-                className="card"
-              >
-                <div className="card-body">
-                  <h2 className="heading-md mb-8">Send us a Message</h2>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="form-group">
-                        <label htmlFor="contact-name" className="form-label">Name *</label>
-                        <input
-                          id="contact-name"
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="form-input"
-                          placeholder="Your full name"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="contact-email" className="form-label">Email *</label>
-                        <input
-                          id="contact-email"
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="form-input"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="form-group">
-                        <label htmlFor="contact-phone" className="form-label">Phone</label>
-                        <input
-                          id="contact-phone"
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="form-input"
-                          placeholder="+233 XX XXX XXXX"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="contact-interest" className="form-label">Interest</label>
-                        <select
-                          id="contact-interest"
-                          name="interest"
-                          value={formData.interest}
-                          onChange={handleInputChange}
-                          className="form-input"
-                        >
-                          <option value="">Please select...</option>
-                          <option value="programs">Join a Program</option>
-                          <option value="volunteer">Volunteering</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="donation">Support/Donation</option>
-                          <option value="visit">Schedule a Visit</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                    </div>
-
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="form-group">
-                      <label htmlFor="contact-subject" className="form-label">Subject *</label>
                       <input
-                        id="contact-subject"
+                        id="contact-name"
                         type="text"
-                        name="subject"
-                        value={formData.subject}
+                        name="name"
+                        value={formData.name}
                         onChange={handleInputChange}
                         required
                         className="form-input"
-                        placeholder="What is this about?"
+                        placeholder="Your name"
                       />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        id="contact-email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="form-input"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <select
+                        id="contact-interest"
+                        name="interest"
+                        value={formData.interest}
+                        onChange={handleInputChange}
+                        className="form-input"
+                      >
+                        <option value="">What interests you?</option>
+                        <option value="programs">Join a Program</option>
+                        <option value="volunteer">Volunteering</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="donation">Support/Donation</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="contact-message" className="form-label">Message *</label>
                       <textarea
                         id="contact-message"
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         required
-                        rows={6}
+                        rows={4}
                         className="form-input"
-                        placeholder="Tell us how we can help you..."
+                        placeholder="Your message..."
                       />
                     </div>
 
-                    <motion.button
-                      type="submit"
-                      className="btn btn-primary w-full text-white font-bold"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Send Message
-                    </motion.button>
+                    <div style={{ marginTop: '24px' }}>
+                      <motion.button
+                        type="submit"
+                        className="bg-primary text-white hover:bg-primary-600 w-full py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg"
+                        style={{ marginBottom: '16px' }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Send Message
+                      </motion.button>
+                    </div>
                   </form>
                 </div>
-              </motion.div>
-
-              {/* FAQ */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <h2 className="heading-md mb-8">Frequently Asked Questions</h2>
-                
-                <div className="space-y-6">
-                  {faqItems.map((faq, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="card"
-                    >
-                      <div className="card-body">
-                        <h3 className="heading-sm mb-3">{faq.question}</h3>
-                        <p className="text-body">{faq.answer}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="mt-8 card bg-gradient-to-r from-primary/10 to-accent/10"
-                >
-                  <div className="card-body">
-                    <h3 className="heading-sm mb-3">Still Have Questions?</h3>
-                    <p className="text-body mb-4">
-                      Don't hesitate to reach out directly. Our team is ready to help!
-                    </p>
-                    <motion.a
-                      href="mailto:info@ityouthghana.org"
-                      className="btn btn-primary text-white font-bold"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Email Us Directly
-                    </motion.a>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Leadership Team */}
-        <section className="section bg-white">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-lg mb-6">Leadership Contact</h2>
-              <p className="text-lead text-center max-w-3xl mx-auto">
-                Connect directly with our leadership for partnerships and strategic collaboration
-              </p>
-            </motion.div>
-
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="card bg-gradient-to-r from-primary/5 to-accent/5"
-              >
-                <div className="card-body">
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="heading-md mb-2">{content.contact.leadership.name}</h3>
-                      <p className="text-lg text-accent font-semibold mb-4">{content.contact.leadership.title}</p>
-                      <p className="text-muted mb-6">{content.contact.leadership.department}</p>
-                      
-                      <div className="space-y-4 mb-6">
-                        <div className="flex items-center">
-                          <span className="text-2xl mr-3">📧</span>
-                          <div>
-                            <p className="font-semibold text-primary">Email</p>
-                            <a href={`mailto:${content.contact.leadership.email}`} className="text-accent hover:underline font-medium">
-                              {content.contact.leadership.email}
-                            </a>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          <span className="text-2xl mr-3">📱</span>
-                          <div>
-                            <p className="font-semibold text-primary">Phone</p>
-                            <a href={`tel:${content.contact.leadership.phone}`} className="text-accent hover:underline font-medium">
-                              {content.contact.leadership.phone}
-                            </a>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          <span className="text-2xl mr-3">🗣️</span>
-                          <div>
-                            <p className="font-semibold text-primary">Languages</p>
-                            <p className="text-muted">{content.contact.leadership.languages.join(', ')}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="card bg-white">
-                      <div className="card-body">
-                        <h4 className="text-lg font-bold text-primary mb-4">Availability & Specialties</h4>
-                        <p className="text-muted leading-relaxed mb-4">
-                          {content.contact.leadership.availability}
-                        </p>
-                        <div className="space-y-3">
-                          {['Erasmus+ partnerships', 'International collaborations', 'Project coordination', 'Flexible scheduling'].map((item, index) => (
-                            <div key={index} className="flex items-center">
-                              <span className="text-accent mr-2">✓</span>
-                              <span className="text-small">{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Location & Visit */}
-        <section className="section bg-neutral-50">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-lg mb-6">Visit Our Center</h2>
-              <p className="text-lead text-center max-w-3xl mx-auto">
-                Come see our facilities and meet the team in person
-              </p>
-            </motion.div>
-
-            <div className="card">
-              <div className="card-body">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div>
-                    <h3 className="heading-md mb-6">IT for Youth Ghana Training Center</h3>
-                    <div className="space-y-6">
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-4">📍</span>
-                        <div>
-                          <p className="font-semibold text-primary">Address</p>
-                          <p className="text-muted">Digital Innovation Hub<br />Accra, Ghana</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-4">⏰</span>
-                        <div>
-                          <p className="font-semibold text-primary">Hours</p>
-                          <p className="text-muted">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: 10:00 AM - 2:00 PM</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-4">🚗</span>
-                        <div>
-                          <p className="font-semibold text-primary">Transportation</p>
-                          <p className="text-muted">Public transport accessible<br />Parking available</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-neutral-100 rounded-2xl overflow-hidden shadow-lg">
-                    <div className="aspect-video w-full">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.56684390774!2d-0.2664328839721779!3d5.603716899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1658234567890!5m2!1sen!2sus"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="IT for Youth Ghana Location - Accra, Ghana"
-                        className="w-full h-full"
-                      />
-                    </div>
-                    <div className="p-6 bg-white">
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <motion.a
-                          href="https://goo.gl/maps/accra-ghana"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-primary flex-1 text-center text-white font-bold"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          Open in Google Maps
-                        </motion.a>
-                        <motion.button
-                          className="btn btn-secondary flex-1 font-bold"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => {
-                            if (navigator.geolocation) {
-                              navigator.geolocation.getCurrentPosition(() => {
-                                window.open('https://www.google.com/maps/dir//Accra,+Ghana', '_blank')
-                              })
-                            }
-                          }}
-                        >
-                          Get Directions
-                        </motion.button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* FAQs - Separate Section */}
+        <section className="py-20 bg-neutral-50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="max-w-4xl mx-auto"
+            >
+              <h2 className="heading-lg mb-12 text-primary text-center">Frequently Asked Questions</h2>
+                
+              <div className="space-y-4">
+                {faqItems.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="bg-white rounded-2xl border border-neutral-200 hover:border-primary transition-all duration-300"
+                    style={{ padding: '20px' }}
+                  >
+                    <h3 className="heading-sm mb-3 text-primary">{faq.question}</h3>
+                    <p className="text-body text-neutral-800">{faq.answer}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Still Have Questions */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="mt-12 text-center"
+              >
+                <div className="bg-primary rounded-2xl text-white" style={{ padding: '32px' }}>
+                  <h3 className="heading-md mb-4 text-white">Still Have Questions?</h3>
+                  <p className="text-lg mb-6 text-white/90">
+                    We're here to help! Get in touch with our team directly.
+                  </p>
+                  <motion.a
+                    href={`mailto:${content.contact.email}`}
+                    className="inline-block bg-white text-primary hover:bg-neutral-100 px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Email Us Directly
+                  </motion.a>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </div>

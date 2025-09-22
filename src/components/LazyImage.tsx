@@ -11,6 +11,7 @@ interface LazyImageProps {
   priority?: boolean
   onLoad?: () => void
   onError?: () => void
+  bluePlaceholder?: boolean // Für Hero Sections
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({
@@ -22,7 +23,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
   height,
   priority = false,
   onLoad,
-  onError
+  onError,
+  bluePlaceholder = false
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(priority)
@@ -83,18 +85,26 @@ const LazyImage: React.FC<LazyImageProps> = ({
     <div ref={imgRef} className="relative overflow-hidden">
       {/* Placeholder */}
       {!isLoaded && !hasError && (
-        <img
-          src={placeholder}
-          alt=""
-          className={`absolute inset-0 w-full h-full object-cover ${className}`}
-          aria-hidden="true"
-        />
+        bluePlaceholder ? (
+          <div className="absolute inset-0 bg-primary">
+            <div className="absolute inset-0 bg-hero-overlay flex items-center justify-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={placeholder}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover ${className}`}
+            aria-hidden="true"
+          />
+        )
       )}
 
       {/* Error State */}
       {hasError && (
         <div 
-          className={`flex items-center justify-center bg-neutral-100 text-neutral-500 ${className}`}
+          className={`flex items-center justify-center bg-neutral-100 text-neutral-700 ${className}`}
           style={{ width, height }}
         >
           <div className="text-center">

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { content } from '../../../data/content'
+import { content } from '../../../data/content/index'
 
 const CallToAction: React.FC = () => {
   const ref = useRef(null)
@@ -9,21 +9,18 @@ const CallToAction: React.FC = () => {
 
   const actionCards = [
     {
-      image: '/images/randomPictures/IMG-20241118-WA0053.jpg',
       title: 'Learn',
-      description: 'World-class curriculum',
+      description: 'World-class technology curriculum designed for practical skills',
       delay: 0.2
     },
     {
-      image: '/images/randomPictures/IMG_8600.JPG',
       title: 'Connect',
-      description: 'Join our community',
+      description: 'Join our vibrant community of learners and industry professionals',
       delay: 0.4
     },
     {
-      image: '/images/randomPictures/IMG-20241026-WA0093.jpg',
       title: 'Thrive',
-      description: 'Build your career',
+      description: 'Build your tech career with confidence and purpose',
       delay: 0.6
     }
   ]
@@ -67,18 +64,20 @@ const CallToAction: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight">
-              <span className="block mb-4">Ready to Transform</span>
-              <span className="block text-secondary">Your Future?</span>
-            </h2>
-            
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-20 max-w-5xl mx-auto leading-relaxed font-normal">
-              {content.cta.subtitle}
-            </p>
+            <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-16">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+                <span className="block mb-4">Ready to Transform</span>
+                <span className="block text-secondary">Your Future?</span>
+              </h2>
+              
+              <p className="text-xl md:text-2xl lg:text-3xl text-white mb-4 max-w-4xl mx-auto leading-relaxed font-medium">
+                {content.cta.subtitle}
+              </p>
+            </div>
           </motion.div>
 
-          {/* UPDATED: Action Cards mit besserem Layout */}
-          <div className="cards-grid mb-20">
+          {/* UPDATED: Action Cards - Desktop nebeneinander, Mobile untereinander */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
             {actionCards.map((card, index) => (
               <motion.div
                 key={card.title}
@@ -95,38 +94,30 @@ const CallToAction: React.FC = () => {
                   scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
-                className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 group flex flex-col justify-between min-h-[250px]"
+                className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 group flex flex-col justify-between min-h-[280px]"
               >
                 <div className="card-content">
                   {/* Headline oben */}
                   <div>
                     <motion.div 
-                      className="w-16 h-16 mb-4 mx-auto rounded-full overflow-hidden"
+                      className="w-16 h-16 mb-6 mx-auto rounded-full bg-white/20 flex items-center justify-center"
                       whileHover={{ 
-                        rotate: [0, -5, 5, -5, 0],
                         scale: 1.1
                       }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                      <div className="w-8 h-8 bg-secondary rounded-full"></div>
                     </motion.div>
-                    <h3 className="card-title text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
+                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-secondary transition-colors duration-300">
                       {card.title}
                     </h3>
                   </div>
                   
                   {/* Content mittig */}
-                  <div className="card-text">
-                    <p className="text-white/80 text-lg">
+                  <div className="flex-grow flex items-center">
+                    <p className="text-white/90 text-lg leading-relaxed">
                       {card.description}
                     </p>
-                  </div>
-                  
-                  {/* Button unten */}
-                  <div className="card-footer mt-auto">
-                    <button className="btn btn-secondary btn-sm bg-white/20 text-white border-white/30 hover:bg-white hover:text-primary">
-                      Explore
-                    </button>
                   </div>
                 </div>
               </motion.div>

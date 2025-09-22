@@ -87,7 +87,7 @@ export default {
       },
       backgroundImage: {
         // NEU: Hero overlay mit starker Primärfarbe #0152be
-        'hero-overlay': 'linear-gradient(135deg, rgba(1, 82, 190, 0.95) 0%, rgba(10, 26, 58, 0.85) 100%)',
+        'hero-overlay': 'linear-gradient(135deg, rgba(1, 82, 190, 0.5) 0%, rgba(10, 26, 58, 0.6) 100%)',
         'hero-overlay-light': 'linear-gradient(135deg, rgba(1, 82, 190, 0.1) 0%, rgba(10, 26, 58, 0.05) 100%)',
         'gradient-primary': 'linear-gradient(135deg, #0152be 0%, #1e4bb6 100%)',
       },
