@@ -155,6 +155,10 @@ const ProgramModal: React.FC<ProgramModalProps> = ({
                 className="btn btn-secondary flex-1"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  // Show sign-up form or notification for updates
+                  alert('Thank you for your interest! We will contact you when this program becomes available.')
+                }}
               >
                 Get Updates
               </motion.button>
@@ -165,6 +169,10 @@ const ProgramModal: React.FC<ProgramModalProps> = ({
               className="btn btn-secondary flex-1"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                onClose()
+                window.location.href = '/impact'
+              }}
             >
               View Alumni
             </motion.button>

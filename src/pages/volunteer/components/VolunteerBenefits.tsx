@@ -41,25 +41,32 @@ const VolunteerBenefits: React.FC<VolunteerBenefitsProps> = ({ benefits, volunte
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="bg-white rounded-2xl p-8 shadow-float border border-secondary/20 text-center group"
+                whileHover={{ 
+                  y: -10, 
+                  transition: { duration: 0.3 } 
+                }}
+                className="bg-white rounded-2xl p-8 shadow-float border border-secondary/20 text-center group cursor-pointer"
               >
                 <motion.div 
-                  className="text-6xl mb-6"
+                  className="text-6xl mb-6 mx-auto"
+                  animate={{
+                    rotate: 0,
+                    scale: 1
+                  }}
                   whileHover={{ 
                     rotate: [0, -10, 10, -10, 0],
                     scale: 1.2
                   }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto group-hover:bg-accent transition-colors duration-300">
                     <span className="text-white font-bold text-sm">{benefit.icon.slice(0,3)}</span>
                   </div>
                 </motion.div>
                 <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-accent transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                <p className="text-neutral-800 leading-relaxed">{benefit.description}</p>
+                <p className="text-neutral-800 leading-relaxed group-hover:text-primary transition-colors duration-300">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

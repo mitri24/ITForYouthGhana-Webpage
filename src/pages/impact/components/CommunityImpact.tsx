@@ -64,21 +64,31 @@ const CommunityImpact: React.FC<CommunityImpactProps> = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="card text-center group"
+              whileHover={{ 
+                y: -10, 
+                transition: { duration: 0.3 } 
+              }}
+              className="card text-center group cursor-pointer"
+              onHoverStart={() => {
+                // Trigger animations when hovering anywhere on the card
+              }}
             >
               <div className="card-content">
                 {/* Headline oben */}
                 <div>
                   <motion.div 
                     className="w-16 h-16 mb-6 mx-auto rounded-lg overflow-hidden"
+                    animate={{
+                      rotate: 0,
+                      scale: 1
+                    }}
                     whileHover={{ 
                       rotate: [0, -10, 10, -10, 0],
                       scale: 1.2
                     }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
                       <span className="text-white font-bold text-sm">{impact.icon.slice(0,3)}</span>
                     </div>
                   </motion.div>
@@ -89,17 +99,33 @@ const CommunityImpact: React.FC<CommunityImpactProps> = () => {
                 
                 {/* Content mittig */}
                 <div className="card-text">
-                  <p className="text-body">
+                  <p className="text-body group-hover:text-primary transition-colors duration-300">
                     {impact.description}
                   </p>
                 </div>
                 
                 {/* CTA/Button unten */}
                 <div className="card-footer">
-                  <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-3 mb-4">
+                  <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-3 mb-4 group-hover:from-primary/20 group-hover:to-accent/20 transition-colors duration-300">
                     <p className="text-sm font-semibold text-primary">{impact.stats}</p>
                   </div>
-                  <button className="btn btn-secondary btn-sm">
+                  <button 
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => {
+                      // Navigate based on impact type
+                      if (impact.title.includes('Economic')) {
+                        window.location.href = '/programs';
+                      } else if (impact.title.includes('Educational')) {
+                        window.location.href = '/programs';
+                      } else if (impact.title.includes('Digital')) {
+                        window.location.href = '/about';
+                      } else if (impact.title.includes('Gender')) {
+                        window.location.href = '/volunteer';
+                      } else {
+                        window.location.href = '/contact';
+                      }
+                    }}
+                  >
                     Learn More
                   </button>
                 </div>

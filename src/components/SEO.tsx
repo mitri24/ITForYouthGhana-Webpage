@@ -21,7 +21,7 @@ const SEO: React.FC<SEOProps> = ({
   noindex = false
 }) => {
   const siteTitle = 'IT for Youth Ghana'
-  const defaultDescription = 'Empowering Ghana\'s youth through technology education. Free programming courses, mentorship, and career development for underserved communities with 70% female participation.'
+  const defaultDescription = 'Empowering Ghana\'s youth through technology education. Professional programming courses, mentorship, and career development for underserved communities with 70% female participation.'
   const siteUrl = 'https://itforyouthghana.org'
   
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle

@@ -6,8 +6,8 @@ import { content } from '../../../data/content/index'
 // CHANGED: Fokus auf 3 Kern-Benefits mit Random Pictures
 const kernBenefits = [
   {
-    title: 'Free Tech Education',
-    description: 'No-cost programming, web development, and digital skills training for all participants.',
+    title: 'Quality Tech Education',
+    description: 'Professional programming, web development, and digital skills training with scholarship opportunities.'
     icon: 'EDU',
     image: '/images/randomPictures/IMG-20241118-WA0056.jpg'
   },
@@ -84,7 +84,19 @@ const Vision: React.FC = () => {
                 
                 {/* Button unten */}
                 <div className="card-footer">
-                  <button className="btn btn-secondary btn-sm">
+                  <button 
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => {
+                      // Navigate to relevant section based on benefit type
+                      if (benefit.title === 'Quality Tech Education') {
+                        window.location.href = '/programs';
+                      } else if (benefit.title === '70% Female Participation') {
+                        window.location.href = '/impact';
+                      } else if (benefit.title === 'Job-Ready Skills') {
+                        window.location.href = '/programs';
+                      }
+                    }}
+                  >
                     Learn More
                   </button>
                 </div>

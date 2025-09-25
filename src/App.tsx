@@ -1,18 +1,26 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
-import Navbar from './components/Navbar'
+import MainNavigation from './components/navigation/MainNavigation'
 import Footer from './components/layout/footer'
 
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'))
-const About = React.lazy(() => import('./pages/about'))
-const Programs = React.lazy(() => import('./pages/programs/Programs'))
-const Impact = React.lazy(() => import('./pages/impact/Impact'))
-const Partners = React.lazy(() => import('./pages/partners/Partners'))
-const Volunteer = React.lazy(() => import('./pages/volunteer/Volunteer'))
+const WhoWeAre = React.lazy(() => import('./pages/who-we-are/WhoWeAre'))
+const StudentsGraduates = React.lazy(() => import('./pages/what-we-offer/students-graduates/StudentsGraduates'))
+const Businesses = React.lazy(() => import('./pages/what-we-offer/businesses/Businesses'))
+const Mentors = React.lazy(() => import('./pages/what-we-offer/mentors/Mentors'))
+const Volunteers = React.lazy(() => import('./pages/what-we-offer/volunteers/Volunteers'))
+const WhoCanApply = React.lazy(() => import('./pages/who-can-apply/WhoCanApply'))
+const StudentsProcess = React.lazy(() => import('./pages/how-it-works/students-graduates/StudentsProcess'))
+const BusinessesProcess = React.lazy(() => import('./pages/how-it-works/businesses/BusinessesProcess'))
+const MentorsProcess = React.lazy(() => import('./pages/how-it-works/mentors/MentorsProcess'))
+const Testimonials = React.lazy(() => import('./pages/testimonials/Testimonials'))
 const Contact = React.lazy(() => import('./pages/Contact'))
 const Donate = React.lazy(() => import('./pages/Donate'))
+const Partners = React.lazy(() => import('./pages/Partners'))
+const Careers = React.lazy(() => import('./pages/Careers'))
+const TechEmpowerment = React.lazy(() => import('./pages/TechEmpowerment'))
 const Error404 = React.lazy(() => import('./pages/Error404'))
 const Error500 = React.lazy(() => import('./pages/Error500'))
 
@@ -37,18 +45,26 @@ function App() {
           >
             Skip to main content
           </a>
-          <Navbar />
+          <MainNavigation />
           <main id="main-content" role="main" tabIndex={-1}>
             <Suspense fallback={<PageLoading />}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/programs" element={<Programs />} />
-                <Route path="/impact" element={<Impact />} />
-                <Route path="/partners" element={<Partners />} />
-                <Route path="/volunteer" element={<Volunteer />} />
+                <Route path="/who-we-are" element={<WhoWeAre />} />
+                <Route path="/what-we-offer/students-graduates" element={<StudentsGraduates />} />
+                <Route path="/what-we-offer/businesses" element={<Businesses />} />
+                <Route path="/what-we-offer/mentors" element={<Mentors />} />
+                <Route path="/what-we-offer/volunteers" element={<Volunteers />} />
+                <Route path="/who-can-apply" element={<WhoCanApply />} />
+                <Route path="/how-it-works/students-graduates" element={<StudentsProcess />} />
+                <Route path="/how-it-works/businesses" element={<BusinessesProcess />} />
+                <Route path="/how-it-works/mentors" element={<MentorsProcess />} />
+                <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/donate" element={<Donate />} />
+                <Route path="/partners" element={<Partners />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/tech-empowerment" element={<TechEmpowerment />} />
                 <Route path="/404" element={<Error404 />} />
                 <Route path="/500" element={<Error500 />} />
                 <Route path="*" element={<Error404 />} />
