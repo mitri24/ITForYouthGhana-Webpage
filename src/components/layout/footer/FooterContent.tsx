@@ -20,9 +20,9 @@ const FooterContent: React.FC = () => {
       </p>
       
       <div className="space-y-3 text-white">
-        <p className="text-lg"><strong>E-Mail:</strong> info@itforyouthghana.org</p>
-        <p className="text-lg"><strong>Phone:</strong> +233-596-244-834</p>
-        <p className="text-lg"><strong>Address:</strong> Hno. L529, Gecko Street, Kwabenya-Musuku, Accra, Ghana</p>
+        <p className="text-lg text-white"><strong className="text-white">E-Mail:</strong> <span className="text-white">info@itforyouthghana.org</span></p>
+        <p className="text-lg text-white"><strong className="text-white">Phone:</strong> <span className="text-white">+233-596-244-834</span></p>
+        <p className="text-lg text-white"><strong className="text-white">Address:</strong> <span className="text-white">Hno. L529, Gecko Street, Kwabenya-Musuku, Accra, Ghana</span></p>
       </div>
     </div>
   )

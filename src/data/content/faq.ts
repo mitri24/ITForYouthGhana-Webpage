@@ -6,8 +6,8 @@ export interface FAQItem {
 
 export const faq: FAQItem[] = [
   {
-    question: "Are the programs really free?",
-    answer: "Yes, our core 6-month programs are completely free. There are no hidden costs, registration fees, or required purchases. We do ask students to commit to attending regularly and completing assignments."
+    question: "What are the program costs?",
+    answer: "Our programs require an investment in your future. We offer flexible payment options and scholarship opportunities. Contact us for detailed pricing and financial assistance options. We believe quality education is worth the investment."
   },
   {
     question: "What are the requirements to join?",

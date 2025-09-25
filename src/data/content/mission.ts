@@ -47,7 +47,7 @@ export interface AboutData {
 export const mission: MissionData = {
   title: "Why We Do This Work",
   description: "Many young people in Ghana have the potential to succeed in technology, but lack access to quality training and opportunities. We bridge this gap by providing practical, hands-on education that leads to real jobs. Our approach focuses on building both technical skills and confidence, preparing students for Ghana's growing digital economy.",
-  extendedMission: "We believe that access to technology education shouldn't depend on your family's income or connections. That's why all our core programs are completely free, and we actively recruit students from underserved communities. We also prioritize creating a supportive environment where women and girls feel welcome and can thrive in tech.",
+  extendedMission: "We believe that access to technology education should be accessible to everyone. That's why we offer scholarships and flexible payment options, and we actively recruit students from underserved communities. We also prioritize creating a supportive environment where women and girls feel welcome and can thrive in tech.",
   challenge: {
     title: "Our Impact So Far",
     description: "While we're proud of our progress, we know there's much more work to be done. Here's what we've achieved together:",
@@ -62,10 +62,10 @@ export const mission: MissionData = {
 
 export const about: AboutData = {
   vision: "We envision a Ghana where every young person, regardless of their background, has the opportunity to build a meaningful career in technology and contribute to our country's digital growth.",
-  mission: "We provide free, practical technology education that leads to real employment opportunities. Our focus is on underserved communities and ensuring that women have equal access to tech careers.",
+  mission: "We provide practical technology education that leads to real employment opportunities. Our focus is on underserved communities and ensuring that women have equal access to tech careers.",
   story: "IT For Youth Ghana started in 2023 when our founder, Peter Duodu, saw the gap between Ghana's growing tech sector and the lack of accessible training for young people from low-income communities. What began as small workshops has grown into comprehensive programs that have trained over 200 graduates.",
   whatMakesUsDifferent: [
-    "All our core programs are completely free - no hidden costs",
+    "Accessible programs with scholarship opportunities available",
     "We actively recruit from underserved communities",
     "Small class sizes ensure personalized attention",
     "We provide ongoing support even after graduation",

@@ -20,10 +20,10 @@ const Donate: React.FC = () => {
       impact: 'Equips 1 complete classroom setup'
     },
     {
-      title: 'Fund Free Training',
-      description: 'Sponsor scholarships for students unable to afford our programs.',
+      title: 'Fund Scholarships',
+      description: 'Sponsor scholarships for students from underserved communities to access our programs.',
       amount: 'GHS 1,000',
-      impact: 'Covers 2 students full training costs'
+      impact: 'Provides 2 students with scholarship support'
     },
     {
       title: 'Inspire Innovation',
@@ -102,16 +102,16 @@ const Donate: React.FC = () => {
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
                 <motion.button
-                  className="btn btn-secondary bg-white text-primary hover:bg-white/90 text-lg font-bold py-4 px-8"
-                  whileHover={{ scale: 1.05 }}
+                  className="btn btn-secondary bg-white text-primary hover:bg-neutral-100 hover:text-primary text-lg font-bold py-4 px-8 border-2 border-white shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('donation-methods')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Donate Now
                 </motion.button>
                 <motion.button
-                  className="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8"
-                  whileHover={{ scale: 1.05 }}
+                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('impact-areas')?.scrollIntoView({ behavior: 'smooth' })}
                 >
@@ -145,7 +145,7 @@ const Donate: React.FC = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10"
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 group"
                 >
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
                     <div className="w-8 h-8 bg-primary rounded-full"></div>
@@ -155,7 +155,7 @@ const Donate: React.FC = () => {
                     {impact.title}
                   </h3>
                   
-                  <p className="text-neutral-700 mb-6 leading-relaxed text-center">
+                  <p className="text-neutral-700 mb-6 leading-relaxed text-center group-hover:text-neutral-800 transition-colors duration-300">
                     {impact.description}
                   </p>
                   
@@ -262,8 +262,8 @@ const Donate: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <motion.button
-                  className="btn btn-secondary bg-white text-primary hover:bg-white/90 text-lg font-bold py-4 px-8"
-                  whileHover={{ scale: 1.05 }}
+                  className="btn btn-secondary bg-white text-primary hover:bg-neutral-100 hover:text-primary text-lg font-bold py-4 px-8 border-2 border-white shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('donation-methods')?.scrollIntoView({ behavior: 'smooth' })}
                 >
@@ -271,8 +271,8 @@ const Donate: React.FC = () => {
                 </motion.button>
                 <motion.a
                   href="/contact"
-                  className="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8"
-                  whileHover={{ scale: 1.05 }}
+                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Get in Touch

@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
       ),
       title: 'Visit Us',
       detail: content.contact.address,
-      action: '#location',
+      action: 'https://maps.google.com/?q=Accra,Ghana',
       description: 'Come to our training center'
     }
   ]
@@ -114,6 +114,8 @@ const Contact: React.FC = () => {
                 <motion.a
                   key={method.title}
                   href={method.action}
+                  target={method.title === 'Visit Us' ? '_blank' : '_self'}
+                  rel={method.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.3, delay: index * 0.05 }}

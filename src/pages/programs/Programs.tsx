@@ -203,34 +203,34 @@ const Programs: React.FC = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="card card-body border-l-4 border-accent"
+                    className="card card-body border-l-4 border-accent overflow-hidden"
                   >
-                    <div className="grid lg:grid-cols-2 gap-8 items-center">
-                      <div>
+                    <div className="grid lg:grid-cols-2 gap-8 items-start">
+                      <div className="space-y-4 min-h-0">
                         <div className="flex items-center mb-4">
                           <h3 className="heading-md mr-4">{program.title}</h3>
                           <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">
                             {program.subtitle}
                           </span>
                         </div>
-                        <p className="text-body mb-6">{program.description}</p>
+                        <p className="text-body mb-4 leading-relaxed">{program.description}</p>
                         
-                        <div className="grid md:grid-cols-2 gap-4 mb-6">
+                        <div className="grid md:grid-cols-2 gap-4 mb-4">
                           <div>
-                            <h4 className="font-semibold text-primary mb-2">Initial Cohort:</h4>
-                            <p className="text-body">{program.participants}</p>
+                            <h4 className="font-semibold text-primary mb-2 text-sm">Initial Cohort:</h4>
+                            <p className="text-body text-sm">{program.participants}</p>
                           </div>
                           <div>
-                            <h4 className="font-semibold text-primary mb-2">Development Status:</h4>
-                            <p className="text-body">{program.status}</p>
+                            <h4 className="font-semibold text-primary mb-2 text-sm">Development Status:</h4>
+                            <p className="text-body text-sm">{program.status}</p>
                           </div>
                         </div>
 
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-primary mb-3">Key Technologies:</h4>
-                          <div className="flex flex-wrap gap-2">
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-primary mb-2 text-sm">Key Technologies:</h4>
+                          <div className="flex flex-wrap gap-1 max-h-20 overflow-y-auto">
                             {program.skills.map((skill, skillIndex) => (
-                              <span key={skillIndex} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
+                              <span key={skillIndex} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs whitespace-nowrap">
                                 {skill}
                               </span>
                             ))}
@@ -238,10 +238,10 @@ const Programs: React.FC = () => {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold text-primary mb-3">Real-World Applications:</h4>
-                          <div className="flex flex-wrap gap-2">
+                          <h4 className="font-semibold text-primary mb-2 text-sm">Real-World Applications:</h4>
+                          <div className="flex flex-wrap gap-1 max-h-16 overflow-y-auto">
                             {program.highlights.map((highlight, highlightIndex) => (
-                              <span key={highlightIndex} className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">
+                              <span key={highlightIndex} className="bg-accent/10 text-accent px-2 py-1 rounded-full text-xs whitespace-nowrap">
                                 {highlight}
                               </span>
                             ))}
@@ -259,6 +259,9 @@ const Programs: React.FC = () => {
                           className="btn btn-accent"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
+                          onClick={() => {
+                            alert('Thank you for your interest! We will contact you when this program becomes available.')
+                          }}
                         >
                           Get Updates
                         </motion.button>

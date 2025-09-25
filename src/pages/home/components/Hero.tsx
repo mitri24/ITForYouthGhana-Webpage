@@ -19,7 +19,7 @@ const heroSlides = [
   {
     image: '/images/randomPictures/IMG-20241118-WA0078.jpg',
     title: 'From Training to Employment',
-    subtitle: 'Free and low-cost programs with hands-on learning and real-world project experience'
+    subtitle: 'Professional programs with hands-on learning and real-world project experience'
   },
   {
     image: '/images/randomPictures/2024-12-17 20.27 (5).jpg',
