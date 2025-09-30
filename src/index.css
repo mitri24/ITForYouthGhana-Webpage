@@ -539,15 +539,14 @@ body {
   /* CHANGED: Accessibility-optimierte Link & Focus States für WCAG 2.1 AA */
   a {
     color: var(--color-primary);
-    text-decoration: underline;
-    text-decoration-color: transparent;
+    text-decoration: none;
     text-underline-offset: 3px;
     transition: text-decoration-color 0.2s ease;
   }
   
   a:hover {
     color: var(--color-primary-90);
-    text-decoration-color: currentColor;
+    text-decoration: none;
   }
   
   a:focus {
@@ -751,6 +750,29 @@ body {
   a:not(.btn):focus {
     color: var(--color-primary-90);
     text-decoration-color: currentColor;
+  }
+
+  /* Navigation specific - no underlines */
+  nav a,
+  nav Link,
+  .navbar a,
+  .navigation a {
+    text-decoration: none !important;
+  }
+
+  nav a:hover,
+  nav Link:hover,
+  .navbar a:hover,
+  .navigation a:hover,
+  nav a:active,
+  nav Link:active,
+  .navbar a:active,
+  .navigation a:active,
+  nav a:focus,
+  nav Link:focus,
+  .navbar a:focus,
+  .navigation a:focus {
+    text-decoration: none !important;
   }
 
   /* ADDED: Enhanced table accessibility */
