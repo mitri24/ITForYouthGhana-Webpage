@@ -307,35 +307,12 @@ const Hero: React.FC = () => {
         {/* Mail Button */}
         <a
           href="mailto:info@itforyouthghana.org"
-          className="btn contact-btn"
+          className="btn btn-primary"
           title="Send Email"
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
-            background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
-            color: 'white',
-            padding: '14px 24px',
-            borderRadius: '50px',
-            boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
-            textDecoration: 'none',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            fontWeight: '600',
-            fontSize: '15px',
-            border: '2px solid rgba(255, 255, 255, 0.2)',
-            backdropFilter: 'blur(10px)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
-            e.currentTarget.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.4)'
-            e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)'
-            e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
-            e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+            gap: '10px'
           }}
         >
           <span style={{ 
@@ -358,35 +335,12 @@ const Hero: React.FC = () => {
         {/* Phone Button */}
         <a
           href="tel:+233596244834"
-          className="btn contact-btn"
+          className="btn btn-secondary"
           title="Call Us"
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
-            background: 'white',
-            color: '#0152be',
-            padding: '14px 24px',
-            borderRadius: '50px',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
-            textDecoration: 'none',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            fontWeight: '600',
-            fontSize: '15px',
-            border: '2px solid #0152be',
-            backdropFilter: 'blur(10px)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
-            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
-            e.currentTarget.style.background = '#f8fafc'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)'
-            e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
-            e.currentTarget.style.background = 'white'
+            gap: '10px'
           }}
         >
           <span style={{ 
@@ -409,36 +363,13 @@ const Hero: React.FC = () => {
         {/* Social Media Dropdown */}
         <div className="social-dropdown" style={{ position: 'relative' }}>
           <button
-            className="btn contact-btn"
+            className="btn btn-primary"
             onClick={() => setShowSocialDropdown(!showSocialDropdown)}
             title="Social Media"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '10px',
-              background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
-              color: 'white',
-              padding: '14px 24px',
-              borderRadius: '50px',
-              boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
-              border: '2px solid rgba(255, 255, 255, 0.2)',
-              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-              fontWeight: '600',
-              fontSize: '15px',
-              cursor: 'pointer',
-              backdropFilter: 'blur(10px)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
-              e.currentTarget.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.4)'
-              e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)'
-              e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
-              e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+              gap: '10px'
             }}
           >
             <span style={{ 

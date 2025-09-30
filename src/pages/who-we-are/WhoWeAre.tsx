@@ -6,10 +6,11 @@ import TeamSection from './components/TeamSection'
 import ValuesSection from './components/ValuesSection'
 import StatsSection from './components/StatsSection'
 import PartnersSection from './components/PartnersSection'
+import { navigateToPage } from '../../utils/navigation'
 
 const WhoWeAre: React.FC = () => {
   const handleGetInvolved = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   
@@ -22,7 +23,7 @@ const WhoWeAre: React.FC = () => {
         canonical="/who-we-are"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         <Hero
           title="Who We Are"
           subtitle="Empowering Ghana's Future Through Technology"

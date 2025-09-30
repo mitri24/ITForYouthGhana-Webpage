@@ -85,10 +85,10 @@ const Donate: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center text-white max-w-4xl mx-auto"
             >
-              <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight text-white">
+              <h1 className="heading-xl text-white">
                 Make a Difference With Your Donation
               </h1>
-              <p className="text-2xl md:text-3xl mb-6 text-white/90">
+              <p className="text-lead text-white/90 mb-8 max-w-3xl mx-auto">
                 Empower Ghana's Youth Through Technology!
               </p>
               <p className="text-xl mb-12 text-white/80 leading-relaxed">
@@ -102,7 +102,7 @@ const Donate: React.FC = () => {
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
                 <motion.button
-                  className="btn btn-secondary bg-white text-primary hover:bg-neutral-100 hover:text-primary text-lg font-bold py-4 px-8 border-2 border-white shadow-lg"
+                  className="btn btn-secondary"
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('donation-methods')?.scrollIntoView({ behavior: 'smooth' })}
@@ -110,7 +110,7 @@ const Donate: React.FC = () => {
                   Donate Now
                 </motion.button>
                 <motion.button
-                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
+                  className="btn btn-ghost"
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('impact-areas')?.scrollIntoView({ behavior: 'smooth' })}
@@ -131,7 +131,7 @@ const Donate: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6 text-primary">Your Donation Makes Real Impact</h2>
+              <h2 className="heading-xl mb-6">Your Donation Makes Real Impact</h2>
               <p className="text-lead text-center max-w-4xl mx-auto text-neutral-800">
                 See exactly how your contribution transforms lives and communities across Ghana
               </p>
@@ -151,7 +151,7 @@ const Donate: React.FC = () => {
                     <div className="w-8 h-8 bg-primary rounded-full"></div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-primary mb-4 text-center">
+                  <h3 className="heading-sm mb-4 text-center">
                     {impact.title}
                   </h3>
                   

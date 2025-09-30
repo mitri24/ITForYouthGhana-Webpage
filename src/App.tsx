@@ -14,6 +14,7 @@ const Volunteers = React.lazy(() => import('./pages/Opportunities/volunteers/Vol
 const WhoCanApply = React.lazy(() => import('./pages/who-can-apply/WhoCanApply'))
 const StudentsProcess = React.lazy(() => import('./pages/how-it-works/students-graduates/StudentsProcess'))
 const BusinessesProcess = React.lazy(() => import('./pages/how-it-works/businesses/BusinessesProcess'))
+const VolunteersProcess = React.lazy(() => import('./pages/how-it-works/volunteers/VolunteersProcess'))
 const Testimonials = React.lazy(() => import('./pages/testimonials/Testimonials'))
 const Contact = React.lazy(() => import('./pages/Contact'))
 const Donate = React.lazy(() => import('./pages/Donate'))
@@ -45,12 +46,19 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/who-we-are" element={<WhoWeAre />} />
+                {/* New routes */}
+                <Route path="/opportunities/students-graduates" element={<StudentsGraduates />} />
+                <Route path="/opportunities/businesses" element={<Businesses />} />
+                <Route path="/opportunities/volunteers" element={<Volunteers />} />
+                
+                {/* Legacy redirects for old URLs */}
                 <Route path="/what-we-offer/students-graduates" element={<StudentsGraduates />} />
                 <Route path="/what-we-offer/businesses" element={<Businesses />} />
                 <Route path="/what-we-offer/volunteers" element={<Volunteers />} />
                 <Route path="/who-can-apply" element={<WhoCanApply />} />
                 <Route path="/how-it-works/students-graduates" element={<StudentsProcess />} />
                 <Route path="/how-it-works/businesses" element={<BusinessesProcess />} />
+                <Route path="/how-it-works/volunteers" element={<VolunteersProcess />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/donate" element={<Donate />} />

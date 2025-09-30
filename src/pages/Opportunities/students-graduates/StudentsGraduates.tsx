@@ -5,10 +5,11 @@ import ProgramsOverview from './components/ProgramsOverview'
 import SkillsPathways from './components/SkillsPathways'
 import CareerSupport from './components/CareerSupport'
 import SuccessStories from './components/SuccessStories'
+import { navigateToPage } from '../../../utils/navigation'
 
 const StudentsGraduates: React.FC = () => {
   const handleApplyNow = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
 
@@ -18,10 +19,10 @@ const StudentsGraduates: React.FC = () => {
       <SEO
         title="For Students & Graduates - IT for Youth Ghana"
         description="Transform your career with our comprehensive tech training programs. From coding bootcamps to data analytics - build job-ready skills with 85% employment rate."
-        canonical="/what-we-offer/students-graduates"
+        canonical="/opportunities/students-graduates"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         <Hero
           title="Transform Your Future"
           subtitle="For Students & Graduates"

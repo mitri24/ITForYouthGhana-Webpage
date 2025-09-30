@@ -86,8 +86,8 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="hero-title">Get in Touch</h1>
-              <p className="hero-subtitle">
+              <h1 className="heading-xl text-white">Get in Touch</h1>
+              <p className="text-lead text-white/90 mb-8 max-w-3xl mx-auto">
                 Ready to start your tech journey? Have questions about our programs? We're here to help!
               </p>
             </motion.div>
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-lg mb-6 text-primary">Contact Methods</h2>
+              <h2 className="heading-lg mb-6">Contact Methods</h2>
               <p className="text-lead text-center max-w-3xl mx-auto text-neutral-800">
                 Choose the most convenient way to reach us
               </p>
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
             >
               <div className="card">
                 <div className="card-body" style={{ padding: '24px' }}>
-                  <h2 className="heading-md mb-6 text-primary text-center">Quick Contact</h2>
+                  <h2 className="heading-md mb-6 text-center">Quick Contact</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="form-group">
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                     <div style={{ marginTop: '24px' }}>
                       <motion.button
                         type="submit"
-                        className="bg-primary text-white hover:bg-primary-600 w-full py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg"
+                        className="btn btn-primary w-full"
                         style={{ marginBottom: '16px' }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -230,7 +230,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="max-w-4xl mx-auto"
             >
-              <h2 className="heading-lg mb-12 text-primary text-center">Frequently Asked Questions</h2>
+              <h2 className="heading-lg mb-12 text-center">Frequently Asked Questions</h2>
                 
               <div className="space-y-4">
                 {faqItems.map((faq, index) => (
@@ -242,7 +242,7 @@ const Contact: React.FC = () => {
                     className="bg-white rounded-2xl border border-neutral-200 hover:border-primary transition-all duration-300"
                     style={{ padding: '20px' }}
                   >
-                    <h3 className="heading-sm mb-3 text-primary">{faq.question}</h3>
+                    <h3 className="heading-sm mb-3">{faq.question}</h3>
                     <p className="text-body text-neutral-800">{faq.answer}</p>
                   </motion.div>
                 ))}
@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
                   </p>
                   <motion.a
                     href={`mailto:${content.contact.email}`}
-                    className="inline-block bg-white text-primary hover:bg-neutral-100 px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg"
+                    className="btn btn-secondary"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
