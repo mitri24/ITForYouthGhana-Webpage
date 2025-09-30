@@ -72,33 +72,52 @@ const ImpactHighlights: React.FC = () => {
           ))}
         </div>
 
-        {/* Statistics */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+         {/* Partnership CTA */}
+         <motion.div
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-primary rounded-2xl p-8 text-white"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center mt-20"
         >
-         
-          
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4 text-white">
-              Transforming Ghana's Digital Future
-            </h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Join thousands of success stories and be part of Ghana's tech transformation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/testimonials"
-                className="btn btn-secondary bg-white text-primary hover:bg-neutral-100"
-              >
-                Read More Stories
-              </Link>
-              
-            </div>
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
+            <h3 className="heading-md mb-4 text-primary"> Transforming Ghana's Digital Future</h3>
+            <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
+            Join thousands of success stories and be part of Ghana's tech transformation.</p>
+            <motion.a
+              href="/contact"
+              className="inline-block"
+              style={{
+                padding: '16px 32px',
+                fontSize: '16px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                borderRadius: '50px',
+                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                backdropFilter: 'blur(10px)'
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+              }}
+            >
+              Read More Stories
+            </motion.a>
           </div>
         </motion.div>
+
+       
       </div>
     </section>
   )

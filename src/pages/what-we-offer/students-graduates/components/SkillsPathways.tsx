@@ -89,26 +89,57 @@ const SkillsPathways: React.FC = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          {/* Partnership CTA */}
+          <motion.div
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
-          <h3 className="heading-md mb-6 text-primary">Not Sure Which Path to Choose?</h3>
-          <p className="text-body mb-6 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
+            <h3 className="heading-md mb-4 text-primary">Not Sure Which Path to Choose?</h3>
+            <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
             Our career counselors will help you identify the best path based on your interests, 
-            skills, and career goals.
-          </p>
-          <motion.button
-            className="btn btn-secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => window.location.href = '/contact'}
-          >
-            Get Career Guidance
-          </motion.button>
+            skills, and career goals. </p>
+            <motion.a
+              href="/contact"
+              className="inline-block"
+              style={{
+                padding: '16px 32px',
+                fontSize: '16px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                borderRadius: '50px',
+                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                backdropFilter: 'blur(10px)'
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+              }}
+            >
+              Get Career Guidance
+            </motion.a>
+          </div>
         </motion.div>
+
+      
+
+
+      
+
       </div>
     </section>
   )
