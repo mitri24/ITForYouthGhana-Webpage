@@ -96,15 +96,30 @@ const DonationSection: React.FC = () => {
                   href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                  className="inline-block w-full"
                   style={{
-                    padding: '10px 20px',
+                    padding: '12px 20px',
                     fontSize: '14px',
                     fontWeight: '600',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                    color: 'white',
+                    border: '2px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 6px 20px rgba(37, 99, 235, 0.3)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)'
                   }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(37, 99, 235, 0.4)'
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.3)'
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                  }}
                 >
                   Donate {goal.amount}
                 </motion.a>
@@ -124,15 +139,30 @@ const DonationSection: React.FC = () => {
             href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="inline-flex items-center gap-4"
             style={{
-              padding: '20px 40px',
+              padding: '18px 40px',
               fontSize: '18px',
               fontWeight: '700',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              borderRadius: '50px',
+              background: 'white',
+              color: '#0152be',
+              border: '3px solid #0152be',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backdropFilter: 'blur(10px)'
             }}
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)'
+              e.currentTarget.style.background = '#f8fafc'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)'
+              e.currentTarget.style.background = 'white'
+            }}
           >
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}

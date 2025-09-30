@@ -45,10 +45,34 @@ const Hero: React.FC<HeroSectionProps> = ({
             >
               {primaryCta && (
                 <motion.button
-                  className="btn btn-secondary bg-white text-primary hover:bg-neutral-100 hover:text-primary text-lg font-bold py-4 px-8 border-2 border-white shadow-lg"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  className="inline-block"
+                  style={{
+                    padding: '16px 32px',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    background: 'white',
+                    color: '#0152be',
+                    border: '2px solid #0152be',
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)',
+                    cursor: 'pointer'
+                  }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={primaryCta.action}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.25)'
+                    e.currentTarget.style.background = '#f8fafc'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)'
+                    e.currentTarget.style.background = 'white'
+                  }}
                 >
                   {primaryCta.text}
                 </motion.button>
@@ -56,10 +80,36 @@ const Hero: React.FC<HeroSectionProps> = ({
               
               {secondaryCta && (
                 <motion.button
-                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  className="inline-block"
+                  style={{
+                    padding: '16px 32px',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    background: 'transparent',
+                    color: 'white',
+                    border: '2px solid white',
+                    boxShadow: '0 10px 30px rgba(255, 255, 255, 0.1)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)',
+                    cursor: 'pointer'
+                  }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={secondaryCta.action}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(255, 255, 255, 0.15)'
+                    e.currentTarget.style.background = 'white'
+                    e.currentTarget.style.color = '#0152be'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(255, 255, 255, 0.1)'
+                    e.currentTarget.style.background = 'transparent'
+                    e.currentTarget.style.color = 'white'
+                  }}
                 >
                   {secondaryCta.text}
                 </motion.button>

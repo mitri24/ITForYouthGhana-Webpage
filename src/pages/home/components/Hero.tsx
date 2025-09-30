@@ -312,31 +312,44 @@ const Hero: React.FC = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            background: '#2563eb',
+            gap: '10px',
+            background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
             color: 'white',
-            padding: '12px 20px',
-            borderRadius: '25px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            padding: '14px 24px',
+            borderRadius: '50px',
+            boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
             textDecoration: 'none',
-            transition: 'all 0.3s ease',
-            fontWeight: '500',
-            fontSize: '14px'
+            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            fontWeight: '600',
+            fontSize: '15px',
+            border: '2px solid rgba(255, 255, 255, 0.2)',
+            backdropFilter: 'blur(10px)',
+            position: 'relative',
+            overflow: 'hidden'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px)'
-            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
-            e.currentTarget.style.background = '#1d4ed8'
+            e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.4)'
+            e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
-            e.currentTarget.style.background = '#2563eb'
+            e.currentTarget.style.transform = 'translateY(0) scale(1)'
+            e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
+            e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
           }}
         >
-          <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <span style={{ 
+            width: '22px', 
+            height: '22px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            background: 'rgba(255, 255, 255, 0.15)',
+            borderRadius: '50%',
+            padding: '4px'
+          }}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </span>
           <span>Email</span>
@@ -350,31 +363,44 @@ const Hero: React.FC = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            background: '#2563eb',
-            color: 'white',
-            padding: '12px 20px',
-            borderRadius: '25px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            gap: '10px',
+            background: 'white',
+            color: '#0152be',
+            padding: '14px 24px',
+            borderRadius: '50px',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
             textDecoration: 'none',
-            transition: 'all 0.3s ease',
-            fontWeight: '500',
-            fontSize: '14px'
+            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            fontWeight: '600',
+            fontSize: '15px',
+            border: '2px solid #0152be',
+            backdropFilter: 'blur(10px)',
+            position: 'relative',
+            overflow: 'hidden'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px)'
-            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
-            e.currentTarget.style.background = '#1d4ed8'
+            e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
+            e.currentTarget.style.background = '#f8fafc'
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
-            e.currentTarget.style.background = '#2563eb'
+            e.currentTarget.style.transform = 'translateY(0) scale(1)'
+            e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
+            e.currentTarget.style.background = 'white'
           }}
         >
-          <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          <span style={{ 
+            width: '22px', 
+            height: '22px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            background: 'rgba(1, 82, 190, 0.1)',
+            borderRadius: '50%',
+            padding: '4px'
+          }}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
           </span>
           <span>Phone</span>
@@ -389,31 +415,43 @@ const Hero: React.FC = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
-              background: '#2563eb',
+              gap: '10px',
+              background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
               color: 'white',
-              padding: '12px 20px',
-              borderRadius: '25px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              border: 'none',
-              transition: 'all 0.3s ease',
-              fontWeight: '500',
-              fontSize: '14px',
-              cursor: 'pointer'
+              padding: '14px 24px',
+              borderRadius: '50px',
+              boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
+              border: '2px solid rgba(255, 255, 255, 0.2)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              fontWeight: '600',
+              fontSize: '15px',
+              cursor: 'pointer',
+              backdropFilter: 'blur(10px)',
+              position: 'relative',
+              overflow: 'hidden'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)'
-              e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
-              e.currentTarget.style.background = '#1d4ed8'
+              e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.4)'
+              e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)'
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
-              e.currentTarget.style.background = '#2563eb'
+              e.currentTarget.style.transform = 'translateY(0) scale(1)'
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
+              e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
             }}
           >
-            <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <span style={{ 
+              width: '22px', 
+              height: '22px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              background: 'rgba(255, 255, 255, 0.15)',
+              borderRadius: '50%',
+              padding: '4px'
+            }}>
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
               </svg>
             </span>

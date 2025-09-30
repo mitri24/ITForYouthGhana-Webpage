@@ -133,7 +133,30 @@ const MainNavigation: React.FC = () => {
                 href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:bg-green-700 hover:shadow-md"
+                className="inline-flex items-center gap-2"
+                style={{
+                  padding: '10px 20px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  borderRadius: '50px',
+                  background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                  color: 'white',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 6px 20px rgba(1, 82, 190, 0.3)',
+                  transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                  backdropFilter: 'blur(10px)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(1, 82, 190, 0.4)'
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(1, 82, 190, 0.3)'
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                }}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -221,8 +244,29 @@ const MainNavigation: React.FC = () => {
                     href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-green-600 text-white py-3 rounded-lg font-medium transition-all duration-200 hover:bg-green-700"
+                    className="flex items-center justify-center gap-2"
+                    style={{
+                      padding: '14px 28px',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      textDecoration: 'none',
+                      borderRadius: '50px',
+                      background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                      color: 'white',
+                      border: '2px solid rgba(255, 255, 255, 0.2)',
+                      boxShadow: '0 6px 20px rgba(1, 82, 190, 0.3)',
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                      backdropFilter: 'blur(10px)'
+                    }}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(1, 82, 190, 0.4)'
+                      e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(1, 82, 190, 0.3)'
+                      e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                    }}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />

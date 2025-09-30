@@ -164,15 +164,30 @@ const Challenge: React.FC = () => {
             href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-3"
             style={{
               padding: '16px 32px',
               fontSize: '16px',
               fontWeight: '600',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              borderRadius: '50px',
+              background: 'white',
+              color: '#0152be',
+              border: '2px solid #0152be',
+              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backdropFilter: 'blur(10px)'
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
+              e.currentTarget.style.background = '#f8fafc'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
+              e.currentTarget.style.background = 'white'
+            }}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />

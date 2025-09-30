@@ -9,7 +9,7 @@ const ProgramsOverview: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedProgram, setSelectedProgram] = useState<any>(null)
   const [showModal, setShowModal] = useState(false)
-  const [activeTab, setActiveTab] = useState<'main' | 'courses' | 'future'>('main')
+  const [activeTab, setActiveTab] = useState<'past' | 'current' | 'courses' | 'future'>('current')
 
   const handleProgramClick = (program: any) => {
     setSelectedProgram(program)
@@ -24,19 +24,22 @@ const ProgramsOverview: React.FC = () => {
   // Get programs based on active tab
   const getCurrentPrograms = () => {
     switch (activeTab) {
-      case 'main':
-        return programs.main
+      case 'past':
+        return programs.past
+      case 'current':
+        return programs.current
       case 'courses':
         return programs.courses
       case 'future':
         return programs.future
       default:
-        return programs.main
+        return programs.current
     }
   }
 
   const tabLabels = {
-    main: 'Main Programs',
+    current: 'Currently Running',
+    past: 'Past Programs',
     courses: 'Additional Courses',
     future: 'Coming Soon'
   }
@@ -143,7 +146,7 @@ const ProgramsOverview: React.FC = () => {
                   </div>
                 </div>
                 
-                {activeTab === 'main' ? (
+                {(activeTab === 'past' || activeTab === 'current') ? (
                   <motion.button
                     className="btn btn-primary w-full"
                     whileHover={{ scale: 1.02 }}
