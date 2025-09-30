@@ -3,18 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import MainNavigation from './components/navigation/MainNavigation'
 import Footer from './components/layout/footer'
+import { SkipLinks } from './components/accessibility'
 
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'))
 const WhoWeAre = React.lazy(() => import('./pages/who-we-are/WhoWeAre'))
 const StudentsGraduates = React.lazy(() => import('./pages/what-we-offer/students-graduates/StudentsGraduates'))
 const Businesses = React.lazy(() => import('./pages/what-we-offer/businesses/Businesses'))
-const Mentors = React.lazy(() => import('./pages/what-we-offer/mentors/Mentors'))
 const Volunteers = React.lazy(() => import('./pages/what-we-offer/volunteers/Volunteers'))
 const WhoCanApply = React.lazy(() => import('./pages/who-can-apply/WhoCanApply'))
 const StudentsProcess = React.lazy(() => import('./pages/how-it-works/students-graduates/StudentsProcess'))
 const BusinessesProcess = React.lazy(() => import('./pages/how-it-works/businesses/BusinessesProcess'))
-const MentorsProcess = React.lazy(() => import('./pages/how-it-works/mentors/MentorsProcess'))
 const Testimonials = React.lazy(() => import('./pages/testimonials/Testimonials'))
 const Contact = React.lazy(() => import('./pages/Contact'))
 const Donate = React.lazy(() => import('./pages/Donate'))
@@ -39,12 +38,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <div className="min-h-screen bg-white">
-          <a 
-            href="#main-content" 
-            className="skip-link"
-          >
-            Skip to main content
-          </a>
+          <SkipLinks />
           <MainNavigation />
           <main id="main-content" role="main" tabIndex={-1}>
             <Suspense fallback={<PageLoading />}>
@@ -53,12 +47,10 @@ function App() {
                 <Route path="/who-we-are" element={<WhoWeAre />} />
                 <Route path="/what-we-offer/students-graduates" element={<StudentsGraduates />} />
                 <Route path="/what-we-offer/businesses" element={<Businesses />} />
-                <Route path="/what-we-offer/mentors" element={<Mentors />} />
                 <Route path="/what-we-offer/volunteers" element={<Volunteers />} />
                 <Route path="/who-can-apply" element={<WhoCanApply />} />
                 <Route path="/how-it-works/students-graduates" element={<StudentsProcess />} />
                 <Route path="/how-it-works/businesses" element={<BusinessesProcess />} />
-                <Route path="/how-it-works/mentors" element={<MentorsProcess />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/donate" element={<Donate />} />

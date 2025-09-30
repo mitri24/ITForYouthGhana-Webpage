@@ -20,12 +20,6 @@ const WhatWeOffer: React.FC = () => {
       link: '/what-we-offer/businesses',
     },
     {
-      title: 'For Mentors',
-      description: 'Share your expertise and guide the next generation of tech professionals',
-      features: ['Industry Guidance', 'Career Coaching', 'Network Building'],
-      link: '/what-we-offer/mentors',
-    },
-    {
       title: 'For Volunteers',
       description: 'Make an impact in your community through teaching and outreach',
       features: ['Teaching Support', 'Community Outreach', 'Event Management'],
@@ -45,7 +39,7 @@ const WhatWeOffer: React.FC = () => {
           <h2 className="heading-xl mb-6 text-primary">What We Offer</h2>
           <p className="text-lead max-w-4xl mx-auto">
             Comprehensive programs and opportunities designed to create positive impact 
-            for students, businesses, mentors, and the broader community.
+            for students, businesses, volunteers, and the broader community.
           </p>
         </motion.div>
 

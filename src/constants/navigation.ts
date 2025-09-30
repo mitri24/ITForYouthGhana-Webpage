@@ -33,11 +33,6 @@ export const NAVIGATION_CONFIG: NavigationItem[] = [
         path: '/what-we-offer/businesses'
       },
       {
-        id: 'mentors',
-        label: 'Mentors',
-        path: '/what-we-offer/mentors'
-      },
-      {
         id: 'volunteers',
         label: 'Volunteers',
         path: '/what-we-offer/volunteers'
@@ -63,11 +58,6 @@ export const NAVIGATION_CONFIG: NavigationItem[] = [
         label: 'For Businesses',
         path: '/how-it-works/businesses'
       },
-      {
-        id: 'mentors-process',
-        label: 'For Mentors',
-        path: '/how-it-works/mentors'
-      }
     ]
   },
   {

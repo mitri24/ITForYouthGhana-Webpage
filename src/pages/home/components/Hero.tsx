@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { content } from '../../../data/content/index'
 import LazyImage from '../../../components/LazyImage'
-import { imageCategories } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
     image: '/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg',
-    title: content.hero.title,
-    subtitle: content.hero.subtitle
+    title: 'Empowering Ghana\'s Youth Through Technology',
+    subtitle: 'Professional programming courses and career development'
   },
   {
     image: '/images/randomPictures/IMG-20241118-WA0095.jpg',
@@ -44,7 +41,7 @@ const heroSlides = [
   {
     image: '/images/randomPictures/IMG-20241118-WA0104.jpg',
     title: 'Hands-On Learning',
-    subtitle: 'Practical skills development through real-world projects and mentorship'
+    subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
     image: '/images/randomPictures/IMG_2732.PNG',
@@ -56,17 +53,17 @@ const heroSlides = [
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [showSocialDropdown, setShowSocialDropdown] = useState(false)
 
   useEffect(() => {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 6000)
+    }, 5000) // 5 seconds per slide
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
-
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
@@ -76,142 +73,476 @@ const Hero: React.FC = () => {
     setCurrentSlide((prev) => prev === 0 ? heroSlides.length - 1 : prev - 1)
   }
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
-
   return (
-    <section 
-      className="relative min-h-screen overflow-hidden pt-20 pb-8"
-      style={{ minHeight: 'calc(100vh - 4rem)' }}
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
-    >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          className="absolute inset-0"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
-          <LazyImage
-            src={heroSlides[currentSlide].image}
-            alt={heroSlides[currentSlide].title}
-            className="w-full h-full object-cover"
-            priority={currentSlide === 0}
-          />
-        </motion.div>
-        {/* Apple-inspired darker overlay for better text readability */}
+    <>
+      <section 
+        className="hero"
+        style={{
+          position: 'relative',
+          height: '60vh',
+          overflow: 'hidden',
+          clipPath: 'ellipse(100% 100% at 50% 0%)'
+        }}
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+      >
+      {/* Hero Background with proper centering */}
+      <div 
+        className="hero-background"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <LazyImage
+              src={heroSlides[currentSlide].image}
+              alt={heroSlides[currentSlide].title}
+              className="hero-image"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              priority={currentSlide === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+        
+        {/* Subtle overlay for better logo visibility */}
         <div 
-          className="absolute inset-0" 
           style={{
-            background: 'linear-gradient(135deg, rgba(1, 82, 190, 0.5) 0%, rgba(10, 26, 58, 0.6) 100%)'
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(99, 102, 241, 0.1) 100%)',
+            zIndex: 2
           }}
         />
-      </AnimatePresence>
-
-      {/* Apple-inspired Hero Content - Clean, prominent, centered */}
-      <div className="relative z-10 h-full flex items-center justify-center py-16">
-        <div className="container max-w-6xl mx-auto text-center px-8">
-          <motion.div
-            key={`content-${currentSlide}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mx-auto"
-          >
-            {/* Large, prominent headline - Apple style */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-white leading-tight tracking-tight max-w-5xl mx-auto">
-              {heroSlides[currentSlide].title}
-            </h1>
-            
-            {/* Clean, readable subtitle */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-16 leading-relaxed font-light max-w-4xl mx-auto">
-              {heroSlides[currentSlide].subtitle}
-            </p>
-
-            {/* Prominent CTAs with Apple-inspired styling */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-lg mx-auto">
-              <Link to="/volunteer" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
-                <motion.button
-                  className="w-full sm:w-auto bg-white text-primary hover:bg-opacity-90 font-semibold rounded-2xl transition-all duration-300 shadow-xl border-0"
-                  style={{ 
-                    minHeight: '56px',
-                    padding: '16px 32px',
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: '#0152be'
-                  }}
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Join as Volunteer
-                </motion.button>
-              </Link>
-              
-              <Link to="/programs" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)} className="w-full sm:w-auto">
-                <motion.button
-                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary font-semibold rounded-2xl transition-all duration-300"
-                  style={{ 
-                    minHeight: '56px',
-                    padding: '16px 32px',
-                    fontSize: '16px',
-                    fontWeight: '600'
-                  }}
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Explore Programs
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
       </div>
 
-      {/* Side Navigation Arrows */}
-      <button 
+      {/* Centered Logo - NO BACKGROUND! */}
+      <div 
+        className="logo-container"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 10
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <motion.img
+            src="/images/logo/logo.png"
+            alt="IT for Youth Ghana - Empowering Youth Through Technology"
+            className="logo"
+            style={{
+              width: 'clamp(120px, 15vw, 200px)',
+              height: 'auto',
+              borderRadius: '50%',
+              objectFit: 'contain',
+              background: 'transparent', // NO BACKGROUND!
+              filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3))'
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
+          />
+        </motion.div>
+      </div>
+
+      {/* Navigation Controls */}
+      <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-lg hover:bg-primary/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+        className="nav-button nav-button-left"
+        aria-label="Previous slide"
+        style={{
+          position: 'absolute',
+          left: '20px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          background: 'rgba(255, 255, 255, 0.2)',
+          backdropFilter: 'blur(10px)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          color: 'white'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)'
+        }}
       >
-        ←
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
-      
-      <button 
+
+      <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-lg hover:bg-primary/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+        className="nav-button nav-button-right"
+        aria-label="Next slide"
+        style={{
+          position: 'absolute',
+          right: '20px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          background: 'rgba(255, 255, 255, 0.2)',
+          backdropFilter: 'blur(10px)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          color: 'white'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)'
+        }}
       >
-        →
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 animate-float">
-        <div className="w-4 h-4 bg-secondary rounded-full opacity-60 shadow-secondary-glow"></div>
-      </div>
-      <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '-2s' }}>
-        <div className="w-6 h-6 bg-accent rounded-full opacity-40 shadow-accent-glow"></div>
-      </div>
-      <div className="absolute bottom-40 left-20 animate-float" style={{ animationDelay: '-4s' }}>
-        <div className="w-3 h-3 bg-secondary rounded-full opacity-50"></div>
-      </div>
-      <div className="absolute top-60 right-10 animate-float" style={{ animationDelay: '-1s' }}>
-        <div className="w-2 h-2 bg-secondary rounded-full opacity-70"></div>
+      {/* Slide Indicators */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '80px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: '8px',
+          zIndex: 10
+        }}
+      >
+        {heroSlides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+            style={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              border: 'none',
+              background: index === currentSlide ? 'white' : 'rgba(255, 255, 255, 0.5)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              transform: index === currentSlide ? 'scale(1.25)' : 'scale(1)'
+            }}
+            onMouseEnter={(e) => {
+              if (index !== currentSlide) {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.7)'
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (index !== currentSlide) {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.5)'
+              }
+            }}
+          />
+        ))}
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+
+      </section>
+
+      {/* Contact Buttons positioned outside hero section for full visibility */}
+      <div 
+        className="contact-buttons"
+        style={{
+          position: 'relative',
+          marginTop: '-40px',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '15px',
+          zIndex: 30,
+          paddingBottom: '20px'
+        }}
       >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+        {/* Mail Button */}
+        <a
+          href="mailto:info@itforyouthghana.org"
+          className="btn contact-btn"
+          title="Send Email"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: '#2563eb',
+            color: 'white',
+            padding: '12px 20px',
+            borderRadius: '25px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            fontWeight: '500',
+            fontSize: '14px'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)'
+            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
+            e.currentTarget.style.background = '#1d4ed8'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)'
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
+            e.currentTarget.style.background = '#2563eb'
+          }}
+        >
+          <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </span>
+          <span>Email</span>
+        </a>
+
+        {/* Phone Button */}
+        <a
+          href="tel:+233596244834"
+          className="btn contact-btn"
+          title="Call Us"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: '#2563eb',
+            color: 'white',
+            padding: '12px 20px',
+            borderRadius: '25px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            fontWeight: '500',
+            fontSize: '14px'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)'
+            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
+            e.currentTarget.style.background = '#1d4ed8'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)'
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
+            e.currentTarget.style.background = '#2563eb'
+          }}
+        >
+          <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </span>
+          <span>Phone</span>
+        </a>
+
+        {/* Social Media Dropdown */}
+        <div className="social-dropdown" style={{ position: 'relative' }}>
+          <button
+            className="btn contact-btn"
+            onClick={() => setShowSocialDropdown(!showSocialDropdown)}
+            title="Social Media"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: '#2563eb',
+              color: 'white',
+              padding: '12px 20px',
+              borderRadius: '25px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              border: 'none',
+              transition: 'all 0.3s ease',
+              fontWeight: '500',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)'
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'
+              e.currentTarget.style.background = '#1d4ed8'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'
+              e.currentTarget.style.background = '#2563eb'
+            }}
+          >
+            <span style={{ width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </span>
+            <span>Social</span>
+          </button>
+
+          {/* Social Dropdown Content */}
+          <AnimatePresence>
+            {showSocialDropdown && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="dropdown-content"
+                style={{
+                  position: 'absolute',
+                  bottom: '100%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: 'white',
+                  minWidth: '180px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  borderRadius: '8px',
+                  zIndex: 40,
+                  marginBottom: '10px',
+                  overflow: 'hidden'
+                }}
+              >
+                <a
+                  href="https://www.facebook.com/itforyouthghana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '12px 16px',
+                    textDecoration: 'none',
+                    color: '#333',
+                    fontSize: '14px',
+                    transition: 'background-color 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                >
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  Facebook
+                </a>
+                <a
+                  href="https://www.instagram.com/itforyouthghana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '12px 16px',
+                    textDecoration: 'none',
+                    color: '#333',
+                    fontSize: '14px',
+                    transition: 'background-color 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                >
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  Instagram
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/it-for-youth-ghana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '12px 16px',
+                    textDecoration: 'none',
+                    color: '#333',
+                    fontSize: '14px',
+                    transition: 'background-color 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                >
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </motion.div>
-    </section>
+      </div>
+
+      {/* Responsive CSS for mobile */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .contact-buttons {
+            flex-direction: column !important;
+            align-items: center;
+            gap: 10px !important;
+          }
+          
+          .logo {
+            width: clamp(100px, 12vw, 150px) !important;
+          }
+          
+          .nav-button-left {
+            left: 10px !important;
+          }
+          
+          .nav-button-right {
+            right: 10px !important;
+          }
+          
+          .contact-btn {
+            padding: 10px 16px !important;
+            font-size: 13px !important;
+          }
+        }
+      `}</style>
+    </>
   )
 }
 

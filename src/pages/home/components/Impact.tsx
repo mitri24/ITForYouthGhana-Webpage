@@ -23,7 +23,7 @@ const beforeAfterData = {
     'Solid tech skills in chosen field',
     'Self-confidence and problem-solving abilities',
     'Clear career goals and development plans',
-    'Access to mentors and resources',
+    'Access to resources and networking opportunities',
     'Strong professional networks'
   ]
 }
@@ -57,12 +57,7 @@ const Impact: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-6xl mx-auto" style={{ marginBottom: 'var(--space-3xl)' }}
         >
-          <div className="text-center mb-12">
-            <h3 className="heading-lg mb-4">Transformation Journey</h3>
-            <p className="text-lead text-neutral-800 max-w-3xl mx-auto">
-              See how our programs transform participants from uncertainty to tech confidence
-            </p>
-          </div>
+          
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Before - Redesigned with better centering */}
@@ -178,11 +173,101 @@ const Impact: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CHANGED: Link zur vollständigen Impact-Seite */}
+        {/* Belinda's Success Story */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
+            <div className="text-center mb-8">
+              <h3 className="heading-md text-primary mb-4">Success Story</h3>
+              <p className="text-lg font-semibold text-neutral-800 mb-6">
+                From zero knowledge in technology to building web platforms
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              {/* Image */}
+              <div className="text-center lg:order-1">
+                <div className="relative inline-block">
+                  <img 
+                    src="/images/people/Belinda.jpg" 
+                    alt="Belinda, Code Impact Challenge Winner"
+                    className="w-48 h-48 lg:w-56 lg:h-56 rounded-full object-cover mx-auto shadow-xl border-4 border-primary/20"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-xl font-bold text-primary">Belinda</h4>
+                  <p className="text-sm font-medium text-neutral-600">Code Impact Challenge Winner</p>
+                  <p className="text-sm text-neutral-600">Web Developer & Tech Leader</p>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <div className="lg:order-2">
+                <div className="relative">
+                  <svg className="absolute -top-2 -left-2 w-8 h-8 text-primary/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
+                  <blockquote className="text-lg leading-relaxed text-neutral-800 italic pl-6">
+                    "After my Senior High Education, I was lost in hope to continue my education. However, IT For Youth came through with their two-month intensive programming course. Today, I am a front-end developer hoping to grow more in IT.
+                    <br /><br />
+                    I was the overall winner in the previous competition and now inspire more girls to also pursue tech education. Thank you IT For Youth Ghana."
+                  </blockquote>
+                  <div className="mt-4 pl-6">
+                    <p className="font-semibold text-primary">— Belinda</p>
+                    <p className="text-sm text-neutral-600">Web Developer & Tech Leader</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Donation CTA after Belinda's story */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-center mb-12"
+        >
+          <p className="text-lg text-neutral-700 mb-6 max-w-2xl mx-auto">
+            Help create more success stories like Belinda's. Your donation empowers youth across Ghana with technology skills.
+          </p>
+          
+          <motion.a
+            href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            style={{
+              padding: '16px 32px',
+              fontSize: '16px',
+              fontWeight: '600',
+              textDecoration: 'none'
+            }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            Transform More Lives - Donate Today
+          </motion.a>
+        </motion.div>
+
+        {/* CHANGED: Link zur vollständigen Impact-Seite */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
           <Link to="/impact" onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}>
