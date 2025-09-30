@@ -16,7 +16,8 @@ const StudentsProcess: React.FC = () => {
       step: 1,
       title: 'Application',
       description: 'Complete our online application form with your background and motivation',
-      duration: '5-10 minutes'
+      duration: '5-10 minutes',
+      hasButton: true
     },
     {
       step: 2,
@@ -54,64 +55,59 @@ const StudentsProcess: React.FC = () => {
       
       <div className="min-h-screen bg-white pt-24">
         <Hero
-          title="Your Journey to Success"
+          title="Your Path to Tech Career"
           subtitle="How It Works - For Students & Graduates"
           description="A clear, step-by-step path from application to career placement. We guide you every step of the way."
-          primaryCta={{ text: "Start Application", action: handleStartApplication }}
         />
         
         <section ref={ref} className="section bg-white">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-xl mb-6 text-primary">Your Path to Tech Career</h2>
-              <p className="text-lead max-w-4xl mx-auto">
-                From application to employment - here's exactly what to expect on your journey with us.
-              </p>
-            </motion.div>
-
             <div className="max-w-4xl mx-auto">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`flex items-center mb-12 ${
-                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                  }`}
-                >
-                  <div className={`flex-1 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                    <div className="card">
-                      <div className="card-body">
-                        <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
-                            {step.step}
-                          </div>
-                          <div>
-                            <h3 className="heading-sm text-primary">{step.title}</h3>
-                            <span className="text-sm text-accent">{step.duration}</span>
-                          </div>
+              <div className="relative">
+                {/* Timeline Linie in der Mitte */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform -translate-x-1/2"></div>
+                
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className={`relative mb-12 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  >
+                    {/* Timeline Punkt in der Mitte */}
+                    <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold z-10">
+                      {step.step}
+                    </div>
+                    
+                    {/* Inhaltskarte - abwechselnd links und rechts */}
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
+                      <div className="bg-white border border-neutral-100 rounded-xl shadow-sm p-5 hover:shadow-md transition-shadow">
+                        <div className={`flex flex-col ${index % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} sm:items-center sm:justify-between mb-3`}>
+                          <h3 className="heading-sm text-primary">{step.title}</h3>
+                          <span className="text-sm text-accent font-medium mt-1 sm:mt-0">{step.duration}</span>
                         </div>
-                        <p className="text-body">{step.description}</p>
+                        <p className="text-body text-neutral-600 mb-4">{step.description}</p>
+                        
+                        {/* CTA-Button nur im ersten Schritt */}
+                        {step.hasButton && (
+                          <motion.button
+                            className={`btn btn-primary ${index % 2 === 0 ? 'ml-auto' : ''}`}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={handleStartApplication}
+                          >
+                            Start Application
+                          </motion.button>
+                        )}
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex-shrink-0">
-                    <div className="w-4 h-4 bg-primary rounded-full"></div>
-                    {index < steps.length - 1 && (
-                      <div className="w-0.5 h-16 bg-primary/30 mx-auto mt-2"></div>
-                    )}
-                  </div>
-                  
-                  <div className="flex-1"></div>
-                </motion.div>
-              ))}
+                    
+                    {/* Leerer Bereich für die andere Seite */}
+                    <div className="w-5/12"></div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             <motion.div
