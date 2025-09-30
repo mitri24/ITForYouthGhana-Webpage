@@ -1,166 +1,205 @@
 export const volunteerRoles = [
   {
-    title: 'Tech Mentor',
+    title: 'Industry Partnership Developer',
+    commitment: '6-8 hours/week',
+    location: 'Remote + On-site meetings',
+    description: 'Build strategic partnerships with tech companies to secure job placements, internships, and funding. Research shows partnerships dramatically increase employment rates.',
+    requirements: ['3+ years business development', 'Professional network in tech', 'Sales/negotiation skills'],
+    skills: ['Partnership Development', 'Strategic Networking', 'Business Negotiation'],
+    impact: 'Secure guaranteed job placements and strategic funding partnerships',
+    detailContent: {
+      overview: 'This high-impact role focuses on building the external relationships that directly translate to student success. You\'ll leverage your professional network to create systematic pathways from our programs to employment.',
+      responsibilities: [
+        'Identify and reach out to tech companies quarterly for partnership opportunities',
+        'Negotiate internship and job placement agreements with minimum quotas',
+        'Secure corporate sponsorships and equipment donations for program sustainability',
+        'Organize quarterly employer networking events with multiple companies',
+        'Track and report partnership ROI and employment placement rates'
+      ],
+      timeCommitment: '6-8 hours per week, flexible remote work with monthly on-site meetings',
+      requirements: [
+        'Significant experience in business development, sales, or corporate partnerships',
+        'Established network within Ghana\'s tech and business ecosystem',
+        'Proven track record of securing partnerships or significant deals',
+        'Strong negotiation and relationship management skills',
+        'Access to reliable internet and communication tools'
+      ],
+      benefits: [
+        'Expand your professional network across multiple industries',
+        'Develop high-level strategic partnership skills',
+        'Create measurable impact on youth employment outcomes',
+        'Gain experience in non-profit business development',
+        'Receive professional references and portfolio additions'
+      ]
+    }
+  },
+  {
+    title: 'Data Impact Analyst',
+    commitment: '4-5 hours/week',
+    location: 'Remote',
+    description: 'Track, analyze and optimize program effectiveness using data science. Studies show data-driven programs have significantly better outcomes than intuition-based approaches.',
+    requirements: ['Data analysis experience', 'Excel/SQL proficiency', 'Statistical knowledge'],
+    skills: ['Data Analysis', 'Statistical Modeling', 'Impact Measurement'],
+    impact: 'Improve program effectiveness through comprehensive data-driven optimization',
+    detailContent: {
+      overview: 'This critical role transforms our program from good intentions to measurable impact. You\'ll build the data infrastructure that proves our effectiveness to funders and guides strategic decisions.',
+      responsibilities: [
+        'Design and implement KPI tracking systems for all program activities',
+        'Conduct monthly cohort analysis comparing student progress and outcomes',
+        'Create automated dashboards showing real-time program performance',
+        'Analyze employment outcomes and salary progression of graduates',
+        'Prepare quarterly impact reports for donors and stakeholders'
+      ],
+      timeCommitment: '4-5 hours per week, fully remote with flexible scheduling',
+      requirements: [
+        'Experience with data analysis tools (Excel, Google Sheets, SQL, or Python)',
+        'Understanding of basic statistics and research methodology',
+        'Experience creating visualizations and reports',
+        'Detail-oriented with strong analytical thinking',
+        'Previous experience in non-profit evaluation or business analytics preferred'
+      ],
+      benefits: [
+        'Build expertise in social impact measurement',
+        'Create portfolio pieces demonstrating data-driven impact',
+        'Develop skills in non-profit analytics and evaluation',
+        'See direct correlation between your analysis and program improvements',
+        'Gain experience with impact measurement frameworks'
+      ]
+    }
+  },
+  {
+    title: 'Fundraising & Grant Specialist',
+    commitment: '5-7 hours/week',
+    location: 'Remote + occasional meetings',
+    description: 'Secure sustainable funding through grants, corporate partnerships, and donor relationships. Professional fundraisers dramatically increase non-profit revenue.',
+    requirements: ['Grant writing experience', 'Fundraising background', 'Research skills'],
+    skills: ['Grant Writing', 'Donor Relations', 'Fundraising Strategy'],
+    impact: 'Secure significant annual funding through grants and donations',
+    detailContent: {
+      overview: 'This high-leverage role ensures our long-term sustainability and growth. You\'ll research, apply for, and manage relationships with funders who share our vision of tech education equity.',
+      responsibilities: [
+        'Research and identify relevant grant opportunities monthly',
+        'Write and submit high-quality grant applications regularly',
+        'Develop relationships with major donors and corporate sponsors',
+        'Create compelling fundraising materials and impact stories',
+        'Manage donor communications and stewardship activities'
+      ],
+      timeCommitment: '5-7 hours per week, primarily remote with quarterly in-person donor meetings',
+      requirements: [
+        'Proven experience writing successful grants with documented results',
+        'Understanding of non-profit fundraising principles and ethics',
+        'Excellent writing skills and attention to detail',
+        'Research skills for identifying funding opportunities',
+        'Experience with donor database management preferred'
+      ],
+      benefits: [
+        'Develop expertise in non-profit fundraising and grant writing',
+        'Build relationships with foundations and corporate social responsibility teams',
+        'Create direct financial impact enabling program expansion',
+        'Gain experience in sustainable organization development',
+        'Receive professional development in fundraising best practices'
+      ]
+    }
+  },
+  {
+    title: 'Alumni Success Coordinator',
     commitment: '4-6 hours/week',
-    description: 'Guide and support young developers on their coding journey through one-on-one mentorship and group sessions.',
-    requirements: ['2+ years programming experience', 'Patience and empathy', 'Good communication skills'],
-    skills: ['Programming', 'Mentoring', 'Communication'],
-    impact: 'Direct mentorship for 8-12 students per cohort',
+    location: 'Hybrid (Remote + field visits)',
+    description: 'Track and support graduate career progression while building our success story database. Alumni networks dramatically increase program credibility and enrollment rates.',
+    requirements: ['Relationship management skills', 'Social media proficiency', 'Follow-up discipline'],
+    skills: ['Alumni Relations', 'Success Story Documentation', 'Network Building'],
+    impact: 'Maintain connection with all graduates and document compelling success stories',
     detailContent: {
-      overview: 'As a Tech Mentor, you\'ll work directly with our students to provide technical guidance, career advice, and emotional support throughout their learning journey. This role is perfect for experienced developers who want to give back to the community.',
+      overview: 'This role builds the proof points that attract students, funders, and partners. You\'ll cultivate our alumni community while documenting their success stories that demonstrate our program\'s transformative impact.',
       responsibilities: [
-        'Provide one-on-one mentorship sessions with assigned students',
-        'Review and provide feedback on student projects and code',
-        'Lead technical workshops and coding sessions',
-        'Support students during hackathons and project presentations',
-        'Help students with career planning and job search strategies'
+        'Maintain regular contact with program graduates via calls, WhatsApp, and visits',
+        'Document detailed success stories with photos, testimonials, and career progression data',
+        'Organize quarterly alumni networking events and mentorship connections',
+        'Create and manage alumni social media groups and communication channels',
+        'Connect recent graduates with established alumni for mentorship and job referrals'
       ],
-      timeCommitment: '4-6 hours per week, flexible scheduling including some evenings and weekends',
+      timeCommitment: '4-6 hours per week, mix of remote communication and quarterly field visits',
       requirements: [
-        'Minimum 2 years of professional programming experience',
-        'Proficiency in at least one programming language (JavaScript, Python, Java, etc.)',
-        'Experience with modern development tools and practices',
-        'Strong communication and interpersonal skills',
-        'Patience and passion for teaching and mentoring young people'
+        'Strong interpersonal and communication skills',
+        'Experience with social media management and community building',
+        'Reliable follow-up habits and organizational skills',
+        'Comfortable conducting interviews and gathering testimonials',
+        'Access to smartphone for calls, messaging, and photo documentation'
       ],
       benefits: [
-        'Develop leadership and mentoring skills',
-        'Give back to the community and make a lasting impact',
-        'Network with other tech professionals and mentors',
-        'Gain teaching and presentation experience',
-        'Receive volunteer certificates and references'
+        'Build a powerful professional network across Ghana\'s tech industry',
+        'Develop expertise in alumni relations and community management',
+        'Create compelling content and success stories for your portfolio',
+        'Gain insights into career progression in tech sector',
+        'Direct impact on program credibility and future student recruitment'
       ]
     }
   },
   {
-    title: 'Workshop Trainer',
-    commitment: '6-8 hours/month',
-    description: 'Lead hands-on workshops in programming, web development, and emerging technologies.',
-    requirements: ['Teaching or training experience', 'Technical expertise', 'Public speaking comfort'],
-    skills: ['Teaching', 'Technical Skills', 'Presentation'],
-    impact: 'Train 20-30 students per workshop session',
+    title: 'Corporate Training Specialist',
+    commitment: '6-8 hours/week',
+    location: 'On-site + Remote prep',
+    description: 'Develop and deliver custom tech training for corporate clients, creating revenue streams that fund student scholarships. Corporate training generates significantly more sustainable revenue than donations alone.',
+    requirements: ['Professional training experience', 'Corporate communication skills', 'Technical expertise'],
+    skills: ['Corporate Training', 'Curriculum Development', 'Client Relations'],
+    impact: 'Generate substantial annual revenue while training corporate employees',
     detailContent: {
-      overview: 'Workshop Trainers are responsible for delivering high-quality technical training sessions to our students. You\'ll design and lead workshops that introduce new technologies and reinforce fundamental concepts.',
+      overview: 'This revenue-generating role creates sustainable funding through corporate training services. You\'ll design and deliver professional development programs that fund student scholarships while building corporate partnerships.',
       responsibilities: [
-        'Plan and develop workshop curriculum and materials',
-        'Lead 2-3 hour interactive workshop sessions',
-        'Create hands-on exercises and practical projects',
-        'Adapt teaching methods to different learning styles',
-        'Collaborate with other trainers to ensure content consistency'
+        'Assess corporate training needs and design custom curriculum',
+        'Deliver professional workshops for corporate teams (2-day intensive programs)',
+        'Develop training materials, assessments, and certification programs',
+        'Manage client relationships and gather feedback for continuous improvement',
+        'Price and negotiate training contracts to maximize revenue while remaining competitive'
       ],
-      timeCommitment: '6-8 hours per month, primarily weekends and some evenings',
+      timeCommitment: '6-8 hours per week: 4 hours prep/admin + 4 hours delivery (flexible scheduling)',
       requirements: [
-        'Professional experience in relevant technology areas',
-        'Previous teaching, training, or presentation experience preferred',
-        'Ability to explain complex technical concepts clearly',
-        'Comfortable speaking to groups of 15-25 people',
-        'Reliable and punctual with strong organizational skills'
+        'Significant experience in professional training or adult education',
+        'Technical expertise in web development, data analysis, or digital marketing',
+        'Comfortable training senior professionals and executives',
+        'Strong business communication and presentation skills',
+        'Previous experience with corporate clients or B2B sales preferred'
       ],
       benefits: [
-        'Enhance your teaching and public speaking abilities',
-        'Stay current with latest technologies and trends',
-        'Build your professional portfolio with training experience',
-        'Connect with passionate learners and fellow trainers',
-        'Receive training materials and resources'
+        'Build expertise in corporate training and curriculum development',
+        'Develop high-level corporate relationships and network',
+        'Create direct revenue impact funding student scholarships',
+        'Gain experience in social enterprise and revenue diversification',
+        'Receive professional development in corporate training methodologies'
       ]
     }
   },
   {
-    title: 'Career Mentor',
+    title: 'Strategic Mentor Network Manager',
     commitment: '3-4 hours/week',
-    description: 'Help students navigate their career paths, prepare for interviews, and connect with job opportunities.',
-    requirements: ['Industry experience', 'HR or recruitment background', 'Professional network'],
-    skills: ['Career Counseling', 'Networking', 'Interview Prep'],
-    impact: 'Guide 15+ students toward employment opportunities',
+    location: 'Remote',
+    description: 'Recruit, train, and coordinate volunteer mentors while ensuring quality relationships. Structured mentorship significantly increases student completion and employment rates.',
+    requirements: ['Management experience', 'Volunteer coordination', 'Quality assurance skills'],
+    skills: ['Volunteer Management', 'Quality Systems', 'Mentor Development'],
+    impact: 'Manage active mentor network providing consistent support to students',
     detailContent: {
-      overview: 'Career Mentors focus on helping our graduates transition from training to employment. You\'ll provide career guidance, interview preparation, and industry insights to help students launch successful tech careers.',
+      overview: 'This management role ensures our mentorship program operates at scale with consistent quality. You\'ll build systems that multiply individual mentor impact while maintaining the personal touch that drives student success.',
       responsibilities: [
-        'Conduct career counseling sessions with individual students',
-        'Help students create compelling resumes and portfolios',
-        'Provide mock interviews and interview preparation',
-        'Share industry insights and career pathway information',
-        'Connect students with job opportunities and professional networks'
+        'Recruit new qualified mentors quarterly through professional networks',
+        'Design and deliver mentor training program covering youth development and technical guidance',
+        'Implement quality assurance system including mentor-student feedback loops',
+        'Coordinate mentor assignments based on student needs and mentor expertise',
+        'Track mentor performance and provide ongoing support and development'
       ],
-      timeCommitment: '3-4 hours per week, flexible scheduling with focus on final month of student programs',
+      timeCommitment: '3-4 hours per week, fully remote with quarterly in-person mentor gatherings',
       requirements: [
-        'Minimum 3 years of professional experience in tech industry',
-        'Experience with hiring, HR, or talent acquisition preferred',
-        'Strong professional network in Ghana\'s tech ecosystem',
-        'Excellent communication and interpersonal skills',
-        'Understanding of current job market and industry trends'
+        'Previous experience managing volunteers or coordinating programs',
+        'Understanding of mentorship best practices and youth development',
+        'Strong organizational systems and attention to detail',
+        'Ability to maintain quality standards while scaling operations',
+        'Experience with volunteer recruitment and training preferred'
       ],
       benefits: [
-        'Expand your professional network',
-        'Develop coaching and mentoring expertise',
-        'Contribute to addressing Ghana\'s tech talent needs',
-        'Gain insights into emerging talent and skills',
-        'Receive recognition as a career development contributor'
-      ]
-    }
-  },
-  {
-    title: 'Community Outreach',
-    commitment: '5-6 hours/month',
-    description: 'Engage with local communities to identify potential students and build partnerships with schools.',
-    requirements: ['Community engagement experience', 'Local language skills', 'Transportation access'],
-    skills: ['Communication', 'Relationship Building', 'Cultural Awareness'],
-    impact: 'Reach 200+ potential students through outreach activities',
-    detailContent: {
-      overview: 'Community Outreach volunteers are our ambassadors in local communities. You\'ll help us identify and engage potential students, particularly in underserved areas, and build lasting partnerships with schools and community organizations.',
-      responsibilities: [
-        'Visit schools and community centers to present our programs',
-        'Identify and engage potential students, especially young women',
-        'Build relationships with teachers, administrators, and community leaders',
-        'Organize information sessions and recruitment events',
-        'Collect feedback from communities to improve our outreach approach'
-      ],
-      timeCommitment: '5-6 hours per month, primarily during school hours and community events',
-      requirements: [
-        'Strong communication skills in English and local languages',
-        'Experience working with diverse communities',
-        'Access to reliable transportation',
-        'Outgoing personality and cultural sensitivity',
-        'Previous experience in education, social work, or community development preferred'
-      ],
-      benefits: [
-        'Make a direct impact in underserved communities',
-        'Develop cultural competency and communication skills',
-        'Build relationships across diverse communities',
-        'Contribute to increasing diversity in tech education',
-        'Gain experience in community engagement and social impact'
-      ]
-    }
-  },
-  {
-    title: 'Event Coordination',
-    commitment: 'Project-based',
-    description: 'Support the planning and execution of hackathons, graduations, and other events.',
-    requirements: ['Organizational skills', 'Event experience', 'Teamwork'],
-    skills: ['Project management', 'Organization', 'Logistics'],
-    impact: 'Successful execution of 4-6 major events per year',
-    detailContent: {
-      overview: 'Event Coordinators help bring our major events to life, from intimate graduation ceremonies to large-scale hackathons. This role is perfect for detail-oriented volunteers who enjoy project management and creating memorable experiences.',
-      responsibilities: [
-        'Assist with event planning, logistics, and timeline management',
-        'Coordinate with vendors, venues, and external partners',
-        'Support participant registration and communication',
-        'Help with event setup, management, and breakdown',
-        'Document events through photos and feedback collection'
-      ],
-      timeCommitment: 'Project-based: 10-15 hours per event, with 4-6 events annually',
-      requirements: [
-        'Previous event planning or project management experience',
-        'Strong organizational and time management skills',
-        'Ability to work under pressure and handle multiple tasks',
-        'Excellent attention to detail and problem-solving abilities',
-        'Flexible schedule to accommodate event preparation and execution'
-      ],
-      benefits: [
-        'Gain hands-on event management experience',
-        'Network with sponsors, partners, and community leaders',
-        'Contribute to milestone moments in student journeys',
-        'Develop project management and coordination skills',
-        'Be part of creating impactful community events'
+        'Develop expertise in volunteer management and program coordination',
+        'Build systems thinking and quality management skills',
+        'Create scalable impact through mentor network development',
+        'Gain experience in non-profit program management',
+        'Receive training in mentorship program design and evaluation'
       ]
     }
   }
@@ -169,49 +208,49 @@ export const volunteerRoles = [
 export const volunteerBenefits = [
   {
     icon: 'Skills',
-    title: 'Meaningful Work',
-    description: 'Direct contribution to transforming lives and communities'
+    title: 'High-Impact Work',
+    description: 'Roles designed for maximum organizational advancement and measurable outcomes'
   },
   {
     icon: 'Growth',
-    title: 'Personal Growth',
-    description: 'Develop new skills and expand your network'
+    title: 'Professional Development',
+    description: 'Build specialized skills in non-profit management, partnerships, and social impact'
   },
   {
     icon: 'Team',
-    title: 'Community',
-    description: 'Become part of a passionate community of changemakers'
+    title: 'Strategic Network',
+    description: 'Connect with business leaders, funders, and change-makers across industries'
   },
   {
     icon: 'Impact',
-    title: 'Recognition',
-    description: 'Certificates and recommendation letters for your contributions'
+    title: 'Measurable Results',
+    description: 'Track your direct contribution to student employment and organizational growth'
   }
 ]
 
 export const volunteerProcess = [
   {
     step: 1,
-    title: 'Application',
-    description: 'Fill out our volunteer form and share your interests with us',
-    duration: '5 minutes'
-  },
-  {
-    step: 2,
-    title: 'Interview',
-    description: 'Brief conversation about your motivation and how you can best contribute',
+    title: 'Skills Assessment',
+    description: 'Detailed evaluation of your professional background and strategic fit with our high-impact roles',
     duration: '30 minutes'
   },
   {
+    step: 2,
+    title: 'Strategic Interview',
+    description: 'In-depth discussion about your goals, availability, and how your expertise advances our mission',
+    duration: '45 minutes'
+  },
+  {
     step: 3,
-    title: 'Orientation',
-    description: 'Introduction to our mission, values and way of working',
-    duration: '2 hours'
+    title: 'Role-Specific Training',
+    description: 'Comprehensive orientation including organizational context, success metrics, and professional tools',
+    duration: '3 hours'
   },
   {
     step: 4,
-    title: 'Start',
-    description: 'Begin your volunteer work with full support from our team',
-    duration: 'Ongoing'
+    title: 'Supported Launch',
+    description: 'Begin with close mentorship and regular check-ins to ensure effectiveness and satisfaction',
+    duration: '90-day ramp-up'
   }
 ]

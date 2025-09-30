@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center 85%'
+                objectPosition: 'center'
               }}
               priority={currentSlide === 0}
             />

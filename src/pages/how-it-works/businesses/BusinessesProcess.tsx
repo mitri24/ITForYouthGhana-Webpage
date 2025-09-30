@@ -156,11 +156,11 @@ const BusinessesProcess: React.FC = () => {
                         <span className="text-sm font-bold uppercase tracking-wider text-primary/70">
                           Step {step.step}
                         </span>
-                        <h3 className="heading-md">{step.title}</h3>
+                        <h3 className="heading-md text-primary">{step.title}</h3>
                       </div>
                     </div>
                     
-                    <p className="text-body mb-6 leading-relaxed">
+                    <p className="text-body mb-6 leading-relaxed text-neutral-700">
                       {step.description}
                     </p>
                     
@@ -168,7 +168,7 @@ const BusinessesProcess: React.FC = () => {
                       {step.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start">
                           <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="text-body">{detail}</span>
+                          <span className="text-body text-neutral-700">{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -212,9 +212,9 @@ const BusinessesProcess: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                   className="card"
                 >
-                  <div className="card-body">
-                    <h3 className="heading-sm mb-4">{type.title}</h3>
-                    <p className="text-body mb-6">{type.description}</p>
+                  <div className="card-body p-6">
+                    <h3 className="heading-sm mb-4 text-primary">{type.title}</h3>
+                    <p className="text-body mb-6 text-neutral-700 leading-relaxed">{type.description}</p>
                     
                     <div>
                       <h4 className="font-semibold text-primary mb-3">Key Benefits:</h4>
@@ -222,7 +222,7 @@ const BusinessesProcess: React.FC = () => {
                         {type.benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-start">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                            <span className="text-sm">{benefit}</span>
+                            <span className="text-sm text-neutral-700">{benefit}</span>
                           </li>
                         ))}
                       </ul>

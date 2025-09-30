@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SEO from '../../components/SEO'
-import Hero from '../../components/shared/Hero'
+import { navigateToPage } from '../../utils/navigation'
 
 const Testimonials: React.FC = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const handleJoinThem = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   const testimonials = [
@@ -72,15 +72,55 @@ const Testimonials: React.FC = () => {
         canonical="/testimonials"
       />
       
-      <div className="min-h-screen bg-white pt-24">
-        <Hero
-          title="Success Stories"
-          subtitle="Real People, Real Impact"
-          description="Meet our graduates who have transformed their lives and careers through our programs. Their success is our success."
-          primaryCta={{ text: "Join Them", action: handleJoinThem }}
-        />
+      <div id="main-content" className="min-h-screen bg-white pt-24">
+        {/* Hero Section */}
+        <section className="relative py-24 bg-primary overflow-hidden">
+          <div className="absolute inset-0 bg-hero-overlay"></div>
+          <div className="container relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center text-white max-w-4xl mx-auto"
+            >
+              <h1 className="heading-xl text-white mb-6">
+                Success Stories
+              </h1>
+              <p className="text-lead text-white/90 mb-8">
+                Real People, Real Impact
+              </p>
+              <p className="text-xl mb-12 text-white/80 leading-relaxed max-w-3xl mx-auto">
+                Meet our graduates who have transformed their lives and careers through our programs. Their success is our success.
+              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-6 justify-center"
+              >
+                <motion.button
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleJoinThem}
+                >
+                  Join Them
+                </motion.button>
+                <motion.button
+                  className="btn btn-ghost"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Read Stories
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
         
-        <section ref={ref} className="section bg-white">
+        <section id="testimonials" ref={ref} className="section bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -88,7 +128,7 @@ const Testimonials: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6 text-primary">Graduate Stories</h2>
+              <h2 className="heading-lg mb-6">Graduate Stories</h2>
               <p className="text-lead max-w-4xl mx-auto">
                 From students to professionals, from dreams to reality. These are the stories of transformation.
               </p>
@@ -102,13 +142,13 @@ const Testimonials: React.FC = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100"
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 group"
                 >
                   <div className="flex items-start space-x-4 mb-6">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name}
-                      className="w-16 h-16 rounded-2xl object-cover border-2 border-primary/20"
+                      className="w-16 h-16 rounded-2xl object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"
                     />
                     
                     <div className="flex-1">

@@ -83,12 +83,12 @@ const StudentsProcess: React.FC = () => {
                     
                     {/* Inhaltskarte - abwechselnd links und rechts */}
                     <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                      <div className="bg-white border border-neutral-100 rounded-xl shadow-sm p-5 hover:shadow-md transition-shadow">
+                      <div className="bg-white border border-primary/10 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
                         <div className={`flex flex-col ${index % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} sm:items-center sm:justify-between mb-3`}>
                           <h3 className="heading-sm text-primary">{step.title}</h3>
-                          <span className="text-sm text-accent font-medium mt-1 sm:mt-0">{step.duration}</span>
+                          <span className="text-sm text-primary font-medium mt-1 sm:mt-0 bg-primary/10 px-2 py-1 rounded-full">{step.duration}</span>
                         </div>
-                        <p className="text-body text-neutral-600 mb-4">{step.description}</p>
+                        <p className="text-body text-neutral-700 mb-4 leading-relaxed">{step.description}</p>
                         
                         {/* CTA-Button nur im ersten Schritt */}
                         {step.hasButton && (
@@ -117,9 +117,9 @@ const StudentsProcess: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-center mt-16"
             >
-              <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8">
-                <h3 className="heading-md mb-4 text-primary">Ready to Get Started?</h3>
-                <p className="text-body mb-6 max-w-2xl mx-auto">
+              <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8">
+                <h3 className="heading-md mb-4">Ready to Get Started?</h3>
+                <p className="text-lead mb-6 max-w-2xl mx-auto text-neutral-800">
                   Applications are rolling admission. Start your application today and begin your journey to a tech career.
                 </p>
                 <motion.button
