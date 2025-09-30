@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
         className="hero"
         style={{
           position: 'relative',
-          height: '60vh',
+          height: '90vh',
           overflow: 'hidden',
           clipPath: 'ellipse(100% 100% at 50% 0%)'
         }}
@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center'
+                objectPosition: 'center 85%'
               }}
               priority={currentSlide === 0}
             />
@@ -157,12 +157,12 @@ const Hero: React.FC = () => {
             alt="IT for Youth Ghana - Empowering Youth Through Technology"
             className="logo"
             style={{
-              width: 'clamp(120px, 15vw, 200px)',
+              width: 'clamp(180px, 20vw, 300px)',
               height: 'auto',
               borderRadius: '50%',
               objectFit: 'contain',
               background: 'transparent', // NO BACKGROUND!
-              filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3))'
+              filter: 'drop-shadow(0 12px 40px rgba(0, 0, 0, 0.4))'
             }}
             whileHover={{ 
               scale: 1.05,

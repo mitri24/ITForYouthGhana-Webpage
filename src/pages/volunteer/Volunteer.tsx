@@ -8,6 +8,7 @@ import VolunteerProcess from './components/VolunteerProcess'
 import VolunteerForm from './components/VolunteerForm'
 import { volunteerRoles, volunteerBenefits, volunteerProcess } from './data/volunteerRoles'
 import { useVolunteerForm } from './hooks/useVolunteerForm'
+import { navigateToPage } from '../../utils/navigation'
 
 const Volunteer: React.FC = () => {
   const [selectedVolunteerRole, setSelectedVolunteerRole] = useState<any>(null)
@@ -40,7 +41,7 @@ const Volunteer: React.FC = () => {
         canonical="/volunteer"
         ogType="website"
       />
-      <div className="min-h-screen bg-white" style={{ paddingTop: 'var(--space-3xl)' }}>
+      <div id="main-content" className="min-h-screen bg-white" style={{ paddingTop: 'var(--space-3xl)' }}>
         <VolunteerHero 
           onApplyClick={handleApplyClick}
           onViewRolesClick={handleViewRolesClick}
