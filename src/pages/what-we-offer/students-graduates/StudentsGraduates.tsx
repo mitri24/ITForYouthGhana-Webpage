@@ -11,9 +11,7 @@ const StudentsGraduates: React.FC = () => {
     window.location.href = '/contact'
   }
 
-  const handleExplorePrograms = () => {
-    document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })
-  }
+
 
   return (
     <>
@@ -29,7 +27,7 @@ const StudentsGraduates: React.FC = () => {
           subtitle="For Students & Graduates"
           description="Build job-ready tech skills with comprehensive training programs designed to launch your career in Ghana's growing digital economy."
           primaryCta={{ text: "Apply Now", action: handleApplyNow }}
-          secondaryCta={{ text: "Explore Programs", action: handleExplorePrograms }}
+        
         />
         
         <ProgramsOverview />

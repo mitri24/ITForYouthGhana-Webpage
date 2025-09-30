@@ -29,18 +29,7 @@ const Challenge: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-neutral-900 to-neutral-800 text-white relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <defs>
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section ref={ref} className="section bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden">
 
       <div className="container relative z-10">
         {/* Header */}
@@ -76,10 +65,10 @@ const Challenge: React.FC = () => {
                 type: "spring",
                 stiffness: 100
               }}
-              className="text-center group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300"
+              className="text-center group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-blue-500/20 transition-all duration-300 border border-blue-300/20"
             >
               {/* Value */}
-              <div className="text-4xl md:text-5xl font-bold text-red-400 mb-3 group-hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-blue-300 mb-3 group-hover:scale-105 transition-transform duration-300">
                 {item.value}
               </div>
               
@@ -103,14 +92,14 @@ const Challenge: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-blue-300/30">
             <h3 className="heading-md text-white text-center mb-8">Ghana's Digital Divide Impact</h3>
             
             {/* Visual representation */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left side - The Problem */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-red-400 mb-4">Without Digital Access:</h4>
+                <h4 className="text-xl font-semibold text-blue-300 mb-4">Without Digital Access:</h4>
                 <div className="space-y-3">
                   {[
                     'Limited job opportunities',
@@ -125,7 +114,7 @@ const Challenge: React.FC = () => {
                       transition={{ delay: 1 + (index * 0.1) }}
                       className="flex items-center space-x-3"
                     >
-                      <div className="w-2 h-2 bg-red-400 rounded-full flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
                       <span className="text-white/90">{item}</span>
                     </motion.div>
                   ))}
@@ -134,7 +123,7 @@ const Challenge: React.FC = () => {
 
               {/* Right side - The Solution */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-primary-400 mb-4">With IT For Youth Ghana:</h4>
+                <h4 className="text-xl font-semibold text-blue-200 mb-4">With IT For Youth Ghana:</h4>
                 <div className="space-y-3">
                   {[
                     'Technology skills training',
@@ -149,7 +138,7 @@ const Challenge: React.FC = () => {
                       transition={{ delay: 1 + (index * 0.1) }}
                       className="flex items-center space-x-3"
                     >
-                      <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-blue-200 rounded-full flex-shrink-0"></div>
                       <span className="text-white/90">{item}</span>
                     </motion.div>
                   ))}
@@ -175,7 +164,7 @@ const Challenge: React.FC = () => {
             href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             style={{
               padding: '16px 32px',
               fontSize: '16px',

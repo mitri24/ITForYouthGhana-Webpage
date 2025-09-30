@@ -11,10 +11,6 @@ const WhoCanApply: React.FC = () => {
     window.location.href = '/contact'
   }
 
-  const handleCheckEligibility = () => {
-    document.getElementById('eligibility')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const eligibilityCategories = [
     {
       title: 'Students & Recent Graduates',
@@ -72,7 +68,7 @@ const WhoCanApply: React.FC = () => {
           subtitle="Opportunities for Everyone"
           description="Our programs are designed to be inclusive and accessible. Find out if you qualify for our professional tech training and support programs."
           primaryCta={{ text: "Apply Now", action: handleApplyNow }}
-          secondaryCta={{ text: "Check Eligibility", action: handleCheckEligibility }}
+         
         />
         
         <section id="eligibility" ref={ref} className="section bg-white">

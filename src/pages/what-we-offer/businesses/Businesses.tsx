@@ -41,7 +41,7 @@ const Businesses: React.FC = () => {
           subtitle="For Businesses"
           description="Transform lives while advancing your business goals through meaningful partnerships that create lasting impact in Ghana's tech ecosystem."
           primaryCta={{ text: "Partner With Us", action: handlePartnerWithUs }}
-          secondaryCta={{ text: "Explore Options", action: handleLearnMore }}
+         
         />
         
         <section id="partnership-options" className="section bg-white">
