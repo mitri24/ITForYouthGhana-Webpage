@@ -11,28 +11,28 @@ const SkillsPathways: React.FC = () => {
       description: 'Build beautiful, interactive user interfaces',
       skills: ['HTML/CSS', 'JavaScript', 'React', 'Responsive Design'],
       outcome: 'Frontend Developer, UI Developer',
-      icon: '🎨'
+      
     },
     {
       title: 'Backend Development', 
       description: 'Create robust server-side applications',
       skills: ['Python/Node.js', 'Databases', 'APIs', 'Cloud Deployment'],
       outcome: 'Backend Developer, Full-Stack Developer',
-      icon: '⚙️'
+      
     },
     {
       title: 'Data Analysis',
       description: 'Transform data into actionable insights',
       skills: ['Excel', 'Python', 'SQL', 'Data Visualization'],
       outcome: 'Data Analyst, Business Intelligence Analyst',
-      icon: '📊'
+     
     },
     {
       title: 'Digital Design',
       description: 'Design engaging digital experiences',
       skills: ['Figma', 'User Research', 'Prototyping', 'Design Thinking'],
       outcome: 'UI/UX Designer, Product Designer',
-      icon: '🎯'
+    
     }
   ]
 
@@ -62,7 +62,7 @@ const SkillsPathways: React.FC = () => {
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="flex items-start space-x-4 mb-6">
-                <div className="text-4xl">{pathway.icon}</div>
+               
                 <div className="flex-1">
                   <h3 className="heading-sm text-primary mb-2">{pathway.title}</h3>
                   <p className="text-body text-neutral-600">{pathway.description}</p>

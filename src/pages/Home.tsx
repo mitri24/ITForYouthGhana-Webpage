@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from './home/components/Hero'
-import WhatWeOffer from './home/components/WhatWeOffer'
+
 import Programs from './home/components/Programs'
 import Impact from './home/components/Impact'
 import ImpactHighlights from './home/components/ImpactHighlights'
@@ -14,12 +14,14 @@ const Home: React.FC = () => {
     <div className="min-h-screen">
       <Hero />
       <QuickOverview />
-      <WhatWeOffer />
+      <Challenge />
+      <Vision />
+
       <Programs />
       <Impact />
       <ImpactHighlights />
-      <Vision />
-      <Challenge />
+     
+     
       <DonationSection />
     </div>
   )

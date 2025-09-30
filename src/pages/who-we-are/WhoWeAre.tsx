@@ -11,9 +11,7 @@ const WhoWeAre: React.FC = () => {
     window.location.href = '/contact'
   }
 
-  const handleLearnMore = () => {
-    document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  
 
   return (
     <>
@@ -29,7 +27,7 @@ const WhoWeAre: React.FC = () => {
           subtitle="Empowering Ghana's Future Through Technology"
           description="We are Ghana's leading NGO dedicated to bridging the digital divide through inclusive technology education and empowerment programs."
           primaryCta={{ text: "Get Involved", action: handleGetInvolved }}
-          secondaryCta={{ text: "Learn More", action: handleLearnMore }}
+         
         />
         
         <MissionSection />

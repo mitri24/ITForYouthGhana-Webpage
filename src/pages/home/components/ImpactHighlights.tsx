@@ -27,12 +27,7 @@ const ImpactHighlights: React.FC = () => {
     }
   ]
 
-  const stats = [
-    { value: '2000+', label: 'Students Trained' },
-    { value: '70%', label: 'Female Participation' },
-    { value: '85%', label: 'Employment Rate' },
-    { value: '15+', label: 'Communities Served' }
-  ]
+  
 
   return (
     <section ref={ref} className="section bg-white">
@@ -84,29 +79,7 @@ const ImpactHighlights: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="bg-primary rounded-2xl p-8 text-white"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.8 + (index * 0.1),
-                  type: "spring",
-                  stiffness: 100
-                }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold mb-2">
-                  {stat.value}
-                </div>
-                <p className="text-sm text-white/80">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+         
           
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4 text-white">
@@ -122,12 +95,7 @@ const ImpactHighlights: React.FC = () => {
               >
                 Read More Stories
               </Link>
-              <Link 
-                to="/contact"
-                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary"
-              >
-                Start Your Journey
-              </Link>
+              
             </div>
           </div>
         </motion.div>

@@ -9,32 +9,32 @@ const CareerSupport: React.FC = () => {
     {
       title: 'Resume Building',
       description: 'Professional resume writing and portfolio development to showcase your skills.',
-      icon: '📄'
+    
     },
     {
       title: 'Interview Preparation',
       description: 'Mock interviews and coaching to help you confidence in job interviews.',
-      icon: '💼'
+    
     },
     {
       title: 'Job Placement',
       description: 'Direct connections with partner companies actively hiring our graduates.',
-      icon: '🎯'
+ 
     },
     {
       title: 'Mentorship',
       description: 'Ongoing support from industry professionals even after graduation.',
-      icon: '👥'
+     
     },
     {
       title: 'Freelancing Guidance',
       description: 'Learn how to start and grow your freelance business in tech.',
-      icon: '🚀'
+    
     },
     {
       title: 'Continuous Learning',
       description: 'Access to advanced courses and workshops to keep your skills current.',
-      icon: '📚'
+
     }
   ]
 
@@ -64,7 +64,7 @@ const CareerSupport: React.FC = () => {
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
               className="text-center group"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
+             
               <h3 className="heading-sm text-primary mb-4 group-hover:text-accent transition-colors duration-300">
                 {service.title}
               </h3>

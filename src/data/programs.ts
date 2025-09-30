@@ -123,7 +123,7 @@ export const programs: Program[] = [
     id: 'youth-tech-academy',
     title: 'Youth Tech Academy',
     description: 'Comprehensive 6-month tech bootcamps covering web development, mobile app development, and digital entrepreneurship skills.',
-    image: '/images/randomPictures/IMG-20241118-WA0077.jpg',
+    image: '/images/randomPictures/IMG-20241118-WA0078.jpg',
     tag: 'Professional Training',
     tagColor: 'bg-success',
     detailContent: {
@@ -148,7 +148,7 @@ export const programs: Program[] = [
     id: 'tech-entrepreneur-hub',
     title: 'Tech Entrepreneur Hub',
     description: 'Supporting young tech entrepreneurs with incubation services, funding opportunities, and mentorship programs.',
-    image: '/images/randomPictures/2024-12-17 20.27 (9).jpg',
+    image: '/images/randomPictures/2024-12-17 20.27 (6).jpg',
     tag: 'Entrepreneurship',
     tagColor: 'bg-accent',
     detailContent: {
