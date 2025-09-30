@@ -25,8 +25,41 @@ const MainNavigation: React.FC = () => {
     setActiveDropdown(null)
   }
 
+  const handleLoginClick = () => {
+    alert('Login functionality coming soon!')
+  }
+
+  const handleRegisterClick = () => {
+    alert('Registration functionality coming soon!')
+  }
+
   return (
-    <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+    <>
+      {/* Top Login/Register Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 py-1.5" style={{ backgroundColor: 'var(--color-primary-70)' }}>
+        <div className="container mx-auto px-4">
+          <div className="flex justify-end items-center">
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={handleLoginClick}
+                className="text-white/80 hover:text-white text-xs font-medium px-2 py-0.5 rounded-full hover:bg-white/10 transition-all duration-200"
+              >
+                Login
+              </button>
+              <div className="w-px h-3 bg-white/30"></div>
+              <button
+                onClick={handleRegisterClick}
+                className="text-white/80 hover:text-white text-xs font-medium px-2 py-0.5 rounded-full hover:bg-white/10 transition-all duration-200"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navigation */}
+      <nav className="bg-white shadow-lg fixed left-0 right-0 z-40" style={{ top: '32px' }}>
         <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -280,6 +313,7 @@ const MainNavigation: React.FC = () => {
         </AnimatePresence>
       </div>
     </nav>
+    </>
   )
 }
 
