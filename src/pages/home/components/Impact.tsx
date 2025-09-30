@@ -85,7 +85,32 @@ const WhatWeOffer: React.FC = () => {
                 
                 <Link 
                   to={offering.link}
-                  className="btn btn-secondary w-full group-hover:btn-primary transition-all duration-300 font-medium mt-auto"
+                  className="w-full mt-auto"
+                  style={{
+                    display: 'inline-block',
+                    padding: '12px 24px',
+                    borderRadius: '50px',
+                    background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                    color: 'white',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '14px',
+                    textAlign: 'center',
+                    border: '2px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(37, 99, 235, 0.4)'
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                  }}
                 >
                   Learn More
                 </Link>
@@ -104,7 +129,31 @@ const WhatWeOffer: React.FC = () => {
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
             <Link 
               to="/who-can-apply"
-              className="btn btn-primary text-lg px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative"
+              className="relative"
+              style={{
+                display: 'inline-block',
+                padding: '16px 40px',
+                borderRadius: '50px',
+                background: 'white',
+                color: '#0152be',
+                textDecoration: 'none',
+                fontWeight: '700',
+                fontSize: '18px',
+                border: '2px solid #0152be',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)'
+                e.currentTarget.style.background = '#f8fafc'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)'
+                e.currentTarget.style.background = 'white'
+              }}
             >
               See If You Qualify
             </Link>

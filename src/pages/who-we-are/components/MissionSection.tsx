@@ -8,46 +8,53 @@ const MissionSection: React.FC = () => {
   return (
     <section id="mission" ref={ref} className="section bg-white">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="heading-xl mb-6 text-primary">Who We Are</h2>
-          <p className="text-lead text-center max-w-4xl mx-auto">
-            Empowering Africa's Youth Through Digital Innovation
-          </p>
-          <p className="text-body text-center max-w-5xl mx-auto mt-4">
-            At IT For Youth Ghana, we are a forward-thinking non-profit organization dedicated to equipping Ghanaian youth with the digital skills they need to thrive in today's technology-driven economy. Founded with the vision to bridge the digital divide and reducing unemployment, we are committed to ensuring that no talented young person is left behind due to financial or geographical barriers.
-          </p>
-        </motion.div>
+      
 
         {/* Mission Statement */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-primary/5 rounded-2xl p-8 mb-16"
+          className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
         >
           <h3 className="heading-lg mb-6 text-primary text-center">Our Mission</h3>
-          <p className="text-body text-center max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
             To bridge the digital divide by empowering underserved youth with high-quality IT education and career development training. We foster innovation, digital entrepreneurship, and equitable opportunities, focusing on women, physically challenged individuals, and financially disadvantaged students.
           </p>
         </motion.div>
+         {/* Section Divider */}
+         <div className="flex items-center justify-center mb-16">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="px-6">
+            <div className="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        </div>
 
-        {/* Vision Statement */}
+
+      
+
+        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="bg-accent/5 rounded-2xl p-8 mb-16"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
         >
-          <h3 className="heading-lg mb-6 text-accent text-center">Our Vision</h3>
-          <p className="text-body text-center max-w-4xl mx-auto leading-relaxed">
-            To create a future where all youth, regardless of their background, have access to transformative technology education and opportunities, empowering them to drive innovation, build sustainable careers, and contribute meaningfully to the digital economy.
-          </p>
+          <h3 className="heading-lg mb-6 text-primary text-center">Our Vision</h3>
+          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
+          To create a future where all youth, regardless of their background, have access to transformative technology education and opportunities, empowering them to drive innovation, build sustainable careers, and contribute meaningfully to the digital economy. </p>
         </motion.div>
+
+ {/* Section Divider */}
+ <div className="flex items-center justify-center mb-16">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          <div className="px-6">
+            <div className="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -67,6 +74,8 @@ const MissionSection: React.FC = () => {
               Women & Young ladies are a core part of our programs
             </p>
           </motion.div>
+
+          
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}

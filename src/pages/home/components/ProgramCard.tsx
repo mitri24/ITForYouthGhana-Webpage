@@ -62,15 +62,37 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
           </CardContent>
 
           <CardFooter>
-            <Button
-              variant="outline"
-              size="sm"
-              fullWidth
+            <button
               onClick={() => onOpenModal(program)}
-              className="group-hover:variant-primary transition-all duration-300"
+              className="w-full"
+              style={{
+                padding: '12px 24px',
+                borderRadius: '50px',
+                background: 'white',
+                color: '#0152be',
+                fontWeight: '600',
+                fontSize: '14px',
+                border: '2px solid #0152be',
+                boxShadow: '0 6px 20px rgba(37, 99, 235, 0.2)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                cursor: 'pointer',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(37, 99, 235, 0.3)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                e.currentTarget.style.color = 'white'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.2)'
+                e.currentTarget.style.background = 'white'
+                e.currentTarget.style.color = '#0152be'
+              }}
             >
               Learn More
-            </Button>
+            </button>
           </CardFooter>
         </CardBody>
       </Card>

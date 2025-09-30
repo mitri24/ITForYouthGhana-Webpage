@@ -37,22 +37,22 @@ const TeamSection: React.FC = () => {
 
   const boardMembers = [
     {
-      name: 'Dr. Sarah Kofi',
-      role: 'Board Chairperson',
-      background: '20+ years in Educational Leadership',
-      expertise: 'Strategic Planning, Educational Policy'
+      name: 'Board Development',
+      role: 'In Progress',
+      background: 'Wir bauen unser Board of Directors gerade auf',
+      expertise: 'Updates folgen in Kürze'
     },
     {
-      name: 'Michael Asante',
-      role: 'Board Member - Finance',
-      background: 'Senior Financial Analyst',
-      expertise: 'Financial Oversight, Risk Management'
+      name: 'Advisory Team',
+      role: 'Coming Soon',
+      background: 'Erfahrene Führungskräfte werden sich uns anschließen',
+      expertise: 'Strategische Beratung & Governance'
     },
     {
-      name: 'Grace Mensah',
-      role: 'Board Member - Community Relations',
-      background: 'Community Development Specialist',
-      expertise: 'Stakeholder Engagement, Community Outreach'
+      name: 'Strategic Partners',
+      role: 'In Development',
+      background: 'Partnerschaften mit Bildungsexperten',
+      expertise: 'Weitere Ankündigungen folgen'
     }
   ]
 
@@ -65,12 +65,9 @@ const TeamSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-xl mb-6 text-primary">Meet Our Leadership Team</h2>
-          <p className="text-lead text-center max-w-4xl mx-auto mb-6">
-            Our success is driven by a passionate team of dedicated professionals, experienced board members, and committed volunteers working together to transform lives through technology.
-          </p>
-          <p className="text-body text-center max-w-5xl mx-auto">
-            Led by visionary leaders, innovative technologists, and experienced educators, our team combines deep local knowledge with international expertise to deliver impactful programs that create lasting change in Ghana's tech ecosystem.
+          <h2 className="heading-xl mb-6 text-primary">Meet Our Team</h2>
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+            Dedicated professionals and passionate advocates working together to transform lives through technology education across Ghana.
           </p>
         </motion.div>
 
@@ -81,7 +78,7 @@ const TeamSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-20"
         >
-          <h3 className="heading-lg text-center mb-12 text-primary">Core Leadership Team</h3>
+          
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {coreTeam.map((member, index) => (
               <motion.div
@@ -90,7 +87,7 @@ const TeamSection: React.FC = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-neutral-100 h-full flex flex-col"
               >
                 <div className="relative mb-6">
                   <img 
@@ -112,18 +109,41 @@ const TeamSection: React.FC = () => {
                   {member.expertise}
                 </p>
                 
-                <p className="text-body text-sm leading-relaxed mb-6">
+                <p className="text-body text-sm leading-relaxed mb-6 flex-grow">
                   {member.description}
                 </p>
 
                 {/* Contact Links */}
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center gap-3 mt-auto">
                   {member.linkedin !== '#' && (
                     <a 
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm"
+                      className="flex items-center gap-2"
+                      style={{
+                        padding: '10px 16px',
+                        fontSize: '13px',
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        borderRadius: '50px',
+                        background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                        color: 'white',
+                        border: '2px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 6px 20px rgba(1, 82, 190, 0.3)',
+                        transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
+                        e.currentTarget.style.boxShadow = '0 10px 25px rgba(1, 82, 190, 0.4)'
+                        e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                        e.currentTarget.style.boxShadow = '0 6px 20px rgba(1, 82, 190, 0.3)'
+                        e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                      }}
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -133,7 +153,30 @@ const TeamSection: React.FC = () => {
                   )}
                   <a 
                     href={`mailto:${member.email}`}
-                    className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 text-sm"
+                    className="flex items-center gap-2"
+                    style={{
+                      padding: '10px 16px',
+                      fontSize: '13px',
+                      fontWeight: '600',
+                      textDecoration: 'none',
+                      borderRadius: '50px',
+                      background: 'white',
+                      color: '#0152be',
+                      border: '2px solid #0152be',
+                      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.1)',
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
+                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)'
+                      e.currentTarget.style.background = '#f8fafc'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.1)'
+                      e.currentTarget.style.background = 'white'
+                    }}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -155,7 +198,7 @@ const TeamSection: React.FC = () => {
         >
           <h3 className="heading-lg text-center mb-12 text-primary">Board of Directors</h3>
           <p className="text-lead text-center mb-8 max-w-3xl mx-auto">
-            Our experienced board provides strategic guidance and governance oversight to ensure organizational excellence and mission alignment.
+            Wir bauen gerade unser Board of Directors auf. Erfahrene Führungskräfte aus verschiedenen Bereichen werden uns strategische Beratung und Governance-Unterstützung bieten.
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {boardMembers.map((member, index) => (
@@ -233,10 +276,34 @@ const TeamSection: React.FC = () => {
               Ready to make an impact? Connect with our team and discover how you can contribute to transforming lives through technology education in Ghana.
             </p>
             <motion.button
-              className="btn btn-secondary bg-white text-primary hover:bg-neutral-100"
+              className="inline-block"
+              style={{
+                padding: '16px 32px',
+                fontSize: '16px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                borderRadius: '50px',
+                background: 'white',
+                color: '#0152be',
+                border: '2px solid #0152be',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                backdropFilter: 'blur(10px)',
+                cursor: 'pointer'
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = '/contact'}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
+                e.currentTarget.style.background = '#f8fafc'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
+                e.currentTarget.style.background = 'white'
+              }}
             >
               Get In Touch
             </motion.button>

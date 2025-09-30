@@ -5,6 +5,7 @@ import MissionSection from './components/MissionSection'
 import TeamSection from './components/TeamSection'
 import ValuesSection from './components/ValuesSection'
 import StatsSection from './components/StatsSection'
+import PartnersSection from './components/PartnersSection'
 
 const WhoWeAre: React.FC = () => {
   const handleGetInvolved = () => {
@@ -25,7 +26,7 @@ const WhoWeAre: React.FC = () => {
         <Hero
           title="Who We Are"
           subtitle="Empowering Ghana's Future Through Technology"
-          description="We are Ghana's leading NGO dedicated to bridging the digital divide through inclusive technology education and empowerment programs."
+          description="At IT For Youth Ghana, we are a forward-thinking non-profit organization dedicated to equipping Ghanaian youth with the digital skills they need to thrive in today's technology-driven economy. Founded with the vision to bridge the digital divide and reducing unemployment, we are committed to ensuring that no talented young person is left behind due to financial or geographical barriers."
           primaryCta={{ text: "Get Involved", action: handleGetInvolved }}
          
         />
@@ -33,6 +34,7 @@ const WhoWeAre: React.FC = () => {
         <MissionSection />
         <StatsSection />
         <ValuesSection />
+        <PartnersSection />
         <TeamSection />
       </div>
     </>

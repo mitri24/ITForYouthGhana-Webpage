@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Modal from '../../../components/Modal'
-import { Button } from '../../../components/ui/Button'
 import { Program } from '../../../data/programs'
 
 interface ProgramModalProps {
@@ -18,7 +17,7 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({
   if (!program) return null
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} title={program.title}>
       <div className="max-w-4xl mx-auto bg-white rounded-2xl overflow-hidden">
         {/* Header */}
         <div className="relative">
@@ -27,7 +26,8 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({
             alt={program.title}
             className="w-full h-64 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-black/10" />
           <div className="absolute bottom-6 left-6 right-6 text-white">
             <div className="flex items-center gap-3 mb-3">
               <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${program.tagColor}`}>
@@ -116,37 +116,75 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-neutral-200">
-            <Button
-              variant="primary"
-              href="/contact"
-              leftIcon={
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-4.92-1.455l-1.413 1.413A1 1 0 015.5 21H3a1 1 0 01-1-1v-2.5a1 1 0 01.293-.707l1.413-1.413A8.955 8.955 0 012 12C2 7.582 5.582 4 10 4s8 3.582 8 8z" />
-                </svg>
-              }
-            >
-              Get Involved
-            </Button>
             
-            <Button
-              variant="donation"
+            <a
               href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
-              external
-              leftIcon={
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                padding: '14px 28px',
+                borderRadius: '50px',
+                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '15px',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(37, 99, 235, 0.4)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+              }}
             >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
               Support This Program
-            </Button>
+            </a>
             
-            <Button
-              variant="outline"
+            <button
               onClick={onClose}
+              className="flex-1"
+              style={{
+                padding: '14px 28px',
+                borderRadius: '50px',
+                background: 'white',
+                color: '#0152be',
+                fontWeight: '600',
+                fontSize: '15px',
+                border: '2px solid #0152be',
+                boxShadow: '0 6px 20px rgba(37, 99, 235, 0.2)',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                cursor: 'pointer',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(37, 99, 235, 0.3)'
+                e.currentTarget.style.background = '#f8fafc'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.2)'
+                e.currentTarget.style.background = 'white'
+              }}
             >
               Close
-            </Button>
+            </button>
           </div>
         </div>
       </div>
