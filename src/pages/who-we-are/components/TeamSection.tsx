@@ -264,18 +264,21 @@ const TeamSection: React.FC = () => {
           </div>
         </motion.div>
 
+
+        {/* Partnership CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="bg-primary rounded-2xl p-8 text-white">
-            <h3 className="heading-md mb-4 text-white">Join Our Mission</h3>
-            <p className="text-lg mb-6 text-white/90">
-              Ready to make an impact? Connect with our team and discover how you can contribute to transforming lives through technology education in Ghana.
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
+            <h3 className="heading-md mb-4 text-primary"> Join Our Mission</h3>
+            <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
+            Ready to make an impact? Connect with our team and discover how you can contribute to transforming lives through technology education in Ghana.
             </p>
-            <motion.button
+            <motion.a
+              href="/contact"
               className="inline-block"
               style={{
                 padding: '16px 32px',
@@ -283,32 +286,33 @@ const TeamSection: React.FC = () => {
                 fontWeight: '600',
                 textDecoration: 'none',
                 borderRadius: '50px',
-                background: 'white',
-                color: '#0152be',
-                border: '2px solid #0152be',
-                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
                 transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                backdropFilter: 'blur(10px)',
-                cursor: 'pointer'
+                backdropFilter: 'blur(10px)'
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/contact'}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
-                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
-                e.currentTarget.style.background = '#f8fafc'
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
-                e.currentTarget.style.background = 'white'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
               }}
             >
-              Get In Touch
-            </motion.button>
+          Get In Touch
+            </motion.a>
           </div>
         </motion.div>
+
+
+        
       </div>
     </section>
   )

@@ -8,9 +8,9 @@ import { SkipLinks } from './components/accessibility'
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'))
 const WhoWeAre = React.lazy(() => import('./pages/who-we-are/WhoWeAre'))
-const StudentsGraduates = React.lazy(() => import('./pages/what-we-offer/students-graduates/StudentsGraduates'))
-const Businesses = React.lazy(() => import('./pages/what-we-offer/businesses/Businesses'))
-const Volunteers = React.lazy(() => import('./pages/what-we-offer/volunteers/Volunteers'))
+const StudentsGraduates = React.lazy(() => import('./pages/Opportunities/students-graduates/StudentsGraduates'))
+const Businesses = React.lazy(() => import('./pages/Opportunities/businesses/Businesses'))
+const Volunteers = React.lazy(() => import('./pages/Opportunities/volunteers/Volunteers'))
 const WhoCanApply = React.lazy(() => import('./pages/who-can-apply/WhoCanApply'))
 const StudentsProcess = React.lazy(() => import('./pages/how-it-works/students-graduates/StudentsProcess'))
 const BusinessesProcess = React.lazy(() => import('./pages/how-it-works/businesses/BusinessesProcess'))
