@@ -12,7 +12,7 @@ import { navigateToPage } from '../utils/navigation'
 
 const Home: React.FC = () => {
   return (
-    <div id="main-content" className="min-h-screen">
+    <div id="main-content" className="min-h-screen home-hero-overlap">
       <Hero />
       <QuickOverview />
       <Challenge />
