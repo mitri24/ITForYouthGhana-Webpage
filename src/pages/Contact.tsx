@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content/index'
 import SEO from '../components/SEO'
+import { navigateToPage } from '../utils/navigation'
 
 const Contact: React.FC = () => {
   const ref = useRef(null)
@@ -74,7 +75,7 @@ const Contact: React.FC = () => {
         canonical="/contact"
         ogType="organization"
       />
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         
         {/* Hero Section */}
         <section className="relative py-24 bg-primary overflow-hidden">

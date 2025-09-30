@@ -8,10 +8,11 @@ import Challenge from './home/components/Challenge'
 import Vision from './home/components/Vision'
 import QuickOverview from './home/components/QuickOverview'
 import DonationSection from './home/components/DonationSection'
+import { navigateToPage } from '../utils/navigation'
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div id="main-content" className="min-h-screen">
       <Hero />
       <QuickOverview />
       <Challenge />

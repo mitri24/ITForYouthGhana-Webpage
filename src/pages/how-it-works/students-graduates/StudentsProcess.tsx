@@ -2,13 +2,14 @@ import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
+import { navigateToPage } from '../../../utils/navigation'
 
 const StudentsProcess: React.FC = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   const handleStartApplication = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   const steps = [
@@ -53,7 +54,7 @@ const StudentsProcess: React.FC = () => {
         canonical="/how-it-works/students-graduates"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         <Hero
           title="Your Path to Tech Career"
           subtitle="How It Works - For Students & Graduates"

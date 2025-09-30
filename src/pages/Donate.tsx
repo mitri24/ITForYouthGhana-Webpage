@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SEO from '../components/SEO'
+import { navigateToPage } from '../utils/navigation'
 
 const Donate: React.FC = () => {
   const ref = useRef(null)
@@ -73,7 +74,7 @@ const Donate: React.FC = () => {
         canonical="/donate"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         
         {/* Hero Section */}
         <section className="relative py-24 bg-primary overflow-hidden">
@@ -269,14 +270,14 @@ const Donate: React.FC = () => {
                 >
                   Donate Today
                 </motion.button>
-                <motion.a
-                  href="/contact"
+                <motion.button
                   className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigateToPage('/contact')}
                 >
                   Get in Touch
-                </motion.a>
+                </motion.button>
               </motion.div>
             </motion.div>
           </div>
