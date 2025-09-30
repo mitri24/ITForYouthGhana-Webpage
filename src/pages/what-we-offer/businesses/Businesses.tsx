@@ -66,9 +66,7 @@ const Businesses: React.FC = () => {
                 >
                   <div className="card-body">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                        <span className="text-primary font-bold text-lg">{partnership.icon}</span>
-                      </div>
+                      
                       <h3 className="heading-sm text-primary group-hover:text-accent transition-colors duration-300">
                         {partnership.title}
                       </h3>
