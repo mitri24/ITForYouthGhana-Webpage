@@ -119,46 +119,7 @@ const WhatWeOffer: React.FC = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-20"
-        >
-          <div className="inline-block relative">
-            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
-            <Link 
-              to="/who-can-apply"
-              className="relative"
-              style={{
-                display: 'inline-block',
-                padding: '16px 40px',
-                borderRadius: '50px',
-                background: 'white',
-                color: '#0152be',
-                textDecoration: 'none',
-                fontWeight: '700',
-                fontSize: '18px',
-                border: '2px solid #0152be',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                backdropFilter: 'blur(10px)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'
-                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)'
-                e.currentTarget.style.background = '#f8fafc'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)'
-                e.currentTarget.style.background = 'white'
-              }}
-            >
-              See If You Qualify
-            </Link>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   )
