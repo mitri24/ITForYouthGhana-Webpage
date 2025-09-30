@@ -7,7 +7,7 @@ import { content } from '../../../data/content/index'
 const kernBenefits = [
   {
     title: 'Quality Tech Education',
-    description: 'Professional programming, web development, and digital skills training with scholarship opportunities.'
+    description: 'Professional programming, web development, and digital skills training with scholarship opportunities.',
     icon: 'EDU',
     image: '/images/randomPictures/IMG-20241118-WA0056.jpg'
   },
