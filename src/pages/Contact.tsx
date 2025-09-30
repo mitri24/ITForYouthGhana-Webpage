@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="card hover:scale-105 transition-transform duration-300 text-center group"
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 group hover:scale-105 text-center"
                 >
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     <div className="text-primary group-hover:text-white">
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
                   </div>
                   <h3 className="heading-sm mb-2 group-hover:text-primary">{method.title}</h3>
                   <p className="text-primary font-semibold mb-2">{method.detail}</p>
-                  <p className="text-body text-sm">{method.description}</p>
+                  <p className="text-body text-sm text-neutral-700">{method.description}</p>
                 </motion.a>
               ))}
             </div>
@@ -145,8 +145,8 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="max-w-2xl mx-auto"
             >
-              <div className="card">
-                <div className="card-body" style={{ padding: '24px' }}>
+              <div className="bg-white rounded-2xl border border-primary/10 shadow-lg">
+                <div className="p-8">
                   <h2 className="heading-md mb-6 text-center">Quick Contact</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -244,7 +244,7 @@ const Contact: React.FC = () => {
                     style={{ padding: '20px' }}
                   >
                     <h3 className="heading-sm mb-3">{faq.question}</h3>
-                    <p className="text-body text-neutral-800">{faq.answer}</p>
+                    <p className="text-body text-neutral-700">{faq.answer}</p>
                   </motion.div>
                 ))}
               </div>

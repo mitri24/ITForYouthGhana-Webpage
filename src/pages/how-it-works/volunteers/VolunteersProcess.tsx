@@ -55,13 +55,54 @@ const VolunteersProcess: React.FC = () => {
       />
       
       <div id="main-content" className="min-h-screen bg-white pt-24">
-        <Hero
-          title="Your Volunteer Journey"
-          subtitle="How It Works - For Volunteers"
-          description="A clear, step-by-step path from application to active volunteering. We guide you every step of the way to make meaningful impact."
-        />
+        {/* Hero Section */}
+        <section className="relative py-24 bg-primary overflow-hidden">
+          <div className="absolute inset-0 bg-hero-overlay"></div>
+          <div className="container relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center text-white max-w-4xl mx-auto"
+            >
+              <h1 className="heading-xl text-white mb-6">
+                Your Volunteer Journey
+              </h1>
+              <p className="text-lead text-white/90 mb-8">
+                How It Works - For Volunteers
+              </p>
+              <p className="text-xl mb-12 text-white/80 leading-relaxed max-w-3xl mx-auto">
+                A clear, step-by-step path from application to active volunteering. We guide you every step of the way to make meaningful impact.
+              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-6 justify-center"
+              >
+                <motion.button
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleStartApplication}
+                >
+                  Start Application
+                </motion.button>
+                <motion.button
+                  className="btn btn-ghost"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => document.getElementById('volunteer-process')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  See Process
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
         
-        <section ref={ref} className="section bg-white">
+        <section id="volunteer-process" ref={ref} className="section bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="relative">
@@ -83,12 +124,12 @@ const VolunteersProcess: React.FC = () => {
                     
                     {/* Inhaltskarte - abwechselnd links und rechts */}
                     <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                      <div className="bg-white border border-neutral-100 rounded-xl shadow-sm p-5 hover:shadow-md transition-shadow">
+                      <div className="bg-white border border-primary/10 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
                         <div className={`flex flex-col ${index % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} sm:items-center sm:justify-between mb-3`}>
                           <h3 className="heading-sm text-primary">{step.title}</h3>
-                          <span className="text-sm text-accent font-medium mt-1 sm:mt-0">{step.duration}</span>
+                          <span className="text-sm text-primary font-medium mt-1 sm:mt-0 bg-primary/10 px-2 py-1 rounded-full">{step.duration}</span>
                         </div>
-                        <p className="text-body text-neutral-600 mb-4">{step.description}</p>
+                        <p className="text-body text-neutral-700 mb-4 leading-relaxed">{step.description}</p>
                         
                         {/* CTA-Button nur im ersten Schritt */}
                         {step.hasButton && (
@@ -117,9 +158,9 @@ const VolunteersProcess: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-center mt-16"
             >
-              <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8">
-                <h3 className="heading-md mb-4 text-primary">Ready to Make a Difference?</h3>
-                <p className="text-body mb-6 max-w-2xl mx-auto">
+              <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8">
+                <h3 className="heading-md mb-4">Ready to Make a Difference?</h3>
+                <p className="text-lead mb-6 max-w-2xl mx-auto text-neutral-800">
                   Join our community of passionate volunteers. Start your application today and begin making meaningful impact in Ghana's tech ecosystem.
                 </p>
                 <motion.button

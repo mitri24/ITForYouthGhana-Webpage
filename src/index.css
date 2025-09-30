@@ -93,6 +93,7 @@ body {
   /* CHANGED: Safe Area Support */
   padding-left: var(--safe-area-left);
   padding-right: var(--safe-area-right);
+  /* CHANGED: Safe Area Support */
 }
 
 /* NEU: Custom scrollbar mit tiefblauen Farben */
@@ -116,7 +117,7 @@ body {
 @layer components {
   /* Einheitliche Button-Styles für alle Seiten */
   .btn {
-    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300;
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300;
     @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300;
     @apply cursor-pointer select-none;
     /* Einheitliche Größen */
@@ -127,6 +128,7 @@ body {
     font-weight: 700;
     text-decoration: none;
     border: 2px solid transparent;
+    border-radius: 50px; /* Pill-Form wie im Beispiel */
   }
 
   /* Primary Button - Hauptaktionen */

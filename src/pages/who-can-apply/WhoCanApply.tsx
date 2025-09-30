@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SEO from '../../components/SEO'
-import Hero from '../../components/shared/Hero'
+import { navigateToPage } from '../../utils/navigation'
 
 const WhoCanApply: React.FC = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   const handleApplyNow = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   const eligibilityCategories = [
@@ -62,15 +62,55 @@ const WhoCanApply: React.FC = () => {
         canonical="/who-can-apply"
       />
       
-      <div className="min-h-screen bg-white pt-24">
-        <Hero
-          title="Who Can Apply"
-          subtitle="Opportunities for Everyone"
-          description="Our programs are designed to be inclusive and accessible. Find out if you qualify for our professional tech training and support programs."
-          primaryCta={{ text: "Apply Now", action: handleApplyNow }}
-         
-        />
+      <div id="main-content" className="min-h-screen bg-white pt-24">
+        {/* Hero Section */}
+        <section className="relative py-24 bg-primary overflow-hidden">
+          <div className="absolute inset-0 bg-hero-overlay"></div>
+          <div className="container relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center text-white max-w-4xl mx-auto"
+            >
+              <h1 className="heading-xl text-white mb-6">
+                Who Can Apply
+              </h1>
+              <p className="text-lead text-white/90 mb-8">
+                Opportunities for Everyone
+              </p>
+              <p className="text-xl mb-12 text-white/80 leading-relaxed max-w-3xl mx-auto">
+                Our programs are designed to be inclusive and accessible. Find out if you qualify for our professional tech training and support programs.
+              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-6 justify-center"
+              >
+                <motion.button
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleApplyNow}
+                >
+                  Apply Now
+                </motion.button>
+                <motion.button
+                  className="btn btn-ghost"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => document.getElementById('eligibility')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  See Requirements
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
         
+        {/* Eligibility Categories */}
         <section id="eligibility" ref={ref} className="section bg-white">
           <div className="container">
             <motion.div
@@ -79,8 +119,8 @@ const WhoCanApply: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6 text-primary">Eligibility Categories</h2>
-              <p className="text-lead max-w-4xl mx-auto">
+              <h2 className="heading-lg mb-6">Eligibility Categories</h2>
+              <p className="text-lead text-center max-w-4xl mx-auto text-neutral-800">
                 We welcome applications from diverse backgrounds. Here are our main eligibility categories:
               </p>
             </motion.div>
@@ -92,19 +132,26 @@ const WhoCanApply: React.FC = () => {
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="card"
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 group"
                 >
-                  <div className="card-body">
-                    <h3 className="heading-sm text-primary mb-4">{category.title}</h3>
-                    
-                    <p className="text-body mb-6 text-neutral-600">{category.description}</p>
-                    
-                    <h4 className="font-semibold text-neutral-800 mb-4">Requirements:</h4>
+                 
+                  
+                  <h3 className="heading-sm mb-4 group-hover:text-primary transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                  
+                  <p className="text-body mb-6 text-neutral-700 leading-relaxed group-hover:text-neutral-800 transition-colors duration-300">
+                    {category.description}
+                  </p>
+                  
+                  <div className="bg-primary/5 rounded-xl p-4 group-hover:bg-primary/10 transition-colors duration-300">
+                    <h4 className="font-semibold text-primary mb-3">Requirements:</h4>
                     <ul className="space-y-2">
                       {category.requirements.map((req, idx) => (
                         <li key={idx} className="flex items-start space-x-3">
                           <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-body">{req}</span>
+                          <span className="text-body text-sm">{req}</span>
                         </li>
                       ))}
                     </ul>
@@ -113,68 +160,96 @@ const WhoCanApply: React.FC = () => {
               ))}
             </div>
 
+            {/* Special Considerations */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 text-center"
+              className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-12 text-center max-w-6xl mx-auto"
             >
-              <h3 className="heading-md mb-6 text-primary">Special Considerations</h3>
+              <h3 className="heading-md mb-8">Special Considerations</h3>
               
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <h4 className="font-semibold text-primary mb-3">Priority Given To:</h4>
-                  <ul className="text-left space-y-2">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
-                      <span className="text-body">Women and girls (70% target)</span>
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="bg-white rounded-xl p-6 shadow-lg"
+                >
+                  
+                  <h4 className="text-left space-y-3 heading-sm text-primary mb-4">Priority Given To:</h4>
+                  <ul className="text-left space-y-3">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-body">Women and girls (40%+ target)</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">Rural and underserved communities</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">First-generation tech learners</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">Demonstrated financial need</span>
                     </li>
                   </ul>
-                </div>
+                </motion.div>
                 
-                <div>
-                  <h4 className="font-semibold text-primary mb-3">What We Provide:</h4>
-                  <ul className="text-left space-y-2">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  className="bg-white rounded-xl p-6 shadow-lg"
+                >
+                  
+                  <h4 className=" text-left space-y-3 heading-sm text-primary mb-4">What We Provide:</h4>
+                  <ul className="text-left space-y-3">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">Professional tech training</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">All necessary equipment</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">Career support and mentorship</span>
                     </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent">✓</span>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-body">Network access and opportunities</span>
                     </li>
                   </ul>
-                </div>
+                </motion.div>
               </div>
 
-              <motion.button
-                className="btn btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleApplyNow}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex flex-col sm:flex-row gap-6 justify-center"
               >
-                Start Your Application
-              </motion.button>
+                <motion.button
+                  className="btn btn-primary"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleApplyNow}
+                >
+                  Start Your Application
+                </motion.button>
+                <motion.button
+                  className="btn btn-secondary"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigateToPage('/opportunities')}
+                >
+                  View Programs
+                </motion.button>
+              </motion.div>
             </motion.div>
           </div>
         </section>
