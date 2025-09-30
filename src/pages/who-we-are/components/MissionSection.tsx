@@ -17,7 +17,7 @@ const MissionSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
         >
-          <h3 className="heading-lg mb-6 text-primary text-center">Our Mission</h3>
+          <h3 className="heading-lg mb-6 text-center">Our Mission</h3>
           <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
             To bridge the digital divide by empowering underserved youth with high-quality IT education and career development training. We foster innovation, digital entrepreneurship, and equitable opportunities, focusing on women, physically challenged individuals, and financially disadvantaged students.
           </p>
@@ -42,7 +42,7 @@ const MissionSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
         >
-          <h3 className="heading-lg mb-6 text-primary text-center">Our Vision</h3>
+          <h3 className="heading-lg mb-6 text-center">Our Vision</h3>
           <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
           To create a future where all youth, regardless of their background, have access to transformative technology education and opportunities, empowering them to drive innovation, build sustainable careers, and contribute meaningfully to the digital economy. </p>
         </motion.div>
@@ -70,7 +70,7 @@ const MissionSection: React.FC = () => {
             <p className="text-body mb-6 leading-relaxed">
               At IT For Youth Ghana, we're leveling the playing field by offering innovative programs that transform challenges into opportunities. Every training session, outreach program, and partnership brings us closer to a Ghana where every youth can thrive in the digital age.
             </p>
-            <p className="text-body leading-relaxed font-semibold text-accent">
+            <p className="text-body leading-relaxed font-semibold" style={{ color: 'var(--color-primary)' }}>
               Women & Young ladies are a core part of our programs
             </p>
           </motion.div>

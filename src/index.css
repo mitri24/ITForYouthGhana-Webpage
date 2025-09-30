@@ -5,13 +5,15 @@
 /* CHANGED: Google Fonts Inter für konsistente, lesbare Typografie */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* CHANGED: CSS Custom Properties für UX-optimierte Designsystem */
+/* CHANGED: CSS Custom Properties für tiefblaues Designsystem */
 :root {
-  /* Primärfarbe System */
-  --color-primary: #0152be;
-  --color-primary-90: #014aa8; /* Hover States */
-  --color-primary-80: #013d8c; /* Active States */
-  --color-primary-70: #012f70; /* Strong Contrast */
+  /* Tiefblaues Farbsystem */
+  --color-primary: #0c2d5a;        /* Tiefes Marineblau */
+  --color-primary-90: #0a254d;    /* Etwas dunkler für Hover */
+  --color-primary-80: #081d40;    /* Noch dunkler für Active */
+  --color-primary-70: #061633;    /* Sehr dunkles Blau */
+  --color-primary-light: #1a3d6d;  /* Helleres Blau für Akzente */
+  --color-primary-lighter: #2a4d7d; /* Noch hellerer Akzent */
   
   /* Spacing System (4px basis) */
   --space-xs: 0.25rem;   /* 4px */
@@ -82,8 +84,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: theme('colors.neutral.50');
-  color: theme('colors.neutral.900');
+  background-color: #f0f4f8; /* Sehr helles Blau als Hintergrund */
+  color: #0c2d5a;
   overflow-x: hidden;
   line-height: 1.5; /* CHANGED: Optimale Lesbarkeit */
   font-weight: 400;
@@ -93,29 +95,29 @@ body {
   padding-right: var(--safe-area-right);
 }
 
-/* NEU: Custom scrollbar mit starker Primärfarbe #0152be */
+/* NEU: Custom scrollbar mit tiefblauen Farben */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.neutral.100');
+  background: #d4e1f9; /* Helles Blau für Track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, theme('colors.primary.DEFAULT'), theme('colors.primary.800'));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-80));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, theme('colors.primary.800'), theme('colors.secondary.DEFAULT'));
+  background: linear-gradient(135deg, var(--color-primary-80), var(--color-primary-70));
 }
 
 @layer components {
   /* Einheitliche Button-Styles für alle Seiten */
   .btn {
     @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300;
     @apply cursor-pointer select-none;
     /* Einheitliche Größen */
     min-height: 48px; /* Touch-optimiert */
@@ -130,42 +132,42 @@ body {
   /* Primary Button - Hauptaktionen */
   .btn-primary {
     @apply bg-primary text-white shadow-lg;
-    background-color: #0152be;
+    background-color: var(--color-primary);
     color: white !important;
-    border-color: #0152be;
+    border-color: var(--color-primary);
   }
   
   .btn-primary:hover {
-    background-color: #014aa8;
-    border-color: #014aa8;
+    background-color: var(--color-primary-90);
+    border-color: var(--color-primary-90);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(1, 82, 190, 0.3);
+    box-shadow: 0 8px 25px rgba(12, 45, 90, 0.3);
   }
   
   .btn-primary:active {
-    background-color: #013d8c;
+    background-color: var(--color-primary-80);
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(1, 82, 190, 0.2);
+    box-shadow: 0 4px 15px rgba(12, 45, 90, 0.2);
   }
 
   /* Secondary Button - Sekundäre Aktionen */
   .btn-secondary {
     @apply bg-white text-primary border-2;
     background-color: white;
-    color: #0152be !important;
-    border-color: #0152be;
-    box-shadow: 0 4px 15px rgba(1, 82, 190, 0.1);
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(12, 45, 90, 0.1);
   }
   
   .btn-secondary:hover {
-    background-color: #0152be;
+    background-color: var(--color-primary);
     color: white !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(1, 82, 190, 0.3);
+    box-shadow: 0 8px 25px rgba(12, 45, 90, 0.3);
   }
 
   .btn-secondary:active {
-    background-color: #014aa8;
+    background-color: var(--color-primary-90);
     transform: translateY(0);
   }
 
@@ -173,12 +175,12 @@ body {
   .btn-outline {
     @apply bg-transparent text-primary border-2;
     background-color: transparent;
-    color: #0152be !important;
-    border-color: #0152be;
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary);
   }
 
   .btn-outline:hover {
-    background-color: #0152be;
+    background-color: var(--color-primary);
     color: white !important;
     transform: translateY(-1px);
   }
@@ -193,7 +195,7 @@ body {
 
   .btn-ghost:hover {
     background-color: white;
-    color: #0152be !important;
+    color: var(--color-primary) !important;
     transform: translateY(-1px);
   }
 
@@ -224,28 +226,20 @@ body {
     box-shadow: none !important;
   }
 
-  .btn-lg {
-    @apply px-8 py-4 text-lg;
-  }
-
-  .btn-sm {
-    @apply px-4 py-2 text-sm;
-  }
-
-  /* Apple-inspired Card Styles with consistent spacing */
+  /* Apple-inspired Card Styles mit tiefblauem Farbschema */
   .card {
-    @apply bg-white rounded-2xl border border-neutral-200 shadow-soft;
+    @apply bg-white rounded-2xl border border-blue-100 shadow-soft;
     @apply transition-all duration-300 hover:shadow-strong hover:border-primary;
     @apply transform hover:-translate-y-1;
     @apply flex flex-col;
-    min-height: 320px; /* Consistent height for all cards */
-    padding: 24px; /* Apple-style generous padding */
+    min-height: 320px; /* Konsistente Höhe für alle Karten */
+    padding: 24px; /* Apple-style großzügiges Padding */
   }
 
   .card-body {
     @apply flex flex-col justify-between flex-1;
-    gap: 16px; /* 16px consistent spacing */
-    padding: 0; /* Remove extra padding since card has it */
+    gap: 16px; /* 16px konsistenter Abstand */
+    padding: 0; /* Zusätzliches Padding entfernen, da Karte es bereits hat */
   }
 
   .card-content {
@@ -259,16 +253,16 @@ body {
 
   .card-text {
     @apply flex-1;
-    margin-bottom: 20px; /* Space before buttons */
+    margin-bottom: 20px; /* Abstand vor Buttons */
   }
 
   .card-footer {
     @apply mt-auto;
-    padding-top: 16px; /* Never stick buttons to content */
+    padding-top: 16px; /* Buttons niemals an Inhalt kleben lassen */
   }
 
   .card-header {
-    @apply p-6 border-b border-neutral-200;
+    @apply p-6 border-b border-blue-100;
   }
 
   /* NEU: Card Layout für atmende Inhalte */
@@ -288,7 +282,7 @@ body {
     @apply mt-auto;
   }
 
-  /* Apple-inspired Grid für Cards with consistent spacing */
+  /* Apple-inspired Grid für Cards mit konsistenten Abständen */
   .cards-grid {
     @apply grid gap-8;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -367,7 +361,7 @@ body {
     line-height: 1.7;
     font-weight: 400;
     letter-spacing: -0.005em;
-    color: theme('colors.neutral.600');
+    color: #1a3d6d; /* Etwas helleres Blau für Lead-Text */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
@@ -376,7 +370,7 @@ body {
     line-height: 1.6;
     font-weight: 400;
     letter-spacing: -0.003em;
-    color: theme('colors.neutral.700');
+    color: #2a4d7d; /* Mittleres Blau für Fließtext */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
@@ -386,12 +380,12 @@ body {
     line-height: 1.5;
     font-weight: 400;
     letter-spacing: 0;
-    color: theme('colors.neutral.600');
+    color: #3a5d8d; /* Etwas helleres Blau für kleinen Text */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   .text-muted {
-    @apply text-neutral-500;
+    color: #4a6d9d; /* Helleres Blau für gedämpften Text */
   }
 
   /* Apple-inspired responsive spacing system */
@@ -505,11 +499,11 @@ body {
   }
 
   .blue-overlay {
-    background: linear-gradient(rgba(1, 82, 190, 0.3), rgba(1, 82, 190, 0.4));
+    background: linear-gradient(rgba(12, 45, 90, 0.7), rgba(12, 45, 90, 0.8));
   }
 
   .blue-overlay-bg {
-    background: linear-gradient(rgba(1, 82, 190, 0.3), rgba(1, 82, 190, 0.4)), url('/images/randomPictures/UX2.jpg');
+    background: linear-gradient(rgba(12, 45, 90, 0.7), rgba(12, 45, 90, 0.8)), url('/images/randomPictures/UX2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -529,7 +523,7 @@ body {
 
   /* CHANGED: Accessibility-optimierte Link & Focus States für WCAG 2.1 AA */
   a {
-    @apply text-primary hover:text-primary-600 transition-colors duration-200;
+    color: var(--color-primary);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 3px;
@@ -537,6 +531,7 @@ body {
   }
   
   a:hover {
+    color: var(--color-primary-90);
     text-decoration-color: currentColor;
   }
   
@@ -583,7 +578,7 @@ body {
 
   /* CHANGED: UX-optimierte Form-Styles mit Touch-Targets */
   .form-input {
-    @apply w-full border-2 border-neutral-300 rounded-xl;
+    @apply w-full border-2 border-blue-200 rounded-xl;
     @apply focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20;
     @apply transition-colors duration-200 font-medium;
     /* CHANGED: Touch-optimiert für mobile Geräte */
@@ -595,35 +590,38 @@ body {
   
   .form-input:focus {
     @apply outline-none border-primary shadow-primary;
-    box-shadow: 0 0 0 3px rgba(1, 82, 190, 0.1);
+    box-shadow: 0 0 0 3px rgba(12, 45, 90, 0.1);
   }
   
   .form-input::placeholder {
-    @apply text-neutral-400;
+    color: #8aa3c3; /* Helles Blau für Placeholder */
     font-weight: 400;
   }
 
   .form-label {
-    @apply block font-semibold text-neutral-700 mb-2;
+    @apply block font-semibold mb-2;
     font-size: var(--text-sm);
     color: var(--color-primary);
   }
 
-  /* NEU: Moderne Badge-Styles */
+  /* NEU: Moderne Badge-Styles mit tiefblauem Farbschema */
   .badge {
     @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
   }
 
   .badge-primary {
-    @apply bg-primary-100 text-primary-800;
+    background-color: rgba(12, 45, 90, 0.1);
+    color: var(--color-primary);
   }
 
   .badge-success {
-    @apply bg-success-100 text-success-800;
+    background-color: rgba(26, 61, 109, 0.1);
+    color: var(--color-primary-light);
   }
 
   .badge-accent {
-    @apply bg-accent-100 text-accent-800;
+    background-color: rgba(42, 77, 125, 0.1);
+    color: var(--color-primary-lighter);
   }
 
   /* NEU: Smooth Animation utilities */
@@ -709,8 +707,8 @@ body {
   }
 
   .form-input:invalid:not(:placeholder-shown) {
-    border-color: #dc2626;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    border-color: #1a3d6d; /* Blau anstatt Rot für Fehler */
+    box-shadow: 0 0 0 3px rgba(26, 61, 109, 0.1);
   }
 
   .form-input:invalid:not(:placeholder-shown) + .form-error {
@@ -719,7 +717,7 @@ body {
 
   .form-error {
     display: none;
-    color: #dc2626;
+    color: #1a3d6d; /* Blau anstatt Rot für Fehler */
     font-size: var(--text-sm);
     margin-top: var(--space-xs);
     font-weight: 500;
@@ -748,7 +746,7 @@ body {
   }
 
   th, td {
-    border: 1px solid theme('colors.neutral.300');
+    border: 1px solid #d4e1f9; /* Helles Blau für Tabellenrahmen */
     padding: var(--space-md);
     text-align: left;
   }
@@ -760,7 +758,7 @@ body {
   }
 
   tr:nth-child(even) {
-    background-color: theme('colors.neutral.50');
+    background-color: #f0f4f8; /* Sehr helles Blau für Zeilen */
   }
 
   /* ADDED: Enhanced list accessibility */
@@ -781,14 +779,14 @@ body {
   }
 
   img:not([alt]) {
-    border: 3px solid #dc2626;
+    border: 3px solid var(--color-primary);
   }
 
   /* ADDED: Enhanced heading hierarchy */
   .heading-hierarchy-skip {
-    border: 2px solid #dc2626;
-    background: #fef2f2;
-    color: #dc2626;
+    border: 2px solid var(--color-primary);
+    background: rgba(12, 45, 90, 0.05);
+    color: var(--color-primary);
     padding: var(--space-sm);
     border-radius: 4px;
     font-size: var(--text-sm);
@@ -802,7 +800,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(12, 45, 90, 0.7);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -825,7 +823,7 @@ body {
 
   .modal-content {
     @apply bg-white rounded-2xl shadow-primary-xl w-full overflow-y-auto;
-    @apply animate-scale-in border border-primary/10;
+    @apply animate-scale-in border border-blue-100;
     max-width: 90vw;
     max-height: calc(100vh - 32px); /* Full height minus safe padding */
   }
@@ -839,7 +837,7 @@ body {
 
   .modal-content-small {
     @apply bg-white rounded-2xl shadow-primary-xl w-full overflow-y-auto;
-    @apply animate-scale-in border border-primary/10;
+    @apply animate-scale-in border border-blue-100;
     max-width: 90vw;
     max-height: 80vh;
   }
@@ -852,7 +850,7 @@ body {
   }
 
   .modal-header {
-    @apply p-6 border-b border-neutral-200;
+    @apply p-6 border-b border-blue-100;
   }
 
   .modal-body {
@@ -860,6 +858,6 @@ body {
   }
 
   .modal-footer {
-    @apply p-6 border-t border-neutral-200 flex justify-end space-x-3;
+    @apply p-6 border-t border-blue-100 flex justify-end space-x-3;
   }
 }

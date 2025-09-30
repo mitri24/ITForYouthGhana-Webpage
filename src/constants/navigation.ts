@@ -19,23 +19,23 @@ export const NAVIGATION_CONFIG: NavigationItem[] = [
     path: '/who-we-are'
   },
   {
-    id: 'what-we-offer',
-    label: 'What we offer',
+    id: 'opportunities',
+    label: 'Opportunities',
     subItems: [
       {
         id: 'students-graduates',
         label: 'Students & Graduates',
-        path: '/what-we-offer/students-graduates'
+        path: '/opportunities/students-graduates'
       },
       {
         id: 'businesses',
         label: 'Businesses',
-        path: '/what-we-offer/businesses'
+        path: '/opportunities/businesses'
       },
       {
         id: 'volunteers',
         label: 'Volunteers',
-        path: '/what-we-offer/volunteers'
+        path: '/opportunities/volunteers'
       }
     ]
   },
@@ -58,6 +58,11 @@ export const NAVIGATION_CONFIG: NavigationItem[] = [
         label: 'For Businesses',
         path: '/how-it-works/businesses'
       },
+      {
+        id: 'volunteers-process',
+        label: 'For Volunteers',
+        path: '/how-it-works/volunteers'
+      }
     ]
   },
   {
@@ -80,7 +85,7 @@ export const NAVIGATION_CONFIG: NavigationItem[] = [
 export const MENU_LABELS = {
   HOME: 'Home',
   WHO_WE_ARE: 'Who we are',
-  WHAT_WE_OFFER: 'What we offer',
+  OPPORTUNITIES: 'Opportunities',
   WHO_CAN_APPLY: 'Who can apply',
   HOW_IT_WORKS: 'How it works',
   TESTIMONIALS: 'Testimonials',

@@ -4,13 +4,14 @@ import Hero from '../../../components/shared/Hero'
 import { motion, useInView } from 'framer-motion'
 import Modal from '../../../components/Modal'
 import { partnershipOptions } from '../../partners/components/partnershipData'
+import { navigateToPage } from '../../../utils/navigation'
 
 const Businesses: React.FC = () => {
   const [selectedPartnership, setSelectedPartnership] = useState<any>(null)
   const [isPartnershipModalOpen, setIsPartnershipModalOpen] = useState(false)
 
   const handlePartnerWithUs = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   const handleLearnMore = () => {
@@ -32,7 +33,7 @@ const Businesses: React.FC = () => {
       <SEO
         title="For Businesses - IT for Youth Ghana"
         description="Partner with us to access job-ready tech talent. Corporate training, recruitment pipeline, and CSR opportunities with Ghana's leading tech education NGO."
-        canonical="/what-we-offer/businesses"
+        canonical="/opportunities/businesses"
       />
       
       <div className="min-h-screen bg-white pt-24">

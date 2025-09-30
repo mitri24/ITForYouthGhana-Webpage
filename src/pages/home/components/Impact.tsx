@@ -11,21 +11,21 @@ const WhatWeOffer: React.FC = () => {
       title: 'For Students & Graduates',
       description: 'Professional 6-month tech training programs with job placement support',
       features: ['Software Development', 'Data Analytics', 'UI/UX Design'],
-      link: '/what-we-offer/students-graduates',
+      link: '/opportunities/students-graduates',
       
     },
     {
       title: 'For Businesses',
       description: 'Access to job-ready tech talent and corporate partnership opportunities',
       features: ['Talent Pipeline', 'Corporate Training', 'CSR Partnerships'],
-      link: '/what-we-offer/businesses',
+      link: '/opportunities/businesses',
      
     },
     {
       title: 'For Volunteers',
       description: 'Make an impact in your community through teaching and outreach',
       features: ['Teaching Support', 'Community Outreach', 'Event Management'],
-      link: '/what-we-offer/volunteers',
+      link: '/opportunities/volunteers',
 
     }
   ]

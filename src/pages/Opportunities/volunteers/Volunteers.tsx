@@ -4,13 +4,14 @@ import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
 import Modal from '../../../components/Modal'
 import { volunteerRoles, volunteerBenefits } from '../../volunteer/data/volunteerRoles'
+import { navigateToPage } from '../../../utils/navigation'
 
 const Volunteers: React.FC = () => {
   const [selectedVolunteerRole, setSelectedVolunteerRole] = useState<any>(null)
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(false)
 
   const handleVolunteer = () => {
-    window.location.href = '/contact'
+    navigateToPage('/contact')
   }
 
   const handleLearnMore = () => {
@@ -32,10 +33,10 @@ const Volunteers: React.FC = () => {
       <SEO
         title="For Volunteers - IT for Youth Ghana"
         description="Make a difference in your community. Volunteer with IT for Youth Ghana and help transform young lives through technology education."
-        canonical="/what-we-offer/volunteers"
+        canonical="/opportunities/volunteers"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div id="main-content" className="min-h-screen bg-white pt-24">
         <Hero
           title="Make a Difference"
           subtitle="For Volunteers"
@@ -174,7 +175,7 @@ const Volunteers: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     closeRoleModal()
-                    window.location.href = '/contact'
+                    navigateToPage('/contact')
                   }}
                 >
                   Apply for This Role
