@@ -38,7 +38,7 @@ const PageLoading: React.FC = () => (
 function App() {
   return (
     <HelmetProvider>
-      <Router>
+      <Router basename="/ITForYouthGhana-Webpage">
         <div className="min-h-screen bg-white">
           <ScrollToTop />
           <SkipLinks />
