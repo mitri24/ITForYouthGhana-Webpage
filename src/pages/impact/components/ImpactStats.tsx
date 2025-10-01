@@ -29,7 +29,7 @@ const ImpactStats: React.FC<ImpactStatsProps> = () => {
         </motion.div>
 
         {/* Responsive Grid: 3 Spalten auf Desktop, 2 auf Tablet, 1 auf Mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="responsive-grid responsive-grid-sm-2 responsive-grid-lg-3 max-w-6xl mx-auto">
           {impactNumbers.slice(0, 3).map((stat, index) => (
             <motion.div
               key={stat.label}

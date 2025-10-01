@@ -155,7 +155,7 @@ const Programs: React.FC = () => {
               <h2 className="heading-xl mb-6">How to Apply</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="responsive-grid responsive-grid-sm-2 responsive-grid-lg-4">
               {[
                 { step: '1', title: 'Choose Program', description: 'Select the program that best fits your goals' },
                 { step: '2', title: 'Apply Online', description: 'Fill out our simple online application form' },
@@ -205,7 +205,7 @@ const Programs: React.FC = () => {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     className="card card-body border-l-4 border-accent overflow-hidden"
                   >
-                    <div className="grid lg:grid-cols-2 gap-8 items-start">
+                    <div className="responsive-grid responsive-grid-md-2 gap-8 items-start">
                       <div className="space-y-4 min-h-0">
                         <div className="flex items-center mb-4">
                           <h3 className="heading-md mr-4">{program.title}</h3>
@@ -215,7 +215,7 @@ const Programs: React.FC = () => {
                         </div>
                         <p className="text-body mb-4 leading-relaxed">{program.description}</p>
                         
-                        <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="responsive-grid responsive-grid-md-2 gap-4 mb-4">
                           <div>
                             <h4 className="font-semibold text-primary mb-2 text-sm">Initial Cohort:</h4>
                             <p className="text-body text-sm">{program.participants}</p>

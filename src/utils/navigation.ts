@@ -6,11 +6,11 @@ export const scrollToTop = () => {
   })
 }
 
-export const navigateToPage = (path: string, delay: number = 100) => {
+export const navigateToPage = (path: string, delay: number = 0) => {
+  // Immediately scroll to top
+  window.scrollTo(0, 0)
+  // Navigate to the new page
   window.location.href = path
-  setTimeout(() => {
-    scrollToTop()
-  }, delay)
 }
 
 export const scrollToSection = (sectionId: string) => {

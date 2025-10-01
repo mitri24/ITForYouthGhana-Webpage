@@ -830,6 +830,168 @@ body {
     font-weight: 600;
   }
 
+  /* ENHANCED: Responsive Mobile-First Design Utilities */
+  .mobile-container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .mobile-container {
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-container {
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+    }
+  }
+
+  /* Mobile-optimized text sizes */
+  .text-responsive-sm {
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 768px) {
+    .text-responsive-sm {
+      font-size: var(--text-base);
+      line-height: 1.5;
+    }
+  }
+
+  .text-responsive-base {
+    font-size: var(--text-base);
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    .text-responsive-base {
+      font-size: var(--text-lg);
+      line-height: 1.6;
+    }
+  }
+
+  .text-responsive-lg {
+    font-size: var(--text-lg);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 768px) {
+    .text-responsive-lg {
+      font-size: var(--text-xl);
+      line-height: 1.5;
+    }
+  }
+
+  /* Mobile-first grid system */
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 640px) {
+    .responsive-grid-sm-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-grid-md-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .responsive-grid-md-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-grid-lg-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .responsive-grid-lg-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Mobile-optimized spacing */
+  .py-mobile {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .py-mobile {
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-xl);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .py-mobile {
+      padding-top: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+    }
+  }
+
+  /* Mobile-friendly buttons */
+  .btn-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .btn-mobile {
+      width: auto;
+    }
+  }
+
+  /* Mobile navigation safety */
+  .mobile-safe-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Hide/show elements based on screen size */
+  .mobile-only {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-only {
+      display: block;
+    }
+  }
+
+  .tablet-up {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .tablet-up {
+      display: block;
+    }
+  }
+
   /* NEU: Moderne, responsive Modal/Popup-Styles */
   .modal-overlay {
     @apply fixed;
