@@ -4,6 +4,8 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  // GitHub Pages configuration
+  base: '/ITForYouthGhana-Webpage/',
   resolve: {
     alias: {
       '@': resolve(__dirname, './src')
