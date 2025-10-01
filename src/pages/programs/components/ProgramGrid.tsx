@@ -35,7 +35,7 @@ const ProgramGrid: React.FC<ProgramGridProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+      className="responsive-grid responsive-grid-md-2 responsive-grid-lg-3 mb-16"
     >
       {programs.map((program, index) => (
         <motion.div

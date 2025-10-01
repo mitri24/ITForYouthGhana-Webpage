@@ -97,7 +97,7 @@ const Testimonials: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-6 justify-center"
+                className="flex flex-col gap-4 justify-center items-center sm:flex-row sm:gap-6"
               >
                 <motion.button
                   className="btn btn-secondary"
@@ -134,7 +134,7 @@ const Testimonials: React.FC = () => {
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="responsive-grid responsive-grid-md-2 max-w-6xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.name}
@@ -198,7 +198,7 @@ const Testimonials: React.FC = () => {
                   making an impact in Ghana's growing tech industry.
                 </p>
                 
-                <div className="grid md:grid-cols-3 gap-8 mb-8">
+                <div className="responsive-grid responsive-grid-md-3 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold mb-2">2000+</div>
                     <div className="text-white/80">Lives Transformed</div>

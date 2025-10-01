@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="responsive-grid responsive-grid-md-3 mb-16">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}

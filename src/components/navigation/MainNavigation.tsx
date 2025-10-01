@@ -36,7 +36,7 @@ const MainNavigation: React.FC = () => {
   return (
     <>
       {/* Top Login/Register Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 py-1.5" style={{ backgroundColor: 'var(--color-primary-70)' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 py-1.5" style={{ backgroundColor: 'var(--color-primary)' }}>
         <div className="container mx-auto px-4">
           <div className="flex justify-end items-center">
             <div className="flex items-center space-x-3">

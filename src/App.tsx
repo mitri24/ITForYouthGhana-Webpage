@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import MainNavigation from './components/navigation/MainNavigation'
 import Footer from './components/layout/footer'
 import { SkipLinks } from './components/accessibility'
+import ScrollToTop from './components/ScrollToTop'
 
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'))
@@ -39,6 +40,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <div className="min-h-screen bg-white">
+          <ScrollToTop />
           <SkipLinks />
           <MainNavigation />
           <main id="main-content" role="main" tabIndex={-1}>
