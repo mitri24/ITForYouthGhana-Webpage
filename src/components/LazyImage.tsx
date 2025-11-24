@@ -45,7 +45,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
         })
       },
       {
-        rootMargin: '50px'
+        rootMargin: '100px' // Earlier loading for better UX
       }
     )
 
@@ -116,13 +116,20 @@ const LazyImage: React.FC<LazyImageProps> = ({
         </div>
       )}
 
-      {/* Actual Image */}
+      {/* Actual Image - Optimiert für langsame Internetverbindungen */}
       {(isInView || priority) && !hasError && (
         <img
           src={src}
           {...imageProps}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
+          // Optimierte Attribute für Ghana Internet
+          sizes="100vw"
+          srcSet={src ? `${src}?w=640 640w, ${src}?w=1280 1280w, ${src}?w=1920 1920w` : undefined}
+          // Performance Optimierungen
+          importance={priority ? "high" : "low"}
+          // Caching für Wiederbesuche
+          crossOrigin="anonymous"
         />
       )}
     </div>

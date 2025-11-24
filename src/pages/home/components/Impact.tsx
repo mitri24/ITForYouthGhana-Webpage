@@ -2,127 +2,138 @@ import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-const WhatWeOffer: React.FC = () => {
+const Impact: React.FC = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
-  const offerings = [
+  const opportunities = [
     {
       title: 'For Students & Graduates',
-      description: 'Professional 6-month tech training programs with job placement support',
-      features: ['Software Development', 'Data Analytics', 'UI/UX Design'],
+      description: 'Professional 6-month tech training programs with job placement support and real-world project experience.',
+      image: '/images/randomPictures/girlstaslkingUX.jpg',
       link: '/opportunities/students-graduates',
-      
+      features: ['Software Development', 'Data Analytics', 'UI/UX Design']
     },
     {
-      title: 'For Businesses',
-      description: 'Access to job-ready tech talent and corporate partnership opportunities',
-      features: ['Talent Pipeline', 'Corporate Training', 'CSR Partnerships'],
+      title: 'For Businesses',  
+      description: 'Access to job-ready tech talent, corporate training programs and strategic partnership opportunities.',
+      image: '/images/randomPictures/whiteLady.jpg',
       link: '/opportunities/businesses',
-     
+      features: ['Talent Pipeline', 'Corporate Training', 'CSR Partnerships']
     },
     {
       title: 'For Volunteers',
-      description: 'Make an impact in your community through teaching and outreach',
-      features: ['Teaching Support', 'Community Outreach', 'Event Management'],
+      description: 'Make an impact in your community through teaching support, outreach programs and event management.',
+      image: '/images/randomPictures/mireiotalking.jpeg',
       link: '/opportunities/volunteers',
-
+      features: ['Teaching Support', 'Community Outreach', 'Event Management']
     }
   ]
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-neutral-50 to-neutral-100 py-20 md:py-28">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="section bg-white">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-1 bg-primary/10 rounded-full mb-6">
-            <span className="text-primary font-medium text-sm tracking-wide">OUR PROGRAMS</span>
-          </div>
-          <h2 className="heading-xl mb-6 text-primary">Our working ways</h2>
-          <p className="text-lead max-w-3xl mx-auto text-neutral-600">
-            Comprehensive programs and opportunities designed to create positive impact 
-            for students, businesses, volunteers, and the broader community.
+          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Get Involved</h2>
+          <p className="text-lead max-w-4xl mx-auto">
+            Whether you're a student looking to build a tech career, a business seeking skilled talent, 
+            or someone wanting to volunteer your time and expertise, we have opportunities for you to make a difference.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
-          {offerings.map((offering, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {opportunities.map((opportunity, index) => (
             <motion.div
-              key={offering.title}
+              key={opportunity.title}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ y: -15, transition: { duration: 0.3 } }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-neutral-100 group h-full"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <div className="p-8 h-full flex flex-col">
-                <div className="flex items-center mb-6">
-                 
-                  <h3 className="heading-sm text-primary group-hover:text-accent transition-colors duration-300">
-                    {offering.title}
-                  </h3>
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full border flex flex-col" style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}>
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden rounded-t-xl flex-shrink-0">
+                  <img 
+                    src={opportunity.image} 
+                    alt={opportunity.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 rounded-t-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
                 </div>
-                
-                <p className="text-body text-neutral-600 mb-6">{offering.description}</p>
-                
-                <div className="mb-8 flex-grow">
-                  <h4 className="font-semibold text-neutral-800 mb-4 text-sm uppercase tracking-wider">Key Features:</h4>
-                  <div className="space-y-3">
-                    {offering.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start">
-                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  {/* Title */}
+                  <h3 className="heading-sm mb-4 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
+                    {opportunity.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-body text-gray-600 mb-6 leading-relaxed">
+                    {opportunity.description}
+                  </p>
+                  
+                  {/* Features */}
+                  <div className="mb-auto">
+                    <h4 className="font-semibold text-neutral-800 mb-3 text-sm uppercase tracking-wider">Key Areas:</h4>
+                    <div className="space-y-2">
+                      {opportunity.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center">
+                          <div className="w-4 h-4 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}>
+                            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#0c2d5a', marginTop: '0.25rem' }}></div>
+                          </div>
+                          <span className="text-neutral-700 text-sm">{feature}</span>
                         </div>
-                        <span className="text-neutral-700">{feature}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Button - Always at bottom */}
+                  <div className="mt-6">
+                    <Link 
+                    to={opportunity.link}
+                    className="w-full text-center block"
+                    style={{
+                      padding: '12px 24px',
+                      borderRadius: '50px',
+                      background: 'white',
+                      color: '#0c2d5a',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '14px',
+                      border: '2px solid #0c2d5a',
+                      boxShadow: '0 6px 20px rgba(12, 45, 90, 0.2)',
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
+                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(12, 45, 90, 0.3)'
+                      e.currentTarget.style.background = '#0c2d5a'
+                      e.currentTarget.style.color = 'white'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.2)'
+                      e.currentTarget.style.background = 'white'
+                      e.currentTarget.style.color = '#0c2d5a'
+                    }}
+                  >
+                    Learn More
+                    </Link>
                   </div>
                 </div>
-                
-                <Link 
-                  to={offering.link}
-                  className="w-full mt-auto"
-                  style={{
-                    display: 'inline-block',
-                    padding: '12px 24px',
-                    borderRadius: '50px',
-                    background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
-                    color: 'white',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '14px',
-                    textAlign: 'center',
-                    border: '2px solid rgba(255, 255, 255, 0.2)',
-                    boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
-                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                    backdropFilter: 'blur(10px)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(37, 99, 235, 0.4)'
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)'
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
-                  }}
-                >
-                  Learn More
-                </Link>
               </div>
             </motion.div>
           ))}
         </div>
-
-        
       </div>
     </section>
   )
 }
 
-export default WhatWeOffer
+export default Impact

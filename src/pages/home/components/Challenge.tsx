@@ -29,7 +29,7 @@ const Challenge: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden">
+    <section ref={ref} className="section text-white relative overflow-hidden" style={{ backgroundColor: '#0c2d5a' }}>
 
       <div className="container relative z-10">
         {/* Header */}
@@ -39,9 +39,9 @@ const Challenge: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="heading-lg text-white mb-6">The Challenge</h2>
+          <h2 className="heading-lg mb-6" style={{ color: 'white' }}>The Challenge</h2>
           <div className="text-container">
-            <p className="text-lead text-white/90">
+            <p className="text-lead" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
               Ghana's digital divide creates barriers to opportunity
             </p>
           </div>
@@ -65,10 +65,10 @@ const Challenge: React.FC = () => {
                 type: "spring",
                 stiffness: 100
               }}
-              className="text-center group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-blue-500/20 transition-all duration-300 border border-blue-300/20"
+              className="text-center group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-[#0c2d5a]/20 transition-all duration-300 border border-[#0c2d5a]/30"
             >
               {/* Value */}
-              <div className="text-4xl md:text-5xl font-bold text-blue-300 mb-3 group-hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-white mb-3 group-hover:scale-105 transition-transform duration-300">
                 {item.value}
               </div>
               
@@ -92,14 +92,14 @@ const Challenge: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-blue-300/30">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-[#0c2d5a]/40">
             <h3 className="heading-md text-white text-center mb-8">Ghana's Digital Divide Impact</h3>
             
             {/* Visual representation */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left side - The Problem */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-blue-300 mb-4">Without Digital Access:</h4>
+                <h4 className="text-xl font-semibold text-white mb-4">Without Digital Access:</h4>
                 <div className="space-y-3">
                   {[
                     'Limited job opportunities',
@@ -114,7 +114,7 @@ const Challenge: React.FC = () => {
                       transition={{ delay: 1 + (index * 0.1) }}
                       className="flex items-center space-x-3"
                     >
-                      <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                       <span className="text-white/90">{item}</span>
                     </motion.div>
                   ))}
@@ -123,7 +123,7 @@ const Challenge: React.FC = () => {
 
               {/* Right side - The Solution */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-blue-200 mb-4">With IT For Youth Ghana:</h4>
+                <h4 className="text-xl font-semibold text-white mb-4">With IT For Youth Ghana:</h4>
                 <div className="space-y-3">
                   {[
                     'Technology skills training',
@@ -138,7 +138,7 @@ const Challenge: React.FC = () => {
                       transition={{ delay: 1 + (index * 0.1) }}
                       className="flex items-center space-x-3"
                     >
-                      <div className="w-2 h-2 bg-blue-200 rounded-full flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                       <span className="text-white/90">{item}</span>
                     </motion.div>
                   ))}
@@ -172,8 +172,8 @@ const Challenge: React.FC = () => {
               textDecoration: 'none',
               borderRadius: '50px',
               background: 'white',
-              color: '#0152be',
-              border: '2px solid #0152be',
+              color: '#0c2d5a',
+              border: '2px solid #0c2d5a',
               boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
               transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
               backdropFilter: 'blur(10px)'

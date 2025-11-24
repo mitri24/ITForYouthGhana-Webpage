@@ -66,7 +66,16 @@ const FooterSocial: React.FC = () => {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 bg-white/10 hover:bg-white rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 backdrop-blur-sm hover:scale-110"
+            className="w-12 h-12 bg-white/10 hover:bg-white rounded-xl flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm hover:scale-110"
+            style={{ color: 'white' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'white'
+              e.currentTarget.style.color = '#0c2d5a'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+              e.currentTarget.style.color = 'white'
+            }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
@@ -82,32 +91,6 @@ const FooterSocial: React.FC = () => {
       <p className="text-white text-lg mb-8 leading-relaxed">
         Stay connected with our latest updates and success stories.
       </p>
-
-      {/* Newsletter Section */}
-      <div>
-        <h4 className="text-xl font-bold text-white mb-4">Stay Connected</h4>
-        <p className="text-white mb-4">
-          Get the latest updates on our programs, success stories, and opportunities to get involved.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-1 px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white transition-colors duration-300 backdrop-blur-sm"
-          />
-          <motion.button
-            className="bg-white text-primary hover:bg-white/90 px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg"
-            whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.2)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              // Newsletter subscription functionality
-              alert('Thank you for your interest! Newsletter signup coming soon.')
-            }}
-          >
-            Subscribe
-          </motion.button>
-        </div>
-      </div>
     </div>
   )
 }

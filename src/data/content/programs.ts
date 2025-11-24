@@ -95,7 +95,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Creative thinkers who want to build visual communication skills",
       skills: ["Adobe Photoshop & Illustrator", "Video Editing (Premiere Pro)", "Logo & Brand Design", "Social Media Graphics", "Basic Animation", "Photography Basics", "Client Project Management"],
-      image: "/images/randomPictures/IMG-20241118-WA0078.jpg",
+      image: "/images/randomPictures/studentscodingback.jpg",
       highlights: ["Work on real projects for local businesses", "Build a diverse creative portfolio", "Learn both print and digital design", "Basic entrepreneurship for creative freelancers"],
       careerOutcomes: ["Freelance Graphic Designer", "Social Media Designer", "Video Editor", "Marketing Assistant"],
       realTalk: "This program requires creativity and patience. You'll spend lots of time perfecting details. No prior experience needed, but you should enjoy visual problem-solving.",
@@ -109,7 +109,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "People interested in business and communication",
       skills: ["Social Media Management", "Content Writing & Creation", "Basic Graphic Design", "Facebook & Instagram Ads", "Google Ads Basics", "Analytics & Reporting", "Customer Service"],
-      image: "/images/randomPictures/IMG-20241118-WA0095.jpg",
+      image: "/images/randomPictures/girlstaslkingUX.jpg",
       highlights: ["Manage social media for real local businesses", "Create and run actual ad campaigns with small budgets", "Learn to measure and report on results", "Understand different business needs"],
       careerOutcomes: ["Social Media Manager", "Digital Marketing Assistant", "Content Creator", "Freelance Marketing Consultant"],
       realTalk: "Success in this field requires understanding people and staying current with trends. You'll need to be comfortable with constant learning as platforms change frequently.",
@@ -174,7 +174,7 @@ export const programs: ProgramsData = {
       duration: "TBD",
       participants: "15 women initial cohort",
       skills: ["Python for AI", "TensorFlow", "PyTorch", "Arduino", "Raspberry Pi", "Machine Learning", "Ethical AI"],
-      image: "/images/randomPictures/IMG-20241118-WA0104.jpg",
+      image: "/images/randomPictures/groupworkUX.jpeg",
       highlights: ["Smart agriculture solutions", "Water management systems", "Health monitoring devices", "Community applications"],
       status: "60% curriculum complete"
     }

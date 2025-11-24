@@ -2,7 +2,6 @@ import React from 'react'
 import Hero from './home/components/Hero'
 import Programs from './home/components/Programs'
 import Impact from './home/components/Impact'
-import ImpactHighlights from './home/components/ImpactHighlights'
 import Challenge from './home/components/Challenge'
 import Vision from './home/components/Vision'
 import QuickOverview from './home/components/QuickOverview'
@@ -18,7 +17,6 @@ const Home: React.FC = () => {
 
       <Programs />
       <Impact />
-      <ImpactHighlights />
      
      
       <DonationSection />
