@@ -38,7 +38,13 @@ const PageLoading: React.FC = () => (
 function App() {
   return (
     <HelmetProvider>
-      <Router basename="/ITForYouthGhana-Webpage">
+      <Router 
+        basename="/ITForYouthGhana-Webpage"
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
         <div className="min-h-screen bg-white">
           <ScrollToTop />
           <SkipLinks />
