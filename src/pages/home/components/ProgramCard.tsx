@@ -1,7 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Card, CardBody, CardContent, CardFooter } from '../../../components/ui/Card'
-import { Button } from '../../../components/ui/Button'
 import { Program } from '../../../data/programs'
 
 interface ProgramCardProps {
@@ -24,8 +22,8 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
       whileHover={{ y: -8 }}
       className="h-full"
     >
-      <Card variant="elevated" className="h-full group cursor-pointer">
-        <CardBody>
+      <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full group cursor-pointer border border-gray-200">
+        <div className="p-6 h-full flex flex-col">
           {/* Image */}
           <div className="relative mb-6 overflow-hidden rounded-xl">
             <img 
@@ -49,19 +47,19 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
             </div>
           </div>
 
-          <CardContent>
+          <div className="flex-grow">
             {/* Title */}
             <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
               {program.title}
             </h3>
             
             {/* Description */}
-            <p className="text-neutral-600 leading-relaxed text-sm mb-4">
+            <p className="text-gray-600 leading-relaxed text-sm mb-4">
               {program.description}
             </p>
-          </CardContent>
+          </div>
 
-          <CardFooter>
+          <div className="mt-auto">
             <button
               onClick={() => onOpenModal(program)}
               className="w-full"
@@ -93,9 +91,9 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
             >
               Learn More
             </button>
-          </CardFooter>
-        </CardBody>
-      </Card>
+          </div>
+        </div>
+      </div>
     </motion.div>
   )
 }

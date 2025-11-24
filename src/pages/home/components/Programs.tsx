@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { Section, SectionHeader, SectionTitle, SectionSubtitle, SectionContent } from '../../../components/ui/Section'
-import { GridCols3 } from '../../../components/ui/Grid'
-import { Button } from '../../../components/ui/Button'
+import { motion } from 'framer-motion'
 import ProgramCard from './ProgramCard'
 import ProgramModal from './ProgramModal'
 import { programs, Program } from '../../../data/programs'
@@ -21,17 +19,29 @@ const Programs: React.FC = () => {
   }
 
   return (
-    <Section background="neutral" padding="lg" id="programs">
-      <SectionHeader>
-        <SectionTitle>Our Programs & Initiatives</SectionTitle>
-        <SectionSubtitle>
-          Comprehensive programs designed to empower Ghanaian youth with technology skills, 
-          entrepreneurship opportunities, and pathways to economic empowerment.
-        </SectionSubtitle>
-      </SectionHeader>
+    <section className="section bg-gray-50" id="programs">
+      <div className="container">
+        <header className="text-center mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="heading-lg mb-6"
+          >
+            Our Programs & Initiatives
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lead text-gray-600 max-w-3xl mx-auto"
+          >
+            Comprehensive programs designed to empower Ghanaian youth with technology skills, 
+            entrepreneurship opportunities, and pathways to economic empowerment.
+          </motion.p>
+        </header>
 
-      <SectionContent>
-        <GridCols3 gap="xl" stagger={0.1}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
             <ProgramCard
               key={program.id}
@@ -40,10 +50,8 @@ const Programs: React.FC = () => {
               onOpenModal={handleOpenModal}
             />
           ))}
-        </GridCols3>
-
-        
-      </SectionContent>
+        </div>
+      </div>
 
       {/* Program Detail Modal */}
       <ProgramModal
@@ -51,7 +59,7 @@ const Programs: React.FC = () => {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
       />
-    </Section>
+    </section>
   )
 }
 

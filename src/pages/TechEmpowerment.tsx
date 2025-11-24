@@ -18,23 +18,26 @@ const TechEmpowerment: React.FC = () => {
   const programHighlights = [
     {
       title: 'Technical Mastery',
-      description: 'Comprehensive training in coding, programming, data analytics, graphic design, and web development.'
+      description: 'Comprehensive training in coding, programming, data analytics, graphic design, and web development.',
+      icon: '💻'
     },
     {
       title: 'Career Readiness', 
-      description: 'Project-based learning helps participants build professional portfolios and develop in-demand digital skills.'
+      description: 'Project-based learning helps participants build professional portfolios and develop in-demand digital skills.',
+      icon: '🚀'
     },
     {
       title: 'Entrepreneurship Development',
-      description: 'Participants are equipped with skills in digital marketing, business development, and social media management, fostering self-reliance and innovation.'
+      description: 'Participants are equipped with skills in digital marketing, business development, and social media management, fostering self-reliance and innovation.',
+      icon: '💡'
     }
   ]
 
   const impactStats = [
-    { value: '250+', label: 'Youths Trained', description: 'Over 250 youth have benefited from this initiative' },
-    { value: '70', label: 'Girls Trained', description: 'Breaking barriers in the tech industry' },
-    { value: '180', label: 'Boys Trained', description: 'Empowering young men in technology' },
-    { value: '40%+', label: 'Female Participation', description: 'High female participation rate' }
+    { value: '850+', label: 'Youth Trained', description: 'Participants across all programs' },
+    { value: '78%', label: 'Job Placement', description: 'Employment success rate' },
+    { value: '45', label: 'Communities', description: 'Reached nationwide' },
+    { value: '40%+', label: 'Female Participation', description: 'Gender inclusive programs' }
   ]
 
   const targetParticipants = [
@@ -42,6 +45,29 @@ const TechEmpowerment: React.FC = () => {
     'Financially disadvantaged individuals with limited access to formal education',
     'Persons with physical disabilities seeking inclusive learning opportunities',
     'Youth aged 18-24 looking for career advancement in technology'
+  ]
+
+  const approachSteps = [
+    {
+      title: 'Mobile Training Units',
+      description: 'We deploy equipped units with laptops, internet connectivity, and solar power systems to reach remote communities.',
+      icon: '🚐'
+    },
+    {
+      title: 'Certified Trainers',
+      description: '8-week intensive courses covering computer literacy, basic programming, digital marketing, and entrepreneurship skills.',
+      icon: '👨‍🏫'
+    },
+    {
+      title: 'Real-World Projects',
+      description: 'Hands-on learning through practical projects that build professional portfolios and technical expertise.',
+      icon: '🛠️'
+    },
+    {
+      title: 'Community Impact',
+      description: 'Participants become tech leaders in their communities, creating a multiplier effect across regions.',
+      icon: '🌍'
+    }
   ]
 
   return (
@@ -52,42 +78,17 @@ const TechEmpowerment: React.FC = () => {
         canonical="/tech-empowerment"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div className="min-h-screen bg-white">
         <Hero
-          title="Tech Empowerment Initiative"
-          subtitle="Equipping Ghanaian Youth for the Future"
-          description="Our flagship program dedicated to bridging the digital divide by equipping young individuals with transformative IT skills and entrepreneurial knowledge."
+          title="Tech Outreach Initiative"
+          subtitle="Bringing technology education directly to underserved communities"
+          description="Our flagship Tech Outreach Initiative directly addresses the digital divide by bringing comprehensive technology education to underserved communities across Ghana."
           primaryCta={{ text: "Enroll Now", action: handleEnrollNow }}
           secondaryCta={{ text: "Partner With Us", action: handlePartnerWithUs }}
         />
 
         {/* Program Overview */}
-        <section className="section bg-gradient-to-r from-primary/5 to-accent/5">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <h2 className="heading-lg mb-8 text-primary">About the Initiative</h2>
-              <p className="text-lead leading-relaxed mb-6">
-                The Tech Empowerment Initiative is IT For Youth Ghana's flagship program dedicated to bridging 
-                the digital divide by equipping young individuals with transformative IT skills and entrepreneurial knowledge.
-              </p>
-              <p className="text-body leading-relaxed">
-                This comprehensive initiative aims to empower youth, especially those from underserved communities, 
-                by providing them with practical, high-quality training in a variety of in-demand IT fields. Through 
-                a combination of hands-on learning, internships, and real-world projects, the program ensures that 
-                participants not only acquire technical knowledge but also develop the confidence and professional 
-                skills needed to enter the workforce or launch their own tech ventures.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Program Structure */}
-        <section ref={ref} className="section bg-white">
+        <section className="section bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -95,57 +96,150 @@ const TechEmpowerment: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6 text-primary">Program Structure</h2>
-              <p className="text-lead max-w-4xl mx-auto mb-8">
-                The Tech Empowerment Initiative runs for a total of six months, strategically designed 
-                to maximize learning outcomes and industry preparedness.
-              </p>
+              <h2 className="heading-lg mb-6 text-primary">Program Overview</h2>
+              <div className="text-container">
+                <p className="text-lead mb-6">
+                  Bringing technology education directly to underserved communities across Ghana, 
+                  ensuring no youth is left behind in the digital revolution.
+                </p>
+              </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-primary/5 rounded-2xl p-8"
-              >
-                <h3 className="heading-md text-primary mb-6">Four Months of Intensive Training</h3>
-                <p className="text-body leading-relaxed">
-                  In-person and online sessions focused on hands-on learning, ensuring accessibility 
-                  for remote participants. Comprehensive curriculum covering coding, programming, 
-                  data analytics, graphic design, and web development.
-                </p>
-              </motion.div>
+            {/* Key Objectives */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-20"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  'Bridge the digital divide in rural areas',
+                  'Provide foundational IT skills',
+                  'Create pathways to employment',
+                  'Build sustainable tech communities'
+                ].map((objective, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.3 + (index * 0.1) }}
+                    className="text-center group"
+                  >
+                    <div className="w-3 h-3 mx-auto mb-4 bg-primary rounded-full"></div>
+                    <p className="text-body text-gray-600">{objective}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="bg-accent/5 rounded-2xl p-8"
-              >
-                <h3 className="heading-md text-accent mb-6">Two-Month Internship</h3>
-                <p className="text-body leading-relaxed">
-                  Partnerships with reputable firms provide participants with invaluable real-world 
-                  experience and industry exposure. Practical application of learned skills in 
-                  professional environments.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Program Highlights */}
+        {/* Our Approach */}
+        <section ref={ref} className="section bg-primary text-white">
+          <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-16"
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
             >
-              <h3 className="heading-lg text-primary text-center mb-12">Program Highlights</h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                {programHighlights.map((highlight, index) => (
-                  <div key={highlight.title} className="bg-white rounded-2xl p-6 shadow-lg border border-primary/10">
-                    <h4 className="text-xl font-semibold text-primary mb-4">{highlight.title}</h4>
-                    <p className="text-body leading-relaxed">{highlight.description}</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Our Approach</h2>
+              <div className="text-container">
+                <p className="text-xl text-white mb-8">
+                  We deploy mobile training units equipped with laptops, internet connectivity, and solar power systems to reach remote communities.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+            >
+              {approachSteps.map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.5 + (index * 0.1),
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  className="text-center group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300"
+                >
+                  <div className="text-4xl mb-4 group-hover:scale-105 transition-transform duration-300">
+                    {step.icon}
                   </div>
+                  
+                  <h3 className="text-lg font-bold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-sm text-white">
+                    {step.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Program Highlights */}
+        <section className="section bg-white">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">What You'll Achieve</h2>
+              <div className="text-container">
+                <p className="text-xl mb-8">
+                  Comprehensive programs designed to empower Ghanaian youth with technology skills, 
+                  entrepreneurship opportunities, and pathways to economic empowerment.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-20"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {programHighlights.map((highlight, index) => (
+                  <motion.div
+                    key={highlight.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ 
+                      duration: 0.4, 
+                      delay: 0.3 + (index * 0.1)
+                    }}
+                    whileHover={{ 
+                      y: -5,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="text-center group bg-blue-50 rounded-2xl p-8"
+                  >
+                    <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                      {highlight.icon}
+                    </div>
+                    
+                    <h4 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                      {highlight.title}
+                    </h4>
+                    
+                    <p className="text-body text-gray-600 leading-relaxed">
+                      {highlight.description}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -153,7 +247,7 @@ const TechEmpowerment: React.FC = () => {
         </section>
 
         {/* Impact & Outcomes */}
-        <section className="section bg-neutral-50">
+        <section className="section bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -161,13 +255,21 @@ const TechEmpowerment: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6 text-primary">Impact & Outcomes</h2>
-              <p className="text-lead max-w-3xl mx-auto">
-                Equipping Ghanaian Youth for the Future
-              </p>
+              <h2 className="heading-lg mb-6 text-primary">Program Impact</h2>
+              <div className="text-container">
+                <p className="text-lead mb-8">
+                  Participants have gone on to start their own tech businesses, secure employment in IT companies, 
+                  and become community tech leaders, creating a multiplier effect in their local areas.
+                </p>
+              </div>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
+            >
               {impactStats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -175,25 +277,32 @@ const TechEmpowerment: React.FC = () => {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ 
                     duration: 0.6, 
-                    delay: index * 0.1,
+                    delay: 0.5 + (index * 0.1),
                     type: "spring",
                     stiffness: 100
                   }}
                   className="text-center group"
                 >
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
-                      {stat.value}
-                    </div>
-                    <h3 className="text-lg font-semibold text-neutral-800 mb-2">
-                      {stat.label}
-                    </h3>
-                    <p className="text-sm text-neutral-600">
-                      {stat.description}
-                    </p>
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
+                    {stat.value}
                   </div>
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                    {stat.label}
+                  </h3>
+                  <p className="text-sm text-neutral-600">
+                    {stat.description}
+                  </p>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Section Divider */}
+            <div className="flex items-center justify-center mb-16">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+              <div className="px-4">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+              </div>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
             </div>
 
             {/* Target Participants */}
@@ -201,25 +310,31 @@ const TechEmpowerment: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8"
             >
               <h3 className="heading-md text-primary text-center mb-8">Who Can Participate</h3>
               <p className="text-body text-center mb-8">
-                The initiative serves youth aged 18-24, prioritizing:
+                The initiative serves youth aged 16-25, prioritizing:
               </p>
               <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {targetParticipants.map((participant, index) => (
-                  <div key={index} className="flex items-start space-x-3">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.8 + (index * 0.1) }}
+                    className="flex items-start space-x-3"
+                  >
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-body leading-relaxed">{participant}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Why It Matters & Support */}
+        {/* Ready to Get Started */}
         <section className="section bg-primary">
           <div className="container">
             <motion.div
@@ -228,66 +343,123 @@ const TechEmpowerment: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center text-white max-w-4xl mx-auto"
             >
-              <h2 className="heading-xl mb-8 text-white">Why It Matters</h2>
+              <h2 className="heading-lg mb-8 text-white">Ready to Get Started?</h2>
               <p className="text-lead mb-12 text-white/90 leading-relaxed">
-                This initiative plays a crucial role in addressing the digital skills gap in Ghana and 
-                empowering youth to contribute to the economy. By offering high-quality, accessible training, 
-                we are preparing the next generation of tech professionals who will drive innovation and 
-                growth across the country. Moreover, it provides an opportunity for young people to escape 
-                the cycle of poverty by equipping them with skills that are both relevant and in high demand globally.
+                Join young Ghanaians who are building their tech careers and creating impact in their communities.
               </p>
 
-              <h3 className="heading-md mb-8 text-white">How You Can Support</h3>
-              <p className="text-lg mb-8 text-white/90">
-                As a donor or partner, your investment in the Tech Empowerment for Employment and 
-                Entrepreneurship Initiative can help expand our reach and impact.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h4 className="text-xl font-semibold mb-4 text-white">Training Resources</h4>
-                  <p className="text-white/90">
-                    The provision of high-quality training materials and resources
-                  </p>
-                </div>
-                
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h4 className="text-xl font-semibold mb-4 text-white">Internship Programs</h4>
-                  <p className="text-white/90">
-                    Expanding our ability to offer internships and mentorship programs
-                  </p>
-                </div>
-
-                <div className="bg-white/10 rounded-2xl p-6">
-                  <h4 className="text-xl font-semibold mb-4 text-white">Access & Inclusion</h4>
-                  <p className="text-white/90">
-                    Ensuring marginalized groups can access life-changing opportunities
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-xl mb-8 text-white font-medium">
-                Graduates of this program emerge with portfolios showcasing completed projects, 
-                practical experience, and the confidence to pursue employment or launch entrepreneurial ventures.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
                 <motion.button
-                  className="btn btn-secondary bg-white text-primary hover:bg-neutral-100 text-lg font-bold py-4 px-8 shadow-lg"
-                  whileHover={{ scale: 1.05 }}
+                  className="inline-flex items-center gap-3"
+                  style={{
+                    padding: '16px 32px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    background: 'white',
+                    color: '#0152be',
+                    border: '2px solid #0152be',
+                    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)',
+                    cursor: 'pointer'
+                  }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleEnrollNow}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)'
+                    e.currentTarget.style.background = '#f8fafc'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)'
+                    e.currentTarget.style.background = 'white'
+                  }}
                 >
-                  Enroll Now
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Get Information
                 </motion.button>
+
                 <motion.button
-                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary text-lg font-bold py-4 px-8 shadow-lg"
-                  whileHover={{ scale: 1.05 }}
+                  className="inline-flex items-center gap-3"
+                  style={{
+                    padding: '16px 32px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    background: 'transparent',
+                    color: 'white',
+                    border: '2px solid white',
+                    boxShadow: '0 8px 25px rgba(255, 255, 255, 0.1)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    backdropFilter: 'blur(10px)',
+                    cursor: 'pointer'
+                  }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handlePartnerWithUs}
+                  onClick={() => window.location.href = '/programs'}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(255, 255, 255, 0.15)'
+                    e.currentTarget.style.background = 'white'
+                    e.currentTarget.style.color = '#0152be'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 255, 255, 0.1)'
+                    e.currentTarget.style.background = 'transparent'
+                    e.currentTarget.style.color = 'white'
+                  }}
                 >
-                  Partner with Us
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0l-4 4m4-4l-4-4" />
+                  </svg>
+                  Explore Programs
                 </motion.button>
+              </div>
+
+              <div className="text-center">
+                <h3 className="heading-sm text-white/90 mb-4">Other Programs</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.2 }}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                    onClick={() => window.location.href = '/programs'}
+                  >
+                    <h4 className="font-semibold text-white mb-2">Girls in Tech Programs</h4>
+                    <p className="text-sm text-white/80">Dedicated programs to empower young women with technology skills...</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.3 }}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                    onClick={() => window.location.href = '/programs'}
+                  >
+                    <h4 className="font-semibold text-white mb-2">Rural Tech Connect</h4>
+                    <p className="text-sm text-white/80">Connecting rural communities to digital opportunities through...</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 }}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                    onClick={() => window.location.href = '/programs'}
+                  >
+                    <div className="text-center">
+                      <svg className="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0l-4 4m4-4l-4-4" />
+                      </svg>
+                      <span className="font-semibold">View All Programs →</span>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>

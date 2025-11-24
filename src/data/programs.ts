@@ -23,7 +23,7 @@ export const programs: Program[] = [
     id: 'tech-outreach',
     title: 'Tech Outreach Initiative',
     description: 'Bringing technology education directly to underserved communities across Ghana, ensuring no youth is left behind in the digital revolution.',
-    image: '/images/randomPictures/IMG-20241118-WA0052.jpg',
+    image: '/images/randomPictures/groupworkstudents.jpg',
     tag: 'Community Impact',
     tagColor: 'bg-primary',
     detailContent: {
