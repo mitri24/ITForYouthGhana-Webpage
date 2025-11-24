@@ -1,75 +1,43 @@
 // Utility für zufällige Bildauswahl aus dem erweiterten Pool
 export const randomImages = [
-  // Neue Event/Workshop Bilder
-  '/images/randomPictures/2024-12-17 12.34 (1).jpeg',
-  '/images/randomPictures/2024-12-17 12.34 (2).jpeg',
-  '/images/randomPictures/2024-12-17 13.05.jpeg',
-  '/images/randomPictures/2024-12-17 20.27 (5).jpg',
-  '/images/randomPictures/2024-12-17 20.27 (6).jpg',
-  '/images/randomPictures/2024-12-17 20.57 (5).jpg',
-  '/images/randomPictures/2024-12-17 20.57 (6).jpg',
-  '/images/randomPictures/2024-12-17 21.02.jpg',
-  '/images/randomPictures/2024-12-17 21.12 (3).jpg',
-  '/images/randomPictures/2024-12-17 21.13 (9).jpg',
-  
-  // Graduation & Workshop Bilder
-  '/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg',
-  '/images/randomPictures/IMG-20241026-WA0064.jpg',
-  '/images/randomPictures/IMG-20241026-WA0092.jpg',
-  '/images/randomPictures/IMG-20241026-WA0093.jpg',
-  '/images/randomPictures/IMG-20241026-WA0094.jpg',
-  
-  // Training Session Bilder
-  '/images/randomPictures/IMG-20241118-WA0052.jpg',
-  '/images/randomPictures/IMG-20241118-WA0053.jpg',
-  '/images/randomPictures/IMG-20241118-WA0054.jpg',
-  '/images/randomPictures/IMG-20241118-WA0056.jpg',
-  '/images/randomPictures/IMG-20241118-WA0059.jpg',
-  '/images/randomPictures/IMG-20241118-WA0060.jpg',
-  '/images/randomPictures/IMG-20241118-WA0063.jpg',
-  '/images/randomPictures/IMG-20241118-WA0078.jpg',
-  '/images/randomPictures/IMG-20241118-WA0079.jpg',
-  '/images/randomPictures/IMG-20241118-WA0090.jpg',
-  '/images/randomPictures/IMG-20241118-WA0095.jpg',
-  '/images/randomPictures/IMG-20241118-WA0098.jpg',
-  '/images/randomPictures/IMG-20241118-WA0104.jpg',
-  '/images/randomPictures/IMG-20241118-WA0106.jpg',
-  '/images/randomPictures/IMG-20241119-WA0002.jpg',
-  
-  // Equipment & Tech Bilder
-  '/images/randomPictures/IMG_2509.JPG',
-  '/images/randomPictures/IMG_2510.JPG',
-  '/images/randomPictures/IMG_2544.JPG',
-  '/images/randomPictures/IMG_2547.JPG',
-  '/images/randomPictures/IMG_2557_1.JPG',
-  '/images/randomPictures/IMG_2561.JPG',
-  '/images/randomPictures/IMG_2599_1.JPG',
-  '/images/randomPictures/IMG_2665.PNG',
-  '/images/randomPictures/IMG_2666.png',
-  '/images/randomPictures/IMG_2707.PNG',
-  '/images/randomPictures/IMG_2732.PNG',
-  '/images/randomPictures/IMG_3096.JPG',
-  '/images/randomPictures/IMG_3097.JPG',
-  
-  // Event & Community Bilder
-  '/images/randomPictures/IMG_8304.JPG',
-  '/images/randomPictures/IMG_8395.JPG',
-  '/images/randomPictures/IMG_8530.JPG',
-  '/images/randomPictures/IMG_8532.JPG',
-  '/images/randomPictures/IMG_8586.JPG',
-  '/images/randomPictures/IMG_8600.JPG',
-  '/images/randomPictures/IMG_8602.JPG',
-  '/images/randomPictures/IMG_8623.JPG',
-  '/images/randomPictures/IMG_8649.JPG',
-  '/images/randomPictures/IMG_8802.JPG',
-  
-  // Original UX & Frame Bilder
-  '/images/randomPictures/UX1.jpeg',
-  '/images/randomPictures/UX2.jpg',
-  '/images/randomPictures/UX3.jpeg',
+  // Verfügbare randomPictures Bilder
   '/images/randomPictures/UX4.jpg',
-  '/images/randomPictures/frame 5.jpg',
-  '/images/randomPictures/tafel.png'
+  '/images/randomPictures/UXteacher.png',
+  '/images/randomPictures/children_holding_sign_in_streets.jpeg',
+  '/images/randomPictures/frontalgraduation.JPG',
+  '/images/randomPictures/girlstaslkingUX.jpg',
+  '/images/randomPictures/graduation.JPG',
+  '/images/randomPictures/graduations.JPG',
+  '/images/randomPictures/graduationspeaking.JPG',
+  '/images/randomPictures/group_girls.jpg',
+  '/images/randomPictures/groupofgirlsentrance.jpeg',
+  '/images/randomPictures/groupworkUX.jpeg',
+  '/images/randomPictures/groupworkstudents.jpg',
+  '/images/randomPictures/happystudentscasual.jpg',
+  '/images/randomPictures/informalFunnygroup.jpg',
+  '/images/randomPictures/main.PNG',
+  '/images/randomPictures/maingraduationpic.PNG',
+  '/images/randomPictures/mave.JPG',
+  '/images/randomPictures/mave_peter.JPG',
+  '/images/randomPictures/mireiotalking.jpeg',
+  '/images/randomPictures/peterTalking.JPG',
+  '/images/randomPictures/peterblackboard.jpg',
+  '/images/randomPictures/peterfocus.jpg',
+  '/images/randomPictures/petertalkingfrontal.jpg',
+  '/images/randomPictures/petertalkingtostudentscoloful.jpg',
+  '/images/randomPictures/redclothingStudents.jpg',
+  '/images/randomPictures/redstudentgrouplesson.jpg',
+  '/images/randomPictures/studentgroupguys.jpg',
+  '/images/randomPictures/studentpresentin.JPG',
+  '/images/randomPictures/studentpresenting.JPG',
+  '/images/randomPictures/studentsBackcoding.jpg',
+  '/images/randomPictures/studentsblueclothing.jpg',
+  '/images/randomPictures/studentscodingback.jpg',
+  '/images/randomPictures/studentslistening.JPG',
+  '/images/randomPictures/studentslisteningfrontal.JPG',
+  '/images/randomPictures/teacherteaching.JPG',
+  '/images/randomPictures/uXstudents.jpg',
+  '/images/randomPictures/whiteLady.jpg'
 ]
 
 // Utility-Funktionen für zufällige Bildauswahl
@@ -98,30 +66,32 @@ export const getRandomImageSet = (count: number): string[] => {
 // Kategorisierte Bildsets für spezielle Anwendungen
 export const imageCategories = {
   workshops: [
-    '/images/randomPictures/IMG-20241118-WA0052.jpg',
-    '/images/randomPictures/IMG-20241118-WA0053.jpg',
-    '/images/randomPictures/IMG-20241118-WA0078.jpg',
-    '/images/randomPictures/IMG-20241118-WA0095.jpg',
-    '/images/randomPictures/2024-12-17 20.27 (5).jpg',
-    '/images/randomPictures/2024-12-17 20.57 (5).jpg'
+    '/images/randomPictures/groupworkUX.jpeg',
+    '/images/randomPictures/groupworkstudents.jpg',
+    '/images/randomPictures/UXteacher.png',
+    '/images/randomPictures/girlstaslkingUX.jpg',
+    '/images/randomPictures/uXstudents.jpg',
+    '/images/randomPictures/teacherteaching.JPG'
   ],
   graduation: [
-    '/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg',
-    '/images/randomPictures/IMG-20241026-WA0092.jpg',
-    '/images/randomPictures/IMG-20241026-WA0093.jpg',
-    '/images/randomPictures/IMG-20241026-WA0094.jpg'
+    '/images/randomPictures/frontalgraduation.JPG',
+    '/images/randomPictures/graduation.JPG',
+    '/images/randomPictures/graduations.JPG',
+    '/images/randomPictures/graduationspeaking.JPG',
+    '/images/randomPictures/maingraduationpic.PNG'
   ],
   tech: [
-    '/images/randomPictures/IMG_2707.PNG',
-    '/images/randomPictures/IMG_2732.PNG',
-    '/images/randomPictures/IMG_8304.JPG',
-    '/images/randomPictures/tafel.png'
+    '/images/randomPictures/studentscodingback.jpg',
+    '/images/randomPictures/studentsBackcoding.jpg',
+    '/images/randomPictures/peterblackboard.jpg',
+    '/images/randomPictures/main.PNG'
   ],
   community: [
-    '/images/randomPictures/IMG_8586.JPG',
-    '/images/randomPictures/IMG_8600.JPG',
-    '/images/randomPictures/IMG_8802.JPG',
-    '/images/randomPictures/2024-12-17 21.02.jpg'
+    '/images/randomPictures/group_girls.jpg',
+    '/images/randomPictures/happystudentscasual.jpg',
+    '/images/randomPictures/informalFunnygroup.jpg',
+    '/images/randomPictures/children_holding_sign_in_streets.jpeg',
+    '/images/randomPictures/groupofgirlsentrance.jpeg'
   ]
 }
 

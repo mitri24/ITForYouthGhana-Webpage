@@ -8,8 +8,8 @@ const DYNAMIC_CACHE = 'dynamic-v1';
 // Cache essential files
 const staticAssets = [
   '/',
-  '/images/logo.png',
-  '/images/UX1.jpeg',
+  '/images/logo/logo.png',
+  '/images/randomPictures/UX4.jpg',
   '/manifest.json'
 ];
 
@@ -130,8 +130,8 @@ self.addEventListener('push', (event) => {
     event.waitUntil(
       self.registration.showNotification(data.title, {
         body: data.body,
-        icon: '/images/logo.png',
-        badge: '/images/logo.png'
+        icon: '/images/logo/logo.png',
+        badge: '/images/logo/logo.png'
       })
     );
   }

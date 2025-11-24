@@ -84,22 +84,22 @@ const MissionSection: React.FC = () => {
             className="grid grid-cols-2 gap-4"
           >
             <img 
-              src="/images/randomPictures/IMG-20241118-WA0078.jpg" 
+              src="/images/randomPictures/groupworkstudents.jpg" 
               alt="Students learning technology" 
               className="rounded-xl object-cover h-48"
             />
             <img 
-              src="/images/randomPictures/2024-12-17 20.57 (5).jpg" 
+              src="/images/randomPictures/group_girls.jpg" 
               alt="Female students in tech" 
               className="rounded-xl object-cover h-48 mt-8"
             />
             <img 
-              src="/images/randomPictures/IMG_8802.JPG" 
+              src="/images/randomPictures/graduations.JPG" 
               alt="Graduation ceremony" 
               className="rounded-xl object-cover h-48 -mt-8"
             />
             <img 
-              src="/images/randomPictures/IMG-20241118-WA0056.jpg" 
+              src="/images/randomPictures/happystudentscasual.jpg" 
               alt="Community impact" 
               className="rounded-xl object-cover h-48"
             />

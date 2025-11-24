@@ -25,6 +25,9 @@ const TechEmpowerment = React.lazy(() => import('./pages/TechEmpowerment'))
 const Error404 = React.lazy(() => import('./pages/Error404'))
 const Error500 = React.lazy(() => import('./pages/Error500'))
 
+// Program pages
+const ProgramsPage = React.lazy(() => import('./pages/programs/Programs'))
+
 // Loading component
 const PageLoading: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
@@ -71,6 +74,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/donate" element={<Donate />} />
                 <Route path="/partners" element={<Partners />} />
+                <Route path="/programs" element={<ProgramsPage />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/tech-empowerment" element={<TechEmpowerment />} />
                 <Route path="/404" element={<Error404 />} />

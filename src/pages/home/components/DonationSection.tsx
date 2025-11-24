@@ -38,7 +38,7 @@ const DonationSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-6 text-primary">Join Our Mission</h2>
+          <h2 className="heading-lg mb-6" style={{ color: '#0c2d5a' }}>Join Our Mission</h2>
           <div className="text-container">
             <p className="text-lead text-center mb-8">
               Every donation directly impacts a young person's future in technology. 
@@ -57,10 +57,10 @@ const DonationSection: React.FC = () => {
                 initial={{ width: 0 }}
                 animate={isInView ? { width: '67%' } : {}}
                 transition={{ duration: 1.5, delay: 0.5 }}
-                className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full"
+                className="bg-gradient-to-r from-[#0c2d5a] to-[#1a3d6a] h-3 rounded-full"
               ></motion.div>
             </div>
-            <div className="flex justify-between text-lg font-semibold text-primary mt-2">
+            <div className="flex justify-between text-lg font-semibold mt-2" style={{ color: '#0c2d5a' }}>
               <span>$45,230 raised</span>
               <span>$67,500 goal</span>
             </div>
@@ -80,10 +80,10 @@ const DonationSection: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 + (index * 0.1) }}
-              className="bg-white rounded-xl p-6 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-xl p-6 shadow-lg border border-[#0c2d5a]/10 hover:shadow-xl transition-all duration-300"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600 mb-3">
+                <div className="text-2xl font-bold mb-3" style={{ color: '#0c2d5a' }}>
                   {goal.amount}
                 </div>
                 <p className="text-sm text-neutral-700 mb-4 min-h-[3rem]">
@@ -103,22 +103,22 @@ const DonationSection: React.FC = () => {
                     fontWeight: '600',
                     textDecoration: 'none',
                     borderRadius: '50px',
-                    background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                    background: '#0c2d5a',
                     color: 'white',
                     border: '2px solid rgba(255, 255, 255, 0.2)',
-                    boxShadow: '0 6px 20px rgba(37, 99, 235, 0.3)',
+                    boxShadow: '0 6px 20px rgba(12, 45, 90, 0.3)',
                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                     backdropFilter: 'blur(10px)'
                   }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(37, 99, 235, 0.4)'
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(12, 45, 90, 0.4)'
+                    e.currentTarget.style.background = '#0a2545'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.3)'
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.3)'
+                    e.currentTarget.style.background = '#0c2d5a'
                   }}
                 >
                   Donate {goal.amount}
@@ -147,8 +147,8 @@ const DonationSection: React.FC = () => {
               textDecoration: 'none',
               borderRadius: '50px',
               background: 'white',
-              color: '#0152be',
-              border: '3px solid #0152be',
+              color: '#0c2d5a',
+              border: '3px solid #0c2d5a',
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
               transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
               backdropFilter: 'blur(10px)'

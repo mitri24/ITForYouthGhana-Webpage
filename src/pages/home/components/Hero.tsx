@@ -4,47 +4,47 @@ import LazyImage from '../../../components/LazyImage'
 
 const heroSlides = [
   {
-    image: '/images/randomPictures/GRADUATION HIGHLIGHTS-Cover.jpg',
+    image: '/images/randomPictures/graduation.JPG',
     title: 'Empowering Ghana\'s Youth Through Technology',
     subtitle: 'Professional programming courses and career development'
   },
   {
-    image: '/images/randomPictures/IMG-20241118-WA0095.jpg',
+    image: '/images/randomPictures/group_girls.jpg',
     title: 'Empowering Young Women in Tech',
     subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
   },
   {
-    image: '/images/randomPictures/IMG-20241118-WA0078.jpg',
+    image: '/images/randomPictures/studentscodingback.jpg',
     title: 'From Training to Employment',
     subtitle: 'Professional programs with hands-on learning and real-world project experience'
   },
   {
-    image: '/images/randomPictures/2024-12-17 20.27 (5).jpg',
+    image: '/images/randomPictures/graduations.JPG',
     title: '200+ Lives Transformed',
     subtitle: 'Training youth in coding, web development, data analytics, and digital entrepreneurship'
   },
   {
-    image: '/images/randomPictures/IMG-20241026-WA0092.jpg',
+    image: '/images/randomPictures/petertalkingtostudentscoloful.jpg',
     title: 'Building Tech Leaders',
     subtitle: 'Developing the next generation of technology professionals across Ghana'
   },
   {
-    image: '/images/randomPictures/IMG_8586.JPG',
+    image: '/images/randomPictures/studentpresenting.JPG',
     title: 'Success Stories',
     subtitle: 'Meet our graduates who are now leading in Ghana\'s tech industry'
   },
   {
-    image: '/images/randomPictures/2024-12-17 21.02.jpg',
+    image: '/images/randomPictures/frontalgraduation.JPG',
     title: 'Community Impact',
     subtitle: 'Transforming communities through accessible technology education'
   },
   {
-    image: '/images/randomPictures/IMG-20241118-WA0104.jpg',
+    image: '/images/randomPictures/groupworkstudents.jpg',
     title: 'Hands-On Learning',
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: '/images/randomPictures/IMG_2732.PNG',
+    image: '/images/randomPictures/UX4.jpg',
     title: 'Modern Facilities',
     subtitle: 'State-of-the-art equipment and learning environments for optimal education'
   }
@@ -615,7 +615,7 @@ const Hero: React.FC = () => {
                   }}
                 >
                   <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
                   </svg>
                   Instagram
                 </a>
@@ -831,9 +831,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Responsive CSS for mobile */}
-      <style jsx>{`
+      <style>{`
         /* Desktop: Hero mit Bogen (clipPath) */
         @media (min-width: 769px) {
           .mobile-hero-design {
@@ -972,6 +970,39 @@ const Hero: React.FC = () => {
           .mobile-hero-design div[style*="bottom: 80px"] {
             bottom: 20px !important; /* Indikatoren näher am unteren Rand */
           }
+        }
+        
+        /* Hero Image Styles - Optimiert für Ghana Internet */
+        .hero-image-container {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+        }
+        
+        .hero-image {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+        
+        /* Additional container styles for LazyImage component */
+        .hero-image-container .relative {
+          width: 100% !important;
+          height: 100% !important;
+        }
+        
+        .hero-image-container img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
         }
       `}</style>
     </>

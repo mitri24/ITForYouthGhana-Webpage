@@ -36,7 +36,7 @@ const MainNavigation: React.FC = () => {
   return (
     <>
       {/* Top Login/Register Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 py-1.5" style={{ backgroundColor: 'var(--color-primary)' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 py-1.5" style={{ backgroundColor: '#0c2d5a' }}>
         <div className="container mx-auto px-4">
           <div className="flex justify-end items-center">
             <div className="flex items-center space-x-3">
@@ -85,15 +85,15 @@ const MainNavigation: React.FC = () => {
                     to={item.path}
                     className={`relative px-4 py-2 font-medium text-sm transition-all duration-200 ${
                       isActivePath(item.path, item.subItems)
-                        ? 'text-primary'
-                        : 'text-neutral-600 hover:text-primary'
+                        ? ''
+                        : 'text-neutral-600 hover:text-[#0c2d5a]'
                     }`}
                   >
                     {item.label}
                     {isActivePath(item.path, item.subItems) && (
                       <motion.div
                         layoutId="navbar-active"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                        className="absolute bottom-0 left-0 right-0 h-0.5" style={{ backgroundColor: '#0c2d5a' }}
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
@@ -103,8 +103,8 @@ const MainNavigation: React.FC = () => {
                   <button
                     className={`relative px-4 py-2 font-medium text-sm transition-all duration-200 flex items-center gap-1 ${
                       isActivePath(item.path, item.subItems)
-                        ? 'text-primary'
-                        : 'text-neutral-600 hover:text-primary'
+                        ? ''
+                        : 'text-neutral-600 hover:text-[#0c2d5a]'
                     }`}
                   >
                     {item.label}
@@ -123,7 +123,7 @@ const MainNavigation: React.FC = () => {
                     {isActivePath(item.path, item.subItems) && (
                       <motion.div
                         layoutId="navbar-active"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                        className="absolute bottom-0 left-0 right-0 h-0.5" style={{ backgroundColor: '#0c2d5a' }}
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
@@ -147,9 +147,13 @@ const MainNavigation: React.FC = () => {
                           to={subItem.path!}
                           className={`block px-4 py-2 text-sm transition-colors duration-150 ${
                             location.pathname === subItem.path
-                              ? 'text-primary bg-primary/5 font-medium'
-                              : 'text-neutral-700 hover:text-primary hover:bg-neutral-50'
+                              ? 'font-medium'
+                              : 'text-neutral-700 hover:bg-neutral-50'
                           }`}
+                          style={location.pathname === subItem.path 
+                            ? { color: '#0c2d5a', backgroundColor: 'rgba(12, 45, 90, 0.05)' }
+                            : undefined
+                          }
                         >
                           {subItem.label}
                         </Link>
@@ -173,22 +177,22 @@ const MainNavigation: React.FC = () => {
                   fontWeight: '600',
                   textDecoration: 'none',
                   borderRadius: '50px',
-                  background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                  background: '#0c2d5a',
                   color: 'white',
                   border: '2px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: '0 6px 20px rgba(1, 82, 190, 0.3)',
+                  boxShadow: '0 6px 20px rgba(12, 45, 90, 0.3)',
                   transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                   backdropFilter: 'blur(10px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'
-                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(1, 82, 190, 0.4)'
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(12, 45, 90, 0.4)'
+                  e.currentTarget.style.background = '#0c2d5a'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(1, 82, 190, 0.3)'
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.3)'
+                  e.currentTarget.style.background = '#0c2d5a'
                 }}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,8 +240,8 @@ const MainNavigation: React.FC = () => {
                         to={item.path}
                         className={`block py-3 font-medium transition-colors duration-200 ${
                           isActivePath(item.path, item.subItems)
-                            ? 'text-primary'
-                            : 'text-neutral-700 hover:text-primary'
+                            ? ''
+                            : 'text-neutral-700 hover:text-[#0c2d5a]'
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -256,8 +260,8 @@ const MainNavigation: React.FC = () => {
                                 to={subItem.path!}
                                 className={`block py-2 text-sm transition-colors duration-200 ${
                                   location.pathname === subItem.path
-                                    ? 'text-primary font-medium'
-                                    : 'text-neutral-600 hover:text-primary'
+                                    ? 'text-[#0c2d5a] font-medium'
+                                    : 'text-neutral-600 hover:text-[#0c2d5a]'
                                 }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
@@ -284,21 +288,21 @@ const MainNavigation: React.FC = () => {
                       fontWeight: '600',
                       textDecoration: 'none',
                       borderRadius: '50px',
-                      background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                      background: '#0c2d5a',
                       color: 'white',
                       border: '2px solid rgba(255, 255, 255, 0.2)',
-                      boxShadow: '0 6px 20px rgba(1, 82, 190, 0.3)',
+                      boxShadow: '0 6px 20px rgba(12, 45, 90, 0.3)',
                       transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                       backdropFilter: 'blur(10px)'
                     }}
                     onClick={() => setIsMobileMenuOpen(false)}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(1, 82, 190, 0.4)'
-                      e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(12, 45, 90, 0.4)'
+                      e.currentTarget.style.background = '#0c2d5a'
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(1, 82, 190, 0.3)'
-                      e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.3)'
+                      e.currentTarget.style.background = '#0c2d5a'
                     }}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

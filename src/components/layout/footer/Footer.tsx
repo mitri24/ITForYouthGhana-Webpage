@@ -6,7 +6,7 @@ import FooterCopyright from './FooterCopyright'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary relative overflow-hidden">
+    <footer className="relative overflow-hidden" style={{ backgroundColor: '#0c2d5a' }}>
       {/* Background decoration removed for clean Apple look */}
 
       <div className="container relative z-10">
@@ -27,7 +27,14 @@ const Footer: React.FC = () => {
 
       {/* Scroll to top button */}
       <motion.button
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-primary-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl z-40 transition-colors duration-300"
+        className="fixed bottom-8 right-8 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl z-40 transition-colors duration-300"
+        style={{ backgroundColor: '#0c2d5a' }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#0a2545'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = '#0c2d5a'
+        }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
