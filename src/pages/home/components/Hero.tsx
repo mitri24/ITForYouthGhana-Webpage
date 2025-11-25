@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import LazyImage from '../../../components/LazyImage'
 
 const heroSlides = [
   {
-    image: '/images/randomPictures/graduation.JPG',
-    title: 'Empowering Ghana\'s Youth Through Technology',
-    subtitle: 'Professional programming courses and career development'
+    image: '/images/randomPictures/maingraduationpic.PNG',
+    title: 'Graduation Success',
+    subtitle: 'Celebrating our students achievements as they complete their IT training journey'
   },
   {
     image: '/images/randomPictures/group_girls.jpg',
@@ -14,39 +13,29 @@ const heroSlides = [
     subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
   },
   {
-    image: '/images/randomPictures/studentscodingback.jpg',
-    title: 'From Training to Employment',
-    subtitle: 'Professional programs with hands-on learning and real-world project experience'
-  },
-  {
-    image: '/images/randomPictures/graduations.JPG',
-    title: '200+ Lives Transformed',
-    subtitle: 'Training youth in coding, web development, data analytics, and digital entrepreneurship'
-  },
-  {
-    image: '/images/randomPictures/petertalkingtostudentscoloful.jpg',
-    title: 'Building Tech Leaders',
-    subtitle: 'Developing the next generation of technology professionals across Ghana'
-  },
-  {
-    image: '/images/randomPictures/studentpresenting.JPG',
-    title: 'Success Stories',
-    subtitle: 'Meet our graduates who are now leading in Ghana\'s tech industry'
-  },
-  {
-    image: '/images/randomPictures/frontalgraduation.JPG',
-    title: 'Community Impact',
-    subtitle: 'Transforming communities through accessible technology education'
-  },
-  {
     image: '/images/randomPictures/groupworkstudents.jpg',
     title: 'Hands-On Learning',
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: '/images/randomPictures/UX4.jpg',
-    title: 'Modern Facilities',
-    subtitle: 'State-of-the-art equipment and learning environments for optimal education'
+    image: '/images/randomPictures/studentscodingback.jpg',
+    title: 'From Training to Employment',
+    subtitle: 'Professional programs with hands-on learning and real-world project experience'
+  },
+  {
+    image: '/images/randomPictures/studentgroupguys.jpg',
+    title: 'Building Future Leaders',
+    subtitle: 'Developing the next generation of technology professionals across Ghana'
+  },
+  {
+    image: '/images/randomPictures/studentsblueclothing.jpg',
+    title: 'Team Learning',
+    subtitle: 'Collaborative learning environment for better skill development'
+  },
+  {
+    image: '/images/randomPictures/redclothingStudents.jpg',
+    title: 'Community Impact',
+    subtitle: 'Transforming communities through accessible technology education'
   }
 ]
 
@@ -106,7 +95,7 @@ const Hero: React.FC = () => {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            <LazyImage
+            <img
               src={heroSlides[currentSlide].image}
               alt={heroSlides[currentSlide].title}
               className="hero-image"
@@ -116,7 +105,14 @@ const Hero: React.FC = () => {
                 objectFit: 'cover',
                 objectPosition: 'center'
               }}
-              priority={currentSlide === 0}
+              loading="eager"
+              onError={(e) => {
+                console.log('Image failed to load:', heroSlides[currentSlide].image);
+                console.log('Error event:', e);
+              }}
+              onLoad={() => {
+                console.log('Image loaded successfully:', heroSlides[currentSlide].image);
+              }}
             />
           </motion.div>
         </AnimatePresence>
@@ -881,94 +877,93 @@ const Hero: React.FC = () => {
           }
         }
         
-        /* Mobile: Hero ohne Bogen */
+        /* Mobile: Hero ohne Bogen - verbessertes Design */
         @media (max-width: 768px) {
           .mobile-hero-design {
-            clip-path: none;
-            border-radius: 0;
-            min-height: 60vh !important; /* Mindestens 60% des Bildschirms */
-            height: 60vh !important;
+            clip-path: none !important;
+            border-radius: 0 !important;
+            min-height: 100vh !important;
+            height: 100vh !important;
+            margin-top: -112px !important; /* Kompensiere body padding für vollbildschirm */
+            padding-top: 112px !important; /* Aber Platz für Navigation lassen */
           }
           
           .hero-background {
-            height: 100% !important;
-            min-height: 60vh !important;
+            height: calc(100vh - 112px) !important;
+            min-height: calc(100vh - 112px) !important;
+            top: 112px !important;
           }
           
           .hero-background img {
             height: 100% !important;
-            min-height: 60vh !important;
             object-fit: cover !important;
             object-position: center !important;
           }
           
           .contact-buttons.desktop-only {
-            display: none !important; /* Verstecken auf Mobile, da sie außerhalb der section sind */
+            display: none !important;
           }
           
-          /* Mobile: Buttons sichtbar am unteren Rand der Hero Section */
+          /* Mobile: Buttons sauber positioniert */
           .mobile-contact-buttons {
             display: flex !important;
             position: absolute !important;
-            bottom: 10px !important; /* Sicher innerhalb der Hero Section */
+            bottom: 20px !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
-            gap: 15px !important;
-            z-index: 30 !important; /* Höher als Hero content */
+            gap: 12px !important;
+            z-index: 30 !important;
+            padding: 0 16px; /* Seitenabstand für bessere Lesbarkeit */
           }
           
-          /* Nur Icons auf Mobile - Text verstecken */
-          .contact-buttons .btn {
-            min-width: 48px !important;
-            width: 48px !important;
-            height: 48px !important;
-            padding: 12px !important;
+          /* Mobile buttons optimiert - nur Icons */
+          .mobile-contact-buttons .btn {
+            min-width: 50px !important;
+            width: 50px !important;
+            height: 50px !important;
+            padding: 0 !important;
             border-radius: 50% !important;
             justify-content: center !important;
-          }
-          
-          .contact-buttons .btn span:last-child {
-            display: none !important; /* Versteckt Text-Labels */
-          }
-          
-          .contact-buttons .btn span:first-child {
-            width: 24px !important;
-            height: 24px !important;
-            background: transparent !important;
-            padding: 0 !important;
-          }
-          
-          .contact-buttons .btn span:first-child svg {
-            width: 18px !important;
-            height: 18px !important;
+            font-size: 18px !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
           }
           
           .logo {
-            width: clamp(140px, 18vw, 200px) !important;
+            width: clamp(120px, 25vw, 180px) !important;
+            max-width: 180px !important;
           }
           
           .logo-container {
-            top: 55% !important; /* Logo tiefer, um Navbar-Überlappung zu vermeiden */
+            top: 45% !important; /* Logo höher für bessere Balance */
+          }
+          
+          .nav-button-left,
+          .nav-button-right {
+            top: 45% !important;
+            transform: translateY(-50%) !important;
+            width: 40px !important;
+            height: 40px !important;
+            min-width: 40px !important;
+            min-height: 40px !important;
           }
           
           .nav-button-left {
-            left: 10px !important;
-            top: 55% !important; /* Buttons auf gleicher Höhe wie Logo */
+            left: 8px !important;
           }
           
           .nav-button-right {
-            right: 10px !important;
-            top: 55% !important; /* Buttons auf gleicher Höhe wie Logo */
+            right: 8px !important;
           }
           
-          .contact-btn {
-            padding: 10px 16px !important;
-            font-size: 13px !important;
-          }
-          
-          /* Slide indicators positioning für mobile */
+          /* Slide indicators besser positioniert */
           .mobile-hero-design div[style*="bottom: 80px"] {
-            bottom: 20px !important; /* Indikatoren näher am unteren Rand */
+            bottom: 80px !important; /* Mehr Abstand von Mobile Buttons */
+          }
+          
+          /* Navigation buttons SVG kleiner für mobile */
+          .nav-button svg {
+            width: 20px !important;
+            height: 20px !important;
           }
         }
         

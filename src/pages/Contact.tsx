@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
               </p>
             </motion.div>
 
-            <div className="responsive-grid responsive-grid-md-3 mb-16">
+            <div className="responsive-grid responsive-grid-sm-2 responsive-grid-md-3 mb-16">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}
