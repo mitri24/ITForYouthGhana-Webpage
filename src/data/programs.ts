@@ -123,7 +123,7 @@ export const programs: Program[] = [
     id: 'youth-tech-academy',
     title: 'Youth Tech Academy',
     description: 'Comprehensive 6-month tech bootcamps covering web development, mobile app development, and digital entrepreneurship skills.',
-    image: '/images/randomPictures/teacherteaching.JPG',
+    image: '/images/randomPictures/studentpresentin.JPG',
     tag: 'Professional Training',
     tagColor: 'bg-success',
     detailContent: {

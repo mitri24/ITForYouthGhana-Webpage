@@ -71,8 +71,8 @@ const MainNavigation: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Navigation - Clean & Professional */}
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop & Tablet Navigation - Clean & Professional */}
+          <div className="hidden md:flex items-center md:space-x-0.5 lg:space-x-1">
             {NAVIGATION_CONFIG.filter(item => item.id !== 'donate').map((item) => (
               <div
                 key={item.id}
@@ -83,7 +83,7 @@ const MainNavigation: React.FC = () => {
                 {item.path ? (
                   <Link
                     to={item.path}
-                    className={`relative px-4 py-2 font-medium text-sm transition-all duration-200 ${
+                    className={`relative md:px-2 lg:px-4 py-2 font-medium md:text-xs lg:text-sm transition-all duration-200 ${
                       isActivePath(item.path, item.subItems)
                         ? ''
                         : 'text-neutral-600 hover:text-[#0c2d5a]'
@@ -101,7 +101,7 @@ const MainNavigation: React.FC = () => {
                   </Link>
                 ) : (
                   <button
-                    className={`relative px-4 py-2 font-medium text-sm transition-all duration-200 flex items-center gap-1 ${
+                    className={`relative md:px-2 lg:px-4 py-2 font-medium md:text-xs lg:text-sm transition-all duration-200 flex items-center gap-1 ${
                       isActivePath(item.path, item.subItems)
                         ? ''
                         : 'text-neutral-600 hover:text-[#0c2d5a]'
@@ -165,15 +165,15 @@ const MainNavigation: React.FC = () => {
             ))}
             
             {/* Clean Donate Button */}
-            <div className="ml-6 pl-6 border-l border-neutral-200">
+            <div className="md:ml-2 lg:ml-6 md:pl-2 lg:pl-6 border-l border-neutral-200">
               <a
                 href="https://www.globalgiving.org/projects/coding-and-digital-skills-for-1000-girls-in-ghana/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+                className="inline-flex items-center gap-1 md:gap-1 lg:gap-2"
                 style={{
-                  padding: '10px 20px',
-                  fontSize: '14px',
+                  padding: '8px 12px',
+                  fontSize: '11px',
                   fontWeight: '600',
                   textDecoration: 'none',
                   borderRadius: '50px',
@@ -195,17 +195,18 @@ const MainNavigation: React.FC = () => {
                   e.currentTarget.style.background = '#0c2d5a'
                 }}
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 md:w-3 md:h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-                Donate
+                <span className="hidden lg:inline">Donate</span>
+                <span className="md:inline lg:hidden">Give</span>
               </a>
             </div>
           </div>
 
           {/* Mobile Menu Button - Clean */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-200"
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -230,7 +231,7 @@ const MainNavigation: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-neutral-200 bg-white"
+              className="md:hidden border-t border-neutral-200 bg-white"
             >
               <div className="py-4">
                 {NAVIGATION_CONFIG.filter(item => item.id !== 'donate').map((item) => (
