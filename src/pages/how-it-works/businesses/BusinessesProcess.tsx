@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useMemo } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
@@ -6,275 +6,252 @@ import { navigateToPage } from '../../../utils/navigation'
 
 const BusinessesProcess: React.FC = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  
-  const handlePartnerWithUs = () => {
+  const isInView = useInView(ref, { once: true, amount: 0.1 }) // Reduced threshold for faster trigger
+
+  const handleStartPartnership = () => {
     navigateToPage('/contact')
   }
 
-  const partnershipSteps = [
+  // Memoize steps to prevent re-renders
+  const steps = useMemo(() => [
     {
-      step: "01",
-      title: "Initial Contact & Discovery Call",
-      description: "We start with a comprehensive discussion to understand your organization's needs, values, and goals. This 30-minute call helps us determine mutual alignment and partnership potential with our non-profit mission.",
-      details: [
-        "Discuss your talent requirements and technical needs",
-        "Share our non-profit mission, values, and impact metrics",
-        "Explore potential collaboration and CSR opportunities",
-        "Assess cultural and value alignment with our NGO ethos"
-      ],
-      icon: ""
+      step: 1,
+      title: 'Initial Contact & Discovery Call',
+      description: 'We start with a comprehensive discussion to understand your organization\'s needs, values, and goals. This 30-minute call helps us determine mutual alignment and partnership potential.',
+      duration: '30 minutes',
+      hasButton: true
     },
     {
-      step: "02", 
-      title: "Values Alignment Assessment",
-      description: "As a non-profit organization, we conduct a thorough evaluation to ensure our core values of inclusion, empowerment, and community impact align with your organization's mission and CSR commitments.",
-      details: [
-        "Review your commitment to diversity and inclusion",
-        "Assess support for our community development initiatives", 
-        "Evaluate dedication to youth empowerment through NGO partnerships",
-        "Confirm shared vision for Ghana's tech ecosystem development"
-      ],
-      icon: ""
+      step: 2,
+      title: 'Values Alignment Assessment',
+      description: 'As a non-profit organization, we conduct a thorough evaluation to ensure our core values of inclusion, empowerment, and community impact align with your organization\'s mission and CSR commitments.',
+      duration: '1 week'
     },
     {
-      step: "03",
-      title: "Partnership Framework Design", 
-      description: "Together, we create a customized partnership framework that outlines roles, responsibilities, expectations, and success metrics for our NGO-corporate collaboration.",
-      details: [
-        "Define partnership scope and social impact objectives",
-        "Establish clear NGO and corporate roles and responsibilities",
-        "Set measurable success indicators for community impact",
-        "Create timeline and milestone framework for sustainable change"
-      ],
-      icon: ""
+      step: 3,
+      title: 'Partnership Framework Design',
+      description: 'Together, we create a customized partnership framework that outlines roles, responsibilities, expectations, and success metrics for our NGO-corporate collaboration.',
+      duration: '2 weeks'
     },
     {
-      step: "04",
-      title: "Pilot Program Implementation",
-      description: "We launch a carefully designed pilot program to test our collaboration, gather feedback, and refine our approach before full-scale implementation.",
-      details: [
-        "Start with small-scale engagement",
-        "Monitor progress and collect feedback",
-        "Adjust processes based on learnings",
-        "Prepare for scaled partnership"
-      ],
-      icon: ""
+      step: 4,
+      title: 'Pilot Program Implementation',
+      description: 'We launch a carefully designed pilot program to test our collaboration, gather feedback, and refine our approach before full-scale implementation.',
+      duration: '1-3 months'
     },
     {
-      step: "05",
-      title: "Full Partnership Activation",
-      description: "Upon successful pilot completion, we activate the full partnership with ongoing support, regular communication, and continuous improvement processes.",
-      details: [
-        "Scale successful pilot initiatives",
-        "Implement regular review meetings",
-        "Establish ongoing communication channels",
-        "Create long-term impact measurement"
-      ],
-      icon: ""
+      step: 5,
+      title: 'Full Partnership Activation',
+      description: 'Upon successful pilot completion, we activate the full partnership with ongoing support, regular communication, and continuous improvement processes.',
+      duration: 'Ongoing'
     }
-  ]
-
-  const partnershipTypes = [
-    {
-      title: "Talent Pipeline Partnership",
-      description: "Access to our pool of job-ready graduates with ongoing recruitment support",
-      benefits: [
-        "Priority access to top talent",
-        "Pre-screened candidates",
-        "Ongoing recruitment support",
-        "Reduced hiring time and costs"
-      ]
-    },
-    {
-      title: "Corporate Training Collaboration", 
-      description: "Upskill your existing team with our specialized training programs",
-      benefits: [
-        "Customized training curricula",
-        "Expert instruction",
-        "Flexible scheduling options",
-        "Measurable skill improvements"
-      ]
-    },
-    {
-      title: "CSR & Community Impact",
-      description: "Partner with us on community development and youth empowerment initiatives",
-      benefits: [
-        "Meaningful community impact",
-        "Enhanced brand reputation",
-        "Employee engagement opportunities",
-        "Measurable social outcomes"
-      ]
-    }
-  ]
+  ], [])
 
   return (
     <>
       <SEO
-        title="Partnership Process - For Businesses | IT for Youth Ghana"
-        description="Learn our comprehensive 5-step partnership process. From discovery call to full activation - partner with Ghana's leading tech education NGO."
+        title="How It Works - For Businesses"
+        description="Step-by-step guide to partnering with us. From discovery call to full partnership - here's your journey to meaningful impact."
         canonical="/how-it-works/businesses"
       />
       
       <div id="main-content" className="min-h-screen bg-white pt-24">
         <Hero
-          title="Partnership Process"
+          title="Your Partnership Journey"
           subtitle="How It Works - For Businesses"
-          description="Our comprehensive 5-step process ensures meaningful partnerships that create lasting social impact for your organization while empowering Ghana's youth through our non-profit technology education programs."
-          primaryCta={{ text: "Start Partnership Journey", action: handlePartnerWithUs }}
+          description="A clear, step-by-step path from initial contact to full partnership activation. We guide you every step of the way to create meaningful social impact."
         />
-
-        {/* Partnership Process Steps */}
+        
         <section ref={ref} className="section bg-white">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-xl mb-6">Our Partnership Process</h2>
-              <p className="text-lead max-w-4xl mx-auto">
-                We follow a structured, transparent approach to building meaningful partnerships that create lasting impact for both your organization and Ghana's youth.
-              </p>
-            </motion.div>
-
-            <div className="space-y-16">
-              {partnershipSteps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}
-                >
-                  {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                    <div className="flex items-center mb-6">
-                      <div className="text-4xl mr-4">{step.icon}</div>
-                      <div>
-                        <span className="text-sm font-bold uppercase tracking-wider text-primary/70">
-                          Step {step.step}
-                        </span>
-                        <h3 className="heading-md text-primary">{step.title}</h3>
+            <div className="max-w-4xl mx-auto">
+              <div className="relative timeline-container">
+                {/* Timeline Linie in der Mitte */}
+                <div className="timeline-line absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
+                
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ 
+                      duration: window.innerWidth <= 768 ? 0.3 : 0.6, 
+                      delay: window.innerWidth <= 768 ? index * 0.05 : index * 0.1,
+                      ease: "easeOut"
+                    }}
+                    className={`relative mb-12 flex step-container ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  >
+                    {/* Timeline Punkt in der Mitte */}
+                    <div className="timeline-point absolute left-1/2 top-6 transform -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold z-10" style={{ backgroundColor: '#0c2d5a' }}>
+                      {step.step}
+                    </div>
+                    
+                    {/* Inhaltskarte - abwechselnd links und rechts */}
+                    <div className={`content-card w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
+                      <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full border p-6" style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}>
+                        <div className={`flex flex-col header-container ${index % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} sm:items-center sm:justify-between mb-3`}>
+                          <h3 className="heading-sm" style={{ color: '#0c2d5a' }}>{step.title}</h3>
+                          <span className="text-sm font-medium mt-1 sm:mt-0 px-2 py-1 rounded-full" style={{ color: '#0c2d5a', backgroundColor: 'rgba(12, 45, 90, 0.1)' }}>{step.duration}</span>
+                        </div>
+                        <p className="text-body text-gray-600 mb-4 leading-relaxed">{step.description}</p>
+                        
+                        {/* CTA-Button nur im ersten Schritt */}
+                        {step.hasButton && (
+                          <motion.button
+                            className={`button-alignment ${index % 2 === 0 ? 'ml-auto' : ''}`}
+                            style={{
+                              padding: '12px 24px',
+                              borderRadius: '50px',
+                              background: '#0c2d5a',
+                              color: 'white',
+                              border: 'none',
+                              fontWeight: '600',
+                              fontSize: '14px',
+                              cursor: 'pointer',
+                              boxShadow: '0 4px 15px rgba(12, 45, 90, 0.3)',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)'
+                              e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.4)'
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                              e.currentTarget.style.boxShadow = '0 4px 15px rgba(12, 45, 90, 0.3)'
+                            }}
+                            whileHover={window.innerWidth > 768 ? { scale: 1.05 } : {}}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{ duration: 0.15 }}
+                            onClick={handleStartPartnership}
+                          >
+                            Start Partnership
+                          </motion.button>
+                        )}
                       </div>
                     </div>
                     
-                    <p className="text-body mb-6 leading-relaxed text-neutral-700">
-                      {step.description}
-                    </p>
-                    
-                    <ul className="space-y-3">
-                      {step.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="text-body text-neutral-700">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Visual Element */}
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 text-center border border-primary/10">
-                      <div className="text-6xl mb-4">{step.icon}</div>
-                      <div className="text-3xl font-bold text-primary mb-2">Step {step.step}</div>
-                      <div className="text-lg font-semibold">{step.title}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Partnership Types */}
-        <section className="section bg-neutral-50">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-xl mb-6">Partnership Opportunities</h2>
-              <p className="text-lead max-w-3xl mx-auto">
-                Choose the partnership model that best aligns with your organization's goals and values.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {partnershipTypes.map((type, index) => (
-                <motion.div
-                  key={type.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="card"
-                >
-                  <div className="card-body p-6">
-                    <h3 className="heading-sm mb-4 text-primary">{type.title}</h3>
-                    <p className="text-body mb-6 text-neutral-700 leading-relaxed">{type.description}</p>
-                    
-                    <div>
-                      <h4 className="font-semibold text-primary mb-3">Key Benefits:</h4>
-                      <ul className="space-y-2">
-                        {type.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                            <span className="text-sm text-neutral-700">{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="section bg-primary">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-center text-white max-w-4xl mx-auto"
-            >
-              <h2 className="heading-xl text-white mb-6">Ready to Start Your Partnership Journey?</h2>
-              <p className="text-lead text-white/90 mb-8">
-                Join leading organizations who are making a difference in Ghana's tech ecosystem while achieving their business objectives.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">50+</div>
-                  <div className="text-white/80">Partner Organizations</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">200+</div>
-                  <div className="text-white/80">Successful Placements</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">95%</div>
-                  <div className="text-white/80">Partner Satisfaction</div>
-                </div>
+                    {/* Leerer Bereich für die andere Seite */}
+                    <div className="empty-space w-5/12"></div>
+                  </motion.div>
+                ))}
               </div>
-              
-              <motion.button
-                className="btn btn-secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handlePartnerWithUs}
-              >
-                Schedule Discovery Call
-              </motion.button>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-center mt-16"
+            >
+              <div className="rounded-2xl p-8 border" style={{ backgroundColor: 'rgba(12, 45, 90, 0.05)', borderColor: 'rgba(12, 45, 90, 0.1)' }}>
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Ready to Partner With Us?</h3>
+                <p className="text-lg mb-6 max-w-2xl mx-auto text-gray-700">
+                  Join leading organizations who are making a difference in Ghana's tech ecosystem. Start your partnership journey today.
+                </p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleStartPartnership}
+                  style={{
+                    padding: '16px 32px',
+                    borderRadius: '50px',
+                    background: '#0c2d5a',
+                    color: 'white',
+                    border: 'none',
+                    fontWeight: '600',
+                    fontSize: '16px',
+                    cursor: 'pointer',
+                    boxShadow: '0 8px 25px rgba(12, 45, 90, 0.3)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(12, 45, 90, 0.4)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(12, 45, 90, 0.3)'
+                  }}
+                >
+                  Begin Partnership Journey
+                </motion.button>
+              </div>
             </motion.div>
           </div>
         </section>
       </div>
+
+      {/* Mobile-optimized CSS with performance improvements */}
+      <style>{`
+        /* Performance optimizations for mobile */
+        @media (max-width: 768px) {
+          /* Enable hardware acceleration */
+          .step-container {
+            transform: translateZ(0);
+            will-change: transform, opacity;
+          }
+          
+          /* Optimize animations for mobile */
+          .timeline-point,
+          .content-card {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+          }
+          
+          /* Reduce motion for better performance */
+          .timeline-container {
+            position: relative !important;
+          }
+          
+          /* Timeline Linie links positionieren auf Mobile */
+          .timeline-line {
+            left: 20px !important;
+            transform: none !important;
+            background-color: rgba(12, 45, 90, 0.2) !important;
+          }
+          
+          /* Alle Steps als single column auf Mobile */
+          .step-container {
+            flex-direction: column !important;
+            margin-bottom: 24px !important;
+            padding-left: 40px !important;
+          }
+          
+          /* Timeline Punkt links positionieren */
+          .timeline-point {
+            left: 20px !important;
+            top: 8px !important;
+            transform: none !important;
+            width: 32px !important;
+            height: 32px !important;
+          }
+          
+          /* Content Card full width auf Mobile */
+          .content-card {
+            width: 100% !important;
+            padding: 0 !important;
+            text-align: left !important;
+          }
+          
+          /* Empty space entfernen auf Mobile */
+          .empty-space {
+            display: none !important;
+          }
+          
+          /* Header immer links ausrichten auf Mobile */
+          .header-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+          }
+          
+          /* Button immer links ausrichten auf Mobile */
+          .button-alignment {
+            margin-left: 0 !important;
+            align-self: flex-start !important;
+          }
+        }
+      `}</style>
     </>
   )
 }

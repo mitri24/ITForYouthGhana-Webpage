@@ -6,105 +6,196 @@ const MissionSection: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section id="mission" ref={ref} className="section bg-white">
+    <section ref={ref} className="section bg-white">
       <div className="container">
-      
-
-        {/* Mission Statement */}
+        {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h3 className="heading-lg mb-6 text-center">Our Mission</h3>
-          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
-            To bridge the digital divide by empowering underserved youth with high-quality IT education and career development training. We foster innovation, digital entrepreneurship, and equitable opportunities, focusing on women, physically challenged individuals, and financially disadvantaged students.
+          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Our Vision & Mission</h2>
+          <p className="text-lead max-w-4xl mx-auto">
+            We are Ghana's leading NGO dedicated to bridging the digital divide through 
+            inclusive technology education, with a special focus on empowering women and 
+            underserved communities.
           </p>
         </motion.div>
-         {/* Section Divider */}
-         <div className="flex items-center justify-center mb-16">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-          <div className="px-6">
-            <div className="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
-          </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+
+        {/* Mission Section - Text left, Image right */}
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h3 className="heading-lg mb-6" style={{ color: '#0c2d5a' }}>Our Mission</h3>
+            <p className="text-body mb-6 leading-relaxed">
+              To bridge the digital divide by empowering underserved youth with high-quality IT education and career development training. We foster innovation, digital entrepreneurship, and equitable opportunities.
+            </p>
+            <p className="text-body leading-relaxed font-semibold" style={{ color: '#0c2d5a' }}>
+              Focusing on women, physically challenged individuals, and financially disadvantaged students.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src="/images/randomPictures/group_girls.jpg" 
+              alt="Female students in tech education" 
+              className="rounded-2xl shadow-lg w-full h-80 object-cover"
+            />
+            <div className="absolute inset-0 rounded-2xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
+            <div className="absolute bottom-4 left-4 rounded-lg p-4 text-white" style={{ backgroundColor: 'rgba(12, 45, 90, 0.95)' }}>
+              <p className="text-sm font-semibold text-white">Empowering Women in Tech</p>
+              <p className="text-xs text-white opacity-90">40% female enrollment in our programs</p>
+            </div>
+          </motion.div>
         </div>
 
-
-      
-
-        
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 mb-16 border border-primary/10 shadow-lg"
-        >
-          <h3 className="heading-lg mb-6 text-center">Our Vision</h3>
-          <p className="text-lg text-center max-w-4xl mx-auto leading-relaxed text-neutral-700 font-medium">
-          To create a future where all youth, regardless of their background, have access to transformative technology education and opportunities, empowering them to drive innovation, build sustainable careers, and contribute meaningfully to the digital economy. </p>
-        </motion.div>
-
- {/* Section Divider */}
- <div className="flex items-center justify-center mb-16">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-          <div className="px-6">
-            <div className="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
-          </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        {/* Vision Section - Image left, Text right */}
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative"
           >
-            <h3 className="heading-lg mb-6">Why We Exist</h3>
-            <h4 className="text-xl font-semibold text-primary mb-4">Bridging the Opportunity Gap in Technology</h4>
-            <p className="text-body mb-6 leading-relaxed">
-              Access to technology education is a privilege not afforded to many young people in Ghana. Financial constraints, lack of infrastructure, and limited awareness create barriers for talented individuals with a passion for IT.
-            </p>
-            <p className="text-body mb-6 leading-relaxed">
-              At IT For Youth Ghana, we're leveling the playing field by offering innovative programs that transform challenges into opportunities. Every training session, outreach program, and partnership brings us closer to a Ghana where every youth can thrive in the digital age.
-            </p>
-            <p className="text-body leading-relaxed font-semibold" style={{ color: 'var(--color-primary)' }}>
-              Women & Young ladies are a core part of our programs
-            </p>
+            <img 
+              src="/images/randomPictures/graduations.JPG" 
+              alt="Graduation ceremony success" 
+              className="rounded-2xl shadow-lg w-full h-80 object-cover"
+            />
+            <div className="absolute inset-0 rounded-2xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
+            <div className="absolute bottom-4 left-4 rounded-lg p-4 text-white" style={{ backgroundColor: 'rgba(12, 45, 90, 0.95)' }}>
+              <p className="text-sm font-semibold text-white">Success Stories</p>
+              <p className="text-xs text-white opacity-90">250+ youth trained and employed</p>
+            </div>
           </motion.div>
-
-          
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-4"
           >
-            <img 
-              src="/images/randomPictures/groupworkstudents.jpg" 
-              alt="Students learning technology" 
-              className="rounded-xl object-cover h-48"
-            />
-            <img 
-              src="/images/randomPictures/group_girls.jpg" 
-              alt="Female students in tech" 
-              className="rounded-xl object-cover h-48 mt-8"
-            />
-            <img 
-              src="/images/randomPictures/graduations.JPG" 
-              alt="Graduation ceremony" 
-              className="rounded-xl object-cover h-48 -mt-8"
-            />
-            <img 
-              src="/images/randomPictures/happystudentscasual.jpg" 
-              alt="Community impact" 
-              className="rounded-xl object-cover h-48"
-            />
+            <h3 className="heading-lg mb-6" style={{ color: '#0c2d5a' }}>Our Vision</h3>
+            <p className="text-body mb-6 leading-relaxed">
+              To create a future where all youth, regardless of their background, have access to transformative technology education and opportunities, empowering them to drive innovation, build sustainable careers, and contribute meaningfully to the digital economy.
+            </p>
+            <p className="text-body leading-relaxed font-semibold" style={{ color: '#0c2d5a' }}>
+              Building Ghana's next generation of tech leaders and innovators.
+            </p>
           </motion.div>
         </div>
+
+        {/* Why We Exist Section - Balanced with more images */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="heading-lg mb-6" style={{ color: '#0c2d5a' }}>Why We Exist</h3>
+            <h4 className="text-xl font-semibold mb-6" style={{ color: '#0c2d5a' }}>Bridging the Opportunity Gap in Technology</h4>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            {/* Challenge Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="space-y-6"
+            >
+              <div className="relative">
+                <img 
+                  src="/images/randomPictures/petertalkingtostudentscoloful.jpg" 
+                  alt="Teaching technology skills" 
+                  className="rounded-xl object-cover h-48 w-full"
+                />
+                <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.3)' }}></div>
+              </div>
+              <p className="text-body leading-relaxed">
+                Access to technology education is a privilege not afforded to many young people in Ghana. Financial constraints, lack of infrastructure, and limited awareness create barriers for talented individuals.
+              </p>
+            </motion.div>
+
+            {/* Solution Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="space-y-6"
+            >
+              <div className="relative">
+                <img 
+                  src="/images/randomPictures/groupworkstudents.jpg" 
+                  alt="Students learning together" 
+                  className="rounded-xl object-cover h-48 w-full"
+                />
+                <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.3)' }}></div>
+              </div>
+              <p className="text-body leading-relaxed">
+                We're leveling the playing field by offering innovative programs that transform challenges into opportunities. Our hands-on approach ensures practical skills that lead to real employment.
+              </p>
+            </motion.div>
+
+            {/* Impact Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="space-y-6"
+            >
+              <div className="relative">
+                <img 
+                  src="/images/randomPictures/UX4.jpg" 
+                  alt="Modern tech learning environment" 
+                  className="rounded-xl object-cover h-48 w-full"
+                />
+                <div className="absolute inset-0 rounded-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.3)' }}></div>
+              </div>
+              <p className="text-body leading-relaxed">
+                Every training session, outreach program, and partnership brings us closer to a Ghana where every youth can thrive in the digital age. We're building the future, one student at a time.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Bottom Image Gallery */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
+            <img 
+              src="/images/randomPictures/happystudentscasual.jpg" 
+              alt="Happy students" 
+              className="rounded-lg object-cover h-32 w-full"
+            />
+            <img 
+              src="/images/randomPictures/studentpresenting.JPG" 
+              alt="Student presenting project" 
+              className="rounded-lg object-cover h-32 w-full"
+            />
+            <img 
+              src="/images/randomPictures/frontalgraduation.JPG" 
+              alt="Graduation ceremony" 
+              className="rounded-lg object-cover h-32 w-full"
+            />
+            <img 
+              src="/images/randomPictures/girlstaslkingUX.jpg" 
+              alt="Girls discussing UX" 
+              className="rounded-lg object-cover h-32 w-full"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

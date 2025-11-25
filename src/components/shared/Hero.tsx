@@ -11,8 +11,7 @@ const Hero: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <>
-      <section className="shared-hero-section relative py-24 bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-hero-overlay"></div>
+      <section className="shared-hero-section relative py-24 overflow-hidden" style={{ backgroundColor: '#0c2d5a' }}>
         
         <div className="container relative z-10">
           <motion.div
@@ -54,8 +53,8 @@ const Hero: React.FC<HeroSectionProps> = ({
                       textDecoration: 'none',
                       borderRadius: '50px',
                       background: 'white',
-                      color: '#0152be',
-                      border: '2px solid #0152be',
+                      color: '#0c2d5a',
+                      border: '2px solid #0c2d5a',
                       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
                       transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                       backdropFilter: 'blur(10px)',
@@ -103,7 +102,7 @@ const Hero: React.FC<HeroSectionProps> = ({
                       e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
                       e.currentTarget.style.boxShadow = '0 20px 40px rgba(255, 255, 255, 0.15)'
                       e.currentTarget.style.background = 'white'
-                      e.currentTarget.style.color = '#0152be'
+                      e.currentTarget.style.color = '#0c2d5a'
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0) scale(1)'
