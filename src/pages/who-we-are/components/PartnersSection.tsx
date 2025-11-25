@@ -62,7 +62,7 @@ const PartnersSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-xl mb-6 text-primary">Our Partners</h2>
+          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Our Partners</h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Working together with organizations that share our vision of empowering youth through technology education and creating sustainable impact across Ghana.
           </p>
@@ -94,7 +94,7 @@ const PartnersSection: React.FC = () => {
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100 group"
             >
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50 group-hover:bg-primary/5 transition-colors duration-300">
+                <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50 transition-colors duration-300">
                   <img 
                     src={partner.image} 
                     alt={partner.name}
@@ -103,10 +103,10 @@ const PartnersSection: React.FC = () => {
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xs text-primary font-semibold mb-1 opacity-70">
+                  <p className="text-xs font-semibold mb-1 opacity-70" style={{ color: '#0c2d5a' }}>
                     {partner.type}
                   </p>
-                  <h4 className="text-sm font-medium text-neutral-700 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-sm font-medium text-neutral-700 transition-colors duration-300">
                     {partner.name}
                   </h4>
                 </div>
@@ -122,8 +122,8 @@ const PartnersSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
-            <h3 className="heading-md mb-4 text-primary">Become a Partner</h3>
+          <div className="bg-gradient-to-br from-[#0c2d5a]/5 to-[#0c2d5a]/10 rounded-2xl p-12 border border-[#0c2d5a]/10 shadow-lg">
+            <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Become a Partner</h3>
             <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
               Join our network of partners and help us expand our impact. Together, we can create more opportunities for Ghana's youth to thrive in the digital economy.
             </p>
@@ -136,10 +136,10 @@ const PartnersSection: React.FC = () => {
                 fontWeight: '600',
                 textDecoration: 'none',
                 borderRadius: '50px',
-                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
+                background: '#0c2d5a',
                 color: 'white',
                 border: '2px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
+                boxShadow: '0 8px 25px rgba(12, 45, 90, 0.3)',
                 transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                 backdropFilter: 'blur(10px)'
               }}
@@ -147,13 +147,13 @@ const PartnersSection: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
-                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(12, 45, 90, 0.4)'
+                e.currentTarget.style.background = '#0c2d5a'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(12, 45, 90, 0.3)'
+                e.currentTarget.style.background = '#0c2d5a'
               }}
             >
               Partner With Us

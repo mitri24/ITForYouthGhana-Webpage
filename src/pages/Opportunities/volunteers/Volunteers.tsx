@@ -48,8 +48,8 @@ const Volunteers: React.FC = () => {
         <section id="volunteer-opportunities" className="section bg-white">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="heading-xl mb-6 text-primary">Volunteer Opportunities</h2>
-              <p className="text-lead max-w-3xl mx-auto">
+              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Volunteer Opportunities</h2>
+              <p className="text-lead max-w-3xl mx-auto text-neutral-700">
                 Find the perfect way to contribute your skills and time to our mission
               </p>
             </div>
@@ -67,8 +67,13 @@ const Volunteers: React.FC = () => {
                 >
                   <div className="card-body">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="heading-sm text-primary group-hover:text-accent transition-colors duration-300">{role.title}</h3>
-                      <span className="badge badge-accent">{role.commitment}</span>
+                      <h3 className="heading-sm group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>{role.title}</h3>
+                      <span 
+                        className="text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                        style={{ backgroundColor: 'rgba(12, 45, 90, 0.8)' }}
+                      >
+                        {role.commitment}
+                      </span>
                     </div>
                     <p className="text-body mb-4">{role.description}</p>
                     
@@ -76,15 +81,22 @@ const Volunteers: React.FC = () => {
                       <h4 className="font-semibold text-neutral-800 mb-2">Key Skills:</h4>
                       <div className="flex flex-wrap gap-2">
                         {role.skills.slice(0, 3).map((skill: string, idx: number) => (
-                          <span key={idx} className="badge badge-primary text-xs">
+                          <span 
+                            key={idx} 
+                            className="text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                            style={{ backgroundColor: 'rgba(12, 45, 90, 0.8)' }}
+                          >
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="bg-primary/5 rounded-lg p-3">
-                      <p className="text-sm font-semibold text-primary">{role.impact}</p>
+                    <div 
+                      className="rounded-lg p-3"
+                      style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+                    >
+                      <p className="text-sm font-semibold" style={{ color: '#0c2d5a' }}>{role.impact}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -112,37 +124,43 @@ const Volunteers: React.FC = () => {
           {selectedVolunteerRole && (
             <div className="space-y-8">
               <div>
-                <h3 className="heading-md mb-4">Role Overview</h3>
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Role Overview</h3>
                 <p className="text-body leading-relaxed">
                   {selectedVolunteerRole.detailContent?.overview}
                 </p>
               </div>
 
-              <div className="bg-primary/5 rounded-xl p-6">
-                <h3 className="heading-md mb-4">Time Commitment</h3>
-                <p className="text-body font-medium text-primary">
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Time Commitment</h3>
+                <p className="text-body font-medium" style={{ color: '#0c2d5a' }}>
                   {selectedVolunteerRole.detailContent?.timeCommitment}
                 </p>
               </div>
 
               <div>
-                <h3 className="heading-md mb-4">Key Responsibilities</h3>
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Key Responsibilities</h3>
                 <div className="grid gap-3">
                   {selectedVolunteerRole.detailContent?.responsibilities?.map((responsibility: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
                       <p className="text-body">{responsibility}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-accent/5 rounded-xl p-6">
-                <h3 className="heading-md mb-4">Requirements</h3>
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Requirements</h3>
                 <div className="grid gap-3">
                   {selectedVolunteerRole.detailContent?.requirements?.map((requirement: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
                       <p className="text-body">{requirement}</p>
                     </div>
                   ))}
@@ -150,19 +168,22 @@ const Volunteers: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="heading-md mb-4">What You'll Gain</h3>
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>What You'll Gain</h3>
                 <div className="grid md:grid-cols-2 gap-3">
                   {selectedVolunteerRole.detailContent?.benefits?.map((benefit: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
                       <p className="text-body">{benefit}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6">
-                <h3 className="heading-md mb-4">Your Impact</h3>
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Your Impact</h3>
                 <p className="text-body font-medium">
                   {selectedVolunteerRole.impact}
                 </p>

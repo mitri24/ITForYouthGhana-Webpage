@@ -53,7 +53,6 @@ const ProgramGrid: React.FC<ProgramGridProps> = ({
               alt={program.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-hero-overlay"></div>
             <div className="absolute top-4 right-4">
               <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                 program.status === 'current' ? 'bg-success text-white' :

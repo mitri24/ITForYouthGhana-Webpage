@@ -56,59 +56,18 @@ const VolunteersProcess: React.FC = () => {
       />
       
       <div id="main-content" className="min-h-screen bg-white pt-24">
-        {/* Hero Section */}
-        <section className="hero-section relative py-24 bg-primary overflow-hidden">
-          <div className="absolute inset-0 bg-hero-overlay"></div>
-          <div className="container relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center text-white max-w-4xl mx-auto"
-            >
-              <h1 className="heading-xl text-white mb-6">
-                Your Volunteer Journey
-              </h1>
-              <p className="text-lead text-white/90 mb-8">
-                How It Works - For Volunteers
-              </p>
-              <p className="text-xl mb-12 text-white/80 leading-relaxed max-w-3xl mx-auto">
-                A clear, step-by-step path from application to active volunteering. We guide you every step of the way to make meaningful impact.
-              </p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-6 justify-center"
-              >
-                <motion.button
-                  className="btn btn-secondary"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleStartApplication}
-                >
-                  Start Application
-                </motion.button>
-                <motion.button
-                  className="btn btn-ghost"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => document.getElementById('volunteer-process')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  See Process
-                </motion.button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+        <Hero
+          title="Your Volunteer Journey"
+          subtitle="How It Works - For Volunteers"
+          description="A clear, step-by-step path from application to active volunteering. We guide you every step of the way to make meaningful impact."
+        />
         
-        <section id="volunteer-process" ref={ref} className="section bg-white">
+        <section ref={ref} className="section bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="relative timeline-container">
                 {/* Timeline Linie in der Mitte */}
-                <div className="timeline-line absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform -translate-x-1/2"></div>
+                <div className="timeline-line absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
                 
                 {steps.map((step, index) => (
                   <motion.div
@@ -123,23 +82,43 @@ const VolunteersProcess: React.FC = () => {
                     className={`relative mb-12 flex step-container ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                   >
                     {/* Timeline Punkt in der Mitte */}
-                    <div className="timeline-point absolute left-1/2 top-6 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold z-10">
+                    <div className="timeline-point absolute left-1/2 top-6 transform -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold z-10" style={{ backgroundColor: '#0c2d5a' }}>
                       {step.step}
                     </div>
                     
                     {/* Inhaltskarte - abwechselnd links und rechts */}
                     <div className={`content-card w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                      <div className="bg-white border border-primary/10 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                      <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full border p-6" style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}>
                         <div className={`flex flex-col header-container ${index % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'} sm:items-center sm:justify-between mb-3`}>
-                          <h3 className="heading-sm text-primary">{step.title}</h3>
-                          <span className="text-sm text-primary font-medium mt-1 sm:mt-0 bg-primary/10 px-2 py-1 rounded-full">{step.duration}</span>
+                          <h3 className="heading-sm" style={{ color: '#0c2d5a' }}>{step.title}</h3>
+                          <span className="text-sm font-medium mt-1 sm:mt-0 px-2 py-1 rounded-full" style={{ color: '#0c2d5a', backgroundColor: 'rgba(12, 45, 90, 0.1)' }}>{step.duration}</span>
                         </div>
-                        <p className="text-body text-neutral-700 mb-4 leading-relaxed">{step.description}</p>
+                        <p className="text-body text-gray-600 mb-4 leading-relaxed">{step.description}</p>
                         
                         {/* CTA-Button nur im ersten Schritt */}
                         {step.hasButton && (
                           <motion.button
-                            className={`btn btn-primary button-alignment ${index % 2 === 0 ? 'ml-auto' : ''}`}
+                            className={`button-alignment ${index % 2 === 0 ? 'ml-auto' : ''}`}
+                            style={{
+                              padding: '12px 24px',
+                              borderRadius: '50px',
+                              background: '#0c2d5a',
+                              color: 'white',
+                              border: 'none',
+                              fontWeight: '600',
+                              fontSize: '14px',
+                              cursor: 'pointer',
+                              boxShadow: '0 4px 15px rgba(12, 45, 90, 0.3)',
+                              transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)'
+                              e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.4)'
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                              e.currentTarget.style.boxShadow = '0 4px 15px rgba(12, 45, 90, 0.3)'
+                            }}
                             whileHover={window.innerWidth > 768 ? { scale: 1.05 } : {}}
                             whileTap={{ scale: 0.98 }}
                             transition={{ duration: 0.15 }}
@@ -164,16 +143,35 @@ const VolunteersProcess: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-center mt-16"
             >
-              <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8">
-                <h3 className="heading-md mb-4">Ready to Make a Difference?</h3>
-                <p className="text-lead mb-6 max-w-2xl mx-auto text-neutral-800">
+              <div className="rounded-2xl p-8 border" style={{ backgroundColor: 'rgba(12, 45, 90, 0.05)', borderColor: 'rgba(12, 45, 90, 0.1)' }}>
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Ready to Make a Difference?</h3>
+                <p className="text-lg mb-6 max-w-2xl mx-auto text-gray-700">
                   Join our community of passionate volunteers. Start your application today and begin making meaningful impact in Ghana's tech ecosystem.
                 </p>
                 <motion.button
-                  className="btn btn-primary"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleStartApplication}
+                  style={{
+                    padding: '16px 32px',
+                    borderRadius: '50px',
+                    background: '#0c2d5a',
+                    color: 'white',
+                    border: 'none',
+                    fontWeight: '600',
+                    fontSize: '16px',
+                    cursor: 'pointer',
+                    boxShadow: '0 8px 25px rgba(12, 45, 90, 0.3)',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(12, 45, 90, 0.4)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(12, 45, 90, 0.3)'
+                  }}
                 >
                   Begin Volunteer Application
                 </motion.button>
@@ -184,7 +182,7 @@ const VolunteersProcess: React.FC = () => {
       </div>
 
       {/* Mobile-optimized CSS with performance improvements */}
-      <style jsx>{`
+      <style>{`
         /* Performance optimizations for mobile */
         @media (max-width: 768px) {
           /* Enable hardware acceleration */
@@ -209,6 +207,7 @@ const VolunteersProcess: React.FC = () => {
           .timeline-line {
             left: 20px !important;
             transform: none !important;
+            background-color: rgba(12, 45, 90, 0.2) !important;
           }
           
           /* Alle Steps als single column auf Mobile */

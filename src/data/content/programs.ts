@@ -22,6 +22,8 @@ export interface Course {
   schedule: string;
   startDate: string;
   status?: string;
+  image: string;
+  description: string;
 }
 
 export interface FutureProgram {
@@ -53,7 +55,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Small classes of 15-20 students for personalized attention",
       skills: ["Python Programming", "JavaScript & Web Development", "React for User Interfaces", "Node.js for Servers", "Database Management", "Git & Version Control", "Basic Cloud Deployment", "Working in Teams"],
-      image: "/images/randomPictures/UX1.jpeg",
+      image: "/images/randomPictures/studentscodingback.jpg",
       highlights: ["Build 3-4 complete projects for your portfolio", "Guest speakers from local tech companies", "Job interview preparation and resume building", "Ongoing support after graduation"],
       careerOutcomes: ["Junior Software Developer", "Web Developer", "Frontend Developer", "Backend Developer"],
       realTalk: "This program is challenging and requires daily commitment. Most successful students spend 6-8 hours daily on coursework and practice.",
@@ -67,7 +69,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Hands-on learning with real business problems",
       skills: ["Excel for Data Analysis", "Python with Pandas & NumPy", "SQL for Databases", "Data Visualization", "Statistics Fundamentals", "Report Writing", "Power BI", "Presentation Skills"],
-      image: "/images/randomPictures/UX2.jpg",
+      image: "/images/randomPictures/studentpresenting.JPG",
       highlights: ["Work with data from local businesses and NGOs", "Create a portfolio of analysis projects", "Learn to present findings clearly", "Guest mentors from banks and research organizations"],
       careerOutcomes: ["Data Analyst", "Business Analyst", "Research Assistant", "Market Research Analyst"],
       realTalk: "Strong math skills are helpful but not required. We'll teach you the statistics you need. Attention to detail and curiosity about numbers are more important.",
@@ -81,7 +83,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Creative individuals who want to solve problems through design",
       skills: ["Design Fundamentals", "Figma Design Tool", "HTML & CSS", "Basic JavaScript", "User Research Methods", "Responsive Design", "Design Systems", "Client Communication"],
-      image: "/images/randomPictures/UX3.jpeg",
+      image: "/images/randomPictures/uXstudents.jpg",
       highlights: ["Design and build websites for real local businesses", "Learn to talk to users and understand their needs", "Build a strong portfolio showing your design process", "Freelancing and client management basics"],
       careerOutcomes: ["Web Designer", "UI/UX Designer", "Freelance Designer", "Digital Marketing Designer"],
       realTalk: "This program suits people who enjoy both creative and logical thinking. You don't need artistic experience, but curiosity about how people use technology is essential.",
@@ -140,7 +142,9 @@ export const programs: ProgramsData = {
       skills: ["Networking Fundamentals", "Router/Switch Configuration", "Windows Server", "Linux Administration", "Cloud Computing (AWS, Azure)"],
       schedule: "Morning, Evening & Weekend",
       startDate: "10/02/2025",
-      status: "Completed - Past Course"
+      status: "Completed - Past Course",
+      image: "/images/randomPictures/studentscodingback.jpg",
+      description: "Master network infrastructure and administration with hands-on training in modern networking technologies."
     },
     {
       title: "Computer Hardware & Software",
@@ -148,14 +152,18 @@ export const programs: ProgramsData = {
       skills: ["Hardware Assembly", "Diagnostics", "OS Installation", "Mobile Device Repair", "Troubleshooting"],
       schedule: "Morning, Evening & Weekend",
       startDate: "10/02/2025",
-      status: "Completed - Past Course"
+      status: "Completed - Past Course",
+      image: "/images/randomPictures/studentpresenting.JPG",
+      description: "Comprehensive training in computer hardware assembly, diagnostics, and system maintenance."
     },
     {
       title: "Secretarial & Database Management",
       duration: "6 months",
       skills: ["Microsoft Office Advanced", "Access Database", "Business Communication", "Project Management"],
       schedule: "Morning, Evening & Weekend", 
-      startDate: "10/02/2025"
+      startDate: "10/02/2025",
+      image: "/images/randomPictures/uXstudents.jpg",
+      description: "Professional office skills training with focus on database management and business communication."
     },
     {
       title: "Short-Term Programs",
@@ -163,7 +171,9 @@ export const programs: ProgramsData = {
       skills: ["Coding Fundamentals", "Basic Office Skills", "Web Design Basics", "Computer Introduction"],
       schedule: "Flexible scheduling",
       startDate: "Monthly intake",
-      status: "Completed - Past Course"
+      status: "Completed - Past Course",
+      image: "/images/randomPictures/UX4.jpg",
+      description: "Intensive short-term courses covering essential tech skills for quick career advancement."
     }
   ],
   future: [

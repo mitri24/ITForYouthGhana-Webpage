@@ -3,8 +3,7 @@ import { motion } from 'framer-motion'
 
 const PartnersHero: React.FC = () => {
   return (
-    <section className="relative py-24 bg-primary overflow-hidden">
-      <div className="absolute inset-0 bg-hero-overlay"></div>
+    <section className="relative py-24 overflow-hidden" style={{ backgroundColor: '#0c2d5a' }}>
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -51,8 +51,8 @@ const Businesses: React.FC = () => {
         <section id="partnership-options" className="section bg-white">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="heading-xl mb-6 text-primary">Partnership Opportunities</h2>
-              <p className="text-lead max-w-3xl mx-auto">
+              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Partnership Opportunities</h2>
+              <p className="text-lead max-w-3xl mx-auto text-neutral-700">
                 Discover various ways your organization can support digital inclusion while achieving your goals
               </p>
             </div>
@@ -71,7 +71,7 @@ const Businesses: React.FC = () => {
                   <div className="card-body">
                     <div className="flex items-center mb-4">
                       
-                      <h3 className="heading-sm text-primary group-hover:text-accent transition-colors duration-300">
+                      <h3 className="heading-sm group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
                         {partnership.title}
                       </h3>
                     </div>
@@ -82,15 +82,22 @@ const Businesses: React.FC = () => {
                       <h4 className="font-semibold text-neutral-800 mb-3">Key Benefits:</h4>
                       <div className="flex flex-wrap gap-2">
                         {partnership.benefits.map((benefit: string, idx: number) => (
-                          <span key={idx} className="badge badge-primary text-xs">
+                          <span 
+                            key={idx} 
+                            className="text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                            style={{ backgroundColor: 'rgba(12, 45, 90, 0.8)' }}
+                          >
                             {benefit}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="bg-primary/5 rounded-lg p-3">
-                      <p className="text-sm font-semibold text-primary">Click to learn more about this partnership opportunity</p>
+                    <div 
+                      className="rounded-lg p-3"
+                      style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+                    >
+                      <p className="text-sm font-semibold" style={{ color: '#0c2d5a' }}>Click to learn more about this partnership opportunity</p>
                     </div>
                   </div>
                 </motion.div>
@@ -104,39 +111,22 @@ const Businesses: React.FC = () => {
            transition={{ duration: 0.8, delay: 0.6 }}
            className="text-center"
         >
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
-            <h3 className="heading-md mb-4 text-primary">Ready to Make an Impact?</h3>
+          <div 
+            className="bg-gradient-to-br rounded-2xl p-12 border shadow-lg"
+            style={{ 
+              backgroundColor: 'rgba(12, 45, 90, 0.05)',
+              borderColor: 'rgba(12, 45, 90, 0.1)'
+            }}
+          >
+            <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Ready to Make an Impact?</h3>
             <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
             Join us in transforming lives through technology education. Every partnership contributes to building Ghana's digital future.
             </p>
             <motion.a
               href="/contact"
-              className="inline-block"
-              style={{
-                padding: '16px 32px',
-                fontSize: '16px',
-                fontWeight: '600',
-                textDecoration: 'none',
-                borderRadius: '50px',
-                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
-                color: 'white',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                backdropFilter: 'blur(10px)'
-              }}
+              className="btn btn-primary inline-block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
-                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
-              }}
             >
               Partner With Us
             </motion.a>
@@ -168,27 +158,33 @@ const Businesses: React.FC = () => {
                 <div className="grid gap-3">
                   {selectedPartnership.detailContent?.whatWeOffer?.map((offer: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
                       <p className="text-body">{offer}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-accent/5 rounded-xl p-6">
-                <h3 className="heading-md mb-4">What We Seek</h3>
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>What We Seek</h3>
                 <div className="grid gap-3">
                   {selectedPartnership.detailContent?.whatWeSeek?.map((seek: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
                       <p className="text-body">{seek}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-success/5 rounded-xl p-6">
-                <h3 className="heading-md mb-4">Success Stories</h3>
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Success Stories</h3>
                 <p className="text-body font-medium">
                   {selectedPartnership.detailContent?.successStories}
                 </p>
@@ -201,8 +197,11 @@ const Businesses: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-neutral/5 rounded-xl p-6">
-                <h3 className="heading-md mb-4">Requirements</h3>
+              <div 
+                className="rounded-xl p-6"
+                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Requirements</h3>
                 <p className="text-body">
                   {selectedPartnership.detailContent?.requirements}
                 </p>
@@ -303,7 +302,7 @@ const PartnersSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-xl mb-6 text-primary">Our Partners</h2>
+          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Our Partners</h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Working together with organizations that share our vision of empowering youth through technology education and creating sustainable impact across Ghana.
           </p>
@@ -334,7 +333,7 @@ const PartnersSection: React.FC = () => {
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100 group"
             >
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50 group-hover:bg-primary/5 transition-colors duration-300">
+                <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50 transition-colors duration-300">
                   <img 
                     src={partner.image} 
                     alt={partner.name}
@@ -343,10 +342,10 @@ const PartnersSection: React.FC = () => {
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xs text-primary font-semibold mb-1 opacity-70">
+                  <p className="text-xs font-semibold mb-1 opacity-70" style={{ color: '#0c2d5a' }}>
                     {partner.type}
                   </p>
-                  <h4 className="text-sm font-medium text-neutral-700 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-sm font-medium text-neutral-700 group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
                     {partner.name}
                   </h4>
                 </div>
@@ -361,39 +360,22 @@ const PartnersSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-12 border border-primary/10 shadow-lg">
-            <h3 className="heading-md mb-4 text-primary">Become a Partner</h3>
+          <div 
+            className="bg-gradient-to-br rounded-2xl p-12 border shadow-lg"
+            style={{ 
+              backgroundColor: 'rgba(12, 45, 90, 0.05)',
+              borderColor: 'rgba(12, 45, 90, 0.1)'
+            }}
+          >
+            <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Become a Partner</h3>
             <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
               Join our network of partners and help us expand our impact. Together, we can create more opportunities for Ghana's youth to thrive in the digital economy.
             </p>
             <motion.a
               href="/contact"
-              className="inline-block"
-              style={{
-                padding: '16px 32px',
-                fontSize: '16px',
-                fontWeight: '600',
-                textDecoration: 'none',
-                borderRadius: '50px',
-                background: 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)',
-                color: 'white',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 8px 25px rgba(1, 82, 190, 0.3)',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                backdropFilter: 'blur(10px)'
-              }}
+              className="btn btn-primary inline-block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)'
-                e.currentTarget.style.boxShadow = '0 15px 35px rgba(1, 82, 190, 0.4)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #014aa8 0%, #013d8c 100%)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(1, 82, 190, 0.3)'
-                e.currentTarget.style.background = 'linear-gradient(135deg, #0152be 0%, #014aa8 100%)'
-              }}
             >
               Partner With Us
             </motion.a>

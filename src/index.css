@@ -514,14 +514,14 @@ body {
   }
 
   .blue-overlay {
-    background: linear-gradient(rgba(12, 45, 90, 0.7), rgba(12, 45, 90, 0.8));
+    background: linear-gradient(135deg, rgba(1, 82, 190, 0.5) 0%, rgba(10, 26, 58, 0.6) 100%);
   }
 
   .blue-overlay-bg {
     background: linear-gradient(rgba(12, 45, 90, 0.7), rgba(12, 45, 90, 0.8)), url('/images/randomPictures/UX4.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   .hero-content {
