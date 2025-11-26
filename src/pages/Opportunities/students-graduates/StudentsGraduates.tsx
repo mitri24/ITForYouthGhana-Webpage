@@ -18,7 +18,7 @@ const StudentsGraduates: React.FC = () => {
     <>
       <SEO
         title="For Students & Graduates - IT for Youth Ghana"
-        description="Transform your career with our comprehensive tech training programs. From coding bootcamps to data analytics - build job-ready skills with 85% employment rate."
+        description="Transform your career with our comprehensive tech training programs. From coding bootcamps to data analytics - build job-ready skills for Ghana's growing digital economy."
         canonical="/opportunities/students-graduates"
       />
       

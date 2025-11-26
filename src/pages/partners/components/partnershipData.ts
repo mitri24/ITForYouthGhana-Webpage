@@ -3,6 +3,7 @@ export interface PartnershipOption {
   title: string
   description: string
   icon: string
+  image: string
   benefits: string[]
   detailContent: {
     overview: string
@@ -19,6 +20,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Educational Partnerships',
     description: 'Partner with schools, universities, and educational institutions to integrate technology education into curricula.',
     icon: 'ED',
+    image: '/images/randomPictures/studentslistening.JPG',
     benefits: ['Curriculum integration', 'Teacher training', 'Student mentorship', 'Resource sharing'],
     detailContent: {
       overview: 'Our Educational Partnerships program works with schools, universities, and other educational institutions to integrate comprehensive technology education into existing curricula and create new pathways for students.',
@@ -45,6 +47,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Corporate Sponsorship',
     description: 'Join us as a corporate sponsor to support our programs and gain visibility while making a social impact.',
     icon: 'CO',
+    image: '/images/randomPictures/graduationspeaking.JPG',
     benefits: ['Brand visibility', 'CSR impact', 'Tax benefits', 'Employee engagement'],
     detailContent: {
       overview: 'Our Corporate Sponsorship program offers businesses meaningful opportunities to support digital inclusion while achieving corporate social responsibility goals and gaining valuable brand exposure.',
@@ -73,6 +76,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Government Collaboration',
     description: 'Work with government agencies to scale digital inclusion initiatives and influence policy development.',
     icon: 'GO',
+    image: '/images/randomPictures/peterTalking.JPG',
     benefits: ['Policy influence', 'Scale impact', 'Resource access', 'Legitimacy'],
     detailContent: {
       overview: 'Our Government Collaboration program works with local, regional, and national government agencies to scale digital inclusion initiatives and create supportive policy environments for technology education.',
@@ -100,6 +104,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'NGO & Foundation Partnerships',
     description: 'Collaborate with other NGOs and foundations to maximize impact and share resources.',
     icon: 'NG',
+    image: '/images/randomPictures/groupworkstudents.jpg',
     benefits: ['Shared resources', 'Expanded reach', 'Knowledge exchange', 'Joint funding'],
     detailContent: {
       overview: 'Our NGO & Foundation Partnerships foster collaboration with like-minded organizations to maximize impact, share resources, and create comprehensive solutions for digital inclusion challenges.',
@@ -127,6 +132,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'International Development',
     description: 'Partner with international organizations to bring global expertise and funding to local programs.',
     icon: 'IN',
+    image: '/images/randomPictures/maingraduationpic.PNG',
     benefits: ['Global expertise', 'International funding', 'Knowledge transfer', 'Best practices'],
     detailContent: {
       overview: 'Our International Development partnerships connect us with global organizations, bringing international expertise, funding, and best practices to enhance our local programs and expand our impact.',
@@ -155,6 +161,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Technology Partners',
     description: 'Collaborate with technology companies to provide cutting-edge tools, training, and career pathways.',
     icon: 'TE',
+    image: '/images/randomPictures/studentscodingback.jpg',
     benefits: ['Latest technology', 'Expert training', 'Career pathways', 'Innovation'],
     detailContent: {
       overview: 'Our Technology Partnerships connect us with leading technology companies to provide our participants with access to cutting-edge tools, expert training, and direct pathways to technology careers.',
@@ -174,7 +181,7 @@ export const partnershipOptions: PartnershipOption[] = [
         'Equipment and infrastructure support',
         'Innovation challenges and competitions'
       ],
-      successStories: 'Our technology partners have provided software worth over $100,000, created 200+ internship opportunities, and enabled 85% of our graduates to secure technology employment or start their own tech businesses.',
+      successStories: 'Our technology partners have provided software worth over $100,000, created 200+ internship opportunities, and enabled our graduates to secure technology employment or start their own tech businesses.',
       nextSteps: 'Technology assessment → Partnership proposal → Pilot program → Training integration → Career pathway development',
       requirements: 'Technology company status, commitment to youth development, willingness to provide technical training, interest in African tech talent'
     }

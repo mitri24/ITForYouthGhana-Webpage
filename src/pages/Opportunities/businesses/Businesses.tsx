@@ -1,32 +1,23 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
-import { motion, useInView } from 'framer-motion'
-import Modal from '../../../components/Modal'
+import { motion } from 'framer-motion'
 import { partnershipOptions } from '../../partners/components/partnershipData'
-import { navigateToPage } from '../../../utils/navigation'
 
 const Businesses: React.FC = () => {
-  const [selectedPartnership, setSelectedPartnership] = useState<any>(null)
-  const [isPartnershipModalOpen, setIsPartnershipModalOpen] = useState(false)
-
-  const handlePartnerWithUs = () => {
-    navigateToPage('/contact')
+  // Map partnership titles to URLs
+  const getPartnershipUrl = (title: string) => {
+    const urlMap: { [key: string]: string } = {
+      'Educational Partnerships': '/partnerships/educational-partnerships',
+      'Corporate Sponsorship': '/partnerships/corporate-sponsorship',
+      'Government Collaboration': '/partnerships/government-collaboration',
+      'NGO & Foundation Partnerships': '/partnerships/ngo-and-foundation-partnerships',
+      'International Development': '/partnerships/international-development',
+      'Technology Partners': '/partnerships/technology-partners'
+    }
+    return urlMap[title] || '/contact'
   }
 
-  const handleLearnMore = () => {
-    document.getElementById('partnership-options')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const openPartnershipModal = (partnership: any) => {
-    setSelectedPartnership(partnership)
-    setIsPartnershipModalOpen(true)
-  }
-
-  const closePartnershipModal = () => {
-    setIsPartnershipModalOpen(false)
-    setSelectedPartnership(null)
-  }
 
   return (
     <>
@@ -36,353 +27,194 @@ const Businesses: React.FC = () => {
         canonical="/opportunities/businesses"
       />
       
-      <div className="min-h-screen bg-white pt-24">
+      <div className="min-h-screen">
         <Hero
           title="Partner with Purpose"
           subtitle="For Businesses"
           description="Transform lives while advancing your business goals through meaningful partnerships that create lasting impact in Ghana's tech ecosystem."
-          primaryCta={{ text: "Partner With Us", action: handlePartnerWithUs }}
-         
+          primaryCta={{ text: "Partner With Us", action: () => window.location.href = '/contact' }}
         />
 
-         {/* Partners Section */}
-         <PartnersSection />
-        
-        <section id="partnership-options" className="section bg-white">
+        {/* Programs & Initiatives Section - Homepage Style */}
+        <section className="section bg-white">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Partnership Opportunities</h2>
               <p className="text-lead max-w-3xl mx-auto text-neutral-700">
-                Discover various ways your organization can support digital inclusion while achieving your goals
+                Collaborate with us to create meaningful impact while achieving your business goals and corporate social responsibility objectives.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {partnershipOptions.map((partnership, index) => (
                 <motion.div
                   key={partnership.title}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className="card cursor-pointer group"
-                  onClick={() => openPartnershipModal(partnership)}
+                  whileHover={{ y: -8 }}
+                  className="h-full"
                 >
-                  <div className="card-body">
-                    <div className="flex items-center mb-4">
-                      
-                      <h3 className="heading-sm group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
-                        {partnership.title}
-                      </h3>
+                  <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full border flex flex-col" style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}>
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden rounded-t-xl flex-shrink-0">
+                      <img 
+                        src={partnership.image} 
+                        alt={partnership.title}
+                        className="w-full h-full object-cover transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 rounded-t-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
                     </div>
-                    
-                    <p className="text-body mb-6">{partnership.description}</p>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-neutral-800 mb-3">Key Benefits:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {partnership.benefits.map((benefit: string, idx: number) => (
-                          <span 
-                            key={idx} 
-                            className="text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm"
-                            style={{ backgroundColor: 'rgba(12, 45, 90, 0.8)' }}
-                          >
-                            {benefit}
-                          </span>
-                        ))}
+
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="flex-grow">
+                        {/* Title */}
+                        <h3 className="heading-sm mb-4 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
+                          {partnership.title}
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-body text-gray-600 leading-relaxed">
+                          {partnership.description}
+                        </p>
                       </div>
-                    </div>
-                    
-                    <div 
-                      className="rounded-lg p-3"
-                      style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-                    >
-                      <p className="text-sm font-semibold" style={{ color: '#0c2d5a' }}>Click to learn more about this partnership opportunity</p>
+
+                      {/* Button - Always at bottom */}
+                      <div className="mt-6">
+                        <motion.a
+                          href={getPartnershipUrl(partnership.title)}
+                          className="w-full text-center block"
+                          style={{
+                            padding: '12px 24px',
+                            borderRadius: '50px',
+                            background: 'white',
+                            color: '#0c2d5a',
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            border: '2px solid #0c2d5a',
+                            boxShadow: '0 6px 20px rgba(12, 45, 90, 0.2)',
+                            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                            cursor: 'pointer',
+                            textDecoration: 'none'
+                          }}
+                          whileHover={{
+                            y: -2,
+                            scale: 1.02
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.boxShadow = '0 10px 25px rgba(12, 45, 90, 0.3)'
+                            e.currentTarget.style.background = '#0c2d5a'
+                            e.currentTarget.style.color = 'white'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(12, 45, 90, 0.2)'
+                            e.currentTarget.style.background = 'white'
+                            e.currentTarget.style.color = '#0c2d5a'
+                          }}
+                        >
+                          Learn More
+                        </motion.a>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
-            
-            <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.6 }}
-           className="text-center"
-        >
-          <div 
-            className="bg-gradient-to-br rounded-2xl p-12 border shadow-lg"
-            style={{ 
-              backgroundColor: 'rgba(12, 45, 90, 0.05)',
-              borderColor: 'rgba(12, 45, 90, 0.1)'
-            }}
-          >
-            <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Ready to Make an Impact?</h3>
-            <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
-            Join us in transforming lives through technology education. Every partnership contributes to building Ghana's digital future.
-            </p>
-            <motion.a
-              href="/contact"
-              className="btn btn-primary inline-block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Partner With Us
-            </motion.a>
-          </div>
-        </motion.div>
-
-          
           </div>
         </section>
 
-        {/* Partnership Details Modal */}
-        <Modal
-          isOpen={isPartnershipModalOpen}
-          onClose={closePartnershipModal}
-          title={selectedPartnership?.title || ''}
-          size="large"
-        >
-          {selectedPartnership && (
-            <div className="space-y-8">
-              <div>
-                <h3 className="heading-md mb-4">Partnership Overview</h3>
-                <p className="text-body leading-relaxed">
-                  {selectedPartnership.detailContent?.overview}
-                </p>
-              </div>
 
-              <div>
-                <h3 className="heading-md mb-4">What We Offer</h3>
-                <div className="grid gap-3">
-                  {selectedPartnership.detailContent?.whatWeOffer?.map((offer: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
-                      <p className="text-body">{offer}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>What We Seek</h3>
-                <div className="grid gap-3">
-                  {selectedPartnership.detailContent?.whatWeSeek?.map((seek: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
-                      <p className="text-body">{seek}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Success Stories</h3>
-                <p className="text-body font-medium">
-                  {selectedPartnership.detailContent?.successStories}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="heading-md mb-4">Partnership Process</h3>
-                <p className="text-body">
-                  {selectedPartnership.detailContent?.nextSteps}
-                </p>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Requirements</h3>
-                <p className="text-body">
-                  {selectedPartnership.detailContent?.requirements}
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-neutral-200">
-                <motion.button
-                  className="btn btn-primary flex-1"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    closePartnershipModal()
-                    window.location.href = '/contact'
-                  }}
-                >
-                  Start Partnership Discussion
-                </motion.button>
-                <motion.button
-                  className="btn btn-secondary flex-1"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    closePartnershipModal()
-                    window.location.href = 'mailto:partnerships@itforyouthghana.org?subject=Partnership Inquiry - ' + encodeURIComponent(selectedPartnership.title)
-                  }}
-                >
-                  Email Partnership Team
-                </motion.button>
-              </div>
+        {/* Partners Section */}
+        <section className="section bg-white">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Our Partners</h2>
+              <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+                Working together with organizations that share our vision of empowering youth through technology education and creating sustainable impact across Ghana.
+              </p>
             </div>
-          )}
-        </Modal>
 
-       
-      </div>
-    </>
-  )
-}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mb-20">
+              {[
+                '/images/partnerorga/Download.png',
+                '/images/partnerorga/Download (1).png',
+                '/images/partnerorga/Download (2).png',
+                '/images/partnerorga/Download (3).png',
+                '/images/partnerorga/Download (4).png',
+                '/images/partnerorga/Download (5).png',
+                '/images/partnerorga/Download (6).png',
+                '/images/partnerorga/Download.jpeg',
+                '/images/partnerorga/Download (1).jpeg'
+              ].map((logo, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.3 + index * 0.1,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.05,
+                    transition: { duration: 0.3 } 
+                  }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100"
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50">
+                      <img 
+                        src={logo} 
+                        alt="Strategic Partner Logo"
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                    
+                    <div className="text-center">
+                      <p className="text-xs font-semibold opacity-70" style={{ color: '#0c2d5a' }}>
+                        Strategic Partner
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-const PartnersSection: React.FC = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
-  const partners = [
-    {
-      name: 'Partner Organization 1',
-      image: '/images/partnerorga/Download.png',
-      type: 'Strategic Partner'
-    },
-    {
-      name: 'Partner Organization 2', 
-      image: '/images/partnerorga/Download (1).png',
-      type: 'Technology Partner'
-    },
-    {
-      name: 'Partner Organization 3',
-      image: '/images/partnerorga/Download (2).png',
-      type: 'Educational Partner'
-    },
-    {
-      name: 'Partner Organization 4',
-      image: '/images/partnerorga/Download (3).png',
-      type: 'Community Partner'
-    },
-    {
-      name: 'Partner Organization 5',
-      image: '/images/partnerorga/Download (4).png',
-      type: 'Strategic Partner'
-    },
-    {
-      name: 'Partner Organization 6',
-      image: '/images/partnerorga/Download (5).png',
-      type: 'Technology Partner'
-    },
-    {
-      name: 'Partner Organization 7',
-      image: '/images/partnerorga/Download (6).png',
-      type: 'Educational Partner'
-    },
-    {
-      name: 'Partner Organization 8',
-      image: '/images/partnerorga/Download.jpeg',
-      type: 'Community Partner'
-    },
-    {
-      name: 'Partner Organization 9',
-      image: '/images/partnerorga/Download (1).jpeg',
-      type: 'Strategic Partner'
-    }
-  ]
-
-  return (
-    <section ref={ref} className="section bg-white">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Our Partners</h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Working together with organizations that share our vision of empowering youth through technology education and creating sustainable impact across Ghana.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8"
-        >
-          {partners.map((partner, index) => (
             <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.3 + index * 0.1,
-                type: "spring",
-                stiffness: 100
-              }}
-              whileHover={{ 
-                y: -10, 
-                scale: 1.05,
-                transition: { duration: 0.3 } 
-              }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100 group"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
             >
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg bg-neutral-50 transition-colors duration-300">
-                  <img 
-                    src={partner.image} 
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain transition-all duration-300"
-                  />
-                </div>
-                
-                <div className="text-center">
-                  <p className="text-xs font-semibold mb-1 opacity-70" style={{ color: '#0c2d5a' }}>
-                    {partner.type}
-                  </p>
-                  <h4 className="text-sm font-medium text-neutral-700 group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
-                    {partner.name}
-                  </h4>
-                </div>
+              <div 
+                className="bg-gradient-to-br rounded-2xl p-12 border shadow-lg"
+                style={{ 
+                  backgroundColor: 'rgba(12, 45, 90, 0.05)',
+                  borderColor: 'rgba(12, 45, 90, 0.1)'
+                }}
+              >
+                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Become a Partner</h3>
+                <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
+                  Join our network of partners and help us expand our impact. Together, we can create more opportunities for Ghana's youth to thrive in the digital economy.
+                </p>
+                <motion.a
+                  href="/contact"
+                  className="btn btn-primary inline-block"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Partner With Us
+                </motion.a>
               </div>
             </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-20"
-        >
-          <div 
-            className="bg-gradient-to-br rounded-2xl p-12 border shadow-lg"
-            style={{ 
-              backgroundColor: 'rgba(12, 45, 90, 0.05)',
-              borderColor: 'rgba(12, 45, 90, 0.1)'
-            }}
-          >
-            <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Become a Partner</h3>
-            <p className="text-lg mb-6 text-neutral-700 max-w-2xl mx-auto">
-              Join our network of partners and help us expand our impact. Together, we can create more opportunities for Ghana's youth to thrive in the digital economy.
-            </p>
-            <motion.a
-              href="/contact"
-              className="btn btn-primary inline-block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Partner With Us
-            </motion.a>
           </div>
-        </motion.div>
+        </section>
+
       </div>
-    </section>
+    </>
   )
 }
 

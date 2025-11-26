@@ -34,12 +34,7 @@ export const programs: Program[] = [
         'Create pathways to employment and entrepreneurship',
         'Build sustainable tech communities in remote areas'
       ],
-      impact: {
-        participants: '850+ youth trained',
-        communities: '45 communities reached',
-        employmentRate: '78% job placement rate',
-        locations: 'Greater Accra, Ashanti, Northern, Upper East regions'
-      },
+      impact: {},
       approach: 'We deploy mobile training units equipped with laptops, internet connectivity, and solar power systems to reach remote communities. Our certified trainers provide 8-week intensive courses covering computer literacy, basic programming, digital marketing, and entrepreneurship skills.',
       success: 'Participants have gone on to start their own tech businesses, secure employment in IT companies, and become community tech leaders, creating a multiplier effect in their local areas.'
     }
@@ -59,12 +54,7 @@ export const programs: Program[] = [
         'Create female role models in technology',
         'Address cultural barriers to women in tech'
       ],
-      impact: {
-        participants: '420+ young women trained',
-        retention: '92% program completion rate',
-        employment: '85% employment/entrepreneurship success',
-        mentorship: '150+ ongoing mentorship relationships'
-      },
+      impact: {},
       approach: 'We offer women-only training sessions, female mentors, childcare support for mothers, and flexible scheduling. Our curriculum includes technical skills, confidence building, public speaking, and leadership development.',
       success: 'Our female graduates have founded successful tech startups, joined major technology companies as developers and designers, and become advocates for women in technology across West Africa.'
     }
@@ -84,12 +74,7 @@ export const programs: Program[] = [
         'Develop local tech leadership',
         'Create rural innovation hubs'
       ],
-      impact: {
-        centers: '25 permanent tech centers established',
-        participants: '600+ rural youth trained',
-        partnerships: '40+ local school partnerships',
-        connectivity: '15 communities connected to high-speed internet'
-      },
+      impact: {},
       approach: 'We establish permanent learning centers in partnership with local schools and community organizations. Each center receives ongoing support, internet connectivity, and regular visits from our mobile training teams.',
       success: 'Rural communities now have access to online learning platforms, e-commerce opportunities, and remote work possibilities. Many participants now work remotely for companies in Accra and internationally.'
     }
@@ -109,12 +94,7 @@ export const programs: Program[] = [
         'Develop solutions for local challenges',
         'Build a strong tech community network'
       ],
-      impact: {
-        participants: '300+ developers annually',
-        solutions: '45+ innovative solutions developed',
-        startups: '12 startups launched from challenge',
-        investment: 'GHS 2.4M in funding secured by winners'
-      },
+      impact: {},
       approach: 'Our 48-hour hackathon brings together developers, designers, and entrepreneurs to work on real challenges submitted by local organizations. Participants receive mentorship from industry experts and access to cutting-edge development tools.',
       success: 'Challenge participants have launched successful startups, been recruited by major tech companies, and developed solutions now used by government agencies and NGOs across West Africa.'
     }
@@ -134,12 +114,7 @@ export const programs: Program[] = [
         'Develop local tech talent pipeline',
         'Support career advancement and leadership'
       ],
-      impact: {
-        graduates: '450+ academy graduates',
-        employment: '88% job placement rate',
-        salary: 'Average 250% salary increase post-graduation',
-        companies: 'Graduates working at 120+ companies'
-      },
+      impact: {},
       approach: 'Our intensive 6-month programs combine theoretical learning with hands-on projects. Students work on real client projects, receive career counseling, and participate in job placement programs with our partner companies.',
       success: 'Academy graduates are now working as senior developers, project managers, and tech entrepreneurs across Ghana and internationally. Many have been promoted to leadership positions within 2 years of graduation.'
     }
@@ -159,12 +134,7 @@ export const programs: Program[] = [
         'Create entrepreneur community and networks',
         'Develop local innovation ecosystem'
       ],
-      impact: {
-        startups: '85+ startups incubated',
-        funding: 'GHS 15M+ in funding secured',
-        jobs: '400+ jobs created by alumni startups',
-        survival: '78% startup survival rate after 3 years'
-      },
+      impact: {},
       approach: 'We provide 12-month incubation programs including workspace, mentorship, legal support, and access to investor networks. Entrepreneurs receive training in business development, marketing, finance, and scaling strategies.',
       success: 'Hub alumni have launched successful companies serving millions of users across Africa, attracted international investment, and created hundreds of jobs for young Ghanaians in the tech sector.'
     }

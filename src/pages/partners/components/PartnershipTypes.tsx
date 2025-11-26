@@ -1,67 +1,83 @@
-import React, { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
-import PartnerCard from './PartnerCard'
-import PartnershipModal from './PartnershipModal'
-import { partnershipOptions, PartnershipOption } from './partnershipData'
+import React from 'react'
+import { motion } from 'framer-motion'
+import { partnershipOptions } from './partnershipData'
 
 interface PartnershipTypesProps {
   className?: string
+  onPartnershipClick?: (partnership: any) => void
 }
 
-const PartnershipTypes: React.FC<PartnershipTypesProps> = ({ className = '' }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
-  const [selectedPartnership, setSelectedPartnership] = useState<PartnershipOption | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = (partnership: PartnershipOption) => {
-    setSelectedPartnership(partnership)
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-    setSelectedPartnership(null)
+const PartnershipTypes: React.FC<PartnershipTypesProps> = ({ 
+  className = '',
+  onPartnershipClick
+}) => {
+  const handlePartnershipClick = (partnership: any) => {
+    if (onPartnershipClick) {
+      onPartnershipClick(partnership)
+    } else {
+      // Fallback to navigation
+      const path = `/partnerships/${partnership.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`
+      window.location.href = path
+    }
   }
 
   return (
-    <>
-      <section ref={ref} className={`section bg-neutral-50 ${className}`}>
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="heading-xl mb-6">Partnership Opportunities</h2>
-            <p className="text-lead text-center max-w-3xl mx-auto">
-              Discover how your organization can partner with us to expand digital inclusion and create meaningful impact in Ghana's tech ecosystem.
-            </p>
-          </motion.div>
-
-          {/* Partnership Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partnershipOptions.map((partnership, index) => (
-              <PartnerCard
-                key={partnership.title}
-                partnership={partnership}
-                index={index}
-                isInView={isInView}
-                onCardClick={openModal}
-              />
-            ))}
-          </div>
+    <section className={`section bg-white ${className}`} id="partnership-options">
+      <div className="container">
+        <div className="text-center mb-16">
+          <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Partnership Opportunities</h2>
+          <p className="text-lead max-w-3xl mx-auto text-neutral-700">
+            Discover various ways your organization can support digital inclusion while achieving your goals
+          </p>
         </div>
-      </section>
 
-      {/* Partnership Details Modal */}
-      <PartnershipModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        partnership={selectedPartnership}
-      />
-    </>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {partnershipOptions.map((partnership, index) => (
+            <motion.div
+              key={partnership.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              className="card cursor-pointer group"
+              onClick={() => handlePartnershipClick(partnership)}
+            >
+              <div className="card-body">
+                <div className="flex items-center mb-4">
+                  <h3 className="heading-sm group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
+                    {partnership.title}
+                  </h3>
+                </div>
+                
+                <p className="text-body mb-6">{partnership.description}</p>
+                
+                <div className="mb-6">
+                  <h4 className="font-semibold text-neutral-800 mb-3">Key Benefits:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {partnership.benefits.map((benefit: string, idx: number) => (
+                      <span 
+                        key={idx} 
+                        className="text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                        style={{ backgroundColor: 'rgba(12, 45, 90, 0.8)' }}
+                      >
+                        {benefit}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div 
+                  className="rounded-lg p-3"
+                  style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
+                >
+                  <p className="text-sm font-semibold" style={{ color: '#0c2d5a' }}>Click to learn more about this partnership opportunity</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 

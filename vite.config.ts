@@ -45,6 +45,10 @@ export default defineConfig({
   server: {
     // Enable compression
     open: true,
-    port: 3000
+    port: 3000,
+    // HMR configuration to fix WebSocket issues
+    hmr: {
+      port: 24678
+    }
   }
 })

@@ -27,6 +27,15 @@ const Error500 = React.lazy(() => import('./pages/Error500'))
 
 // Program pages
 const ProgramsPage = React.lazy(() => import('./pages/programs/Programs'))
+const ProgramDetail = React.lazy(() => import('./components/programs/ProgramDetail'))
+
+// Partnership pages
+const EducationalPartnerships = React.lazy(() => import('./pages/partnerships/educational-partnerships/EducationalPartnerships'))
+const CorporateSponsorship = React.lazy(() => import('./pages/partnerships/corporate-sponsorship/CorporateSponsorship'))
+const GovernmentCollaboration = React.lazy(() => import('./pages/partnerships/government-collaboration/GovernmentCollaboration'))
+const NgoAndFoundationPartnerships = React.lazy(() => import('./pages/partnerships/ngo-and-foundation-partnerships/NgoAndFoundationPartnerships'))
+const InternationalDevelopment = React.lazy(() => import('./pages/partnerships/international-development/InternationalDevelopment'))
+const TechnologyPartners = React.lazy(() => import('./pages/partnerships/technology-partners/TechnologyPartners'))
 
 // Loading component
 const PageLoading: React.FC = () => (
@@ -42,7 +51,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router 
-        basename="/ITForYouthGhana-Webpage"
+        basename={import.meta.env.DEV ? "" : "/ITForYouthGhana-Webpage"}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
@@ -74,7 +83,14 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/donate" element={<Donate />} />
                 <Route path="/partners" element={<Partners />} />
+                <Route path="/partnerships/educational-partnerships" element={<EducationalPartnerships />} />
+                <Route path="/partnerships/corporate-sponsorship" element={<CorporateSponsorship />} />
+                <Route path="/partnerships/government-collaboration" element={<GovernmentCollaboration />} />
+                <Route path="/partnerships/ngo-and-foundation-partnerships" element={<NgoAndFoundationPartnerships />} />
+                <Route path="/partnerships/international-development" element={<InternationalDevelopment />} />
+                <Route path="/partnerships/technology-partners" element={<TechnologyPartners />} />
                 <Route path="/programs" element={<ProgramsPage />} />
+                <Route path="/programs/:programId" element={<ProgramDetail />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/tech-empowerment" element={<TechEmpowerment />} />
                 <Route path="/404" element={<Error404 />} />

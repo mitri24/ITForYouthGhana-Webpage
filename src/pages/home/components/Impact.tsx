@@ -11,22 +11,19 @@ const Impact: React.FC = () => {
       title: 'For Students & Graduates',
       description: 'Professional 6-month tech training programs with job placement support and real-world project experience.',
       image: '/images/randomPictures/girlstaslkingUX.jpg',
-      link: '/opportunities/students-graduates',
-      features: ['Software Development', 'Data Analytics', 'UI/UX Design']
+      link: '/opportunities/students-graduates'
     },
     {
       title: 'For Businesses',  
       description: 'Access to job-ready tech talent, corporate training programs and strategic partnership opportunities.',
       image: '/images/randomPictures/whiteLady.jpg',
-      link: '/opportunities/businesses',
-      features: ['Talent Pipeline', 'Corporate Training', 'CSR Partnerships']
+      link: '/opportunities/businesses'
     },
     {
       title: 'For Volunteers',
       description: 'Make an impact in your community through teaching support, outreach programs and event management.',
       image: '/images/randomPictures/mireiotalking.jpeg',
-      link: '/opportunities/volunteers',
-      features: ['Teaching Support', 'Community Outreach', 'Event Management']
+      link: '/opportunities/volunteers'
     }
   ]
 
@@ -74,24 +71,9 @@ const Impact: React.FC = () => {
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-body text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-body text-gray-600 mb-6 leading-relaxed flex-grow">
                     {opportunity.description}
                   </p>
-                  
-                  {/* Features */}
-                  <div className="mb-auto">
-                    <h4 className="font-semibold text-neutral-800 mb-3 text-sm uppercase tracking-wider">Key Areas:</h4>
-                    <div className="space-y-2">
-                      {opportunity.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center">
-                          <div className="w-4 h-4 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}>
-                            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#0c2d5a', marginTop: '0.25rem' }}></div>
-                          </div>
-                          <span className="text-neutral-700 text-sm">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
 
                   {/* Button - Always at bottom */}
                   <div className="mt-6">
