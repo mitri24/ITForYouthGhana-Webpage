@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
-import Modal from '../../../components/Modal'
-import { volunteerRoles, volunteerBenefits } from '../../volunteer/data/volunteerRoles'
+import { volunteerRoles } from '../../volunteer/data/volunteerRoles'
 import { navigateToPage } from '../../../utils/navigation'
 
 const Volunteers: React.FC = () => {
-  const [selectedVolunteerRole, setSelectedVolunteerRole] = useState<any>(null)
-  const [isRoleModalOpen, setIsRoleModalOpen] = useState(false)
 
   const handleVolunteer = () => {
     navigateToPage('/contact')
@@ -18,15 +15,6 @@ const Volunteers: React.FC = () => {
     document.getElementById('volunteer-opportunities')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const openRoleModal = (role: any) => {
-    setSelectedVolunteerRole(role)
-    setIsRoleModalOpen(true)
-  }
-
-  const closeRoleModal = () => {
-    setIsRoleModalOpen(false)
-    setSelectedVolunteerRole(null)
-  }
 
   return (
     <>
@@ -62,8 +50,7 @@ const Volunteers: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className="card cursor-pointer group"
-                  onClick={() => openRoleModal(role)}
+                  className="card group"
                 >
                   <div className="card-body">
                     <div className="flex justify-between items-start mb-4">
@@ -114,108 +101,6 @@ const Volunteers: React.FC = () => {
           </div>
         </section>
 
-        {/* Volunteer Role Details Modal */}
-        <Modal
-          isOpen={isRoleModalOpen}
-          onClose={closeRoleModal}
-          title={selectedVolunteerRole?.title || ''}
-          size="large"
-        >
-          {selectedVolunteerRole && (
-            <div className="space-y-8">
-              <div>
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Role Overview</h3>
-                <p className="text-body leading-relaxed">
-                  {selectedVolunteerRole.detailContent?.overview}
-                </p>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Time Commitment</h3>
-                <p className="text-body font-medium" style={{ color: '#0c2d5a' }}>
-                  {selectedVolunteerRole.detailContent?.timeCommitment}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Key Responsibilities</h3>
-                <div className="grid gap-3">
-                  {selectedVolunteerRole.detailContent?.responsibilities?.map((responsibility: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
-                      <p className="text-body">{responsibility}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Requirements</h3>
-                <div className="grid gap-3">
-                  {selectedVolunteerRole.detailContent?.requirements?.map((requirement: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
-                      <p className="text-body">{requirement}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>What You'll Gain</h3>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {selectedVolunteerRole.detailContent?.benefits?.map((benefit: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#0c2d5a' }}></div>
-                      <p className="text-body">{benefit}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div 
-                className="rounded-xl p-6"
-                style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}
-              >
-                <h3 className="heading-md mb-4" style={{ color: '#0c2d5a' }}>Your Impact</h3>
-                <p className="text-body font-medium">
-                  {selectedVolunteerRole.impact}
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-neutral-200">
-                <motion.button
-                  className="btn btn-primary flex-1"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    closeRoleModal()
-                    navigateToPage('/contact')
-                  }}
-                >
-                  Apply for This Role
-                </motion.button>
-                <motion.button
-                  className="btn btn-secondary flex-1"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    closeRoleModal()
-                    window.location.href = 'mailto:info@itforyouthghana.org?subject=Volunteer Inquiry - ' + encodeURIComponent(selectedVolunteerRole.title)
-                  }}
-                >
-                  Ask Questions
-                </motion.button>
-              </div>
-            </div>
-          )}
-        </Modal>
       </div>
     </>
   )

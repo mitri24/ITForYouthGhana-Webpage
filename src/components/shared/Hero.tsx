@@ -121,7 +121,7 @@ const Hero: React.FC<HeroSectionProps> = ({
       </section>
 
       {/* Mobile-optimized CSS for shared hero */}
-      <style jsx>{`
+      <style>{`
         /* Desktop bleibt unverändert - alle Styles nur für mobile */
         @media (max-width: 768px) {
           .shared-hero-section {

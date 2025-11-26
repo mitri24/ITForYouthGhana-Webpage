@@ -15,6 +15,8 @@ const Contact: React.FC = () => {
     message: '',
     interest: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -23,9 +25,32 @@ const Contact: React.FC = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Here you would make your actual API call
+      console.log('Form submitted:', formData)
+      
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        interest: ''
+      })
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactMethods = [
@@ -92,13 +117,13 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Contact Methods</h2>
+              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>How to Reach Us</h2>
               <p className="text-lead max-w-4xl mx-auto">
-                Choose the most convenient way to reach us - we're here to support your journey
+                We're here to help! Choose your preferred way to connect with our team.
               </p>
             </motion.div>
 
-            <div className="responsive-grid responsive-grid-sm-2 responsive-grid-md-3 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}
@@ -130,6 +155,94 @@ const Contact: React.FC = () => {
           </div>
         </section>
 
+        {/* Quick Actions */}
+        <section className="section bg-neutral-50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-12"
+            >
+              <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Quick Actions</h2>
+              <p className="text-lead max-w-4xl mx-auto">
+                Need something specific? Jump right to what you're looking for.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {[
+                { 
+                  title: 'Join a Program', 
+                  description: 'Ready to start learning?', 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  ), 
+                  action: () => window.location.href = '/opportunities/students-graduates',
+                  color: 'from-blue-500 to-indigo-600' 
+                },
+                { 
+                  title: 'Partner with Us', 
+                  description: 'Business collaboration', 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  ), 
+                  action: () => window.location.href = '/opportunities/businesses',
+                  color: 'from-green-500 to-teal-600' 
+                },
+                { 
+                  title: 'Volunteer', 
+                  description: 'Make a difference', 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  ), 
+                  action: () => window.location.href = '/opportunities/volunteers',
+                  color: 'from-pink-500 to-rose-600' 
+                },
+                { 
+                  title: 'Donate', 
+                  description: 'Support our mission', 
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ), 
+                  action: () => window.location.href = '/donate',
+                  color: 'from-purple-500 to-violet-600' 
+                }
+              ].map((item, index) => (
+                <motion.button
+                  key={item.title}
+                  onClick={item.action}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border text-center group"
+                  style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center group-hover:text-white transition-all duration-300" style={{ backgroundColor: 'rgba(12, 45, 90, 0.1)' }}>
+                    <div style={{ color: '#0c2d5a' }} className="group-hover:text-white">
+                      {item.icon}
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-opacity-80 transition-colors duration-300" style={{ color: '#0c2d5a' }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact Form Section */}
         <section id="contact-form" className="section bg-white">
           <div className="container">
@@ -141,7 +254,7 @@ const Contact: React.FC = () => {
             >
               <h2 className="heading-xl mb-6" style={{ color: '#0c2d5a' }}>Send Us a Message</h2>
               <p className="text-lead max-w-4xl mx-auto">
-                Fill out the form below and we'll get back to you as soon as possible
+                Have a specific question or want to get started? We typically respond within 24 hours.
               </p>
             </motion.div>
 
@@ -153,91 +266,174 @@ const Contact: React.FC = () => {
             >
               <div className="bg-white rounded-2xl border shadow-lg p-8" style={{ borderColor: 'rgba(12, 45, 90, 0.1)' }}>
                   
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="form-group">
-                      <input
-                        id="contact-name"
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="form-input"
-                        placeholder="Your name"
-                      />
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-green-50 border border-green-200 rounded-xl p-6 mb-6"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-green-800 font-semibold">Message sent successfully!</h3>
+                          <p className="text-green-600 text-sm">We'll get back to you within 24 hours.</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-red-50 border border-red-200 rounded-xl p-6 mb-6"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-red-800 font-semibold">Something went wrong</h3>
+                          <p className="text-red-600 text-sm">Please try again or contact us directly.</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="form-group">
+                        <label htmlFor="contact-name" className="block text-sm font-semibold mb-2" style={{ color: '#0c2d5a' }}>
+                          Full Name *
+                        </label>
+                        <input
+                          id="contact-name"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                          className="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                          placeholder="Enter your full name"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="contact-email" className="block text-sm font-semibold mb-2" style={{ color: '#0c2d5a' }}>
+                          Email Address *
+                        </label>
+                        <input
+                          id="contact-email"
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                          placeholder="your.email@example.com"
+                          disabled={isSubmitting}
+                        />
+                      </div>
                     </div>
+
                     <div className="form-group">
-                      <input
-                        id="contact-email"
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="form-input"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                    <div className="form-group">
+                      <label htmlFor="contact-interest" className="block text-sm font-semibold mb-2" style={{ color: '#0c2d5a' }}>
+                        I'm interested in...
+                      </label>
                       <select
                         id="contact-interest"
                         name="interest"
                         value={formData.interest}
                         onChange={handleInputChange}
-                        className="form-input"
+                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                        disabled={isSubmitting}
                       >
-                        <option value="">What interests you?</option>
-                        <option value="programs">Join a Program</option>
+                        <option value="">Please select your area of interest</option>
+                        <option value="programs">Joining a Program</option>
                         <option value="volunteer">Volunteering</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="donation">Support/Donation</option>
-                        <option value="other">Other</option>
+                        <option value="partnership">Business Partnership</option>
+                        <option value="donation">Supporting/Donating</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="other">General Inquiry</option>
                       </select>
                     </div>
 
                     <div className="form-group">
+                      <label htmlFor="contact-message" className="block text-sm font-semibold mb-2" style={{ color: '#0c2d5a' }}>
+                        Your Message *
+                      </label>
                       <textarea
                         id="contact-message"
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         required
-                        rows={4}
-                        className="form-input"
-                        placeholder="Your message..."
+                        rows={5}
+                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 resize-none"
+                        placeholder="Tell us about your goals, questions, or how we can help you..."
+                        disabled={isSubmitting}
                       />
+                      <p className="text-xs text-gray-500 mt-2">
+                        {formData.message.length}/500 characters
+                      </p>
                     </div>
 
-                    <div style={{ marginTop: '24px' }}>
+                    <div style={{ marginTop: '32px' }}>
                       <motion.button
                         type="submit"
-                        className="w-full"
+                        disabled={isSubmitting}
+                        className="w-full relative"
                         style={{
-                          marginBottom: '16px',
                           padding: '16px 32px',
                           borderRadius: '50px',
-                          background: '#0c2d5a',
+                          background: isSubmitting ? '#9ca3af' : '#0c2d5a',
                           color: 'white',
                           border: 'none',
                           fontWeight: '600',
                           fontSize: '16px',
-                          cursor: 'pointer',
+                          cursor: isSubmitting ? 'not-allowed' : 'pointer',
                           boxShadow: '0 8px 25px rgba(12, 45, 90, 0.3)',
                           transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
-                          e.currentTarget.style.boxShadow = '0 12px 30px rgba(12, 45, 90, 0.4)'
+                          if (!isSubmitting) {
+                            e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
+                            e.currentTarget.style.boxShadow = '0 12px 30px rgba(12, 45, 90, 0.4)'
+                          }
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                          e.currentTarget.style.boxShadow = '0 8px 25px rgba(12, 45, 90, 0.3)'
+                          if (!isSubmitting) {
+                            e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                            e.currentTarget.style.boxShadow = '0 8px 25px rgba(12, 45, 90, 0.3)'
+                          }
                         }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                        whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                       >
-                        Send Message
+                        <div className="flex items-center justify-center space-x-2">
+                          {isSubmitting && (
+                            <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                          )}
+                          <span>
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                          </span>
+                        </div>
                       </motion.button>
+                      
+                      <p className="text-center text-sm text-gray-500 mt-4">
+                        Your information is secure and will never be shared with third parties.
+                      </p>
                     </div>
                   </form>
                 </div>
