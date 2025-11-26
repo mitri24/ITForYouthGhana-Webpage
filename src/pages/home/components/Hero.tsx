@@ -333,7 +333,7 @@ const Hero: React.FC = () => {
 
         {/* LinkedIn Button */}
         <a
-          href="https://www.linkedin.com/company/it-for-youth-ghana"
+          href="https://www.linkedin.com/company/98944149/admin/dashboard/"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary"
