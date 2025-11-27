@@ -28,5 +28,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-.github/workflows/deploy.yml
 # Force deploy
