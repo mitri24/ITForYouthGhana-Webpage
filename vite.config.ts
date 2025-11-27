@@ -5,7 +5,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   // GitHub Pages configuration
-  base: process.env.NODE_ENV === 'production' ? '/ITForYouthGhana-Webpage/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/Webpage/' : '/',
   resolve: {
     alias: {
       '@': resolve(__dirname, './src')
