@@ -1,4 +1,4 @@
-import { getImagePath } from '../../utils/randomImages'
+import { getImagePath } from '../../../utils/randomImages'
 import React from 'react'
 import { motion } from 'framer-motion'
 
