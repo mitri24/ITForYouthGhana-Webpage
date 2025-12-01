@@ -1,6 +1,11 @@
+// Base path for images based on environment
+export const getImagePath = (path: string) => {
+  const basePath = import.meta.env.DEV ? '' : '/Webpage'
+  return `${basePath}${path}`
+}
+
 // Utility für zufällige Bildauswahl aus dem erweiterten Pool
-export const randomImages = [
-  // Verfügbare randomPictures Bilder
+const baseImages = [
   '/images/randomPictures/UX4.jpg',
   '/images/randomPictures/UXteacher.png',
   '/images/randomPictures/children_holding_sign_in_streets.jpeg',
@@ -14,7 +19,6 @@ export const randomImages = [
   '/images/randomPictures/groupworkUX.jpeg',
   '/images/randomPictures/groupworkstudents.jpg',
   '/images/randomPictures/happystudentscasual.jpg',
-  '/images/randomPictures/informalFunnygroup.jpg',
   '/images/randomPictures/main.PNG',
   '/images/randomPictures/maingraduationpic.PNG',
   '/images/randomPictures/mave.JPG',
@@ -35,10 +39,11 @@ export const randomImages = [
   '/images/randomPictures/studentscodingback.jpg',
   '/images/randomPictures/studentslistening.JPG',
   '/images/randomPictures/studentslisteningfrontal.JPG',
-  '/images/randomPictures/teacherteaching.JPG',
   '/images/randomPictures/uXstudents.jpg',
   '/images/randomPictures/whiteLady.jpg'
 ]
+
+export const randomImages = baseImages.map(img => getImagePath(img))
 
 // Utility-Funktionen für zufällige Bildauswahl
 export const getRandomImage = (): string => {
@@ -64,14 +69,13 @@ export const getRandomImageSet = (count: number): string[] => {
 }
 
 // Kategorisierte Bildsets für spezielle Anwendungen
-export const imageCategories = {
+const baseCategoryImages = {
   workshops: [
     '/images/randomPictures/groupworkUX.jpeg',
     '/images/randomPictures/groupworkstudents.jpg',
     '/images/randomPictures/UXteacher.png',
     '/images/randomPictures/girlstaslkingUX.jpg',
-    '/images/randomPictures/uXstudents.jpg',
-    '/images/randomPictures/teacherteaching.JPG'
+    '/images/randomPictures/uXstudents.jpg'
   ],
   graduation: [
     '/images/randomPictures/frontalgraduation.JPG',
@@ -89,11 +93,17 @@ export const imageCategories = {
   community: [
     '/images/randomPictures/group_girls.jpg',
     '/images/randomPictures/happystudentscasual.jpg',
-    '/images/randomPictures/informalFunnygroup.jpg',
     '/images/randomPictures/children_holding_sign_in_streets.jpeg',
     '/images/randomPictures/groupofgirlsentrance.jpeg'
   ]
 }
+
+export const imageCategories = Object.fromEntries(
+  Object.entries(baseCategoryImages).map(([key, images]) => [
+    key,
+    images.map(img => getImagePath(img))
+  ])
+) as Record<keyof typeof baseCategoryImages, string[]>
 
 export const getCategoryImages = (category: keyof typeof imageCategories): string[] => {
   return imageCategories[category] || []
