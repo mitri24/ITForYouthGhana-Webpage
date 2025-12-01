@@ -1,4 +1,5 @@
 // Programs data
+import { getImagePath } from '../../utils/randomImages'
 export interface MainProgram {
   title: string;
   subtitle: string;
@@ -55,7 +56,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Small classes of 15-20 students for personalized attention",
       skills: ["Python Programming", "JavaScript & Web Development", "React for User Interfaces", "Node.js for Servers", "Database Management", "Git & Version Control", "Basic Cloud Deployment", "Working in Teams"],
-      image: "/images/randomPictures/studentscodingback.jpg",
+      image: getImagePath("/images/randomPictures/studentscodingback.jpg"),
       highlights: ["Build 3-4 complete projects for your portfolio", "Guest speakers from local tech companies", "Job interview preparation and resume building", "Ongoing support after graduation"],
       careerOutcomes: ["Junior Software Developer", "Web Developer", "Frontend Developer", "Backend Developer"],
       realTalk: "This program is challenging and requires daily commitment. Most successful students spend 6-8 hours daily on coursework and practice.",
@@ -69,7 +70,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Hands-on learning with real business problems",
       skills: ["Excel for Data Analysis", "Python with Pandas & NumPy", "SQL for Databases", "Data Visualization", "Statistics Fundamentals", "Report Writing", "Power BI", "Presentation Skills"],
-      image: "/images/randomPictures/studentpresenting.JPG",
+      image: getImagePath("/images/randomPictures/studentpresenting.JPG"),
       highlights: ["Work with data from local businesses and NGOs", "Create a portfolio of analysis projects", "Learn to present findings clearly", "Guest mentors from banks and research organizations"],
       careerOutcomes: ["Data Analyst", "Business Analyst", "Research Assistant", "Market Research Analyst"],
       realTalk: "Strong math skills are helpful but not required. We'll teach you the statistics you need. Attention to detail and curiosity about numbers are more important.",
@@ -83,7 +84,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Creative individuals who want to solve problems through design",
       skills: ["Design Fundamentals", "Figma Design Tool", "HTML & CSS", "Basic JavaScript", "User Research Methods", "Responsive Design", "Design Systems", "Client Communication"],
-      image: "/images/randomPictures/uXstudents.jpg",
+      image: getImagePath("/images/randomPictures/uXstudents.jpg"),
       highlights: ["Design and build websites for real local businesses", "Learn to talk to users and understand their needs", "Build a strong portfolio showing your design process", "Freelancing and client management basics"],
       careerOutcomes: ["Web Designer", "UI/UX Designer", "Freelance Designer", "Digital Marketing Designer"],
       realTalk: "This program suits people who enjoy both creative and logical thinking. You don't need artistic experience, but curiosity about how people use technology is essential.",
@@ -97,7 +98,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Creative thinkers who want to build visual communication skills",
       skills: ["Adobe Photoshop & Illustrator", "Video Editing (Premiere Pro)", "Logo & Brand Design", "Social Media Graphics", "Basic Animation", "Photography Basics", "Client Project Management"],
-      image: "/images/randomPictures/studentscodingback.jpg",
+      image: getImagePath("/images/randomPictures/studentscodingback.jpg"),
       highlights: ["Work on real projects for local businesses", "Build a diverse creative portfolio", "Learn both print and digital design", "Basic entrepreneurship for creative freelancers"],
       careerOutcomes: ["Freelance Graphic Designer", "Social Media Designer", "Video Editor", "Marketing Assistant"],
       realTalk: "This program requires creativity and patience. You'll spend lots of time perfecting details. No prior experience needed, but you should enjoy visual problem-solving.",
@@ -111,7 +112,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "People interested in business and communication",
       skills: ["Social Media Management", "Content Writing & Creation", "Basic Graphic Design", "Facebook & Instagram Ads", "Google Ads Basics", "Analytics & Reporting", "Customer Service"],
-      image: "/images/randomPictures/girlstaslkingUX.jpg",
+      image: getImagePath("/images/randomPictures/girlstaslkingUX.jpg"),
       highlights: ["Manage social media for real local businesses", "Create and run actual ad campaigns with small budgets", "Learn to measure and report on results", "Understand different business needs"],
       careerOutcomes: ["Social Media Manager", "Digital Marketing Assistant", "Content Creator", "Freelance Marketing Consultant"],
       realTalk: "Success in this field requires understanding people and staying current with trends. You'll need to be comfortable with constant learning as platforms change frequently.",
@@ -128,7 +129,7 @@ export const programs: ProgramsData = {
       participants: "For students who have completed our basic design program or have equivalent experience",
       prerequisites: "Basic design experience required - either from our Web Design program or previous work",
       skills: ["Advanced User Research", "Accessibility & Inclusive Design", "Advanced Figma", "Design Systems", "Portfolio Development", "Professional Presentation"],
-      image: "/images/randomPictures/UX4.jpg",
+      image: getImagePath("/images/randomPictures/UX4.jpg"),
       highlights: ["Small cohort of 10-12 students", "International perspective from German partnership", "21 practical assignments", "One-on-one portfolio reviews", "Led by MS Miréio Trinley from Germany"],
       careerOutcomes: ["UI/UX Designer at tech companies", "Freelance UX Consultant", "Product Designer"],
       realTalk: "This is our most demanding program. Students typically spend 25-30 hours per week on assignments and should have design experience before applying.",
@@ -143,7 +144,7 @@ export const programs: ProgramsData = {
       schedule: "Morning, Evening & Weekend",
       startDate: "10/02/2025",
       status: "Completed - Past Course",
-      image: "/images/randomPictures/studentscodingback.jpg",
+      image: getImagePath("/images/randomPictures/studentscodingback.jpg"),
       description: "Master network infrastructure and administration with hands-on training in modern networking technologies."
     },
     {
@@ -153,7 +154,7 @@ export const programs: ProgramsData = {
       schedule: "Morning, Evening & Weekend",
       startDate: "10/02/2025",
       status: "Completed - Past Course",
-      image: "/images/randomPictures/studentpresenting.JPG",
+      image: getImagePath("/images/randomPictures/studentpresenting.JPG"),
       description: "Comprehensive training in computer hardware assembly, diagnostics, and system maintenance."
     },
     {
@@ -162,7 +163,7 @@ export const programs: ProgramsData = {
       skills: ["Microsoft Office Advanced", "Access Database", "Business Communication", "Project Management"],
       schedule: "Morning, Evening & Weekend", 
       startDate: "10/02/2025",
-      image: "/images/randomPictures/uXstudents.jpg",
+      image: getImagePath("/images/randomPictures/uXstudents.jpg"),
       description: "Professional office skills training with focus on database management and business communication."
     },
     {
@@ -172,7 +173,7 @@ export const programs: ProgramsData = {
       schedule: "Flexible scheduling",
       startDate: "Monthly intake",
       status: "Completed - Past Course",
-      image: "/images/randomPictures/UX4.jpg",
+      image: getImagePath("/images/randomPictures/UX4.jpg"),
       description: "Intensive short-term courses covering essential tech skills for quick career advancement."
     }
   ],
@@ -184,7 +185,7 @@ export const programs: ProgramsData = {
       duration: "TBD",
       participants: "15 women initial cohort",
       skills: ["Python for AI", "TensorFlow", "PyTorch", "Arduino", "Raspberry Pi", "Machine Learning", "Ethical AI"],
-      image: "/images/randomPictures/groupworkUX.jpeg",
+      image: getImagePath("/images/randomPictures/groupworkUX.jpeg"),
       highlights: ["Smart agriculture solutions", "Water management systems", "Health monitoring devices", "Community applications"],
       status: "60% curriculum complete"
     }

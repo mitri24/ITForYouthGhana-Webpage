@@ -2,12 +2,13 @@ import React from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const TechnologyPartners: React.FC = () => {
   const partnershipData = {
     title: 'Technology Partners',
     description: 'Collaborate with technology companies to provide cutting-edge tools, training, and career pathways.',
-    image: '/images/randomPictures/studentscodingback.jpg',
+    image: getImagePath('/images/randomPictures/studentscodingback.jpg'),
     benefits: ['Latest technology', 'Expert training', 'Career pathways', 'Innovation'],
     overview: 'Our Technology Partnerships connect us with leading technology companies to provide our participants with access to cutting-edge tools, expert training, and direct pathways to technology careers.',
     whatWeOffer: [

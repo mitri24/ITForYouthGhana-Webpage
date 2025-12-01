@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAVIGATION_CONFIG } from '../../constants/navigation'
 import { Button } from '../ui/Button'
+import { getImagePath } from '../../utils/randomImages'
 
 const MainNavigation: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -65,7 +66,7 @@ const MainNavigation: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/images/logo/logo.png" 
+              src={getImagePath("/images/logo/logo.png")} 
               alt="IT for Youth Ghana" 
               className="h-16 w-auto filter brightness-110 contrast-110"
             />

@@ -1,3 +1,4 @@
+import { getImagePath } from '../../utils/randomImages'
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
@@ -94,7 +95,7 @@ const DualNavbar: React.FC = () => {
                 transition={{ duration: 0.2 }}
               >
                 <img 
-                  src="/images/logo/logo.png" 
+                  src=getImagePath("/images/logo/logo.png") 
                   alt="IT for Youth Ghana" 
                   className={`w-auto object-contain transition-all duration-300 ${
                     isScrolled ? 'h-12' : 'h-16'

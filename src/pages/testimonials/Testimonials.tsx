@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import SEO from '../../components/SEO'
 import Hero from '../../components/shared/Hero'
 import { navigateToPage } from '../../utils/navigation'
+import { getImagePath } from '../../utils/randomImages'
 
 const Testimonials: React.FC = () => {
   const ref = useRef(null)
@@ -19,7 +20,7 @@ const Testimonials: React.FC = () => {
       role: 'Database Management Specialist',
       company: 'Bank of Ghana',
       quote: 'IT For Youth Ghana completely changed my perspective on technology. The skills I acquired opened doors I never thought possible.',
-      image: '/images/people/elisabeth.jpg',
+      image: getImagePath('/images/people/elisabeth.jpg'),
       program: 'Data Analytics Program',
       year: '2022'
     },
@@ -29,7 +30,7 @@ const Testimonials: React.FC = () => {
       role: 'Graphic Designer',
       company: 'Creative Agency Kumasi',
       quote: 'The support I received fueled my growth and gave me the courage to pursue my dreams in the design world.',
-      image: '/images/people/benedicta.png',
+      image: getImagePath('/images/people/benedicta.png'),
       program: 'UI/UX Design Program',
       year: '2021'
     },
@@ -39,7 +40,7 @@ const Testimonials: React.FC = () => {
       role: 'Web Developer',
       company: 'Freelancer',
       quote: 'I came with no skills, but now I have built multiple websites! This program changed my life completely.',
-      image: '/images/people/danielle.jpg',
+      image: getImagePath('/images/people/danielle.jpg'),
       program: 'Software Development Program',
       year: '2023'
     },
@@ -49,7 +50,7 @@ const Testimonials: React.FC = () => {
       role: 'IT Instructor',
       company: 'IT for Youth Ghana',
       quote: 'From student to instructor - this organization gave me skills and now I give back by teaching others.',
-      image: '/images/people/emmanuel.jpg',
+      image: getImagePath('/images/people/emmanuel.jpg'),
       program: 'Software Development Program',
       year: '2020'
     },
@@ -59,7 +60,7 @@ const Testimonials: React.FC = () => {
       role: 'Founder & Executive Director',
       company: 'IT for Youth Ghana',
       quote: 'Seeing young people transform their lives through technology motivates me every day to expand our reach.',
-      image: '/images/people/peter.jpg',
+      image: getImagePath('/images/people/peter.jpg'),
       program: 'Founder',
       year: '2019'
     }

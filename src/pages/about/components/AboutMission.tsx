@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content/index'
+import { getImagePath } from '../../../utils/randomImages'
 
 const AboutMission: React.FC = () => {
   const ref = useRef(null)
@@ -27,7 +28,7 @@ const AboutMission: React.FC = () => {
           >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-to-r from-primary to-blue rounded-xl flex items-center justify-center mr-4">
-                <img src="/images/logo/logo.png" alt="Mission" className="w-8 h-8 object-contain" />
+                <img src={getImagePath("/images/logo/logo.png")} alt="Mission" className="w-8 h-8 object-contain" />
               </div>
               <h3 className="text-3xl font-bold text-primary">Mission</h3>
             </div>
@@ -44,7 +45,7 @@ const AboutMission: React.FC = () => {
           >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-to-r from-accent to-primary rounded-xl flex items-center justify-center mr-4">
-                <img src="/images/logo/logo.png" alt="Vision" className="w-8 h-8 object-contain" />
+                <img src={getImagePath("/images/logo/logo.png")} alt="Vision" className="w-8 h-8 object-contain" />
               </div>
               <h3 className="text-3xl font-bold text-primary">Vision</h3>
             </div>

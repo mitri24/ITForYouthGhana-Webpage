@@ -7,6 +7,7 @@ import ProgramsHero from './components/ProgramsHero'
 import ProgramFilter from './components/ProgramFilter'
 import ProgramGrid from './components/ProgramGrid'
 import ProgramModal from './components/ProgramModal'
+import { getImagePath } from '../../utils/randomImages'
 
 interface Program {
   title: string
@@ -47,7 +48,7 @@ const Programs: React.FC = () => {
       description: 'Basic computer skills and digital literacy for rural communities.',
       duration: '6 weeks',
       participants: '120 graduates',
-      image: '/images/randomPictures/studentscodingback.jpg',
+      image: getImagePath('/images/randomPictures/studentscodingback.jpg'),
       skills: ['Computer Basics', 'Internet Navigation', 'Digital Safety', 'Email & Communication'],
       requirements: 'No prior experience required',
       status: 'past' as const,
@@ -60,7 +61,7 @@ const Programs: React.FC = () => {
       description: 'Comprehensive web development training with real-world projects.',
       duration: '12 weeks',
       participants: '45 graduates',
-      image: '/images/randomPictures/peterblackboard.jpg',
+      image: getImagePath('/images/randomPictures/peterblackboard.jpg'),
       skills: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Database Design'],
       requirements: 'Basic computer skills',
       status: 'past' as const,

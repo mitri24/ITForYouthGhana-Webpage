@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const TeamSection: React.FC = () => {
   const ref = useRef(null)
@@ -9,7 +10,7 @@ const TeamSection: React.FC = () => {
     {
       name: 'Peter Duodu',
       role: 'Founder & Business Development Lead',
-      image: '/images/people/peter.jpg',
+      image: getImagePath('/images/people/peter.jpg'),
       description: 'Founder and business strategist driving our mission forward. Holds a Master\'s in Accounting and Financial Research with extensive experience in youth training programs and digital inclusion.',
       email: 'peter@itforyouthghana.org',
       linkedin: 'https://www.linkedin.com/in/peter-duodu/',
@@ -18,7 +19,7 @@ const TeamSection: React.FC = () => {
     {
       name: 'Miréio Trinley',
       role: 'IT & Technology Lead',
-      image: '/images/people/white lady-Cover.jpg',
+      image: getImagePath('/images/people/white lady-Cover.jpg'),
       description: 'Leading our technology initiatives and IT infrastructure. Responsible for technical program development, system architecture, and innovative learning solutions.',
       email: 'mireiotrinley@itforyouthghana.org',
       linkedin: 'https://www.linkedin.com/in/mireio-trinley',
@@ -27,7 +28,7 @@ const TeamSection: React.FC = () => {
     {
       name: 'John Ametepe',
       role: 'Lead Developer',
-      image: '/images/people/emmanuel.jpg',
+      image: getImagePath('/images/people/emmanuel.jpg'),
       description: 'Our lead developer responsible for building innovative learning platforms and technical solutions that support our educational programs.',
       email: 'johnametepe@itforyouthghana.org',
       linkedin: '#',

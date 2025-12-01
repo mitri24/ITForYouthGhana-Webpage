@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const ValuesSection: React.FC = () => {
   const ref = useRef(null)
@@ -9,22 +10,22 @@ const ValuesSection: React.FC = () => {
     {
       title: 'Inclusion',
       description: 'We believe technology education should be accessible to everyone, regardless of background, gender, or location.',
-      image: '/images/randomPictures/groupworkstudents.jpg'
+      image: getImagePath('/images/randomPictures/groupworkstudents.jpg')
     },
     {
       title: 'Empowerment', 
       description: 'Our programs are designed to give participants the skills, confidence, and opportunities to transform their lives.',
-      image: '/images/randomPictures/girlstaslkingUX.jpg'
+      image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg')
     },
     {
       title: 'Innovation',
       description: 'We continuously adapt our curriculum and methods to meet evolving industry needs and community challenges.',
-      image: '/images/randomPictures/studentsblueclothing.jpg'
+      image: getImagePath('/images/randomPictures/studentsblueclothing.jpg')
     },
     {
       title: 'Community',
       description: 'Strong communities are built through collaboration, mutual support, and shared commitment to growth.',
-      image: '/images/randomPictures/happystudentscasual.jpg'
+      image: getImagePath('/images/randomPictures/happystudentscasual.jpg')
     }
   ]
 

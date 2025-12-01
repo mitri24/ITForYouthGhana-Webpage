@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../../utils/randomImages'
 
 const SuccessStories: React.FC = () => {
   const ref = useRef(null)
@@ -10,19 +11,19 @@ const SuccessStories: React.FC = () => {
       name: 'Elisabeth Awartey',
       role: 'Database Specialist at Bank of Ghana',
       quote: '"The program completely changed my perspective on technology. Now I help manage critical data systems."',
-      image: '/images/people/elisabeth.jpg'
+      image: getImagePath('/images/people/elisabeth.jpg')
     },
     {
       name: 'Benedicta Konadu',
       role: 'Graphic Designer',
       quote: 'The design skills and mentorship gave me the confidence to pursue my creative dreams professionally.',
-      image: '/images/people/benedicta.png'
+      image: getImagePath('/images/people/benedicta.png')
     },
     {
       name: 'Danielle Mensah',
       role: 'Web Developer',
       quote: 'From zero coding knowledge to building websites for clients. This program changed my life.',
-      image: '/images/people/danielle.jpg'
+      image: getImagePath('/images/people/danielle.jpg')
     }
   ]
 

@@ -2,12 +2,13 @@ import React from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const InternationalDevelopment: React.FC = () => {
   const partnershipData = {
     title: 'International Development',
     description: 'Partner with international organizations to bring global expertise and funding to local programs.',
-    image: '/images/randomPictures/maingraduationpic.PNG',
+    image: getImagePath('/images/randomPictures/maingraduationpic.PNG'),
     benefits: ['Global expertise', 'International funding', 'Knowledge transfer', 'Best practices'],
     overview: 'Our International Development partnerships connect us with global organizations, bringing international expertise, funding, and best practices to enhance our local programs and expand our impact.',
     whatWeOffer: [

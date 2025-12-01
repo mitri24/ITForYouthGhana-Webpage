@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content/index'
+import { getImagePath } from '../../../utils/randomImages'
 
 interface SuccessStory {
   name: string
@@ -26,7 +27,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = () => {
       role: 'Database Management Specialist',
       company: 'Bank of Ghana',
       quote: 'IT For Youth Ghana completely changed my perspective on technology. The skills I acquired opened doors I never thought possible.',
-      image: '/images/people/elisabeth.jpg',
+      image: getImagePath('/images/people/elisabeth.jpg'),
       program: 'Rural Tech Connect',
       year: '2022'
     },
@@ -36,7 +37,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = () => {
       role: 'Graphic Designer',
       company: 'Creative Agency Kumasi',
       quote: 'The support I received fueled my growth and gave me the courage to pursue my dreams in the design world.',
-      image: '/images/people/benedicta.png',
+      image: getImagePath('/images/people/benedicta.png'),
       program: 'Girls in Tech Program',
       year: '2021'
     },
@@ -46,7 +47,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = () => {
       role: 'Web Developer',
       company: 'Freelancer',
       quote: 'I came with no skills, but now I have built a website! This program changed my life.',
-      image: '/images/people/danielle.jpg',
+      image: getImagePath('/images/people/danielle.jpg'),
       program: 'Code Impact Challenge',
       year: '2023'
     }

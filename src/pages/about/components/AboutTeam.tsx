@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content/index'
+import { getImagePath } from '../../../utils/randomImages'
 
 interface TeamMember {
   name: string
@@ -19,7 +20,7 @@ const AboutTeam: React.FC = () => {
     {
       name: 'Peter Duodu',
       role: 'Executive Director & Project Lead',
-      image: '/images/people/peter.jpg',
+      image: getImagePath('/images/people/peter.jpg'),
       description: 'Administrative department leader fully committed to coordination tasks. Contact: peter@itforyouthghana.org, +233 596 244 834',
       email: 'peter@itforyouthghana.org',
       phone: '+233 596 244 834'
@@ -27,19 +28,19 @@ const AboutTeam: React.FC = () => {
     {
       name: 'Emmanuel Adjei',
       role: 'Founder & Program Director',
-      image: '/images/people/emmanuel.jpg',
+      image: getImagePath('/images/people/emmanuel.jpg'),
       description: 'Visionary leader with 8+ years in tech education and youth development, driving our mission to achieve 70% female participation.'
     },
     {
       name: 'Belinda Asante',
       role: 'Frontend Development Lead',
-      image: '/images/people/Belinda.jpg',
+      image: getImagePath('/images/people/Belinda.jpg'),
       description: 'Experienced developer and mentor, passionate about empowering young women in tech through hands-on training.'
     },
     {
       name: 'Elisabeth Awartey',
       role: 'Database Management Specialist',
-      image: '/images/people/elisabeth.jpg',
+      image: getImagePath('/images/people/elisabeth.jpg'),
       description: 'Expert in data systems and analytics, driving evidence-based program improvements and student tracking.'
     }
   ]

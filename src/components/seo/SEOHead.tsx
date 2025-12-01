@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { getImagePath } from '../../utils/randomImages'
 
 export interface SEOProps {
   title?: string
@@ -35,7 +36,7 @@ const defaultSEO = {
     'STEM education',
     'Accra tech training'
   ],
-  image: '/images/og/og-image.jpg',
+  image: getImagePath('/images/og/og-image.jpg'),
   siteName: 'IT for Youth Ghana',
   locale: 'en_US',
   type: 'website' as const,

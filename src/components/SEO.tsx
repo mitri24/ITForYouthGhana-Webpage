@@ -1,5 +1,6 @@
 // NEU: Comprehensive SEO Component für alle Seiten
 import { Helmet } from 'react-helmet-async'
+import { getImagePath } from '../utils/randomImages'
 
 interface SEOProps {
   title?: string
@@ -15,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   canonical,
-  ogImage = '/images/logo/logo.png',
+  ogImage = getImagePath('/images/logo/logo.png'),
   ogType = 'website',
   structuredData,
   noindex = false
@@ -36,7 +37,7 @@ const SEO: React.FC<SEOProps> = ({
     "name": "IT for Youth Ghana",
     "alternateName": "IT4Youth Ghana",
     "url": siteUrl,
-    "logo": `${siteUrl}/images/logo.png`,
+    "logo": `${siteUrl}${getImagePath('/images/logo.png')}`,
     "description": defaultDescription,
     "foundingDate": "2023",
     "founders": [
@@ -110,10 +111,10 @@ const SEO: React.FC<SEOProps> = ({
       </script>
       
       {/* Favicon */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/x-icon" href={getImagePath('/favicon.ico')} />
+      <link rel="icon" type="image/png" sizes="32x32" href={getImagePath('/favicon-32x32.png')} />
+      <link rel="icon" type="image/png" sizes="16x16" href={getImagePath('/favicon-16x16.png')} />
+      <link rel="apple-touch-icon" sizes="180x180" href={getImagePath('/apple-touch-icon.png')} />
       
       {/* Preconnect for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,3 +1,4 @@
+import { getImagePath } from '../../utils/randomImages'
 import React from 'react'
 import { motion } from 'framer-motion'
 
@@ -9,7 +10,7 @@ const FooterContent: React.FC = () => {
         whileHover={{ scale: 1.05 }}
       >
         <img 
-          src="/images/logo/logo.png" 
+          src=getImagePath("/images/logo/logo.png") 
           alt="IT for Youth Ghana" 
           className="h-16 w-auto object-contain"
         />

@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
-    image: '/images/randomPictures/maingraduationpic.PNG',
+    image: getImagePath('/images/randomPictures/maingraduationpic.PNG'),
     title: 'Graduation Success',
     subtitle: 'Celebrating our students achievements as they complete their IT training journey'
   },
   {
-    image: '/images/randomPictures/group_girls.jpg',
+    image: getImagePath('/images/randomPictures/group_girls.jpg'),
     title: 'Empowering Young Women in Tech',
     subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
   },
   {
-    image: '/images/randomPictures/groupworkstudents.jpg',
+    image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
     title: 'Hands-On Learning',
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: '/images/randomPictures/studentscodingback.jpg',
+    image: getImagePath('/images/randomPictures/studentscodingback.jpg'),
     title: 'From Training to Employment',
     subtitle: 'Professional programs with hands-on learning and real-world project experience'
   },
   {
-    image: '/images/randomPictures/studentgroupguys.jpg',
+    image: getImagePath('/images/randomPictures/studentgroupguys.jpg'),
     title: 'Building Future Leaders',
     subtitle: 'Developing the next generation of technology professionals across Ghana'
   },
   {
-    image: '/images/randomPictures/studentsblueclothing.jpg',
+    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
     title: 'Team Learning',
     subtitle: 'Collaborative learning environment for better skill development'
   },
   {
-    image: '/images/randomPictures/redclothingStudents.jpg',
+    image: getImagePath('/images/randomPictures/redclothingStudents.jpg'),
     title: 'Community Impact',
     subtitle: 'Transforming communities through accessible technology education'
   }
@@ -139,7 +140,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.img
-            src="/images/logo/logo.png"
+            src={getImagePath("/images/logo/logo.png")}
             alt="IT for Youth Ghana - Empowering Youth Through Technology"
             className="logo"
             style={{

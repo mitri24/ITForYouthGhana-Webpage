@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const PartnersSection: React.FC = () => {
   const ref = useRef(null)
@@ -8,47 +9,47 @@ const PartnersSection: React.FC = () => {
   const partners = [
     {
       name: 'Partner Organization 1',
-      image: '/images/partnerorga/Download.png',
+      image: getImagePath('/images/partnerorga/Download.png'),
       type: 'Strategic Partner'
     },
     {
       name: 'Partner Organization 2', 
-      image: '/images/partnerorga/Download (1).png',
+      image: getImagePath('/images/partnerorga/Download (1).png'),
       type: 'Technology Partner'
     },
     {
       name: 'Partner Organization 3',
-      image: '/images/partnerorga/Download (2).png',
+      image: getImagePath('/images/partnerorga/Download (2).png'),
       type: 'Educational Partner'
     },
     {
       name: 'Partner Organization 4',
-      image: '/images/partnerorga/Download (3).png',
+      image: getImagePath('/images/partnerorga/Download (3).png'),
       type: 'Community Partner'
     },
     {
       name: 'Partner Organization 5',
-      image: '/images/partnerorga/Download (4).png',
+      image: getImagePath('/images/partnerorga/Download (4).png'),
       type: 'Strategic Partner'
     },
     {
       name: 'Partner Organization 6',
-      image: '/images/partnerorga/Download (5).png',
+      image: getImagePath('/images/partnerorga/Download (5).png'),
       type: 'Technology Partner'
     },
     {
       name: 'Partner Organization 7',
-      image: '/images/partnerorga/Download (6).png',
+      image: getImagePath('/images/partnerorga/Download (6).png'),
       type: 'Educational Partner'
     },
     {
       name: 'Partner Organization 8',
-      image: '/images/partnerorga/Download.jpeg',
+      image: getImagePath('/images/partnerorga/Download.jpeg'),
       type: 'Community Partner'
     },
     {
       name: 'Partner Organization 9',
-      image: '/images/partnerorga/Download (1).jpeg',
+      image: getImagePath('/images/partnerorga/Download (1).jpeg'),
       type: 'Strategic Partner'
     }
   ]

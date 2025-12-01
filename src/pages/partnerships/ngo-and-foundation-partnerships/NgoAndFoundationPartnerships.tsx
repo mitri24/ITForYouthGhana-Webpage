@@ -2,12 +2,13 @@ import React from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const NgoAndFoundationPartnerships: React.FC = () => {
   const partnershipData = {
     title: 'NGO & Foundation Partnerships',
     description: 'Collaborate with other NGOs and foundations to maximize impact and share resources.',
-    image: '/images/randomPictures/groupworkstudents.jpg',
+    image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
     benefits: ['Shared resources', 'Expanded reach', 'Knowledge exchange', 'Joint funding'],
     overview: 'Our NGO & Foundation Partnerships foster collaboration with like-minded organizations to maximize impact, share resources, and create comprehensive solutions for digital inclusion challenges.',
     whatWeOffer: [

@@ -2,12 +2,13 @@ import React from 'react'
 import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const CorporateSponsorship: React.FC = () => {
   const partnershipData = {
     title: 'Corporate Sponsorship',
     description: 'Join us as a corporate sponsor to support our programs and gain visibility while making a social impact.',
-    image: '/images/randomPictures/graduationspeaking.JPG',
+    image: getImagePath('/images/randomPictures/graduationspeaking.JPG'),
     benefits: ['Brand visibility', 'CSR impact', 'Tax benefits', 'Employee engagement'],
     overview: 'Our Corporate Sponsorship program offers businesses meaningful opportunities to support digital inclusion while achieving corporate social responsibility goals and gaining valuable brand exposure.',
     whatWeOffer: [
