@@ -19,8 +19,8 @@ const baseImages = [
   '/images/randomPictures/groupworkUX.jpeg',
   '/images/randomPictures/groupworkstudents.jpg',
   '/images/randomPictures/happystudentscasual.jpg',
-  '/images/randomPictures/main.PNG',
-  '/images/randomPictures/maingraduationpic.PNG',
+  '/images/randomPictures/main.jpg',
+  '/images/randomPictures/maingraduationpic.jpg',
   '/images/randomPictures/mave.JPG',
   '/images/randomPictures/mave_peter.JPG',
   '/images/randomPictures/mireiotalking.jpeg',
@@ -82,13 +82,13 @@ const baseCategoryImages = {
     '/images/randomPictures/graduation.JPG',
     '/images/randomPictures/graduations.JPG',
     '/images/randomPictures/graduationspeaking.JPG',
-    '/images/randomPictures/maingraduationpic.PNG'
+    '/images/randomPictures/maingraduationpic.jpg'
   ],
   tech: [
     '/images/randomPictures/studentscodingback.jpg',
     '/images/randomPictures/studentsBackcoding.jpg',
     '/images/randomPictures/peterblackboard.jpg',
-    '/images/randomPictures/main.PNG'
+    '/images/randomPictures/main.jpg'
   ],
   community: [
     '/images/randomPictures/group_girls.jpg',

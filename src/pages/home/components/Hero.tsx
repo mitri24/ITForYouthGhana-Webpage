@@ -4,7 +4,7 @@ import { getImagePath } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
-    image: getImagePath('/images/randomPictures/maingraduationpic.PNG'),
+    image: getImagePath('/images/randomPictures/maingraduationpic.jpg'),
     title: 'Graduation Success',
     subtitle: 'Celebrating our students achievements as they complete their IT training journey'
   },
