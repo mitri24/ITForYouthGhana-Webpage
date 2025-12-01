@@ -1,13 +1,14 @@
 // Base path for images based on environment
 export const getImagePath = (path: string) => {
-  // Handle both development and production correctly
+  // Always use direct paths in development
   if (import.meta.env.DEV) {
-    // Development: direct paths from public folder
+    console.log('DEV mode - using direct path:', path)
     return path
-  } else {
-    // Production: add /Webpage base path for GitHub Pages
-    return `/Webpage${path}`
   }
+  
+  // Production: add /Webpage base path for GitHub Pages
+  console.log('PROD mode - using base path:', `/Webpage${path}`)
+  return `/Webpage${path}`
 }
 
 // Utility für zufällige Bildauswahl aus dem erweiterten Pool

@@ -61,12 +61,6 @@ const Impact: React.FC = () => {
                     src={opportunity.image} 
                     alt={opportunity.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    onLoad={() => console.log('Image loaded:', opportunity.image)}
-                    onError={(e) => {
-                      console.log('Image failed to load:', opportunity.image);
-                      console.log('Trying fallback...');
-                      e.currentTarget.src = '/images/randomPictures/mireiotalking.jpeg';
-                    }}
                   />
                   <div className="absolute inset-0 rounded-t-xl" style={{ backgroundColor: 'rgba(12, 45, 90, 0.2)' }}></div>
                 </div>
