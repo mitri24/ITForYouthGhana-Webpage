@@ -51,7 +51,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router 
-        basename={import.meta.env.DEV ? "" : "/ITForYouthGhana-Webpage"}
+        basename={import.meta.env.DEV ? "" : "/Webpage"}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
