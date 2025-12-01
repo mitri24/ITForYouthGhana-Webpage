@@ -11,19 +11,19 @@ const Impact: React.FC = () => {
     {
       title: 'For Students & Graduates',
       description: 'Professional 6-month tech training programs with job placement support and real-world project experience.',
-      image: '/images/randomPictures/girlstaslkingUX.jpg',
+      image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg'),
       link: '/opportunities/students-graduates'
     },
     {
       title: 'For Businesses',  
       description: 'Access to job-ready tech talent, corporate training programs and strategic partnership opportunities.',
-      image: '/images/randomPictures/whiteLady.jpg',
+      image: getImagePath('/images/randomPictures/whiteLady.jpg'),
       link: '/opportunities/businesses'
     },
     {
       title: 'For Volunteers',
       description: 'Make an impact in your community through teaching support, outreach programs and event management.',
-      image: '/images/randomPictures/mireiotalking.jpeg',
+      image: getImagePath('/images/randomPictures/mireiotalking.jpeg'),
       link: '/opportunities/volunteers'
     }
   ]
