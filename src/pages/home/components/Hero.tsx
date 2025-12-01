@@ -37,6 +37,11 @@ const heroSlides = [
     image: getImagePath('/images/randomPictures/redclothingStudents.jpg'),
     title: 'Community Impact',
     subtitle: 'Transforming communities through accessible technology education'
+  },
+  {
+    image: getImagePath('/images/randomPictures/mireiotalking.jpeg'),
+    title: 'Leadership in Action',
+    subtitle: 'Our founder Mireio Trinley inspiring the next generation of tech talent in Ghana'
   }
 ]
 
