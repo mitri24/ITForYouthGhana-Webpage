@@ -1,6 +1,7 @@
 // Base path for images based on environment
 export const getImagePath = (path: string) => {
-  const basePath = import.meta.env.PROD ? '/Webpage' : ''
+  // For GitHub Pages, always use the base path from vite.config.ts
+  const basePath = '/Webpage'
   return `${basePath}${path}`
 }
 
