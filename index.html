@@ -20,6 +20,35 @@
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#0152be">
     
+    <!-- Aggressive cache busting for deployment -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Force browser revalidation -->
+    <script>
+      // Force cache refresh on page load
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          names.forEach(function(name) {
+            caches.delete(name);
+          });
+        });
+      }
+      
+      // Add timestamp to force reload
+      const originalLog = console.log;
+      console.log = function(...args) {
+        if (args[0] && args[0].includes && args[0].includes('Image failed to load')) {
+          console.warn('🔄 Forcing page refresh due to image loading issues...');
+          setTimeout(() => {
+            window.location.reload(true);
+          }, 1000);
+        }
+        originalLog.apply(console, args);
+      };
+    </script>
+    
     <!-- PWA Manifest -->
     <link rel="manifest" href="/Webpage/manifest.json">
     
