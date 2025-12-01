@@ -25,10 +25,11 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <!-- Force browser revalidation -->
+    <!-- Fixed cache handling -->
     <script>
-      // Force cache refresh on page load
-      if ('caches' in window) {
+      // Only clear service worker cache once on load
+      if ('caches' in window && !window.hasClearedCache) {
+        window.hasClearedCache = true;
         caches.keys().then(function(names) {
           names.forEach(function(name) {
             caches.delete(name);
@@ -36,17 +37,7 @@
         });
       }
       
-      // Add timestamp to force reload
-      const originalLog = console.log;
-      console.log = function(...args) {
-        if (args[0] && args[0].includes && args[0].includes('Image failed to load')) {
-          console.warn('🔄 Forcing page refresh due to image loading issues...');
-          setTimeout(() => {
-            window.location.reload(true);
-          }, 1000);
-        }
-        originalLog.apply(console, args);
-      };
+      // Remove auto-reload to prevent infinite loop
     </script>
     
     <!-- PWA Manifest -->
