@@ -1,13 +1,5 @@
-// Base path for images based on environment
+// Simple image path - same as mireiotalking.jpeg that works
 export const getImagePath = (path: string) => {
-  // Always use direct paths in development
-  if (import.meta.env.DEV) {
-    console.log('DEV mode - using direct path:', path)
-    return path
-  }
-  
-  // Production: add /Webpage base path for GitHub Pages
-  console.log('PROD mode - using base path:', `/Webpage${path}`)
   return `/Webpage${path}`
 }
 
