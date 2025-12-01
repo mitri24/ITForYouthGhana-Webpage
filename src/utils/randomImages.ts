@@ -1,6 +1,6 @@
 // Base path for images based on environment
 export const getImagePath = (path: string) => {
-  const basePath = import.meta.env.DEV ? '' : '/Webpage'
+  const basePath = import.meta.env.PROD ? '/Webpage' : ''
   return `${basePath}${path}`
 }
 
