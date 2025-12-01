@@ -8,7 +8,7 @@ const EducationalPartnerships: React.FC = () => {
   const partnershipData = {
     title: 'Educational Partnerships',
     description: 'Partner with schools, universities, and educational institutions to integrate technology education into curricula.',
-    image: getImagePath('/images/randomPictures/studentslistening.JPG'),
+    image: getImagePath('/images/randomPictures/studentslistening.jpg'),
     benefits: ['Curriculum integration', 'Teacher training', 'Student mentorship', 'Resource sharing'],
     overview: 'Our Educational Partnerships program works with schools, universities, and other educational institutions to integrate comprehensive technology education into existing curricula and create new pathways for students.',
     whatWeOffer: [

@@ -65,7 +65,7 @@ export const programs: Program[] = [
     id: 'rural-tech-connect',
     title: 'Rural Tech Connect',
     description: 'Connecting rural communities to digital opportunities through mobile training units and partnerships with local schools and institutions.',
-    image: getImagePath('/images/randomPictures/studentslistening.JPG'),
+    image: getImagePath('/images/randomPictures/studentslistening.jpg'),
     tag: 'Rural Empowerment',
     tagColor: 'bg-secondary',
     detailContent: {
@@ -85,7 +85,7 @@ export const programs: Program[] = [
     id: 'code-impact-challenge',
     title: 'Code Impact Challenge',
     description: 'Annual coding competitions and hackathons that bring together young developers to solve real-world problems facing Ghanaian communities.',
-    image: getImagePath('/images/randomPictures/graduationspeaking.JPG'),
+    image: getImagePath('/images/randomPictures/graduationspeaking.jpg'),
     tag: 'Innovation',
     tagColor: 'bg-primary',
     detailContent: {
@@ -105,7 +105,7 @@ export const programs: Program[] = [
     id: 'youth-tech-academy',
     title: 'Youth Tech Academy',
     description: 'Comprehensive 6-month tech bootcamps covering web development, mobile app development, and digital entrepreneurship skills.',
-    image: getImagePath('/images/randomPictures/studentpresentin.JPG'),
+    image: getImagePath('/images/randomPictures/studentpresentin.jpg'),
     tag: 'Professional Training',
     tagColor: 'bg-success',
     detailContent: {

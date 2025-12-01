@@ -70,7 +70,7 @@ export const programs: ProgramsData = {
       duration: "6 months",
       participants: "Hands-on learning with real business problems",
       skills: ["Excel for Data Analysis", "Python with Pandas & NumPy", "SQL for Databases", "Data Visualization", "Statistics Fundamentals", "Report Writing", "Power BI", "Presentation Skills"],
-      image: getImagePath("/images/randomPictures/studentpresenting.JPG"),
+      image: getImagePath("/images/randomPictures/studentpresenting.jpg"),
       highlights: ["Work with data from local businesses and NGOs", "Create a portfolio of analysis projects", "Learn to present findings clearly", "Guest mentors from banks and research organizations"],
       careerOutcomes: ["Data Analyst", "Business Analyst", "Research Assistant", "Market Research Analyst"],
       realTalk: "Strong math skills are helpful but not required. We'll teach you the statistics you need. Attention to detail and curiosity about numbers are more important.",
@@ -154,7 +154,7 @@ export const programs: ProgramsData = {
       schedule: "Morning, Evening & Weekend",
       startDate: "10/02/2025",
       status: "Completed - Past Course",
-      image: getImagePath("/images/randomPictures/studentpresenting.JPG"),
+      image: getImagePath("/images/randomPictures/studentpresenting.jpg"),
       description: "Comprehensive training in computer hardware assembly, diagnostics, and system maintenance."
     },
     {

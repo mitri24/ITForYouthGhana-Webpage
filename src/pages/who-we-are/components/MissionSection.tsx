@@ -67,7 +67,7 @@ const MissionSection: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/images/randomPictures/graduations.JPG" 
+              src="/images/randomPictures/graduations.jpg" 
               alt="Graduation ceremony success" 
               className="rounded-2xl shadow-lg w-full h-80 object-cover"
             />
@@ -180,12 +180,12 @@ const MissionSection: React.FC = () => {
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="/images/randomPictures/studentpresenting.JPG" 
+              src="/images/randomPictures/studentpresenting.jpg" 
               alt="Student presenting project" 
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="/images/randomPictures/frontalgraduation.JPG" 
+              src="/images/randomPictures/frontalgraduation.jpg" 
               alt="Graduation ceremony" 
               className="rounded-lg object-cover h-32 w-full"
             />

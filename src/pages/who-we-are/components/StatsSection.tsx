@@ -156,7 +156,7 @@ const StatsSection: React.FC = () => {
             >
               <div className="relative">
                 <img 
-                  src="/images/randomPictures/graduations.JPG" 
+                  src="/images/randomPictures/graduations.jpg" 
                   alt="Graduation ceremony" 
                   className="rounded-xl w-full h-48 object-cover shadow-lg"
                 />
@@ -199,12 +199,12 @@ const StatsSection: React.FC = () => {
               className="rounded-lg object-cover h-40 w-full shadow-md hover:shadow-lg transition-shadow duration-300"
             />
             <img 
-              src="/images/randomPictures/studentpresenting.JPG" 
+              src="/images/randomPictures/studentpresenting.jpg" 
               alt="Student presenting project" 
               className="rounded-lg object-cover h-40 w-full shadow-md hover:shadow-lg transition-shadow duration-300"
             />
             <img 
-              src="/images/randomPictures/studentslistening.JPG" 
+              src="/images/randomPictures/studentslistening.jpg" 
               alt="Students engaged in learning" 
               className="rounded-lg object-cover h-40 w-full shadow-md hover:shadow-lg transition-shadow duration-300"
             />

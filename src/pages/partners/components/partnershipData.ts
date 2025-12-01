@@ -22,7 +22,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Educational Partnerships',
     description: 'Partner with schools, universities, and educational institutions to integrate technology education into curricula.',
     icon: 'ED',
-    image: getImagePath('/images/randomPictures/studentslistening.JPG'),
+    image: getImagePath('/images/randomPictures/studentslistening.jpg'),
     benefits: ['Curriculum integration', 'Teacher training', 'Student mentorship', 'Resource sharing'],
     detailContent: {
       overview: 'Our Educational Partnerships program works with schools, universities, and other educational institutions to integrate comprehensive technology education into existing curricula and create new pathways for students.',
@@ -49,7 +49,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Corporate Sponsorship',
     description: 'Join us as a corporate sponsor to support our programs and gain visibility while making a social impact.',
     icon: 'CO',
-    image: getImagePath('/images/randomPictures/graduationspeaking.JPG'),
+    image: getImagePath('/images/randomPictures/graduationspeaking.jpg'),
     benefits: ['Brand visibility', 'CSR impact', 'Tax benefits', 'Employee engagement'],
     detailContent: {
       overview: 'Our Corporate Sponsorship program offers businesses meaningful opportunities to support digital inclusion while achieving corporate social responsibility goals and gaining valuable brand exposure.',
@@ -78,7 +78,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'Government Collaboration',
     description: 'Work with government agencies to scale digital inclusion initiatives and influence policy development.',
     icon: 'GO',
-    image: getImagePath('/images/randomPictures/peterTalking.JPG'),
+    image: getImagePath('/images/randomPictures/peterTalking.jpg'),
     benefits: ['Policy influence', 'Scale impact', 'Resource access', 'Legitimacy'],
     detailContent: {
       overview: 'Our Government Collaboration program works with local, regional, and national government agencies to scale digital inclusion initiatives and create supportive policy environments for technology education.',
@@ -134,7 +134,7 @@ export const partnershipOptions: PartnershipOption[] = [
     title: 'International Development',
     description: 'Partner with international organizations to bring global expertise and funding to local programs.',
     icon: 'IN',
-    image: getImagePath('/images/randomPictures/maingraduationpic.PNG'),
+    image: getImagePath('/images/randomPictures/maingraduationpic.jpg'),
     benefits: ['Global expertise', 'International funding', 'Knowledge transfer', 'Best practices'],
     detailContent: {
       overview: 'Our International Development partnerships connect us with global organizations, bringing international expertise, funding, and best practices to enhance our local programs and expand our impact.',

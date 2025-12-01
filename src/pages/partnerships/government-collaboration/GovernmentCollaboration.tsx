@@ -8,7 +8,7 @@ const GovernmentCollaboration: React.FC = () => {
   const partnershipData = {
     title: 'Government Collaboration',
     description: 'Work with government agencies to scale digital inclusion initiatives and influence policy development.',
-    image: getImagePath('/images/randomPictures/peterTalking.JPG'),
+    image: getImagePath('/images/randomPictures/peterTalking.jpg'),
     benefits: ['Policy influence', 'Scale impact', 'Resource access', 'Legitimacy'],
     overview: 'Our Government Collaboration program works with local, regional, and national government agencies to scale digital inclusion initiatives and create supportive policy environments for technology education.',
     whatWeOffer: [
