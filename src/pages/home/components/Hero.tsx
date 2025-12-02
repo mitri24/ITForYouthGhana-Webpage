@@ -19,29 +19,19 @@ const heroSlides = [
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
-    title: 'Coding Excellence',
-    subtitle: 'Students mastering programming skills through intensive practical training'
-  },
-  {
-    image: getImagePath('/images/randomPictures/groupofgirlsentrance.jpeg'),
-    title: 'Welcome New Students',
-    subtitle: 'Fresh talent joining our tech community to build their future careers'
-  },
-  {
-    image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg'),
-    title: 'UX Design Training',
-    subtitle: 'Learning user experience design and creating digital solutions that matter'
-  },
-  {
     image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
-    title: 'Success Stories',
-    subtitle: 'Happy graduates who transformed their lives through technology education'
+    title: 'Team Collaboration',
+    subtitle: 'Students working together on real-world technology projects'
   },
   {
-    image: getImagePath('/images/randomPictures/mireiotalking.jpeg'),
-    title: 'Leadership in Action',
-    subtitle: 'Our founder Mireio Trinley inspiring the next generation of tech talent in Ghana'
+    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
+    title: 'Learning Community',
+    subtitle: 'Building skills together in a supportive group environment'
+  },
+  {
+    image: getImagePath('/images/randomPictures/redclothingStudents.jpg'),
+    title: 'Student Groups',
+    subtitle: 'Diverse student groups mastering technology skills together'
   }
 ]
 
