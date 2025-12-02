@@ -9,17 +9,17 @@ const heroSlides = [
     subtitle: 'Celebrating our students achievements as they complete their IT training journey'
   },
   {
-    image: getImagePath('/images/randomPictures/group_girls.jpg'),
+    image: getImagePath('/images/randomPictures/group_girls_small.jpg'),
     title: 'Empowering Young Women in Tech',
     subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
   },
   {
-    image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
+    image: getImagePath('/images/randomPictures/happystudentscasual.jpg'),
     title: 'Hands-On Learning',
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: getImagePath('/images/randomPictures/studentscodingback.jpg'),
+    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
     title: 'Coding Excellence',
     subtitle: 'Students mastering programming skills through intensive practical training'
   },
@@ -29,12 +29,12 @@ const heroSlides = [
     subtitle: 'Fresh talent joining our tech community to build their future careers'
   },
   {
-    image: getImagePath('/images/randomPictures/groupworkUX.jpeg'),
+    image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg'),
     title: 'UX Design Training',
     subtitle: 'Learning user experience design and creating digital solutions that matter'
   },
   {
-    image: getImagePath('/images/randomPictures/happystudentscasual.jpg'),
+    image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
     title: 'Success Stories',
     subtitle: 'Happy graduates who transformed their lives through technology education'
   },
