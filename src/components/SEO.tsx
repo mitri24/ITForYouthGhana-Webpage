@@ -37,7 +37,7 @@ const SEO: React.FC<SEOProps> = ({
     "name": "IT for Youth Ghana",
     "alternateName": "IT4Youth Ghana",
     "url": siteUrl,
-    "logo": `${siteUrl}${getImagePath('/images/logo.png')}`,
+    "logo": `${siteUrl}${getImagePath('/images/logo/logo.png')}`,
     "description": defaultDescription,
     "foundingDate": "2023",
     "founders": [

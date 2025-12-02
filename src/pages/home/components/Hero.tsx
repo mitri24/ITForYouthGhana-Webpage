@@ -29,7 +29,7 @@ const heroSlides = [
     subtitle: 'Building skills together in a supportive group environment'
   },
   {
-    image: getImagePath('/images/randomPictures/redclothingStudents.jpg'),
+    image: getImagePath('/images/randomPictures/whiteLady.jpg'),
     title: 'Student Groups',
     subtitle: 'Diverse student groups mastering technology skills together'
   }
