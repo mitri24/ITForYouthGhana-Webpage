@@ -4,24 +4,34 @@ import { getImagePath } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
+    image: getImagePath('/images/randomPictures/frontalgraduation.jpg'),
+    title: 'Graduation Success 2024',
+    subtitle: 'Celebrating our students achievements as they complete their IT training journey'
+  },
+  {
     image: getImagePath('/images/randomPictures/happystudentscasual.jpg'),
     title: 'Happy IT Students',
     subtitle: 'Students celebrating their achievements in technology training programs'
   },
   {
-    image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg'),
-    title: 'Young Women in Tech',
-    subtitle: 'Empowering female students through UX/UI design and coding skills'
+    image: getImagePath('/images/randomPictures/main.jpg'),
+    title: 'Technology Education',
+    subtitle: 'Modern IT training with comprehensive curriculum and expert instructors'
   },
   {
-    image: getImagePath('/images/randomPictures/UX4.jpg'),
-    title: 'Technology Innovation',
-    subtitle: 'Students learning modern digital skills and creative problem-solving'
+    image: getImagePath('/images/randomPictures/studentslisteningfrontal.jpg'),
+    title: 'Interactive Learning Environment',
+    subtitle: 'Students engaged in practical IT training sessions with expert instructors'
   },
   {
-    image: getImagePath('/images/randomPictures/peterblackboard.jpg'),
-    title: 'Interactive Learning',
-    subtitle: 'Hands-on training with experienced instructors in modern tech labs'
+    image: getImagePath('/images/randomPictures/group_girls.jpg'),
+    title: 'Empowering Young Women in Tech',
+    subtitle: 'Creating pathways for women in technology careers through hands-on training'
+  },
+  {
+    image: getImagePath('/images/randomPictures/studentsBackcoding.jpg'),
+    title: 'Software Development Skills',
+    subtitle: 'Students learning coding and software development with modern technologies'
   }
 ]
 
