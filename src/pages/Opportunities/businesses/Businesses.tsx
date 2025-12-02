@@ -138,8 +138,8 @@ const Businesses: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mb-20">
               {[
-                getImagePath('/images/partnerorga/Download.png'),
-                getImagePath('/images/partnerorga/Download (1).png'),
+                getImagePath('/images/partnerorga/Download.jpg'),
+                getImagePath('/images/partnerorga/Download.jpg'),
                 getImagePath('/images/partnerorga/Download (2).png'),
                 getImagePath('/images/partnerorga/Download (3).png'),
                 getImagePath('/images/partnerorga/Download (4).png'),
