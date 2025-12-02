@@ -3,6 +3,7 @@ import SEO from '../../../components/SEO'
 import Hero from '../../../components/shared/Hero'
 import { motion } from 'framer-motion'
 import { partnershipOptions } from '../../partners/components/partnershipData'
+import { getImagePath } from '../../../utils/randomImages'
 
 const Businesses: React.FC = () => {
   // Map partnership titles to URLs
@@ -137,15 +138,15 @@ const Businesses: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mb-20">
               {[
-                '/images/partnerorga/Download.png',
-                '/images/partnerorga/Download (1).png',
-                '/images/partnerorga/Download (2).png',
-                '/images/partnerorga/Download (3).png',
-                '/images/partnerorga/Download (4).png',
-                '/images/partnerorga/Download (5).png',
-                '/images/partnerorga/Download (6).png',
-                '/images/partnerorga/Download.jpeg',
-                '/images/partnerorga/Download (1).jpeg'
+                getImagePath('/images/partnerorga/Download.png'),
+                getImagePath('/images/partnerorga/Download (1).png'),
+                getImagePath('/images/partnerorga/Download (2).png'),
+                getImagePath('/images/partnerorga/Download (3).png'),
+                getImagePath('/images/partnerorga/Download (4).png'),
+                getImagePath('/images/partnerorga/Download (5).png'),
+                getImagePath('/images/partnerorga/Download (6).png'),
+                getImagePath('/images/partnerorga/Download.jpeg'),
+                getImagePath('/images/partnerorga/Download (1).jpeg')
               ].map((logo, index) => (
                 <motion.div
                   key={index}
