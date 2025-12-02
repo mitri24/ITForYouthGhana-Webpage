@@ -20,23 +20,23 @@ const heroSlides = [
   },
   {
     image: getImagePath('/images/randomPictures/studentscodingback.jpg'),
-    title: 'From Training to Employment',
-    subtitle: 'Professional programs with hands-on learning and real-world project experience'
+    title: 'Coding Excellence',
+    subtitle: 'Students mastering programming skills through intensive practical training'
   },
   {
-    image: getImagePath('/images/randomPictures/studentgroupguys.jpg'),
-    title: 'Building Future Leaders',
-    subtitle: 'Developing the next generation of technology professionals across Ghana'
+    image: getImagePath('/images/randomPictures/groupofgirlsentrance.jpeg'),
+    title: 'Welcome New Students',
+    subtitle: 'Fresh talent joining our tech community to build their future careers'
   },
   {
-    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
-    title: 'Team Learning',
-    subtitle: 'Collaborative learning environment for better skill development'
+    image: getImagePath('/images/randomPictures/groupworkUX.jpeg'),
+    title: 'UX Design Training',
+    subtitle: 'Learning user experience design and creating digital solutions that matter'
   },
   {
-    image: getImagePath('/images/randomPictures/redclothingStudents.jpg'),
-    title: 'Community Impact',
-    subtitle: 'Transforming communities through accessible technology education'
+    image: getImagePath('/images/randomPictures/happystudentscasual.jpg'),
+    title: 'Success Stories',
+    subtitle: 'Happy graduates who transformed their lives through technology education'
   },
   {
     image: getImagePath('/images/randomPictures/mireiotalking.jpeg'),
