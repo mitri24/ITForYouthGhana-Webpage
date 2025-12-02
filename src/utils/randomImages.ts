@@ -1,6 +1,8 @@
-// Simple image path - same as mireiotalking.jpeg that works
+// Fixed image path - remove double /Webpage prefix
 export const getImagePath = (path: string) => {
-  return `/Webpage${path}`
+  // GitHub Pages serves from /Webpage/ base path
+  // Don't add extra /Webpage - it's already handled by deployment
+  return path.startsWith('/') ? `/Webpage${path}` : `/Webpage/${path}`
 }
 
 // Utility für zufällige Bildauswahl aus dem erweiterten Pool
