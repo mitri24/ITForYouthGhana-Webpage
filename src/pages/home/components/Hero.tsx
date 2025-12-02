@@ -4,24 +4,24 @@ import { getImagePath } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
-    image: getImagePath('/images/randomPictures/main.jpg'),
-    title: 'Graduation Success',
-    subtitle: 'Celebrating our students achievements as they complete their IT training journey'
-  },
-  {
-    image: getImagePath('/images/randomPictures/group_girls_small.jpg'),
-    title: 'Empowering Young Women in Tech',
-    subtitle: 'Over 40% female enrollment - creating pathways for women in technology careers'
-  },
-  {
     image: getImagePath('/images/randomPictures/happystudentscasual.jpg'),
-    title: 'Hands-On Learning',
-    subtitle: 'Practical skills development through real-world projects and hands-on training'
+    title: 'Happy IT Students',
+    subtitle: 'Students celebrating their achievements in technology training programs'
+  },
+  {
+    image: getImagePath('/images/randomPictures/girlstaslkingUX.jpg'),
+    title: 'Young Women in Tech',
+    subtitle: 'Empowering female students through UX/UI design and coding skills'
   },
   {
     image: getImagePath('/images/randomPictures/UX4.jpg'),
-    title: 'Team Collaboration',
-    subtitle: 'Students working together on real-world technology projects'
+    title: 'Technology Innovation',
+    subtitle: 'Students learning modern digital skills and creative problem-solving'
+  },
+  {
+    image: getImagePath('/images/randomPictures/peterblackboard.jpg'),
+    title: 'Interactive Learning',
+    subtitle: 'Hands-on training with experienced instructors in modern tech labs'
   }
 ]
 
