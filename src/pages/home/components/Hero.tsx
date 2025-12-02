@@ -4,7 +4,7 @@ import { getImagePath } from '../../../utils/randomImages'
 
 const heroSlides = [
   {
-    image: getImagePath('/images/randomPictures/maingraduationpic.jpg'),
+    image: getImagePath('/images/randomPictures/main.jpg'),
     title: 'Graduation Success',
     subtitle: 'Celebrating our students achievements as they complete their IT training journey'
   },
@@ -19,19 +19,9 @@ const heroSlides = [
     subtitle: 'Practical skills development through real-world projects and hands-on training'
   },
   {
-    image: getImagePath('/images/randomPictures/groupworkstudents.jpg'),
+    image: getImagePath('/images/randomPictures/UX4.jpg'),
     title: 'Team Collaboration',
     subtitle: 'Students working together on real-world technology projects'
-  },
-  {
-    image: getImagePath('/images/randomPictures/studentsblueclothing.jpg'),
-    title: 'Learning Community',
-    subtitle: 'Building skills together in a supportive group environment'
-  },
-  {
-    image: getImagePath('/images/randomPictures/whiteLady.jpg'),
-    title: 'Student Groups',
-    subtitle: 'Diverse student groups mastering technology skills together'
   }
 ]
 
@@ -135,7 +125,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.img
-            src={getImagePath("/images/logo/logo.png")}
+            src={getImagePath("/images/logo/logo.jpg")}
             alt="IT for Youth Ghana - Empowering Youth Through Technology"
             className="logo"
             style={{

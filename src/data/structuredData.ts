@@ -4,7 +4,7 @@ export const organizationStructuredData = {
   "@type": "NonProfit",
   "name": "IT for Youth Ghana",
   "url": "https://itforyouthghana.org",
-  "logo": "https://itforyouthghana.org/images/logo/logo.png",
+  "logo": "https://itforyouthghana.org/images/logo/logo.jpg",
   "description": "Empowering Ghanaian youth through comprehensive technology education, coding bootcamps, and career development programs.",
   "foundingDate": "2019",
   "location": {
@@ -46,7 +46,7 @@ export const educationalOrganizationData = {
   "@type": "EducationalOrganization",
   "name": "IT for Youth Ghana",
   "url": "https://itforyouthghana.org",
-  "logo": "https://itforyouthghana.org/images/logo/logo.png",
+  "logo": "https://itforyouthghana.org/images/logo/logo.jpg",
   "description": "Technology education organization providing coding bootcamps and career development programs",
   "address": {
     "@type": "PostalAddress",
@@ -91,7 +91,7 @@ export const localBusinessData = {
   "@id": "https://itforyouthghana.org/#organization",
   "name": "IT for Youth Ghana",
   "url": "https://itforyouthghana.org",
-  "logo": "https://itforyouthghana.org/images/logo/logo.png",
+  "logo": "https://itforyouthghana.org/images/logo/logo.jpg",
   "image": "https://itforyouthghana.org/images/og/og-image.jpg",
   "description": "Leading technology education organization in Ghana providing coding bootcamps, web development training, and career development programs for youth empowerment.",
   "address": {

@@ -10,7 +10,7 @@ const FooterContent: React.FC = () => {
         whileHover={{ scale: 1.05 }}
       >
         <img 
-          src={getImagePath("/images/logo/logo.png")} 
+          src={getImagePath("/images/logo/logo.jpg")} 
           alt="IT for Youth Ghana" 
           className="h-16 w-auto object-contain"
         />

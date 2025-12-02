@@ -16,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   canonical,
-  ogImage = getImagePath('/images/logo/logo.png'),
+  ogImage = getImagePath('/images/logo/logo.jpg'),
   ogType = 'website',
   structuredData,
   noindex = false
@@ -37,7 +37,7 @@ const SEO: React.FC<SEOProps> = ({
     "name": "IT for Youth Ghana",
     "alternateName": "IT4Youth Ghana",
     "url": siteUrl,
-    "logo": `${siteUrl}${getImagePath('/images/logo/logo.png')}`,
+    "logo": `${siteUrl}${getImagePath('/images/logo/logo.jpg')}`,
     "description": defaultDescription,
     "foundingDate": "2023",
     "founders": [
