@@ -3,6 +3,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content/index'
+import { getImagePath } from '../../../utils/randomImages'
 
 
 const Vision: React.FC = () => {
@@ -34,7 +35,7 @@ const Vision: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/images/randomPictures/happystudentscasual.jpg" 
+              src={getImagePath("/images/randomPictures/happystudentscasual.jpg")} 
               alt="Students learning technology" 
               className="rounded-2xl shadow-lg w-full h-80 object-cover"
             />

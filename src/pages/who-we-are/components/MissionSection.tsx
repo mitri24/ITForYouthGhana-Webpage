@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const MissionSection: React.FC = () => {
   const ref = useRef(null)
@@ -46,7 +47,7 @@ const MissionSection: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/images/randomPictures/group_girls.jpg" 
+              src={getImagePath("/images/randomPictures/group_girls.jpg")} 
               alt="Female students in tech education" 
               className="rounded-2xl shadow-lg w-full h-80 object-cover"
             />
@@ -67,7 +68,7 @@ const MissionSection: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/images/randomPictures/graduations.jpg" 
+              src={getImagePath("/images/randomPictures/graduations.jpg")} 
               alt="Graduation ceremony success" 
               className="rounded-2xl shadow-lg w-full h-80 object-cover"
             />
@@ -115,7 +116,7 @@ const MissionSection: React.FC = () => {
             >
               <div className="relative">
                 <img 
-                  src="/images/randomPictures/petertalkingtostudentscoloful.jpg" 
+                  src={getImagePath("/images/randomPictures/petertalkingtostudentscoloful.jpg")} 
                   alt="Teaching technology skills" 
                   className="rounded-xl object-cover h-48 w-full"
                 />
@@ -135,7 +136,7 @@ const MissionSection: React.FC = () => {
             >
               <div className="relative">
                 <img 
-                  src="/images/randomPictures/groupworkstudents.jpg" 
+                  src={getImagePath("/images/randomPictures/groupworkstudents.jpg")} 
                   alt="Students learning together" 
                   className="rounded-xl object-cover h-48 w-full"
                 />
@@ -155,7 +156,7 @@ const MissionSection: React.FC = () => {
             >
               <div className="relative">
                 <img 
-                  src="/images/randomPictures/UX4.jpg" 
+                  src={getImagePath("/images/randomPictures/UX4.jpg")} 
                   alt="Modern tech learning environment" 
                   className="rounded-xl object-cover h-48 w-full"
                 />
@@ -175,22 +176,22 @@ const MissionSection: React.FC = () => {
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             <img 
-              src="/images/randomPictures/happystudentscasual.jpg" 
+              src={getImagePath("/images/randomPictures/happystudentscasual.jpg")} 
               alt="Happy students" 
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="/images/randomPictures/studentpresenting.jpg" 
+              src={getImagePath("/images/randomPictures/studentpresenting.jpg")} 
               alt="Student presenting project" 
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="/images/randomPictures/frontalgraduation.jpg" 
+              src={getImagePath("/images/randomPictures/frontalgraduation.jpg")} 
               alt="Graduation ceremony" 
               className="rounded-lg object-cover h-32 w-full"
             />
             <img 
-              src="/images/randomPictures/girlstaslkingUX.jpg" 
+              src={getImagePath("/images/randomPictures/girlstaslkingUX.jpg")} 
               alt="Girls discussing UX" 
               className="rounded-lg object-cover h-32 w-full"
             />

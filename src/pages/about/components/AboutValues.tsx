@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../../../data/content/index'
+import { getImagePath } from '../../../utils/randomImages'
 
 const AboutValues: React.FC = () => {
   const ref = useRef(null)
@@ -29,9 +30,9 @@ const AboutValues: React.FC = () => {
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden">
                 <img src={
-                  index === 0 ? '/images/randomPictures/teacherteaching.jpg' :
-                  index === 1 ? '/images/randomPictures/groupofgirlsentrance.jpeg' :
-                  '/images/randomPictures/graduationspeaking.jpg'
+                  index === 0 ? getImagePath('/images/randomPictures/peterTalking.jpg') :
+                  index === 1 ? getImagePath('/images/randomPictures/groupofgirlsentrance.jpeg') :
+                  getImagePath('/images/randomPictures/graduationspeaking.jpg')
                 } alt={value.title} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4">{value.title}</h3>

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { getImagePath } from '../../../utils/randomImages'
 
 const QuickOverview: React.FC = () => {
   const ref = useRef(null)
@@ -51,7 +52,7 @@ const QuickOverview: React.FC = () => {
             className="relative"
           >
             <img 
-              src="/images/randomPictures/studentslistening.jpg" 
+              src={getImagePath("/images/randomPictures/studentslistening.jpg")} 
               alt="Students learning technology" 
               className="rounded-2xl shadow-lg w-full h-80 object-cover"
             />
